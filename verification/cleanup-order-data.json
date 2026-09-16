@@ -1,0 +1,145 @@
+{
+  "created_at_utc": "2026-09-11T16:43:16.026552+00:00",
+  "baseline": "dist/before-cleanup-20260911/sarkozy-palomar.tar.gz (extracted source used for comparison)",
+  "change": "Factor trailing zero bits of exact hexadecimal masks using Lean built-in Nat shifts, and suppress native compilation of proof-only 215 certificate definitions.",
+  "logical_change": "None: every natural number, row order, tree node, declaration type, and proof is preserved.",
+  "files": [
+    {
+      "file": "Sarkozy/OddOrderData215.lean",
+      "old_bytes": 3449793,
+      "new_bytes": 838754,
+      "saved_bytes": 2611039,
+      "shifted_masks": 4451,
+      "old_sha256": "28697ae09080e1915954b64c7ae2563fd104d1639caea5605b59262ea16a253f",
+      "new_sha256": "36843897f577cc6fe5f1b48310a1e7faac7a167c8c0257910a1cd29248da2cb8",
+      "exact_value_audit": "Expanding every shifted numeral, removing the two encoding-comment lines and noncomputable annotations, and restoring the original source-hash comment reproduces the original source byte-for-byte.",
+      "regenerated_byte_identical": true,
+      "generator": "scripts/generate-odd-order.py",
+      "generator_sha256": "a4896c32b5e025d44a75cdfd1d338cc63b0060871da12ac33d77df0f665a70f5",
+      "old_olean_bytes": 59465224,
+      "source_sha256": "8296504206f48d146f81c265c4ff36c354b945c412aedef990667377b364e7ed"
+    },
+    {
+      "file": "Sarkozy/OddOrderData437.lean",
+      "old_bytes": 12502494,
+      "new_bytes": 5174840,
+      "saved_bytes": 7327654,
+      "shifted_masks": 3563,
+      "old_sha256": "89ab16b82c9857aa076052816a03986ef92f7cb2f6c6987eb513efa3187c6a9c",
+      "new_sha256": "59ab4faa21bd4236789bb373676bf53f76334f75c6d59a11f6cb71e1d77aae86",
+      "exact_value_audit": "Expanding every shifted numeral, removing the two encoding-comment lines, and (for 215) removing noncomputable annotations reproduces the original source byte-for-byte.",
+      "regenerated_byte_identical": true,
+      "generator": "scripts/generate-odd437-order.py",
+      "generator_sha256": "e36274123f22584aa51b26a6f0f13af8b42bdf9e7686ec78a214bc253d1810b2",
+      "old_olean_bytes": 22537368
+    }
+  ],
+  "total_old_data_bytes": 15952287,
+  "total_new_data_bytes": 6013594,
+  "total_saved_data_bytes": 9938693,
+  "additional_noncomputable_annotations": {
+    "Sarkozy/OddOrderBase215.lean": [
+      "G5",
+      "G43"
+    ],
+    "Sarkozy/OddOrder215.lean": [
+      "row",
+      "point",
+      "start",
+      "width"
+    ]
+  },
+  "data215_noncomputable_annotations": [
+    "rows",
+    "table5",
+    "table43",
+    "endpointTable"
+  ],
+  "base215_generator_template_matches": true,
+  "wrapper215_is_handwritten": true,
+  "lean_build": "data215, data437, and base215 passed; full downstream build pending root integration",
+  "independent_kernel_replay": "pending for this modified source snapshot",
+  "build_artifact_sizes": [
+    {
+      "file": ".lake/build/lib/lean/Sarkozy/OddOrderData215.olean",
+      "old_bytes": 59465224,
+      "new_bytes": 5639584
+    },
+    {
+      "file": ".lake/build/lib/lean/Sarkozy/OddOrderData215.ilean",
+      "old_bytes": 1114671,
+      "new_bytes": 1096790
+    },
+    {
+      "file": ".lake/build/ir/Sarkozy/OddOrderData215.c",
+      "old_bytes": 32781358,
+      "new_bytes": 1351
+    },
+    {
+      "file": ".lake/build/lib/lean/Sarkozy/OddOrderData437.olean",
+      "old_bytes": 22537368,
+      "new_bytes": 18980720
+    },
+    {
+      "file": ".lake/build/lib/lean/Sarkozy/OddOrderData437.ilean",
+      "old_bytes": 2474508,
+      "new_bytes": 2474508
+    },
+    {
+      "file": ".lake/build/ir/Sarkozy/OddOrderData437.c",
+      "old_bytes": 1351,
+      "new_bytes": 1351
+    }
+  ],
+  "builds": [
+    {
+      "module": "Sarkozy.OddOrderData215",
+      "started_at_utc": "2026-09-11T16:44:20.767229+00:00",
+      "exit_code": 0,
+      "elapsed_seconds": 197.36356835532933,
+      "cpu_user_seconds": 250.043565,
+      "cpu_system_seconds": 27.059191,
+      "max_rss_kb_for_cumulative_child_processes": 7075316,
+      "log": "verification/cleanup-oddorderdata215-build.log"
+    },
+    {
+      "module": "Sarkozy.OddOrderData437",
+      "started_at_utc": "2026-09-11T16:47:38.131401+00:00",
+      "exit_code": 0,
+      "elapsed_seconds": 244.95314569119364,
+      "cpu_user_seconds": 261.56523100000004,
+      "cpu_system_seconds": 6.767343000000004,
+      "max_rss_kb_for_cumulative_child_processes": 8920184,
+      "log": "verification/cleanup-oddorderdata437-build.log"
+    },
+    {
+      "module": "Sarkozy.OddOrderBase215",
+      "started_at_utc": "2026-09-11T16:51:43.085090+00:00",
+      "exit_code": 0,
+      "elapsed_seconds": 18.211915676482022,
+      "cpu_user_seconds": 17.884299999999996,
+      "cpu_system_seconds": 4.203323999999995,
+      "max_rss_kb_for_cumulative_child_processes": 8920184,
+      "log": "verification/cleanup-oddorderbase215-build.log"
+    }
+  ],
+  "chunk_generator_reproducibility": {
+    "generator": "scripts/generate-odd-order-chunks.py",
+    "generator_sha256": "ec45634eee5de7dca2bb3972fb2db372304d36ec9a60ccc219bbd59cd85cbf41",
+    "regenerated_file_count": 41,
+    "all_byte_identical": true
+  },
+  "source_provenance_refresh": {
+    "updated_at_utc": "2026-09-11T17:00:40.319690+00:00",
+    "source": "Sarkozy/OddData215.lean",
+    "old_source_sha256": "e6d8fcf5e5f930ef0c69f4cdb9d78dbb676e25f29fae0b8d0e46c8b5c92438a1",
+    "new_source_sha256": "8296504206f48d146f81c265c4ff36c354b945c412aedef990667377b364e7ed",
+    "all_4913_raw_rows_identical_to_baseline": true,
+    "generated_file": "Sarkozy/OddOrderData215.lean",
+    "generated_change": "Only the source SHA256 in the module comment changed; all other bytes are identical.",
+    "previous_generated_sha256": "5ae3a8edccb2ba0d4d23cae29fc9315312e938fb5d762cf1f30d29570689579c",
+    "current_generated_sha256": "36843897f577cc6fe5f1b48310a1e7faac7a167c8c0257910a1cd29248da2cb8",
+    "regenerated_byte_identical": true,
+    "build_scope": "The earlier successful OddOrderData215 build used identical Lean code with the old provenance comment. Root full integration rebuild is pending for the refreshed file hash."
+  }
+}

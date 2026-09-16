@@ -1,0 +1,78 @@
+
+private theorem row_lower_positive : ∀ i j, 0 < rowLowerLadder i j := by decide +kernel
+private theorem row_upper_positive : ∀ i j, 0 < rowUpperLadder i j := by decide +kernel
+private theorem row_lower_steps : ∀ i (j : Fin @STEPS@),
+    (rowLowerLadder i j.succ)^2 ≤ rowLowerLadder i j.castSucc*@DEN@ := by decide +kernel
+private theorem row_upper_steps : ∀ i (j : Fin @STEPS@),
+    rowUpperLadder i j.castSucc*@DEN@ ≤ (rowUpperLadder i j.succ)^2 := by decide +kernel
+private theorem row_endpoints : ∀ i,
+    ((rowUpperLadder i (Fin.last @STEPS@) : ℤ)-@DEN@)*
+      rowLowerLadder i (Fin.last @STEPS@)*1000000000000 ≤
+    (154942497274:ℤ)*@DEN@*((rowLowerLadder i (Fin.last @STEPS@):ℤ)-@DEN@) := by
+  decide +kernel
+private theorem row_first_lower : ∀ i,
+    rowLowerLadder i 0 = rowScaleNumerator i*@LFACTOR@ := by decide +kernel
+private theorem row_first_upper : ∀ i,
+    rowUpperLadder i 0 = rowLowerNumerator i*@UFACTOR@ := by decide +kernel
+
+/-- All fractional-power endpoints are proved by finite integer square tests. -/
+private theorem row_power_lower (i : Fin @COUNT@) :
+    (rowLower i : ℝ) ≤ (rowScale i : ℝ)^(componentPowers 8) := by
+  have h := rpow_lower_of_integer_ladders @DEN@ 154942497274 1000000000000
+    (rowLowerLadder i) (rowUpperLadder i) (by decide) (by decide)
+    (row_lower_positive i) (row_upper_positive i) (row_lower_steps i)
+    (row_upper_steps i) (row_endpoints i)
+  rw [row_first_lower, row_first_upper, Nat.cast_mul, Nat.cast_mul] at h
+  have hl : ((rowScaleNumerator i:ℝ)*@LFACTOR@)/@DEN@ =
+      (rowScaleNumerator i:ℝ)/@GRID@ := by ring
+  have hu : ((rowLowerNumerator i:ℝ)*@UFACTOR@)/@DEN@ =
+      (rowLowerNumerator i:ℝ)/@POWERS@ := by ring
+  norm_num only [Nat.cast_ofNat] at h
+  rw [hl,hu] at h
+  have hf : componentPowers 8 = (154942497274/1000000000000:ℝ) := rfl
+  rw [hf]
+  norm_num only [rowScale, rowLower, Rat.cast_div, Rat.cast_natCast]
+  exact h
+
+private theorem row_scale_rational : ∀ s (r : Fin 4),
+    (r:ℤ) ∈ rationalPolicy.branches s →
+    rowScale (rowIndex s r) ≤ rationalPolicy.scale s r := by decide +kernel
+
+private theorem row_sum_rational : ∀ s,
+    (1430118728343/500000000000:ℚ)*rationalVector s ≤
+      ∑ r ∈ rationalPolicy.branches s,
+        rowLower (rowIndex s r)*rationalVector (rationalPolicy.child s r) := by
+  decide +kernel
+
+private theorem row_scale_below (s : Fin 25) (r : ℤ) (hr : r ∈ policy.branches s) :
+    (rowScale (rowIndex s r):ℝ) ≤ policy.scale s r := by
+  have hb := policy_valid.branch s r hr
+  let j : Fin 4 := ⟨r.toNat, by omega⟩
+  have hj : (j:ℤ) = r := by dsimp [j]; omega
+  have h := row_scale_rational s j
+    (by simpa only [hj, policy, RationalBinaryPolicy.toReal] using hr)
+  rw [hj] at h
+  exact Rat.cast_le.mpr h
+
+/-- The actual record policy's 25 growth inequalities require no hypotheses. -/
+theorem rows_verified : Rows := by
+  intro s
+  have hrat : (((1430118728343/500000000000:ℚ)*rationalVector s:ℚ):ℝ) ≤
+      ((∑ r ∈ rationalPolicy.branches s,
+        rowLower (rowIndex s r)*rationalVector (rationalPolicy.child s r):ℚ):ℝ) :=
+    Rat.cast_le.mpr (row_sum_rational s)
+  push_cast at hrat
+  change growth*vector s ≤ ∑ r ∈ policy.branches s,
+    (rowLower (rowIndex s r):ℝ)*vector (policy.child s r) at hrat
+  apply hrat.trans
+  apply Finset.sum_le_sum
+  intro r hr
+  apply mul_le_mul_of_nonneg_right _ (vector_pos _).le
+  apply (row_power_lower (rowIndex s r)).trans
+  apply Real.rpow_le_rpow
+  · have hp : ∀ i, 0 ≤ rowScale i := by decide +kernel
+    exact Rat.cast_nonneg.mpr (hp _)
+  · exact row_scale_below s r hr
+  · exact componentPowers_nonneg 8
+
+end RecordBinary

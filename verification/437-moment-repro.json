@@ -1,0 +1,41 @@
+{
+  "started_utc": "2026-09-11T04:38:53.405700+00:00",
+  "finished_utc": "2026-09-11T04:39:03.969056+00:00",
+  "status": "PASS: byte-identical temporary regeneration",
+  "matched_files": 20,
+  "generator_sha256": "61f3e93f3964b9888fa4b49be72b3783c5c75cc191f87666ced43a1060b02e58",
+  "source_sha256": "7abd0c007c42fa1a5484ea8a4d02c56b04898209f74a0403c5503c03395e58d3",
+  "generated_files_sha256": {
+    "Odd437MomentChunks/Chunk000.lean": "1f09c1130965d730fc74ab8db44d79ccf0aac97cae06abd83638f10161bc44bf",
+    "Odd437MomentChunks/Chunk001.lean": "bf667824554bb46c3df0e9bb08242f8b6d91cb388bfc285cf0c0fef7de6e6f3e",
+    "Odd437MomentChunks/Chunk002.lean": "13b159dde567642087aef4463d5c23e7223d10e40b228e1622961b72ef09d56b",
+    "Odd437MomentChunks/Chunk003.lean": "2c2325a51ece23b63b5f905c04b8691606b3ceed426db6561e3e2f63c075cff3",
+    "Odd437MomentChunks/Chunk004.lean": "5b1b9419875211868597f57a5ebe6a6478545c5deaa0ba636a352cd332dc47e0",
+    "Odd437MomentChunks/Chunk005.lean": "9e44fb0c1b0037f7e2d61af3ea788aafc92371208f11d1bd51f593ac616fc002",
+    "Odd437MomentChunks/Chunk006.lean": "76433dc167d900f4c9d02c77d06c4b07a93371c616e499781d03001631d0d28c",
+    "Odd437MomentChunks/Chunk007.lean": "549b388abb7ce37c1f46c70bfd24443b061e44f12bf24960e45850d516b77703",
+    "Odd437MomentChunks/Chunk008.lean": "67beab9f8d46f6ddb4b89c4cb1794f5fa3240a0bccbfd6cf44d37c1e1aab4a50",
+    "Odd437MomentChunks/Chunk009.lean": "498526729e64e17d3ec1f2b1f49e93a054080a4d35a56ebcd433b476a3b1f05c",
+    "Odd437MomentChunks/Chunk010.lean": "9e4511a6ff6feef04510a9c0f876fc918416b52706a4c69edb9edd44ec98540f",
+    "Odd437MomentChunks/Chunk011.lean": "60a08e0a2f2d4849ab121fc78fac5a81af6251120e5e01be5736bdb72635e1ad",
+    "Odd437MomentChunks/Chunk012.lean": "678069a868867b0925dbce5617b0cf31253d30ac72510cbe79e16df4669c457f",
+    "Odd437MomentChunks/Chunk013.lean": "8f8ac6d8b7be8f2e725d23d9d16731f8524ba502a475d9015556a74ad467e04f",
+    "Odd437MomentChunks/Chunk014.lean": "45e5fbe78b0f4c19883202921932d8329ff06bab85d7766c87967024777103f1",
+    "Odd437MomentChunks/Chunk015.lean": "9b31bcccc55b3064069aa4e58dacca2a7dd20f8ee9481345abaf4078a35f4046",
+    "Odd437MomentChunks/Chunk016.lean": "e03b3ad942c49aad02d46e052b8e9b0234501355c94972884fe41db1b736a690",
+    "Odd437MomentChunks/Chunk017.lean": "edf6786a6d1271ac6ec7a007d090088706a8bd56e07e4a5d859567b2ad63d432",
+    "Odd437MomentChunks/Chunk018.lean": "adf1923993379eb3097262da422e2ba0c6f9d01777e478be03fc6d6746deb219",
+    "Odd437MomentData.lean": "a0d13ec2545633cc2420dc804af51af7ff00558cc3dfe3b0cc754e66acfd3136"
+  },
+  "generator_report": {
+    "output": "/tmp/sarkozy-437-moment-repro-81pro7_s",
+    "source_sha256": "7abd0c007c42fa1a5484ea8a4d02c56b04898209f74a0403c5503c03395e58d3",
+    "distinct_widths": 18908,
+    "weighted_lower_numerator": 12261229628963862,
+    "bytes": 13307918,
+    "blocks": 148,
+    "modules": 19,
+    "steps_per_ladder": 10,
+    "sqrt_denominator": 100000000000000000000000000
+  }
+}

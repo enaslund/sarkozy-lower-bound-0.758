@@ -1,0 +1,24 @@
+{
+  "scope": "Comparator five statements, reduced_improved_bound uses three expanded alphabets; all six chain moments discharged",
+  "result": "Comparator, NanoDa and Lean kernel passed",
+  "source_sha256": {
+    "Challenge.lean": "d9db6cff23581fed8375a5661d00fa437db76c14b1891732ccac27c758987a4f",
+    "Sarkozy/Asymptotic.lean": "b49bd30ab18ae2470d82767e216525bcaf921a04a2c967a4f128e56bd4d244bd",
+    "Sarkozy/CRT.lean": "2c9dda7c108afddf0c336ca03e0b43dac5cce2057bec2cd85e11b1ebe3b6d15a",
+    "Sarkozy/Certificate.lean": "98eaa133841330c6e9b1bf5a292e084452e219c239340208fb8e954e44995dce",
+    "Sarkozy/ChainMoments.lean": "cb4a339496f6ba0b2a574e0ab92bb43d3b2b4cfadc93d2d854089cbb743f1d13",
+    "Sarkozy/FiniteAlphabets.lean": "346489aa422347522d3cd97ca99539b6c3ab5b3bbd9575b48e5ac9ea2abaf528",
+    "Sarkozy/Growth.lean": "f8316ee12f40e89a35c67c164895e741401fb899d9c6da301c67379e3dda6315",
+    "Sarkozy/Intervals.lean": "2573bbc1f2f56d201d49dad1ebc0a0af8363d42a67e6645bb512652fb724dda3",
+    "Sarkozy/Moment.lean": "bfd88fc98d195d2393ebe808f71b37f864c79d4945e7a756b8aaa997f91c3dc8",
+    "Sarkozy/Parameters.lean": "8cad2538a1ccebb592ef63ff16038ba2b2e30ca210d380a1c17a26080c80fae1",
+    "Sarkozy/PrimeChains.lean": "76813e8c445ee872ed97f037190b6f16ae611e629b991ae3fc26c320c010f226",
+    "Sarkozy/QuantitativeExamples.lean": "647925a6c48fa895a8273f5f8641c3c7e0768bcd790341e066f7a7cd8c85d9a8",
+    "Sarkozy/Ranked.lean": "877bbc3691f2c5ac3739de8f13f567642547d260ff83365d5654d288c1ae8d8a",
+    "Sarkozy/ReducedTarget.lean": "e1e02ad6d859a682fe1bc54939776175ad3566a647cdd661cfcb7db299187bbc",
+    "Sarkozy/Stopping.lean": "ccf8ee67a168ee08dd6ae301d933f06abdd37ec0d8167f798c441e986371d426",
+    "Sarkozy/Target.lean": "5d12aba78cf9a267cdbfae1713eb3778b83daec8596fab678feaba46d75faa41",
+    "Sarkozy/Words.lean": "56af1ec9da7b765c5698cb4ba037a0c3fd7246ac69466273bba5a8a5b8df8404",
+    "Solution.lean": "416ac59e09cb6aa4d452ed09b99703fa54703e43d157275a57ea4825ed15c749"
+  }
+}

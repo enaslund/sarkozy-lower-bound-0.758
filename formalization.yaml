@@ -1,0 +1,113 @@
+version: v0.4
+project:
+  name: An interval-moment criterion for square-difference-free integer sets
+  description: 'We prove a general interval-moment criterion for square-difference-free integer sets using
+    finite stopping words, rank rounding, CRT and geometric interpolation, and derive the unconditional
+    exponent 0.75806746. All nine concrete components are formalized: six prime chains, the entire binary
+    component, and both complete odd witnesses, including every ordering and numerical moment check. Two
+    related Comparator statements select the general criterion and its unconditional numerical application.'
+  authors:
+  - Eric Naslund
+  responsible_maintainers:
+  - Eric Naslund
+  license: Apache-2.0
+classification:
+  arxiv:
+  - math.NT
+  - math.CO
+  msc2020:
+  - 11B75
+  - 03B35
+sources:
+- title: Ranked residues, intervals, and the integer construction
+  type: other
+  location: Unpublished September 2026 research notes, synthesized as METHODS.md and CAPACITY-IMPROVEMENT.md
+    in the working repository https://github.com/enaslund/sarkozy-lower-bound at commit
+    fe0b29937c56b77ba5dd46328db340936e8473ac. These source files and the external computation bundles are not included
+    in this standalone package. PROOF.md supplies a self-contained mathematical account of the formalized
+    implication; README.md gives context and scope.
+  relationship: adapts
+  note: The general implication is formalized with finite stopping words. Original missing certificates
+    were not retained; reconstructed data are encoded in Lean and checked by the kernel. All nine components,
+    including the complete 215 and 437 witnesses, are proved without finite-check assumptions. No source-author
+    endorsement or bibliographic priority is claimed.
+- title: Square-Difference-Free Sets beyond the Three-Quarter Barrier
+  authors:
+  - Dmitry Krachun
+  id: https://arxiv.org/abs/2608.01325v1
+  type: paper
+  location: arXiv:2608.01325v1 (2026), Section 2, especially Lemmas 4 and 5.
+  relationship: adapts
+  note: The ranked-block realization, square-base word lifting, and CRT combination follow this construction,
+    using increasing ranks and reverse-rank representatives. The interval-moment criterion and stopping-word
+    proof go beyond the cited lemmas. The paper's full numerical theorem is not formalized, and source-author
+    endorsement is not asserted.
+related_formalizations: []
+status:
+  scope: 'Proved: the general construction and all-large-N criterion; all six prime-chain certificates
+    and moments; all odd free-digit/CRT lifts; the full 25-state/94-branch binary geometry, all numerical
+    growth rows and fixed-depth inequality; the complete actual 4913-point 215 and 19683-point 437 witnesses,
+    including every first-difference edge and all 1861 plus 18908 distinct-width power certificates. The
+    exact exponent 37903373/50000000 has no remaining certificate assumptions. Comparator selects the
+    criterion and the unconditional numerical result. Original-row moment interfaces were built and
+    axiom-audited in the preserved version before cleanup. The cleaned endpoint-only source now
+    passes the complete Lean build and all 76 axiom inspections; its complete independent NanoDa
+    replay checked 32704 declarations with no errors and only the three standard axioms.
+    Two deliberate Challenge placeholders are excluded from proof counts.'
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms:
+  - propext
+  - Classical.choice
+  - Quot.sound
+automation:
+  methods:
+  - method: agent
+    models:
+    - GPT-6 (Codex)
+    framework: Codex
+    tool_setup: Lean 4.32.0 and pinned Mathlib; proof-producing tactics, ordinary decide, and decide +kernel
+      for exact rational computations. No native_decide or custom axioms. See verification/README.md for
+      exact build, axiom, and Comparator coverage.
+    prompting_notes: Human-directed extension of the full 0.75806746 formalization. Agents developed construction
+      lemmas and exact finite numerical/order certificates, with independent statement and witness reviews
+      and root integration.
+  notes: Eric Naslund directed the research and chose the formalization scope. Codex agents wrote and
+    checked the Lean development and prepared these files. AI assistance is credited here; human review
+    of every proof step is not asserted.
+fidelity:
+  divergences: The interval-moment proof uses stopping words instead of entropy/Stirling estimates. Chain
+    powers are rounded down to exact rationals with proved moments. Binary seed factor c=1/4 is absorbed
+    by a proved depth margin of at least 27. The odd finite geometry uses conservative predecessor bit
+    masks and endpoint cutoffs; odd width-power bounds use two direct 1024th-power endpoint comparisons
+    and an eighth-order logarithm enclosure, cleared to integer polynomial comparisons. The endpoint
+    checker has a general soundness proof for every positive integer degree. Scalar thresholds and
+    binary estimates retain their integer square-root ladders. Histogram permutations
+    connect numerical and geometric row orders. The full exponent, bases and component powers are preserved.
+    Every certificate hypothesis is discharged. The smaller human-facing result is not formalized.
+review:
+  status: agent-reviewed
+  reviewers:
+  - Codex (GPT-6)
+  notes: Agent review checked the construction, exact target parameters, compressed odd edge checker,
+    polynomial log checker, histogram transport and unconditional submission statements. Reordered data
+    retain the actual point/start/width tuples. Verification results and selected-statement coverage are
+    recorded in verification/README.md. No human peer review or Palomar editorial outcome is claimed.
+alignment:
+  namespace: SarkozySubmission
+  statements:
+  - source: 'Unpublished interval-moment research notes; PROOF.md: self-contained stopping-word proof'
+    lean: SarkozySubmission.interval_moment_bound
+    module: Solution
+    status: proved
+    note: Principal general criterion. Every hypothesis concerns finite alphabet data or numerical parameters;
+      word selection and the entire asymptotic implication are proved.
+  - source: 'Full-result construction and complete finite witnesses; PROOF.md: specialization to the unconditional
+      full exponent'
+    lean: SarkozySubmission.improved_bound
+    module: Solution
+    status: proved
+    note: Unconditional all-large-N exponent 37903373/50000000. All nine components, including both complete
+      odd witnesses and every binary numerical bound, are proved. The exported theorem assumes no finite-certificate,
+      numerical, lifting or asymptotic assertion.
+acknowledgements: Lean and Mathlib; the Palomar starter project's verification scripts (Apache-2.0).

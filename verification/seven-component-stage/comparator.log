@@ -1,0 +1,30 @@
+Building Challenge
+⚠ [8655/8656] Built Challenge (10s)
+warning: Challenge.lean:35:8: declaration uses `sorry`
+warning: Challenge.lean:54:8: declaration uses `sorry`
+warning: Challenge.lean:81:8: declaration uses `sorry`
+warning: Challenge.lean:109:8: declaration uses `sorry`
+warning: Challenge.lean:119:8: declaration uses `sorry`
+Build completed successfully (8656 jobs).
+Exporting #[Nat, String, String.mk, Char, Char.ofNat, List, Quot, Quot.mk, Quot.lift, Quot.ind, SarkozySubmission.finite_construction, SarkozySubmission.interval_moment_bound, SarkozySubmission.conditional_improved_bound, SarkozySubmission.unconditional_example, SarkozySubmission.reduced_improved_bound, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList] from Challenge
+Building Solution
+⚠ [8673/8683] Replayed Sarkozy.PrimeChains
+warning: Sarkozy/PrimeChains.lean:55:42: Variable name `hp` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [8678/8683] Replayed Sarkozy.BinaryRows
+warning: Sarkozy/BinaryRows.lean:54:56: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Sarkozy/BinaryRows.lean:59:56: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+Build completed successfully (8683 jobs).
+Exporting #[Nat, String, String.mk, Char, Char.ofNat, List, Quot, Quot.mk, Quot.lift, Quot.ind, SarkozySubmission.finite_construction, SarkozySubmission.interval_moment_bound, SarkozySubmission.conditional_improved_bound, SarkozySubmission.unconditional_example, SarkozySubmission.reduced_improved_bound, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList] from Solution
+Running nanoda kernel on solution
+Nanoda kernel accepts the solution
+Running Lean default kernel on solution.
+Lean default kernel accepts the solution
+Your solution is okay!

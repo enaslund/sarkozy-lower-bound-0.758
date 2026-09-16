@@ -1,0 +1,28 @@
+{
+  "Sarkozy/OddData215.lean": {
+    "bytes": 240751,
+    "sha256": "e6d8fcf5e5f930ef0c69f4cdb9d78dbb676e25f29fae0b8d0e46c8b5c92438a1"
+  },
+  "Sarkozy/OddData437.lean": {
+    "bytes": 1050872,
+    "sha256": "3d6e5e497cd84de2e8fd33c4f339587702543ed28fe9b1d9b37a030c0ce1447e"
+  },
+  "scripts/generate-odd-data.py": {
+    "bytes": 6302,
+    "sha256": "c3b2e2619e3bf1e20214c478b4bddbf67b3d8e12092b2b16333af3bd4d4d8620"
+  },
+  "scripts/generate-odd437-data.py": {
+    "bytes": 5966,
+    "sha256": "c5ecad4c7a74032f4c03b9e9d1ccf7cbff5c57813eaf6c912346b060b85430e9"
+  },
+  "artifacts": {
+    ".lake/build/ir/Sarkozy/OddData215.setup.json": 6511713,
+    ".lake/build/ir/Sarkozy/OddData215.c": 13166151,
+    ".lake/build/ir/Sarkozy/OddData215.c.hash": 16,
+    ".lake/build/lib/lean/Sarkozy/OddData215.ilean.hash": 16,
+    ".lake/build/lib/lean/Sarkozy/OddData215.ilean": 10652,
+    ".lake/build/lib/lean/Sarkozy/OddData215.trace": 3197,
+    ".lake/build/lib/lean/Sarkozy/OddData215.olean": 30988160,
+    ".lake/build/lib/lean/Sarkozy/OddData215.olean.hash": 16
+  }
+}

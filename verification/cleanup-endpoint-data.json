@@ -1,0 +1,256 @@
+{
+  "scope": "Prospective endpoint-only encoding: exact numerical/data audit, not a Lean or NanoDa pass.",
+  "current_freeze_sha256": "8aa5f0de904c8cc6bd6a6b51b322829d785c2033f155c054b02e89ccfbf3d4d4",
+  "encoding": "Five natural fields: width, multiplicity, lower numerator, final low endpoint, final high endpoint. Initial scalings are reconstructed; the 18 intermediate root values are omitted.",
+  "new_finite_conditions": "low^1024 <= a0*D^1023 and b0*D^1023 <= high^1024, plus unchanged positivity/endpoint bounds and integer logarithm comparison.",
+  "shared_interface": "PowerChecker.MomentEntry.scaled widthScale lowerScale width multiplicity lower low high; EndpointValid D p q 1023 certificate; endpoint_valid_sound.",
+  "witnesses": {
+    "215": {
+      "rows": 1861,
+      "points": 4913,
+      "weighted_lower_numerator": 4088451159413731,
+      "width_scale": 1000000000000,
+      "lower_scale": 100000000000000,
+      "all_seven_values_identical": true,
+      "all_endpoint_power_checks_passed": true,
+      "all_integer_log_comparisons_passed": true,
+      "seven_values_sha256": "3065b0ccfa30088549be965e5f9dcbb08d4124b7ca269e282f292fb86cf988d1",
+      "source_sha256": "dae38a756de83c99d65973ff85f23a7068ce6e85a7a4f12400a923f24cf46574",
+      "generator_sha256": "f83c05c4031af8b1ed94fffe40a8b7cbe81628e645e5d28d7a045af7bb3cfdc3"
+    },
+    "437": {
+      "rows": 18908,
+      "points": 19683,
+      "weighted_lower_numerator": 12261229628963862,
+      "width_scale": 10000000000,
+      "lower_scale": 100000000000000,
+      "all_seven_values_identical": true,
+      "all_endpoint_power_checks_passed": true,
+      "all_integer_log_comparisons_passed": true,
+      "seven_values_sha256": "5b9ba63e6c6ca9231d1a92f569e40e4e1293665ee8f3089b4da965d909fff3c9",
+      "source_sha256": "7abd0c007c42fa1a5484ea8a4d02c56b04898209f74a0403c5503c03395e58d3",
+      "generator_sha256": "de0192c413a425b072a9efbe38a75340775f947a428796be6548000865dd7e40"
+    }
+  },
+  "files": {
+    "Sarkozy/Odd215MomentData.lean": {
+      "rows": 1861,
+      "old_bytes": 1113181,
+      "new_bytes": 222494,
+      "old_sha256": "3ecccf9f207d0f9a8f1a697204115bb203a7d282d554e259d9ff43fce3886823",
+      "new_sha256": "5921ad8553c790532ee591a95ef1f9b36fd35793bac1e0339d99e7a300ec05f3",
+      "seven_values_sha256": "3065b0ccfa30088549be965e5f9dcbb08d4124b7ca269e282f292fb86cf988d1"
+    },
+    "Sarkozy/Odd437MomentChunks/Chunk000.lean": {
+      "rows": 1024,
+      "old_bytes": 618195,
+      "new_bytes": 128807,
+      "old_sha256": "82c80222b6c5ea70783e96b43ffbb9607e601d15714953ce672091bbaed91a3a",
+      "new_sha256": "f72a4ebfd17c5bfe278f7b46b83a60a561a45ed3b76f940142a191d63c10acad",
+      "seven_values_sha256": "498feb17063a0d64f0fac0a8d3ce2ba3c94418b2dba64152adf97e895be5eb93"
+    },
+    "Sarkozy/Odd437MomentChunks/Chunk001.lean": {
+      "rows": 1024,
+      "old_bytes": 618329,
+      "new_bytes": 128857,
+      "old_sha256": "966a106430e236c71d73aff7bd71150860b27964e7323584dcdde49abaf6ed15",
+      "new_sha256": "65d7053d4a18d540dce238b7acde5cbad46707e2313b0e617f2e2e6f37ed4d4f",
+      "seven_values_sha256": "e18c8c47da6d32abf4e1481ab83343753743de3626203cc98ef468dee028fc9b"
+    },
+    "Sarkozy/Odd437MomentChunks/Chunk002.lean": {
+      "rows": 1024,
+      "old_bytes": 618331,
+      "new_bytes": 128859,
+      "old_sha256": "307dd3a5b2de013bdd2bbb17be575c15efe9614ca44dd82b76fbdc407eb4a583",
+      "new_sha256": "bf9d734fa029825a0c0d905d9c1527050dd5e57048491e206a9c13677a51bc26",
+      "seven_values_sha256": "d1093fef2f42d602cd4bbf3e4b985b9a71070806a6647adfd9be31ef5e9ea852"
+    },
+    "Sarkozy/Odd437MomentChunks/Chunk003.lean": {
+      "rows": 1024,
+      "old_bytes": 618331,
+      "new_bytes": 128859,
+      "old_sha256": "b0be259ce687ffce16ce42e19fab017ee1d757933bec5e168cd0536b6c3875bc",
+      "new_sha256": "3df9d4708c64929c694d07453f660471124508b323ba791e14c490683062a47b",
+      "seven_values_sha256": "8b0140e23c45642fea801db73eb432a18dbc14334316b81b8024f9eb8449741a"
+    },
+    "Sarkozy/Odd437MomentChunks/Chunk004.lean": {
+      "rows": 1024,
+      "old_bytes": 618331,
+      "new_bytes": 128859,
+      "old_sha256": "07b79aae4873ac3564bd55588d7c1332641323b6cdc798744a9e4e1c73588357",
+      "new_sha256": "54ef066dcf43e35ff9918adcdbba6574ab6694767c93c55c1672a0906a7ab814",
+      "seven_values_sha256": "649e2472fc31d96607011392306af53970afeb960c0936dbf1144273f830feae"
+    },
+    "Sarkozy/Odd437MomentChunks/Chunk005.lean": {
+      "rows": 1024,
+      "old_bytes": 618331,
+      "new_bytes": 128859,
+      "old_sha256": "f0746488b424ef10902053cc4ecc977362a1a7b5505d1ef3880c455949bdff2c",
+      "new_sha256": "23a29fe1b6851e728138518d55d083a1737bebbab17635cd405799484087268d",
+      "seven_values_sha256": "22d9faacbd43b5f07ed9fcf9bdad8ba0300c0b1c80e8beb653c723dd38b3a349"
+    },
+    "Sarkozy/Odd437MomentChunks/Chunk006.lean": {
+      "rows": 1024,
+      "old_bytes": 618331,
+      "new_bytes": 128859,
+      "old_sha256": "fb1392a405bedbba75c05f1419e6ec6bd07eede8bc167f32ba9e4321a0533022",
+      "new_sha256": "5b6985c8a0c15d1cf384873f77f715bc689042f43cdf9cd7464ced800666275d",
+      "seven_values_sha256": "e9507f6f5e22ca407b91cc945341c7b8b0c1a314c5f1b6ad29ba4c4e5382958e"
+    },
+    "Sarkozy/Odd437MomentChunks/Chunk007.lean": {
+      "rows": 1024,
+      "old_bytes": 618331,
+      "new_bytes": 128859,
+      "old_sha256": "1d75ff1be90896e8c78536aa85d8460259b92c422ba277d64083c7391156ef48",
+      "new_sha256": "6cf3d04acfd2e52b962d763b4e0ef0272d07e1877be7c1b7f5c44d43270498d8",
+      "seven_values_sha256": "654024a84279b7ca82eedf1324b3805ba01713f6077fe1186aec0ac6e2e7d731"
+    },
+    "Sarkozy/Odd437MomentChunks/Chunk008.lean": {
+      "rows": 1024,
+      "old_bytes": 618331,
+      "new_bytes": 128859,
+      "old_sha256": "2fa76edcf1a649be5f929ebf03d11ab2b1f1d1a12ae1348db00e2e51af13da20",
+      "new_sha256": "9540d946442a92d1e724a470bea531117999ea79e09e7ed3cfd325adc63569dc",
+      "seven_values_sha256": "d8c40f45888db325cbc593e0a1449c4c57387bc732ddd8b17c6ad2de3ef96f7a"
+    },
+    "Sarkozy/Odd437MomentChunks/Chunk009.lean": {
+      "rows": 1024,
+      "old_bytes": 618331,
+      "new_bytes": 128859,
+      "old_sha256": "2668543f5a5cd8ff4e10ef22a40750e9774ce7525016c4808bd7f385ba0ba1a3",
+      "new_sha256": "e7c3aecc7719106e9ff2eb23c3197245df39625ad8a3b0b5ea8296baeb452967",
+      "seven_values_sha256": "f27d3348b4aa11ca1744925c65b788199c955410a000fe5e864551628c944d04"
+    },
+    "Sarkozy/Odd437MomentChunks/Chunk010.lean": {
+      "rows": 1024,
+      "old_bytes": 620319,
+      "new_bytes": 130847,
+      "old_sha256": "791a1ff398eb8330f57bb700aeab7b95a8fc11ec86e86626d2a3c829371ad164",
+      "new_sha256": "7d9a3614f65a0d896f5a499df0c972d91422a9f807a3216a9be9cf96e4a6b6ef",
+      "seven_values_sha256": "a42cdb0ca5783e9e304743311c1c42a5ca6215b4ab2961a48df11d59514dbb5b"
+    },
+    "Sarkozy/Odd437MomentChunks/Chunk011.lean": {
+      "rows": 1024,
+      "old_bytes": 620379,
+      "new_bytes": 130907,
+      "old_sha256": "3bb9bcbfc4646b53e12f451bfa52735318d0a8a99fb68152f87a4bc22c37098b",
+      "new_sha256": "67636487be7ef0c6f9f53bd9215ab4df89a77abc8e0f0df3b39802bda5d6f05a",
+      "seven_values_sha256": "5085ad9002d0acfcdab142807016579b97b6fb971abea24c555fee7818edfae8"
+    },
+    "Sarkozy/Odd437MomentChunks/Chunk012.lean": {
+      "rows": 1024,
+      "old_bytes": 620383,
+      "new_bytes": 130911,
+      "old_sha256": "5d6fec782449fbb5e508c8a00f4251f9da7d8c219233f1b44721e8b82621b7aa",
+      "new_sha256": "a41c1067f8f02564610da8e5a1d6748e38d259a28bd76013e0a2b09fbe5d12f3",
+      "seven_values_sha256": "7f4860d5a623c0dbfe1ff099c2d7cdce53b65d0938cf8b5d0c420eb06274b10b"
+    },
+    "Sarkozy/Odd437MomentChunks/Chunk013.lean": {
+      "rows": 1024,
+      "old_bytes": 621320,
+      "new_bytes": 130915,
+      "old_sha256": "4b3d9567b0ddab9838eaa4df0b3449d21e7e9656ba58120faf329bd4c90511a3",
+      "new_sha256": "95726a051fde27b2bd923230f6131ba13370c15ab32fae93a821785734ca6502",
+      "seven_values_sha256": "ab4f396e9b65d62301cfc7c04beaad4c78fb889bb02bb641859e2ee65ed8f2cc"
+    },
+    "Sarkozy/Odd437MomentChunks/Chunk014.lean": {
+      "rows": 1024,
+      "old_bytes": 621411,
+      "new_bytes": 130915,
+      "old_sha256": "d115208be49f61cc7f8e73dea86f4d873f9d359272873a0a7562ea25d9c25a9b",
+      "new_sha256": "a7b6909391fa0a7f8410f38ac73928c12f6576221bf9541ceda273434be6c0e5",
+      "seven_values_sha256": "398a316dd6d7e12939ed73233e4156d58e7f16e50f7c24c1d096ec1ec4b904b2"
+    },
+    "Sarkozy/Odd437MomentChunks/Chunk015.lean": {
+      "rows": 1024,
+      "old_bytes": 621411,
+      "new_bytes": 130915,
+      "old_sha256": "7628bd01796490cfbbb7747b4d62d2e0457eba1b3fe4268e5a23350199986df6",
+      "new_sha256": "8d645beb4d7b7cf9e5fd29454503d225678791b002f7ac3da41cfbb2a8ea3941",
+      "seven_values_sha256": "5d45cb67571decb6f16a71a94c0f28c782803bddd03314b8f841a104154e6b99"
+    },
+    "Sarkozy/Odd437MomentChunks/Chunk016.lean": {
+      "rows": 1024,
+      "old_bytes": 621411,
+      "new_bytes": 130915,
+      "old_sha256": "4962ff04e65dc41d524e465b445d5004f45c1ad1c2766f98d02f078a99bb9c30",
+      "new_sha256": "0b89ea324c3889fc63f5f0f58a48b8bb26803f0a37813b26eb7f41a14d5833ab",
+      "seven_values_sha256": "dee61c0408fba54ed56e98657925fc74df044b66dfd030ad637edc96b724baec"
+    },
+    "Sarkozy/Odd437MomentChunks/Chunk017.lean": {
+      "rows": 1024,
+      "old_bytes": 621411,
+      "new_bytes": 130915,
+      "old_sha256": "7fa7036eb4278f63d80cfded8986a51a683ab2285448de4da860e2baf51e433c",
+      "new_sha256": "553f7dd897ae6b69507d99c36b9055f510dbd9c2a902cbfb06bc913c319cf620",
+      "seven_values_sha256": "ead1e83e7cd42173eec437f34fe59d93c788b94e11f46ba1f69c9d46006c292f"
+    },
+    "Sarkozy/Odd437MomentChunks/Chunk018.lean": {
+      "rows": 476,
+      "old_bytes": 289235,
+      "new_bytes": 61231,
+      "old_sha256": "96cac827be7eeb971b8fd1bb822611637ec6c7839a390ce3f0b1388eff029c0c",
+      "new_sha256": "d7aca5d689c4d8129ce6578f870e537cbc9fdf139f9bacceead55ccaf052271e",
+      "seven_values_sha256": "7dd5a556e4ca696739f4a4814e6b85c19fe0bbd0aefaac56fbf0eb50e59c8469"
+    }
+  },
+  "generator_regeneration": {
+    "byte_identical": true,
+    "files": {
+      "Sarkozy/Odd215MomentData.lean": "5921ad8553c790532ee591a95ef1f9b36fd35793bac1e0339d99e7a300ec05f3",
+      "Sarkozy/Odd437MomentChunks/Chunk000.lean": "f72a4ebfd17c5bfe278f7b46b83a60a561a45ed3b76f940142a191d63c10acad",
+      "Sarkozy/Odd437MomentChunks/Chunk001.lean": "65d7053d4a18d540dce238b7acde5cbad46707e2313b0e617f2e2e6f37ed4d4f",
+      "Sarkozy/Odd437MomentChunks/Chunk002.lean": "bf9d734fa029825a0c0d905d9c1527050dd5e57048491e206a9c13677a51bc26",
+      "Sarkozy/Odd437MomentChunks/Chunk003.lean": "3df9d4708c64929c694d07453f660471124508b323ba791e14c490683062a47b",
+      "Sarkozy/Odd437MomentChunks/Chunk004.lean": "54ef066dcf43e35ff9918adcdbba6574ab6694767c93c55c1672a0906a7ab814",
+      "Sarkozy/Odd437MomentChunks/Chunk005.lean": "23a29fe1b6851e728138518d55d083a1737bebbab17635cd405799484087268d",
+      "Sarkozy/Odd437MomentChunks/Chunk006.lean": "5b6985c8a0c15d1cf384873f77f715bc689042f43cdf9cd7464ced800666275d",
+      "Sarkozy/Odd437MomentChunks/Chunk007.lean": "6cf3d04acfd2e52b962d763b4e0ef0272d07e1877be7c1b7f5c44d43270498d8",
+      "Sarkozy/Odd437MomentChunks/Chunk008.lean": "9540d946442a92d1e724a470bea531117999ea79e09e7ed3cfd325adc63569dc",
+      "Sarkozy/Odd437MomentChunks/Chunk009.lean": "e7c3aecc7719106e9ff2eb23c3197245df39625ad8a3b0b5ea8296baeb452967",
+      "Sarkozy/Odd437MomentChunks/Chunk010.lean": "7d9a3614f65a0d896f5a499df0c972d91422a9f807a3216a9be9cf96e4a6b6ef",
+      "Sarkozy/Odd437MomentChunks/Chunk011.lean": "67636487be7ef0c6f9f53bd9215ab4df89a77abc8e0f0df3b39802bda5d6f05a",
+      "Sarkozy/Odd437MomentChunks/Chunk012.lean": "a41c1067f8f02564610da8e5a1d6748e38d259a28bd76013e0a2b09fbe5d12f3",
+      "Sarkozy/Odd437MomentChunks/Chunk013.lean": "95726a051fde27b2bd923230f6131ba13370c15ab32fae93a821785734ca6502",
+      "Sarkozy/Odd437MomentChunks/Chunk014.lean": "a7b6909391fa0a7f8410f38ac73928c12f6576221bf9541ceda273434be6c0e5",
+      "Sarkozy/Odd437MomentChunks/Chunk015.lean": "8d645beb4d7b7cf9e5fd29454503d225678791b002f7ac3da41cfbb2a8ea3941",
+      "Sarkozy/Odd437MomentChunks/Chunk016.lean": "0b89ea324c3889fc63f5f0f58a48b8bb26803f0a37813b26eb7f41a14d5833ab",
+      "Sarkozy/Odd437MomentChunks/Chunk017.lean": "553f7dd897ae6b69507d99c36b9055f510dbd9c2a902cbfb06bc913c319cf620",
+      "Sarkozy/Odd437MomentChunks/Chunk018.lean": "d7aca5d689c4d8129ce6578f870e537cbc9fdf139f9bacceead55ccaf052271e",
+      "Sarkozy/Odd437MomentData.lean": "112d8a173acbc18966860ea9b470bef5fb7a671d6a570e3ec8ab83531f51fc84"
+    }
+  },
+  "lean_build": "Not run: prospective files require the independently proved shared endpoint checker.",
+  "independent_kernel_replay": "Not run for this prospective revision.",
+  "total_old_data_bytes": 12553633,
+  "total_new_data_bytes": 2619501,
+  "total_saved_data_bytes": 9934132,
+  "created_utc": "2026-09-14T06:43:15.119271+00:00",
+  "seconds": 41.46,
+  "support_files": {
+    "Sarkozy/Odd437MomentChecker.lean": {
+      "old_sha256": "4f374b0859aa68e4b4f7c5c8de2118f771b9fbd38a6a50932423f4458c318a60",
+      "new_sha256": "6b7f9a530510d6d796be2196ffc87574f0f09042e57500659695790eebdb8ffe"
+    },
+    "Sarkozy/Odd437MomentData.lean": {
+      "old_sha256": "a0d13ec2545633cc2420dc804af51af7ff00558cc3dfe3b0cc754e66acfd3136",
+      "new_sha256": "112d8a173acbc18966860ea9b470bef5fb7a671d6a570e3ec8ab83531f51fc84"
+    },
+    "scripts/generate-odd215-moments.py": {
+      "old_sha256": "6b6c4a0666a0773d1283754d87f21ab4d73a77e95ab1715238b58596921a2def",
+      "new_sha256": "f83c05c4031af8b1ed94fffe40a8b7cbe81628e645e5d28d7a045af7bb3cfdc3"
+    },
+    "scripts/generate-odd437-moments.py": {
+      "old_sha256": "14070296a07c1993b308d52d048c5c5ef8dbfa0ea1cef6e7b92081bb8b8c4df3",
+      "new_sha256": "de0192c413a425b072a9efbe38a75340775f947a428796be6548000865dd7e40"
+    }
+  },
+  "public_numeric_statement_types_unchanged": {
+    "Sarkozy/Odd215MomentData.lean:moment_entry_lower": true,
+    "Sarkozy/Odd215MomentData.lean:moment_entries_lower": true,
+    "Sarkozy/Odd215MomentData.lean:moment_histogram_lower_bound": true,
+    "Sarkozy/Odd437MomentChecker.lean:moment_entry_lower": true,
+    "Sarkozy/Odd437MomentChecker.lean:moment_entries_lower": true,
+    "Sarkozy/Odd437MomentChecker.lean:moment_blocks_lower": true
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "recorded_at_utc": "2026-09-11T05:25:47.617799+00:00",
+  "purpose": "Partial stack-overflow localization only; this is not a complete acceptance check or an official Comparator success.",
+  "complete_acceptance_check": false,
+  "production_proof_edits": false,
+  "target": "Sarkozy.Odd437.moment_histogram_lower_bound",
+  "checker": {
+    "nanoda_revision": "68d5ca9db226849b41a6fff59d796ff19d0a8840",
+    "official_binary_sha256": "3746a7651e37b6437383f35784271640608f08d56294606537b295da9a25ef76",
+    "unchanged_library_sha256": "1fc5fa0433d6eacb3e8b0a0d426c0018b4d578bd3459342a131072e317cdabaa",
+    "diagnostic_method": "Standalone serial drivers linked against the unchanged pinned library call ExportFile.check_declar, the same public entry point used by check_all_declars_serial. The filtered driver deliberately skips other declarations.",
+    "main_thread_stack_limit_bytes": 8388608,
+    "stack_limit_method": "resource.setrlimit(resource.RLIMIT_STACK, (8388608, current_hard_limit)) in subprocess preexec_fn",
+    "num_threads": 0,
+    "permitted_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "unpermitted_axiom_hard_error": true,
+    "nat_extension": true,
+    "string_extension": true
+  },
+  "export": {
+    "module": "Sarkozy.Odd437MomentData",
+    "declaration": "Sarkozy.Odd437.moment_histogram_lower_bound",
+    "export_exit_code": 0,
+    "export_seconds": 21.05558343976736,
+    "export_bytes": 291202513,
+    "exporter_revision": "4e7915201d3f9f04470d9eae002fa695f7cdc589",
+    "declarations": 28992,
+    "sha256": "93d08b6f88c18d3545d6db464987c320dadf5c0662ae5d286a3becd848dd60cc",
+    "copied_to_repository": false
+  },
+  "prefix_diagnostic": {
+    "status": "stopped_at_deliberate_300_second_cap_without_observed_stack_failure",
+    "timeout_status_marker": 124,
+    "elapsed_seconds": 300.0253870282322,
+    "completed_declarations": 28861,
+    "last_completed_declaration_index": 28860,
+    "fully_checked_certificate_block_range": [
+      0,
+      131
+    ],
+    "interrupted_certificate_block": 132,
+    "interrupted_declaration": "_private.Sarkozy.Odd437MomentChunks.Chunk016.0.Sarkozy.Odd437.MomentChunk132.entries_checked._proof_1_1"
+  },
+  "filtered_diagnostic": {
+    "status": "all_16_selected_declarations_passed",
+    "exit_code": 0,
+    "elapsed_seconds": 5.726837072521448,
+    "fully_checked_certificate_block": 147,
+    "includes_global_histogram_and_assembly": true,
+    "checked_declarations": [
+      "Sarkozy.Odd437.MomentChunk147.histogram",
+      "_private.Sarkozy.Odd437MomentData.0.Sarkozy.Odd437.momentBlocks",
+      "Sarkozy.Odd437.momentHistogram",
+      "_private.Sarkozy.Odd437MomentData.0.Sarkozy.Odd437.blocks_lower._simp_1_2",
+      "_private.Sarkozy.Odd437MomentChunks.Chunk018.0.Sarkozy.Odd437.MomentChunk147.entries",
+      "_private.Sarkozy.Odd437MomentChunks.Chunk018.0.Sarkozy.Odd437.MomentChunk147.entries_checked._proof_1_1",
+      "_private.Sarkozy.Odd437MomentChunks.Chunk018.0.Sarkozy.Odd437.MomentChunk147.entries_checked",
+      "_private.Sarkozy.Odd437MomentChunks.Chunk018.0.Sarkozy.Odd437.MomentChunk147.histogram_eq_entries._proof_1_1",
+      "_private.Sarkozy.Odd437MomentChunks.Chunk018.0.Sarkozy.Odd437.MomentChunk147.histogram_eq_entries",
+      "_private.Sarkozy.Odd437MomentChunks.Chunk018.0.Sarkozy.Odd437.MomentChunk147.lower_numerator_sum._proof_1_1",
+      "_private.Sarkozy.Odd437MomentChunks.Chunk018.0.Sarkozy.Odd437.MomentChunk147.lower_numerator_sum",
+      "Sarkozy.Odd437.MomentChunk147.lower_bound",
+      "_private.Sarkozy.Odd437MomentData.0.Sarkozy.Odd437.blocks_lower",
+      "_private.Sarkozy.Odd437MomentData.0.Sarkozy.Odd437.blocks_lower_sum._proof_1_1",
+      "_private.Sarkozy.Odd437MomentData.0.Sarkozy.Odd437.blocks_lower_sum",
+      "Sarkozy.Odd437.moment_histogram_lower_bound"
+    ]
+  },
+  "not_fully_checked_by_these_diagnostics": {
+    "certificate_block_range": [
+      132,
+      146
+    ],
+    "original_row_target_moment": "not exported or replayed in this diagnostic",
+    "full_official_acceptance": "requires the subsequent complete official Comparator replay"
+  },
+  "conclusion": "No additional stack failure observed in the checked moment declarations. No inference of complete verification is made from the skipped declarations.",
+  "temporary_artifact_sha256": {
+    "/tmp/sarkozy437-nanoda-progress.rs": {
+      "bytes": 1013,
+      "sha256": "6f2dff47494b943b48dea0ae275640f2829486740d10fffc9969dbb1e54e05d4"
+    },
+    "/tmp/sarkozy437-nanoda-selected.rs": {
+      "bytes": 1306,
+      "sha256": "8df3b74f7d256d865748f044ee8efe245e0f559ceabcf8ec664f1294c9c8d330"
+    },
+    "/tmp/sarkozy437-moment-nanoda-probe.py": {
+      "bytes": 893,
+      "sha256": "15666ab54a505727fecf19c2c6ceec05b7dd2b9e22f3c66dca4458b7884b7982"
+    },
+    "/tmp/sarkozy437-moment-nanoda-selected.py": {
+      "bytes": 918,
+      "sha256": "6c6d526b247553f3396dd1578d8d2f900757619de148c202dd0adc7dcade7e67"
+    },
+    "/tmp/sarkozy437-moment-histogram.config.json": {
+      "bytes": 290,
+      "sha256": "c66cf3c7cc2f18146ee11cbc0dea8b0fb112eac4461550c357a87e4e112219a1"
+    },
+    "/tmp/sarkozy437-moment-histogram.nanoda-progress.log": {
+      "bytes": 1791929,
+      "sha256": "71a62b3910a63300f44fabcbf21e146315b4430dd1373160e61df139b413ae3a"
+    },
+    "/tmp/sarkozy437-moment-histogram.nanoda-selected.log": {
+      "bytes": 1792,
+      "sha256": "7b0de6fff320aff7adc2384ede21cb18df60b9046f896ecfde44dfe676272bd0"
+    }
+  }
+}

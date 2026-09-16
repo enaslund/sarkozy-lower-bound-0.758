@@ -1,0 +1,4 @@
+PASS: cached upstream formalization.yaml v0.4 JSON schema (fastjsonschema)
+Schema SHA-256: 25ff6b25ca4511635aff4443cf20480c15e59dddf19591c730950b442ea54fce
+PASS: two proved aligned declarations, exact standard-axiom list, zero proved-source holes, version and license label
+Scope: cached schema and listed mechanical checks; not official Palomar validation or editorial review.

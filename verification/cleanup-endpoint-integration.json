@@ -1,0 +1,33 @@
+{
+  "recorded_utc": "2026-09-14T06:56:52.895323+00:00",
+  "changed_files": {
+    "Sarkozy/Odd215MomentData.lean": "5921ad8553c790532ee591a95ef1f9b36fd35793bac1e0339d99e7a300ec05f3",
+    "Sarkozy/Odd437MomentChecker.lean": "6b7f9a530510d6d796be2196ffc87574f0f09042e57500659695790eebdb8ffe",
+    "Sarkozy/Odd437MomentChunks/Chunk000.lean": "f72a4ebfd17c5bfe278f7b46b83a60a561a45ed3b76f940142a191d63c10acad",
+    "Sarkozy/Odd437MomentChunks/Chunk001.lean": "65d7053d4a18d540dce238b7acde5cbad46707e2313b0e617f2e2e6f37ed4d4f",
+    "Sarkozy/Odd437MomentChunks/Chunk002.lean": "bf9d734fa029825a0c0d905d9c1527050dd5e57048491e206a9c13677a51bc26",
+    "Sarkozy/Odd437MomentChunks/Chunk003.lean": "3df9d4708c64929c694d07453f660471124508b323ba791e14c490683062a47b",
+    "Sarkozy/Odd437MomentChunks/Chunk004.lean": "54ef066dcf43e35ff9918adcdbba6574ab6694767c93c55c1672a0906a7ab814",
+    "Sarkozy/Odd437MomentChunks/Chunk005.lean": "23a29fe1b6851e728138518d55d083a1737bebbab17635cd405799484087268d",
+    "Sarkozy/Odd437MomentChunks/Chunk006.lean": "5b6985c8a0c15d1cf384873f77f715bc689042f43cdf9cd7464ced800666275d",
+    "Sarkozy/Odd437MomentChunks/Chunk007.lean": "6cf3d04acfd2e52b962d763b4e0ef0272d07e1877be7c1b7f5c44d43270498d8",
+    "Sarkozy/Odd437MomentChunks/Chunk008.lean": "9540d946442a92d1e724a470bea531117999ea79e09e7ed3cfd325adc63569dc",
+    "Sarkozy/Odd437MomentChunks/Chunk009.lean": "e7c3aecc7719106e9ff2eb23c3197245df39625ad8a3b0b5ea8296baeb452967",
+    "Sarkozy/Odd437MomentChunks/Chunk010.lean": "7d9a3614f65a0d896f5a499df0c972d91422a9f807a3216a9be9cf96e4a6b6ef",
+    "Sarkozy/Odd437MomentChunks/Chunk011.lean": "67636487be7ef0c6f9f53bd9215ab4df89a77abc8e0f0df3b39802bda5d6f05a",
+    "Sarkozy/Odd437MomentChunks/Chunk012.lean": "a41c1067f8f02564610da8e5a1d6748e38d259a28bd76013e0a2b09fbe5d12f3",
+    "Sarkozy/Odd437MomentChunks/Chunk013.lean": "95726a051fde27b2bd923230f6131ba13370c15ab32fae93a821785734ca6502",
+    "Sarkozy/Odd437MomentChunks/Chunk014.lean": "a7b6909391fa0a7f8410f38ac73928c12f6576221bf9541ceda273434be6c0e5",
+    "Sarkozy/Odd437MomentChunks/Chunk015.lean": "8d645beb4d7b7cf9e5fd29454503d225678791b002f7ac3da41cfbb2a8ea3941",
+    "Sarkozy/Odd437MomentChunks/Chunk016.lean": "0b89ea324c3889fc63f5f0f58a48b8bb26803f0a37813b26eb7f41a14d5833ab",
+    "Sarkozy/Odd437MomentChunks/Chunk017.lean": "553f7dd897ae6b69507d99c36b9055f510dbd9c2a902cbfb06bc913c319cf620",
+    "Sarkozy/Odd437MomentChunks/Chunk018.lean": "d7aca5d689c4d8129ce6578f870e537cbc9fdf139f9bacceead55ccaf052271e",
+    "Sarkozy/Odd437MomentData.lean": "112d8a173acbc18966860ea9b470bef5fb7a671d6a570e3ec8ab83531f51fc84",
+    "scripts/generate-odd215-moments.py": "f83c05c4031af8b1ed94fffe40a8b7cbe81628e645e5d28d7a045af7bb3cfdc3",
+    "scripts/generate-odd437-moments.py": "de0192c413a425b072a9efbe38a75340775f947a428796be6548000865dd7e40"
+  },
+  "shared_file_sha256": "ff6352baf991c1a445823a9639836e27e363e61148912c7abd2261f8971b94dd",
+  "check_sha256": "b6e3f1fa9d8bf13105dee014509d9d7bd8c93e10a219ce4b52ca8c2fee50f92d",
+  "intermediate_archive_sha256": "e56f0b7608d6fc67b5dffe32863a9d1032a9238656415f31056b31563eb4b0b2",
+  "verification_scope": "Exact proposal integration and frozen sources. Full build and complete selected-theorem replay still pending."
+}

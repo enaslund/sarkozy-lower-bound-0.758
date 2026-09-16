@@ -1,0 +1,78 @@
+{
+  "added_files_sha256": {
+    "PUBLICATION.md": "bf018ce1d4c86eb5478ae6bcfa7f1359474401694bfef6a7b74a87ec40ef832b",
+    "papers/README.md": "ffd2183cda35276584d1b995561655468b2cb455df567ed907bf60565801f58c",
+    "papers/sarkozy-simple-certificate.py": "3a6dda72c98872e99a99a821ff32eceb66ad7d701995d0a3f7bbdf71fe7fe591",
+    "papers/sarkozy_simple_0.758.pdf": "894ce23c268c5ae75b97427d0ef9da647e60d570e10a2a7fbfa63d1bf25a0300",
+    "papers/sarkozy_simple_0.758.tex": "248e766fac958b7ac91f2b10a24575c50e45d0ec44ede5de5076ddd94150d6b2",
+    "papers/square-difference-free-certificate.py": "b50d8ef29fc95717f07aaadac8ebda94be92460470c8a6aa876acbeef5c908f6",
+    "papers/square-difference-free.pdf": "0d723aadf70e497c8e40850cb5b90a50637655047198693f0be637c2a19a659e",
+    "papers/square-difference-free.tex": "2ea5e2a571d7b35506296e9196052d04c679348b90ceabb4eddb3524b1ed38dd",
+    "papers/verification/full-result.json": "5208fad870b45fa8e6bb1e1e04e852f16684799a9d586d884b90497a664a932f",
+    "papers/verification/simple-result.json": "21575d6c15c1580eb991d7f93f9fc9f1a95ea99926708fa874e96b313c3cbf88",
+    "scripts/README.md": "201de7b8d182b486f5364b6cf03e45c7fd7dcb4a1080086cc477f2f362fead98"
+  },
+  "copy_verification": {
+    "both_pdf_attachments_match_supplied_programs": true,
+    "ci_trigger": "workflow_dispatch only",
+    "shell_syntax": "passed",
+    "six_paper_files_match_preserved_reports": true,
+    "yaml_parse": "passed"
+  },
+  "default_branch": "master",
+  "modified_nonproof_files": {
+    ".github/workflows/ci.yml": {
+      "after_sha256": "4c5304553e6fb6d447619a806bc153b4c9f1f354b8b8a5cb38e028787ad69d96",
+      "before_sha256": "e5adc4fde7435ae9d882154ddfa1929acd42337e5bee425b011febcae606dac6"
+    },
+    ".gitignore": {
+      "after_sha256": "09565b97e990477bc88b64f2cfc2e4359f66beb20f2bbb74dda23d0560c67d68",
+      "before_sha256": "9b9610dd40fa0ea41b22a910d6c2ef3b020249745a642d8c3257b547d758532a"
+    },
+    "CLEANUP.md": {
+      "after_sha256": "32dedd3659ef1b817d62616f5a0decb702b7c5bec54d4140200ab22777f280ce",
+      "before_sha256": "1e06bc9cfce10d1b99a13bcee1da02dddbd2ad19360d41760af3d6db30fbe7d1"
+    },
+    "PALOMAR-READINESS.md": {
+      "after_sha256": "9fe55fea365988e989607e9996d8f6bbefccaf67f72d0ab6903db3947843bea2",
+      "before_sha256": "6516b7feb87b996f98d3c7e1215d6140de5f4104dc869a9f04710e36186b77b4"
+    },
+    "README.md": {
+      "after_sha256": "db4a32d356c93b71aa51015aea5c88efcf64c8d46f4df2f16f85db099da49c08",
+      "before_sha256": "d88cde641eb57bd7a668be79498de0dfa072dfb278c304c7d8e4a15b405fe61e"
+    },
+    "SUBMISSION.md": {
+      "after_sha256": "8b9a9735ef387d2975bec4e1bb14c48a3786a2babad56fa6e7bb6efd260d6656",
+      "before_sha256": "59c4c24334ec5f1fe3256004dd0fc1bf8ec7e8f4335a3e7b6a7fc496084ff73c"
+    },
+    "formalization.yaml": {
+      "after_sha256": "0ac4da700cf7073feea523ab2d7de2ddcb8d193c9e55e151f55852d8d94ffa2d",
+      "before_sha256": "117230280a8b40569c3de6d121c25da8face0fc0f7f38c2fd6f68a170d3b17d4"
+    },
+    "verification/README.md": {
+      "after_sha256": "5e4cd148973b38f83735ccf6308bd864068016aa04ad1aee151200a7b1dd9ac6",
+      "before_sha256": "fea33e71c3661aa0277a30e810c33725f173f0b2074896520bf6d4d47a4a1bf2"
+    }
+  },
+  "original_export_files": 296,
+  "prior_verification": {
+    "axiom_audit": "76 declarations; only propext, Classical.choice, Quot.sound",
+    "full_lean_build": "passed",
+    "nanoda": "32704 declarations; exit 0; no errors",
+    "record": "verification/cleanup-kernel-replay/nanoda-result.json"
+  },
+  "proof_identity": {
+    "all_source_and_config_hashes_match": true,
+    "frozen_file_count": 152,
+    "frozen_record": "verification/cleanup-source.json",
+    "lean_file_count": 148,
+    "matches_successful_nanoda_source_map": true
+  },
+  "recorded_utc": "2026-09-16T06:37:36.212470+00:00",
+  "scope": "Copy and file-identity validation, not a new Lean build or NanoDa replay. Original verification receipts are preserved; their all-file snapshots describe the earlier documentation. No hosted CI, combined Comparator pass or Palomar submission is claimed.",
+  "source_commit": "fe0b29937c56b77ba5dd46328db340936e8473ac",
+  "source_lean_archive_commit": "a825e9489f26c057b9bb8c2b57ba7049220a75e1",
+  "source_lean_archive_sha256": "b09ca58961eb8bbf1bbb74cf54cedbdf3aeb5ff5ffe534014e12ccee2fd44c9a",
+  "source_repository": "https://github.com/enaslund/sarkozy-lower-bound",
+  "target_repository": "https://github.com/enaslund/sarkozy-lower-bound-0.758"
+}

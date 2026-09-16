@@ -1,0 +1,30 @@
+⚠ [8675/8693] Replayed Sarkozy.PrimeChains
+warning: Sarkozy/PrimeChains.lean:55:42: Variable name `hp` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [8680/8693] Replayed Sarkozy.BinaryRows
+warning: Sarkozy/BinaryRows.lean:54:56: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Sarkozy/BinaryRows.lean:59:56: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [8684/8693] Replayed Sarkozy.OddData
+warning: Sarkozy/OddData.lean:56:10: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: Sarkozy/OddData.lean:56:34: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+⚠ [8685/8693] Replayed Challenge
+warning: Challenge.lean:35:8: declaration uses `sorry`
+warning: Challenge.lean:54:8: declaration uses `sorry`
+warning: Challenge.lean:81:8: declaration uses `sorry`
+warning: Challenge.lean:109:8: declaration uses `sorry`
+warning: Challenge.lean:119:8: declaration uses `sorry`
+✔ [8690/8693] Built Sarkozy.RecordTarget (103s)
+✔ [8691/8693] Built Sarkozy.OddData215 (184s)
+✔ [8692/8693] Built Sarkozy (29s)
+Build completed successfully (8693 jobs).

@@ -1,0 +1,7 @@
+PASS: standalone root Apache-2.0 LICENSE text matches the official template (ignoring surrounding whitespace)
+PASS: regular source/documentation/log/configuration files; no symlinks, compiled artifacts, LFS pointers, submodules, or oversized snapshot
+PASS: all nine dependencies have full GitHub commit pins; direct Mathlib pin and inherited pins independently reviewed against Mathlib manifest
+PASS: Mathlib-only Challenge has four statement placeholders, 115 lines, 5702 bytes
+PASS: four Comparator targets, only the three standard axioms permitted, NanoDa enabled
+PASS: shell verification scripts retain executable permissions
+Scope: static package checks and local review; hosted CI and official Palomar review have not been run.

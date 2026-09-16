@@ -1,0 +1,86 @@
+{
+  "public_declaration_signatures_unchanged": true,
+  "public_declarations_compared": 39,
+  "files": [
+    {
+      "file": "Sarkozy/Stopping.lean",
+      "before_bytes": 11048,
+      "after_bytes": 9754,
+      "before_lines": 232,
+      "after_lines": 208,
+      "before_sha256": "ccf8ee67a168ee08dd6ae301d933f06abdd37ec0d8167f798c441e986371d426",
+      "after_sha256": "1c65b3deb1df8dab6ac3df441d9ad5f2a4efec538d5c4379114119e521d03c54"
+    },
+    {
+      "file": "Sarkozy/Moment.lean",
+      "before_bytes": 7127,
+      "after_bytes": 7029,
+      "before_lines": 142,
+      "after_lines": 140,
+      "before_sha256": "bfd88fc98d195d2393ebe808f71b37f864c79d4945e7a756b8aaa997f91c3dc8",
+      "after_sha256": "c142c7fa7c58679427ac05e29ba861c11f8413f2766596ba8d2d8a1ca82be09e"
+    },
+    {
+      "file": "Sarkozy/Growth.lean",
+      "before_bytes": 4625,
+      "after_bytes": 4544,
+      "before_lines": 101,
+      "after_lines": 99,
+      "before_sha256": "f8316ee12f40e89a35c67c164895e741401fb899d9c6da301c67379e3dda6315",
+      "after_sha256": "74ccc6f5fc3f9765b8874f0e28e662ae2891d2d969b5a71f2c7ed958b7f75823"
+    },
+    {
+      "file": "Sarkozy/Asymptotic.lean",
+      "before_bytes": 3178,
+      "after_bytes": 3092,
+      "before_lines": 65,
+      "after_lines": 64,
+      "before_sha256": "b49bd30ab18ae2470d82767e216525bcaf921a04a2c967a4f128e56bd4d244bd",
+      "after_sha256": "92a5013659bbaea243b01d84c78780a15e0c35c22b2706648715f7c9693b5228"
+    },
+    {
+      "file": "Sarkozy/Intervals.lean",
+      "before_bytes": 14626,
+      "after_bytes": 14970,
+      "before_lines": 309,
+      "after_lines": 313,
+      "before_sha256": "2573bbc1f2f56d201d49dad1ebc0a0af8363d42a67e6645bb512652fb724dda3",
+      "after_sha256": "a29bb7d0b44a8469ccfde4a035733d46d18e737fc426939a91f18e6fd3b28d8b"
+    }
+  ],
+  "saved_bytes": 1215,
+  "saved_lines": 25,
+  "verification": {
+    "mode": "sequential lake build targets",
+    "all_exit_codes": 0,
+    "targets": [
+      {
+        "name": "Sarkozy.Intervals",
+        "seconds": 32,
+        "total_jobs": 8657
+      },
+      {
+        "name": "Sarkozy.Stopping",
+        "seconds": 6.5,
+        "total_jobs": 8658
+      },
+      {
+        "name": "Sarkozy.Asymptotic",
+        "seconds": 5.7,
+        "total_jobs": 8656
+      },
+      {
+        "name": "Sarkozy.Growth",
+        "seconds": 6.1,
+        "total_jobs": 8657
+      },
+      {
+        "name": "Sarkozy.Moment",
+        "seconds": 5.9,
+        "total_jobs": 8663
+      }
+    ],
+    "additional_rebuilt_dependency": "Sarkozy.Certificate (5.4 seconds)",
+    "warnings": []
+  }
+}

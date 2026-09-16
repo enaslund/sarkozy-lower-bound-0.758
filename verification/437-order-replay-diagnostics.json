@@ -1,0 +1,251 @@
+{
+  "status": "targeted_diagnostics_passed_after_proof_replacement",
+  "created_at_utc": "2026-09-11T05:29:16.907801+00:00",
+  "scope": "Targeted dependency-closure exports only; this is not the full official Comparator acceptance record, which is recorded separately.",
+  "tool_integrity": "All tests used the unchanged pinned official nanoda_bin directly. No checker instrumentation, axiom relaxation, native_decide, or production tool modifications were used.",
+  "nanoda": {
+    "commit": "68d5ca9db226849b41a6fff59d796ff19d0a8840",
+    "binary_path": "/tmp/sarkozy-palomar-tools/verification/nanoda/target/release/nanoda_bin",
+    "binary_sha256": "3746a7651e37b6437383f35784271640608f08d56294606537b295da9a25ef76"
+  },
+  "exporter": {
+    "commit": "4e7915201d3f9f04470d9eae002fa695f7cdc589",
+    "binary_path": "/tmp/sarkozy-palomar-tools/verification/lean4export/.lake/build/bin/lean4export",
+    "binary_sha256": "e57369980b0b81228580ce08066fb9bd738e717e002673a143f4956d217266b0"
+  },
+  "default_stack_bytes": 8388608,
+  "stack_control": "Python preexec_fn resource.setrlimit(resource.RLIMIT_STACK, (8388608, inherited_hard_limit)) for every main test.",
+  "settings": {
+    "num_threads": 0,
+    "permitted_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "unpermitted_axiom_hard_error": true,
+    "nat_extension": true,
+    "string_extension": true,
+    "print_axioms": false
+  },
+  "tests": [
+    {
+      "declaration": "Sarkozy.OddOrder437.rows_size",
+      "exit_code": 0,
+      "seconds": 1.6679911380633712,
+      "stack_bytes": 8388608,
+      "export_bytes": 17571397,
+      "proof_form": "unchanged_base_check",
+      "expected_outcome": "accept",
+      "outcome_matches_expectation": true,
+      "log_sha256": "32abfba15c715039d494dacc0742ef70f6cfcd5ecfbdadb933d519fc512628cc",
+      "log_text": "Checked 98 declarations with no errors\n",
+      "config": {
+        "export_file_path": "/tmp/sarkozy437-rows_size.export",
+        "permitted_axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "unpermitted_axiom_hard_error": true,
+        "nat_extension": true,
+        "string_extension": true,
+        "print_success_message": true,
+        "print_axioms": false,
+        "num_threads": 0
+      },
+      "config_sha256": "e1b2669d700cc3f2b2e2df11a708d7a214ba909812b1715029cee06677102f03",
+      "export_sha256": "06f49e934510131bad7dd9008404f0fed74581ed97e837d7e6b118d8ca831ba5"
+    },
+    {
+      "declaration": "Sarkozy.OddOrder437.rows_valid",
+      "exit_code": 0,
+      "seconds": 18.950094571337104,
+      "stack_bytes": 8388608,
+      "export_bytes": 17681951,
+      "proof_form": "unchanged_base_check",
+      "expected_outcome": "accept",
+      "outcome_matches_expectation": true,
+      "log_sha256": "bcfd156818e495a846ed55c93a285c5583076a3b1e87e38776132e64e297a1b8",
+      "log_text": "Checked 166 declarations with no errors\n",
+      "config": {
+        "export_file_path": "/tmp/sarkozy437-rows_valid.export",
+        "permitted_axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "unpermitted_axiom_hard_error": true,
+        "nat_extension": true,
+        "string_extension": true,
+        "print_success_message": true,
+        "print_axioms": false,
+        "num_threads": 0
+      },
+      "config_sha256": "9574d8ccbd93b4e92080f3c031bf1ea1f87b2bce32fac4c931b74c0c0f30cac0",
+      "export_sha256": "f0d2e68c82aa0faff9dfe26dd00ce3a89dc49b9b259de832d5a5489f2c2c3938"
+    },
+    {
+      "declaration": "Sarkozy.OddOrder437.endpoints_sorted",
+      "exit_code": -6,
+      "seconds": 3.0733979158103466,
+      "stack_bytes": 8388608,
+      "export_bytes": 17951555,
+      "proof_form": "direct_IsChain_decision",
+      "expected_outcome": "stack_overflow",
+      "outcome_matches_expectation": true,
+      "log_sha256": "d3a86933d4fb26f1cd5667e1acf7e43e77b77980f917bf14f4f380b2994fa606",
+      "log_text": "\nthread 'main' (67) has overflowed its stack\nfatal runtime error: stack overflow, aborting\n",
+      "config": {
+        "export_file_path": "/tmp/sarkozy437-endpoints_sorted.export",
+        "permitted_axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "unpermitted_axiom_hard_error": true,
+        "nat_extension": true,
+        "string_extension": true,
+        "print_success_message": true,
+        "print_axioms": false,
+        "num_threads": 0
+      },
+      "config_sha256": "3b34b39b7a367e49f81b66a30cdcd11a70b980bf7a47d796923dddaf7f6d83cf",
+      "export_sha256": "e4ca711d282c1b76c92445164afed411518decfd22d8286690eaae232297bb23"
+    },
+    {
+      "declaration": "Sarkozy.OddOrder437.endpoints_sorted_checked",
+      "exit_code": 0,
+      "seconds": 4.775838923640549,
+      "stack_bytes": 8388608,
+      "export_bytes": 17926577,
+      "proof_form": "Boolean_adjacent_comparison_with_proved_soundness",
+      "expected_outcome": "accept",
+      "outcome_matches_expectation": true,
+      "log_sha256": "a0d4430c16a8cd2bee28590a78404f2b1bdf14854129fabdcc500ca55b8d032a",
+      "log_text": "Checked 188 declarations with no errors\n",
+      "config": {
+        "export_file_path": "/tmp/sarkozy437-endpoints_sorted_checked.export",
+        "permitted_axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "unpermitted_axiom_hard_error": true,
+        "nat_extension": true,
+        "string_extension": true,
+        "print_success_message": true,
+        "print_axioms": false,
+        "num_threads": 0
+      },
+      "config_sha256": "f9ae27c25c7a3ba947da7bf2bf3e052559e32c81faa24ace6d412f8ff0b1925b",
+      "export_sha256": "190c1c9bcb2d238a285e63264a69e3c0ba3e3f34587333a7b2d8d86baf4e461a"
+    },
+    {
+      "declaration": "Sarkozy.OddOrder437.widths_match_histogram",
+      "exit_code": -6,
+      "seconds": 117.25547116715461,
+      "stack_bytes": 8388608,
+      "export_bytes": 22303007,
+      "proof_form": "direct_decidable_list_equality",
+      "expected_outcome": "stack_overflow",
+      "outcome_matches_expectation": true,
+      "log_sha256": "d6beffb9aef618378081b828b20a8bc2bb781738eb6cc4b37a4b888db7d41507",
+      "log_text": "\nthread 'main' (63) has overflowed its stack\nfatal runtime error: stack overflow, aborting\n",
+      "config": {
+        "export_file_path": "/tmp/sarkozy437-widths_match_histogram.export",
+        "permitted_axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "unpermitted_axiom_hard_error": true,
+        "nat_extension": true,
+        "string_extension": true,
+        "print_success_message": true,
+        "print_axioms": false,
+        "num_threads": 0
+      },
+      "config_sha256": "70eb24875b19c1a88e0937c833f2d8c5f99f237d437b765f25421fcf3b3eeb2e",
+      "export_sha256": "76e04e68a831bb2c2b8cc11ae1363dc86795e448987b69922a7bb910eb6e5352"
+    },
+    {
+      "declarations": [
+        "Sarkozy.OddOrder437.widths_match_histogram"
+      ],
+      "exit_code": 0,
+      "seconds": 94.06781723629683,
+      "stack_bytes": 8388608,
+      "export_bytes": 22435765,
+      "proof_form": "Boolean_list_equality_with_LawfulBEq_soundness",
+      "expected_outcome": "accept",
+      "outcome_matches_expectation": true,
+      "log_sha256": "5d21675086085f8f2057f5a938aa31229a2645809299cf0aefbcc9f3a7d9afef",
+      "log_text": "Checked 538 declarations with no errors\n",
+      "config": {
+        "export_file_path": "/tmp/sarkozy437-widths_match_histogram_boolean.export",
+        "permitted_axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "unpermitted_axiom_hard_error": true,
+        "nat_extension": true,
+        "string_extension": true,
+        "print_success_message": true,
+        "print_axioms": false,
+        "num_threads": 0
+      },
+      "config_sha256": "30e910f7af33b02e5c1fcbb82991b21109d6e627b56c4fb2edfdf9994864f2c1",
+      "export_sha256": "e51375ccfc044611d091838f6673b2119da72ef2a96bb4baa48b93582eea1ad4"
+    },
+    {
+      "declarations": [
+        "Sarkozy.OddOrder437.source_chunk_153",
+        "Sarkozy.OddOrder437.target_chunk_153"
+      ],
+      "exit_code": 0,
+      "seconds": 5.42673936765641,
+      "stack_bytes": 8388608,
+      "export_bytes": 38261826,
+      "proof_form": "unchanged_last_source_and_target_block",
+      "expected_outcome": "accept",
+      "outcome_matches_expectation": true,
+      "log_sha256": "81ce6e2bbff3d8bb4b4a4bdbb89c1ccefccb6b080c59bfcdcd46b1dcd9c13529",
+      "log_text": "Checked 1250 declarations with no errors\n",
+      "config": {
+        "export_file_path": "/tmp/sarkozy437-last_order_block.export",
+        "permitted_axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "unpermitted_axiom_hard_error": true,
+        "nat_extension": true,
+        "string_extension": true,
+        "print_success_message": true,
+        "print_axioms": false,
+        "num_threads": 0
+      },
+      "config_sha256": "ed166635329a0f756d6d1be997936b0b0d51180be0942af5140a015f52d25d94",
+      "export_sha256": "6f6fe4386aff58f17c1a60998757df5c816221d6599fbf075f00b3d54fcdde27"
+    }
+  ],
+  "larger_stack_diagnostic_contrast": {
+    "declaration": "Sarkozy.OddOrder437.endpoints_sorted",
+    "exit_code": 0,
+    "seconds": 6.2375056110322475,
+    "stack_bytes": 67108864,
+    "log_sha256": "a0d4430c16a8cd2bee28590a78404f2b1bdf14854129fabdcc500ca55b8d032a",
+    "log_text": "Checked 188 declarations with no errors\n",
+    "explanation": "Diagnostic contrast only. The official full replay keeps the default 8 MiB stack; its submitted proof uses the Boolean replacement."
+  },
+  "source_sha256": {
+    "Sarkozy/OddEndpointCheck.lean": "863576b94c43aafe219b8c584186015bfd0ae786ed81f34afef7715ca30caa47",
+    "Sarkozy/OddOrderEndpoints437.lean": "adb9ab2e7fe26d3fd45916fbf2fbfdae876208bdab0bb6ee32ceb144273535af",
+    "Sarkozy/OddOrder437.lean": "d8b8cc367b3266bdeb32fb9991a23e749655adeff8b7f47165006e1a75846e92",
+    "Sarkozy/Odd437WidthHistogram.lean": "235dc78e9c7c4cb1e28f3666bf4f4960557843643a0cc9188a6b836c2fec228e",
+    "Sarkozy/OddOrderBase437.lean": "bc763c5ef659a473faf4bc3f68547eeacd14dfe58b2c090bfdf48df921a2d0e3"
+  },
+  "replacement_scope": "The exported order wrapper now uses endpoints_sorted_checked. The original endpoints_sorted theorem remains Lean-checked supporting material and is not a dependency of the submitted full theorem. The width permutation statement is unchanged; only its proof converts Boolean equality through the proved LawfulBEq interface.",
+  "large_exports_included": false
+}

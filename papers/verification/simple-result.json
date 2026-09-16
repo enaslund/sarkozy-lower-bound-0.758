@@ -1,0 +1,27 @@
+{
+  "source_only_build": true,
+  "tex_passes": 3,
+  "pages": 17,
+  "unresolved_references_or_overfull_boxes": false,
+  "extracted_pdf_attachment_matches_distributed_script": true,
+  "extracted_attachment_all_finite_checks_pass": true,
+  "alpha": "0.758001",
+  "exact_power_sum": ".75821",
+  "exact_global_surplus": ".000209",
+  "sha256": {
+    "sarkozy_simple_0.758.tex": "248e766fac958b7ac91f2b10a24575c50e45d0ec44ede5de5076ddd94150d6b2",
+    "sarkozy_simple_0.758.pdf": "894ce23c268c5ae75b97427d0ef9da647e60d570e10a2a7fbfa63d1bf25a0300",
+    "sarkozy-simple-certificate.py": "3a6dda72c98872e99a99a821ff32eceb66ad7d701995d0a3f7bbdf71fe7fe591"
+  },
+  "visual_inspection": {
+    "pages": [
+      1,
+      3,
+      10,
+      13,
+      14,
+      15
+    ],
+    "result": "Title, interval diagram, equations, and complete finite tables inspected; no clipping or overlapping content found."
+  }
+}

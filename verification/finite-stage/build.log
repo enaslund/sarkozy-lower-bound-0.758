@@ -1,0 +1,5 @@
+⚠ [8657/8663] Replayed Challenge
+warning: Challenge.lean:21:8: declaration uses `sorry`
+✔ [8661/8663] Built Sarkozy.Examples (8.8s)
+✔ [8662/8663] Built Sarkozy (6.1s)
+Build completed successfully (8663 jobs).

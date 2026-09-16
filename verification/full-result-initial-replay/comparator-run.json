@@ -1,0 +1,10 @@
+{
+  "recorded_utc": "2026-09-11T05:22:15.369695+00:00",
+  "exit_code": 143,
+  "seconds": 2126.52,
+  "command": "Current-service pinned Comparator with Landrun directly, two entries, NanoDa enabled",
+  "scope": "improved_bound is the unconditional full exponent; all nine components and finite checks are proved",
+  "outcome": "failed: NanoDa main-thread stack overflow",
+  "termination_note": "After the external kernel aborted, the remaining built-in replay was stopped with SIGTERM to avoid duplicating work before the corrected replay. Neither full independent replay nor built-in replay passed in this attempt.",
+  "stack_limit_bytes": 8388608
+}

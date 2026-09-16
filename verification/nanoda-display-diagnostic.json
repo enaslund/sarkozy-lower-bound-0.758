@@ -1,0 +1,21 @@
+{
+  "recorded_utc": "2026-09-11T08:24:54.333948+00:00",
+  "typechecking": "passed: all32700declarations; process exit0",
+  "diagnostic": "Unable to print axioms",
+  "classification": "Optional display failure after complete typechecking, caused by print_axioms:true with no pretty-printer output destination. No proof check was skipped.",
+  "evidence": {
+    "main.rs": "use_config calls check_all_declars() before pp_selected_declars(), then emits the no-typechecker-errors report when only display errors remain.",
+    "pretty_printer.rs": "pp_selected_declars returns Unable to print axioms when print_axioms is true and pp_destination is None.",
+    "util.rs": "get_pp_destination returns None without pp_output_path or pp_to_stdout:true.",
+    "parser.rs": "unpermitted_axiom_hard_error:true fails import for an unpermitted axiom."
+  },
+  "nanoda_commit": "68d5ca9db226849b41a6fff59d796ff19d0a8840",
+  "source_files_match_git_head": true,
+  "source_sha256": {
+    "src/main.rs": "245ceaef34e8925cacaa3c5b99ce096a8c744710ce1f9184423e5a0333e8b35a",
+    "src/pretty_printer.rs": "b6284a0a27de2a40d714035577e29f259f47e872c2ececc9dfef9a5c479ed778",
+    "src/parser.rs": "22b17bd188152fb3ded36a060fc1ade5e064aef7cc411aecf64c5730c40ea3e2",
+    "src/util.rs": "b93e18f18c59286412109041daf31a5f90686d13f23cf378ce6a6a0c78f25d3d"
+  },
+  "future_display_setting": "Add pp_to_stdout:true to a copy of the direct NanoDa configuration to display axioms; this changes output only. The actual successful run configuration and raw log are preserved."
+}

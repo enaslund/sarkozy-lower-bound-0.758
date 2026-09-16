@@ -1,0 +1,5 @@
+'Sarkozy.reverseRank_realization' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Sarkozy.crt_reverseRank_realization' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SarkozySubmission.finite_construction' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Sarkozy.two_four_squareDifferenceFree' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Sarkozy.six_elements_in_eighty_four' depends on axioms: [propext, Classical.choice, Quot.sound]

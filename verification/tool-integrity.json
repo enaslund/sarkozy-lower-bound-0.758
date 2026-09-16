@@ -1,0 +1,38 @@
+{
+  "recorded_utc": "2026-09-11T05:48:06.502800+00:00",
+  "scope": "Read-only revision and binary integrity check during the final full replay. Exporter and NanoDa binaries match the earlier targeted diagnostic checks.",
+  "tools": {
+    "comparator": {
+      "requested_commit": "575674928e239f5bc452aab72d1dd7b0f1326494",
+      "binary_path": "/tmp/sarkozy-proof-check-20260911T0604/verify",
+      "binary_sha256": "f25185592ce22b0d12c5801553c7caa5a5f7731a30a14226de2be68b27382430",
+      "pin_check": "Exact Git HEAD matches requested revision",
+      "upstream_binary_path": "/tmp/sarkozy-palomar-tools/verification/comparator/.lake/build/bin/comparator"
+    },
+    "lean4export": {
+      "requested_commit": "4e7915201d3f9f04470d9eae002fa695f7cdc589",
+      "binary_path": "/tmp/sarkozy-proof-check-20260911T0604/export",
+      "binary_sha256": "e57369980b0b81228580ce08066fb9bd738e717e002673a143f4956d217266b0",
+      "pin_check": "Exact Git HEAD matches requested revision",
+      "upstream_binary_path": "/tmp/sarkozy-palomar-tools/verification/lean4export/.lake/build/bin/lean4export"
+    },
+    "nanoda": {
+      "requested_commit": "68d5ca9db226849b41a6fff59d796ff19d0a8840",
+      "binary_path": "/tmp/sarkozy-proof-check-20260911T0604/kernel",
+      "binary_sha256": "3746a7651e37b6437383f35784271640608f08d56294606537b295da9a25ef76",
+      "pin_check": "Exact Git HEAD matches requested revision",
+      "upstream_binary_path": "/tmp/sarkozy-palomar-tools/verification/nanoda/target/release/nanoda_bin"
+    },
+    "landrun": {
+      "requested_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+      "binary_path": "/tmp/sarkozy-proof-check-20260911T0604/sandbox",
+      "binary_sha256": "21335570eb495a0ed463b6f9bb2de415dbcf919a23644e110ac6fd0f3b7f2086",
+      "pin_check": "Go embedded module version matches pinned commit prefix; full requested revision is recorded in verify-comparator.sh",
+      "go_build_info": "/tmp/sarkozy-palomar-tools/verification/bin/landrun: go1.27.1\n\tpath\tgithub.com/zouuup/landrun/cmd/landrun\n\tmod\tgithub.com/zouuup/landrun\tv0.1.18-0.20260723122309-811cfff51cea\th1:0behenUlgmVB9+l8LLPG+Ff+m06yVjA7Rae4yJZCrhM=\n\tdep\tgithub.com/landlock-lsm/go-landlock\tv0.9.0\th1:2q8G8yx9Hsd5bV+R6PJfgQl0zszNxC8KO+SIqGwfxlw=\n\tdep\tgithub.com/urfave/cli/v3\tv3.6.2\th1:lQuqiPrZ1cIz8hz+HcrG0TNZFxU70dPZ3Yl+pSrH9A8=\n\tdep\tgolang.org/x/sys\tv0.40.0\th1:DBZZqJ2Rkml6QMQsZywtnjnnGvHza6BTfYFWY9kjEWQ=\n\tdep\tkernel.org/pub/linux/libs/security/libcap/psx\tv1.2.77\th1:Z06sMOzc0GNCwp6efaVrIrz4ywGJ1v+DP0pjVkOfDuA=\n\tbuild\t-buildmode=exe\n\tbuild\t-compiler=gc\n\tbuild\tDefaultGODEBUG=containermaxprocs=0,cryptocustomrand=1,decoratemappings=0,tlssecpmlkem=0,tlssha1=1,tracebacklabels=0,updatemaxprocs=0,urlstrictcolons=0,x509sha256skid=0,x509sslcertoverrideplatform=0\n\tbuild\tCGO_ENABLED=1\n\tbuild\tCGO_CFLAGS=\n\tbuild\tCGO_CPPFLAGS=\n\tbuild\tCGO_CXXFLAGS=\n\tbuild\tCGO_LDFLAGS=\n\tbuild\tGOARCH=amd64\n\tbuild\tGOOS=linux\n\tbuild\tGOAMD64=v1\n",
+      "upstream_binary_path": "/tmp/sarkozy-palomar-tools/verification/bin/landrun"
+    }
+  },
+  "isolated_run_directory": "/tmp/sarkozy-proof-check-20260911T0604",
+  "isolated_binaries_note": "Byte-identical hard links used for the restarted replay after an unexplained SIGTERM. Names and paths are isolated from other local verification jobs; no checker code or proof settings change.",
+  "isolated_config_sha256": "85f9fd5bf13a3e87cf8fd406f98f1e048edf86e9d6266a2dd1600398a796f52b"
+}

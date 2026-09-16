@@ -1,0 +1,46 @@
+⚠ [8658/8684] Replayed Sarkozy.PrimeChains
+warning: Sarkozy/PrimeChains.lean:55:42: Variable name `hp` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [8661/8684] Replayed Sarkozy.PowerChecker
+warning: Sarkozy/PowerChecker.lean:53:61: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Sarkozy/PowerChecker.lean:77:61: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [8662/8684] Replayed Sarkozy.PowerPolynomial
+warning: Sarkozy/PowerPolynomial.lean:33:24: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Sarkozy/PowerPolynomial.lean:42:28: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: Sarkozy/PowerPolynomial.lean:42:28: 'ring' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+✔ [8663/8684] Built Sarkozy.FastPowerCertificate (7.9s)
+✔ [8664/8684] Built Sarkozy.Odd437MomentChecker (5.0s)
+✔ [8665/8684] Built Sarkozy.Odd437MomentChunks.Chunk000 (9.8s)
+✔ [8666/8684] Built Sarkozy.Odd437MomentChunks.Chunk001 (9.7s)
+✔ [8667/8684] Built Sarkozy.Odd437MomentChunks.Chunk002 (9.8s)
+✔ [8668/8684] Built Sarkozy.Odd437MomentChunks.Chunk003 (9.8s)
+✔ [8669/8684] Built Sarkozy.Odd437MomentChunks.Chunk004 (9.6s)
+✔ [8670/8684] Built Sarkozy.Odd437MomentChunks.Chunk005 (9.7s)
+✔ [8671/8684] Built Sarkozy.Odd437MomentChunks.Chunk006 (9.7s)
+✔ [8672/8684] Built Sarkozy.Odd437MomentChunks.Chunk007 (9.7s)
+✔ [8673/8684] Built Sarkozy.Odd437MomentChunks.Chunk008 (9.7s)
+✔ [8674/8684] Built Sarkozy.Odd437MomentChunks.Chunk009 (9.7s)
+✔ [8675/8684] Built Sarkozy.Odd437MomentChunks.Chunk010 (9.8s)
+✔ [8676/8684] Built Sarkozy.Odd437MomentChunks.Chunk011 (9.6s)
+✔ [8677/8684] Built Sarkozy.Odd437MomentChunks.Chunk012 (9.8s)
+✔ [8678/8684] Built Sarkozy.Odd437MomentChunks.Chunk013 (9.0s)
+✔ [8679/8684] Built Sarkozy.Odd437MomentChunks.Chunk014 (9.8s)
+✔ [8680/8684] Built Sarkozy.Odd437MomentChunks.Chunk015 (9.9s)
+✔ [8681/8684] Built Sarkozy.Odd437MomentChunks.Chunk016 (9.7s)
+✔ [8682/8684] Built Sarkozy.Odd437MomentChunks.Chunk017 (9.8s)
+✔ [8683/8684] Built Sarkozy.Odd437MomentChunks.Chunk018 (6.9s)
+✔ [8684/8684] Built Sarkozy.Odd437MomentData (5.4s)
+Build completed successfully (8684 jobs).

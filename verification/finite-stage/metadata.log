@@ -1,0 +1,3 @@
+PASS: formalization.yaml validates against https://raw.githubusercontent.com/mathlib-initiative/formalization.yaml/main/schema/v0.4.schema.json
+Validator: fastjsonschema 2.22.2
+Schema SHA-256: 25ff6b25ca4511635aff4443cf20480c15e59dddf19591c730950b442ea54fce

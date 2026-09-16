@@ -1,0 +1,65 @@
+{
+  "script": "scripts/build-sequential.sh",
+  "script_sha256": "9c2c8e4aeb46b254119b16d556c96de3ba1fbe8cb80b3eff5442b8caef86338b",
+  "bash_syntax": "passed",
+  "command_correspondence": "exactly the nine previously passed commands in the same order",
+  "commands": [
+    [
+      "lake",
+      "build",
+      "Sarkozy.Odd437MomentData"
+    ],
+    [
+      "lake",
+      "build",
+      "Sarkozy.OddOrder215"
+    ],
+    [
+      "lake",
+      "build",
+      "Sarkozy.OddOrder437"
+    ],
+    [
+      "lake",
+      "build",
+      "Sarkozy.Odd215Moment"
+    ],
+    [
+      "lake",
+      "build",
+      "Sarkozy.Odd215Certificate"
+    ],
+    [
+      "lake",
+      "build",
+      "Sarkozy.Odd437Moment"
+    ],
+    [
+      "lake",
+      "build",
+      "Sarkozy.Odd437WidthHistogram"
+    ],
+    [
+      "lake",
+      "build"
+    ],
+    [
+      "lake",
+      "env",
+      "lean",
+      "Check.lean"
+    ]
+  ],
+  "builds_rerun": false,
+  "integration": {
+    "ci_build_job": "Uses the same sequential script after Lean setup. Hosted execution has not run.",
+    "comparator_launcher": "Runs the same sequential script after dependency cache retrieval, before unchanged pinned Comparator invocation. Full launcher has not completed for current sources.",
+    "shell_syntax": "passed",
+    "workflow_yaml": "parsed; build action disabled and explicit sequential build step present",
+    "file_sha256": {
+      "scripts/build-sequential.sh": "9c2c8e4aeb46b254119b16d556c96de3ba1fbe8cb80b3eff5442b8caef86338b",
+      "scripts/verify-comparator.sh": "f9bb784c1a7a9edd89235f4094f69a1016682f1a9032a1059911da8e11ce27ed",
+      ".github/workflows/ci.yml": "e5adc4fde7435ae9d882154ddfa1929acd42337e5bee425b011febcae606dac6"
+    }
+  }
+}

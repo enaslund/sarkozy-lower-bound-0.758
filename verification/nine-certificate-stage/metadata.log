@@ -1,0 +1,7 @@
+PASS: upstream formalization.yaml v0.4 JSON schema (fastjsonschema)
+Schema URL: https://raw.githubusercontent.com/mathlib-initiative/formalization.yaml/main/schema/v0.4.schema.json
+Schema SHA-256: 25ff6b25ca4511635aff4443cf20480c15e59dddf19591c730950b442ea54fce
+PASS: targeted Palomar checks: UTF-8, single mapping, no duplicate/merge keys or aliases, size, source types, version, description, license label, no template sentinels
+PASS: all four metadata-aligned declarations selected by Comparator
+Policy reviewed: https://github.com/PalomarRegistry/PalomarPolicy/blob/main/CONTRIBUTING.md (2026-09-10)
+Scope: upstream schema plus listed mechanical checks; not an official Palomar validation or editorial decision.

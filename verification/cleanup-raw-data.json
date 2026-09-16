@@ -1,0 +1,20 @@
+{
+  "215": {
+    "source_bytes_before": 240751,
+    "source_bytes_after": 240875,
+    "expected_annotation_and_comment_changes_only": true,
+    "generator_reproduces_exact_annotated_original": true,
+    "generator_seconds": 2.477,
+    "generated_sha256": "8296504206f48d146f81c265c4ff36c354b945c412aedef990667377b364e7ed",
+    "generator_sha256": "1ddc70a7bf5d2090e3834ee95683bb4d52a929599ff05df58afce8fa99982e65"
+  },
+  "437": {
+    "source_bytes_before": 1050872,
+    "source_bytes_after": 1050954,
+    "expected_annotation_and_comment_changes_only": true,
+    "generator_reproduces_exact_annotated_original": true,
+    "generator_seconds": 0.141,
+    "generated_sha256": "733e3a93c85dbbf33247a4a976a25b620ab3a711806551665c44a5f2fe7e09f9",
+    "generator_sha256": "344fbfbfaeb855ea4892ae5f2c28c43e86b75cbc587f4d60e3c4d8a899b97449"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "scope": "Standalone computer-assisted manuscript for exponent 0.75806746",
+  "initial_inputs": [
+    "square-difference-free.tex"
+  ],
+  "pdflatex_passes": 3,
+  "shell_escape": false,
+  "unresolved_references": false,
+  "overfull_boxes": false,
+  "bibliography_entries": 18,
+  "pdf_attachment": "byte-identical to supplied certificate program",
+  "extracted_certificate_execution": "passed without repository access or network requests",
+  "lean_boundary": "The separate Lean development formalizes the full exponent 0.75806746, including all finite certificate conditions. This report checks the standalone paper and its attachment, not the Lean build; see lean-formalization/verification/README.md for Lean verification.",
+  "sha256": {
+    "square-difference-free.tex": "2ea5e2a571d7b35506296e9196052d04c679348b90ceabb4eddb3524b1ed38dd",
+    "square-difference-free.pdf": "0d723aadf70e497c8e40850cb5b90a50637655047198693f0be637c2a19a659e",
+    "square-difference-free-certificate.py": "b50d8ef29fc95717f07aaadac8ebda94be92460470c8a6aa876acbeef5c908f6"
+  },
+  "pdfinfo": "Title:           Square-difference-free sets of exponent 0.75806746\nSubject:         \nKeywords:        \nAuthor:          Eric Naslund\nCreator:         LaTeX with hyperref\nProducer:        pdfTeX-1.40.26\nCreationDate:    Fri Sep 11 04:46:36 2026 UTC\nModDate:         Fri Sep 11 04:46:36 2026 UTC\nCustom Metadata: yes\nMetadata Stream: no\nTagged:          no\nUserProperties:  no\nSuspects:        no\nForm:            none\nJavaScript:      no\nPages:           17\nEncrypted:       no\nPage size:       612 x 792 pts (letter)\nPage rot:        0\nFile size:       831573 bytes\nOptimized:       no\nPDF version:     1.7\n"
+}

@@ -1,0 +1,239 @@
+{
+  "recorded_utc": "2026-09-14T07:06:04.251206+00:00",
+  "scope": "Selected 46 .olean and generated C artifacts for altered data modules only. Excludes dependencies, other project artifacts and source. Before values recorded before cleanup; all selected final modules now rebuilt.",
+  "before_bytes": 505637612,
+  "after_bytes": 50333766,
+  "files": [
+    {
+      "file": ".lake/build/lib/lean/Sarkozy/Odd215MomentData.olean",
+      "before_bytes": 84033072,
+      "after_bytes": 2134288
+    },
+    {
+      "file": ".lake/build/ir/Sarkozy/Odd215MomentData.c",
+      "before_bytes": 78989102,
+      "after_bytes": 5024
+    },
+    {
+      "file": ".lake/build/lib/lean/Sarkozy/Odd437MomentChunks/Chunk000.olean",
+      "before_bytes": 8252264,
+      "after_bytes": 1128720
+    },
+    {
+      "file": ".lake/build/ir/Sarkozy/Odd437MomentChunks/Chunk000.c",
+      "before_bytes": 1698548,
+      "after_bytes": 1375
+    },
+    {
+      "file": ".lake/build/lib/lean/Sarkozy/Odd437MomentChunks/Chunk001.olean",
+      "before_bytes": 8250976,
+      "after_bytes": 1127184
+    },
+    {
+      "file": ".lake/build/ir/Sarkozy/Odd437MomentChunks/Chunk001.c",
+      "before_bytes": 1698590,
+      "after_bytes": 1399
+    },
+    {
+      "file": ".lake/build/lib/lean/Sarkozy/Odd437MomentChunks/Chunk002.olean",
+      "before_bytes": 8256664,
+      "after_bytes": 1129680
+    },
+    {
+      "file": ".lake/build/ir/Sarkozy/Odd437MomentChunks/Chunk002.c",
+      "before_bytes": 1698590,
+      "after_bytes": 1399
+    },
+    {
+      "file": ".lake/build/lib/lean/Sarkozy/Odd437MomentChunks/Chunk003.olean",
+      "before_bytes": 8273992,
+      "after_bytes": 1131240
+    },
+    {
+      "file": ".lake/build/ir/Sarkozy/Odd437MomentChunks/Chunk003.c",
+      "before_bytes": 1698590,
+      "after_bytes": 1399
+    },
+    {
+      "file": ".lake/build/lib/lean/Sarkozy/Odd437MomentChunks/Chunk004.olean",
+      "before_bytes": 8267128,
+      "after_bytes": 1131728
+    },
+    {
+      "file": ".lake/build/ir/Sarkozy/Odd437MomentChunks/Chunk004.c",
+      "before_bytes": 1698590,
+      "after_bytes": 1399
+    },
+    {
+      "file": ".lake/build/lib/lean/Sarkozy/Odd437MomentChunks/Chunk005.olean",
+      "before_bytes": 8248056,
+      "after_bytes": 1130656
+    },
+    {
+      "file": ".lake/build/ir/Sarkozy/Odd437MomentChunks/Chunk005.c",
+      "before_bytes": 1698590,
+      "after_bytes": 1399
+    },
+    {
+      "file": ".lake/build/lib/lean/Sarkozy/Odd437MomentChunks/Chunk006.olean",
+      "before_bytes": 8257672,
+      "after_bytes": 1129992
+    },
+    {
+      "file": ".lake/build/ir/Sarkozy/Odd437MomentChunks/Chunk006.c",
+      "before_bytes": 1698590,
+      "after_bytes": 1399
+    },
+    {
+      "file": ".lake/build/lib/lean/Sarkozy/Odd437MomentChunks/Chunk007.olean",
+      "before_bytes": 8239280,
+      "after_bytes": 1129992
+    },
+    {
+      "file": ".lake/build/ir/Sarkozy/Odd437MomentChunks/Chunk007.c",
+      "before_bytes": 1698590,
+      "after_bytes": 1399
+    },
+    {
+      "file": ".lake/build/lib/lean/Sarkozy/Odd437MomentChunks/Chunk008.olean",
+      "before_bytes": 8230728,
+      "after_bytes": 1131552
+    },
+    {
+      "file": ".lake/build/ir/Sarkozy/Odd437MomentChunks/Chunk008.c",
+      "before_bytes": 1698590,
+      "after_bytes": 1399
+    },
+    {
+      "file": ".lake/build/lib/lean/Sarkozy/Odd437MomentChunks/Chunk009.olean",
+      "before_bytes": 8291584,
+      "after_bytes": 1130928
+    },
+    {
+      "file": ".lake/build/ir/Sarkozy/Odd437MomentChunks/Chunk009.c",
+      "before_bytes": 1698590,
+      "after_bytes": 1399
+    },
+    {
+      "file": ".lake/build/lib/lean/Sarkozy/Odd437MomentChunks/Chunk010.olean",
+      "before_bytes": 8163448,
+      "after_bytes": 1127360
+    },
+    {
+      "file": ".lake/build/ir/Sarkozy/Odd437MomentChunks/Chunk010.c",
+      "before_bytes": 1699584,
+      "after_bytes": 1399
+    },
+    {
+      "file": ".lake/build/lib/lean/Sarkozy/Odd437MomentChunks/Chunk011.olean",
+      "before_bytes": 8239328,
+      "after_bytes": 1130928
+    },
+    {
+      "file": ".lake/build/ir/Sarkozy/Odd437MomentChunks/Chunk011.c",
+      "before_bytes": 1699614,
+      "after_bytes": 1399
+    },
+    {
+      "file": ".lake/build/lib/lean/Sarkozy/Odd437MomentChunks/Chunk012.olean",
+      "before_bytes": 8213792,
+      "after_bytes": 1129856
+    },
+    {
+      "file": ".lake/build/ir/Sarkozy/Odd437MomentChunks/Chunk012.c",
+      "before_bytes": 1699614,
+      "after_bytes": 1399
+    },
+    {
+      "file": ".lake/build/lib/lean/Sarkozy/Odd437MomentChunks/Chunk013.olean",
+      "before_bytes": 8235920,
+      "after_bytes": 1130168
+    },
+    {
+      "file": ".lake/build/ir/Sarkozy/Odd437MomentChunks/Chunk013.c",
+      "before_bytes": 1699614,
+      "after_bytes": 1399
+    },
+    {
+      "file": ".lake/build/lib/lean/Sarkozy/Odd437MomentChunks/Chunk014.olean",
+      "before_bytes": 8208568,
+      "after_bytes": 1132040
+    },
+    {
+      "file": ".lake/build/ir/Sarkozy/Odd437MomentChunks/Chunk014.c",
+      "before_bytes": 1699614,
+      "after_bytes": 1399
+    },
+    {
+      "file": ".lake/build/lib/lean/Sarkozy/Odd437MomentChunks/Chunk015.olean",
+      "before_bytes": 8234736,
+      "after_bytes": 1131864
+    },
+    {
+      "file": ".lake/build/ir/Sarkozy/Odd437MomentChunks/Chunk015.c",
+      "before_bytes": 1699614,
+      "after_bytes": 1399
+    },
+    {
+      "file": ".lake/build/lib/lean/Sarkozy/Odd437MomentChunks/Chunk016.olean",
+      "before_bytes": 8221280,
+      "after_bytes": 1130168
+    },
+    {
+      "file": ".lake/build/ir/Sarkozy/Odd437MomentChunks/Chunk016.c",
+      "before_bytes": 1699614,
+      "after_bytes": 1399
+    },
+    {
+      "file": ".lake/build/lib/lean/Sarkozy/Odd437MomentChunks/Chunk017.olean",
+      "before_bytes": 8273600,
+      "after_bytes": 1131104
+    },
+    {
+      "file": ".lake/build/ir/Sarkozy/Odd437MomentChunks/Chunk017.c",
+      "before_bytes": 1699614,
+      "after_bytes": 1399
+    },
+    {
+      "file": ".lake/build/lib/lean/Sarkozy/Odd437MomentChunks/Chunk018.olean",
+      "before_bytes": 3945384,
+      "after_bytes": 538744
+    },
+    {
+      "file": ".lake/build/ir/Sarkozy/Odd437MomentChunks/Chunk018.c",
+      "before_bytes": 788686,
+      "after_bytes": 1399
+    },
+    {
+      "file": ".lake/build/lib/lean/Sarkozy/OddOrderData215.olean",
+      "before_bytes": 59465224,
+      "after_bytes": 5639584
+    },
+    {
+      "file": ".lake/build/ir/Sarkozy/OddOrderData215.c",
+      "before_bytes": 32781358,
+      "after_bytes": 1351
+    },
+    {
+      "file": ".lake/build/lib/lean/Sarkozy/OddOrderData437.olean",
+      "before_bytes": 22537368,
+      "after_bytes": 18980720
+    },
+    {
+      "file": ".lake/build/ir/Sarkozy/OddOrderData437.c",
+      "before_bytes": 1351,
+      "after_bytes": 1351
+    },
+    {
+      "file": ".lake/build/ir/Sarkozy/OddData215.c",
+      "before_bytes": 13166151,
+      "after_bytes": 1691
+    },
+    {
+      "file": ".lake/build/lib/lean/Sarkozy/OddData215.olean",
+      "before_bytes": 30988160,
+      "after_bytes": 2659296
+    }
+  ],
+  "saved_bytes": 455303846
+}

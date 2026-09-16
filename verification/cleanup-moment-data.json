@@ -1,0 +1,71 @@
+{
+  "scope": "Independent exact-value comparison of every old/new moment row, including both derived initial scalings and all20ladder integers. This does not replace Lean verification.",
+  "baseline_commit": "db680ff4d95bef901189b48c33524a5139b8eb07",
+  "encoding": "Explicit exact hexadecimal root integers; initial entries reconstructed by a shared scaling constructor. No approximate decoder.",
+  "witnesses": {
+    "215": {
+      "entries": 1861,
+      "integer_values_identical": true,
+      "canonical_values_sha256": "55b90fb6cd991de64e1dec3362337c966b1dad1bc5e8493b956b760b2456b915",
+      "source_before_bytes": 1297276,
+      "source_after_bytes": 1113181,
+      "files": [
+        "Sarkozy/Odd215MomentData.lean"
+      ]
+    },
+    "437": {
+      "entries": 18908,
+      "integer_values_identical": true,
+      "canonical_values_sha256": "d0b11034167ad56c05e63d33ca45bec9ce8545a90f0ecb2f3a7567fced3a6ba5",
+      "source_before_bytes": 13294527,
+      "source_after_bytes": 11440452,
+      "files": [
+        "Sarkozy/Odd437MomentChunks/Chunk000.lean",
+        "Sarkozy/Odd437MomentChunks/Chunk001.lean",
+        "Sarkozy/Odd437MomentChunks/Chunk002.lean",
+        "Sarkozy/Odd437MomentChunks/Chunk003.lean",
+        "Sarkozy/Odd437MomentChunks/Chunk004.lean",
+        "Sarkozy/Odd437MomentChunks/Chunk005.lean",
+        "Sarkozy/Odd437MomentChunks/Chunk006.lean",
+        "Sarkozy/Odd437MomentChunks/Chunk007.lean",
+        "Sarkozy/Odd437MomentChunks/Chunk008.lean",
+        "Sarkozy/Odd437MomentChunks/Chunk009.lean",
+        "Sarkozy/Odd437MomentChunks/Chunk010.lean",
+        "Sarkozy/Odd437MomentChunks/Chunk011.lean",
+        "Sarkozy/Odd437MomentChunks/Chunk012.lean",
+        "Sarkozy/Odd437MomentChunks/Chunk013.lean",
+        "Sarkozy/Odd437MomentChunks/Chunk014.lean",
+        "Sarkozy/Odd437MomentChunks/Chunk015.lean",
+        "Sarkozy/Odd437MomentChunks/Chunk016.lean",
+        "Sarkozy/Odd437MomentChunks/Chunk017.lean",
+        "Sarkozy/Odd437MomentChunks/Chunk018.lean"
+      ]
+    }
+  },
+  "generator_regeneration": {
+    "byte_identical": true,
+    "files": {
+      "Sarkozy/Odd215MomentData.lean": "3ecccf9f207d0f9a8f1a697204115bb203a7d282d554e259d9ff43fce3886823",
+      "Sarkozy/Odd437MomentData.lean": "a0d13ec2545633cc2420dc804af51af7ff00558cc3dfe3b0cc754e66acfd3136",
+      "Sarkozy/Odd437MomentChunks/Chunk000.lean": "82c80222b6c5ea70783e96b43ffbb9607e601d15714953ce672091bbaed91a3a",
+      "Sarkozy/Odd437MomentChunks/Chunk001.lean": "966a106430e236c71d73aff7bd71150860b27964e7323584dcdde49abaf6ed15",
+      "Sarkozy/Odd437MomentChunks/Chunk002.lean": "307dd3a5b2de013bdd2bbb17be575c15efe9614ca44dd82b76fbdc407eb4a583",
+      "Sarkozy/Odd437MomentChunks/Chunk003.lean": "b0be259ce687ffce16ce42e19fab017ee1d757933bec5e168cd0536b6c3875bc",
+      "Sarkozy/Odd437MomentChunks/Chunk004.lean": "07b79aae4873ac3564bd55588d7c1332641323b6cdc798744a9e4e1c73588357",
+      "Sarkozy/Odd437MomentChunks/Chunk005.lean": "f0746488b424ef10902053cc4ecc977362a1a7b5505d1ef3880c455949bdff2c",
+      "Sarkozy/Odd437MomentChunks/Chunk006.lean": "fb1392a405bedbba75c05f1419e6ec6bd07eede8bc167f32ba9e4321a0533022",
+      "Sarkozy/Odd437MomentChunks/Chunk007.lean": "1d75ff1be90896e8c78536aa85d8460259b92c422ba277d64083c7391156ef48",
+      "Sarkozy/Odd437MomentChunks/Chunk008.lean": "2fa76edcf1a649be5f929ebf03d11ab2b1f1d1a12ae1348db00e2e51af13da20",
+      "Sarkozy/Odd437MomentChunks/Chunk009.lean": "2668543f5a5cd8ff4e10ef22a40750e9774ce7525016c4808bd7f385ba0ba1a3",
+      "Sarkozy/Odd437MomentChunks/Chunk010.lean": "791a1ff398eb8330f57bb700aeab7b95a8fc11ec86e86626d2a3c829371ad164",
+      "Sarkozy/Odd437MomentChunks/Chunk011.lean": "3bb9bcbfc4646b53e12f451bfa52735318d0a8a99fb68152f87a4bc22c37098b",
+      "Sarkozy/Odd437MomentChunks/Chunk012.lean": "5d6fec782449fbb5e508c8a00f4251f9da7d8c219233f1b44721e8b82621b7aa",
+      "Sarkozy/Odd437MomentChunks/Chunk013.lean": "4b3d9567b0ddab9838eaa4df0b3449d21e7e9656ba58120faf329bd4c90511a3",
+      "Sarkozy/Odd437MomentChunks/Chunk014.lean": "d115208be49f61cc7f8e73dea86f4d873f9d359272873a0a7562ea25d9c25a9b",
+      "Sarkozy/Odd437MomentChunks/Chunk015.lean": "7628bd01796490cfbbb7747b4d62d2e0457eba1b3fe4268e5a23350199986df6",
+      "Sarkozy/Odd437MomentChunks/Chunk016.lean": "4962ff04e65dc41d524e465b445d5004f45c1ad1c2766f98d02f078a99bb9c30",
+      "Sarkozy/Odd437MomentChunks/Chunk017.lean": "7fa7036eb4278f63d80cfded8986a51a683ab2285448de4da860e2baf51e433c",
+      "Sarkozy/Odd437MomentChunks/Chunk018.lean": "96cac827be7eeb971b8fd1bb822611637ec6c7839a390ce3f0b1388eff029c0c"
+    }
+  }
+}

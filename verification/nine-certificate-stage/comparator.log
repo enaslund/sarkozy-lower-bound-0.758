@@ -1,0 +1,32 @@
+From https://github.com/leanprover/lean4export
+ * branch            4e7915201d3f9f04470d9eae002fa695f7cdc589 -> FETCH_HEAD
+HEAD is now at 4e79152 chore: bump toolchain to v4.32.0 (#41)
+From https://github.com/leanprover/comparator
+ * branch            68a064109f01c08f47c8edc9f51d6a2bbffaa188 -> FETCH_HEAD
+HEAD is now at 68a0641 Merge pull request #55 from leanprover/uppies
+From https://github.com/robsimmons/nanoda_lib
+ * branch            68d5ca9db226849b41a6fff59d796ff19d0a8840 -> FETCH_HEAD
+HEAD is now at 68d5ca9 chore: even more misc. bounds checks
+Build completed successfully (15 jobs).
+Build completed successfully (6 jobs).
+    Finished `release` profile [optimized] target(s) in 0.06s
+Current branch: HEAD
+Using cache from origin: (some leanprover-community/mathlib4)
+No files to download
+Already decompressed 8639 file(s)
+Building Challenge
+⚠ [8655/8656] Replayed Challenge
+warning: Challenge.lean:33:8: declaration uses `sorry`
+warning: Challenge.lean:52:8: declaration uses `sorry`
+warning: Challenge.lean:79:8: declaration uses `sorry`
+warning: Challenge.lean:107:8: declaration uses `sorry`
+Build completed successfully (8656 jobs).
+Exporting #[Nat, String, String.mk, Char, Char.ofNat, List, Quot, Quot.mk, Quot.lift, Quot.ind, SarkozySubmission.finite_construction, SarkozySubmission.interval_moment_bound, SarkozySubmission.conditional_improved_bound, SarkozySubmission.unconditional_example, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList] from Challenge
+Building Solution
+Build completed successfully (8668 jobs).
+Exporting #[Nat, String, String.mk, Char, Char.ofNat, List, Quot, Quot.mk, Quot.lift, Quot.ind, SarkozySubmission.finite_construction, SarkozySubmission.interval_moment_bound, SarkozySubmission.conditional_improved_bound, SarkozySubmission.unconditional_example, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList] from Solution
+Running nanoda kernel on solution
+Nanoda kernel accepts the solution
+Running Lean default kernel on solution.
+Lean default kernel accepts the solution
+Your solution is okay!

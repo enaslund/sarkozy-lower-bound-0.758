@@ -1,0 +1,109 @@
+Cloning into '/tmp/sarkozy-palomar-tools/verification/lean4export'...
+From https://github.com/leanprover/lean4export
+ * branch            4e7915201d3f9f04470d9eae002fa695f7cdc589 -> FETCH_HEAD
+HEAD is now at 4e79152 chore: bump toolchain to v4.32.0 (#41)
+Cloning into '/tmp/sarkozy-palomar-tools/verification/comparator'...
+From https://github.com/leanprover/comparator
+ * branch            68a064109f01c08f47c8edc9f51d6a2bbffaa188 -> FETCH_HEAD
+HEAD is now at 68a0641 Merge pull request #55 from leanprover/uppies
+Cloning into '/tmp/sarkozy-palomar-tools/verification/nanoda'...
+From https://github.com/robsimmons/nanoda_lib
+ * branch            68d5ca9db226849b41a6fff59d796ff19d0a8840 -> FETCH_HEAD
+HEAD is now at 68d5ca9 chore: even more misc. bounds checks
+go: downloading github.com/zouuup/landrun v0.1.18-0.20260723122309-811cfff51cea
+go: downloading github.com/urfave/cli/v3 v3.6.2
+go: downloading github.com/landlock-lsm/go-landlock v0.9.0
+go: downloading golang.org/x/sys v0.40.0
+go: downloading kernel.org/pub/linux/libs/security/libcap/psx v1.2.77
+info: downloading https://releases.lean-lang.org/lean4/v4.33.0-rc1/lean-4.33.0-rc1-linux.tar.zst
+info: installing /home/naslund_eric/src/enaslund/sarkozy-lower-bound/master/lean-formalization/.elan/toolchains/leanprover--lean4---v4.33.0-rc1
+info: lean4export: cloning https://github.com/leanprover/lean4export
+info: lean4export: checking out revision 'af5aa64bb914c3c2c781f378088dbd38acf4f804'
+✔ [1/4] Built Comparator.Util (608ms)
+✔ [5/16] Built Comparator.Util:c.o (290ms)
+✔ [6/16] Built Export.Parse (2.9s)
+✔ [7/16] Built Comparator.Axioms (1.0s)
+✔ [8/16] Built Comparator.Axioms:c.o (777ms)
+✔ [9/16] Built Comparator.Compare (1.4s)
+✔ [10/16] Built Comparator (724ms)
+✔ [11/16] Built Comparator:c.o (228ms)
+✔ [12/16] Built Comparator.Compare:c.o (1.0s)
+✔ [13/16] Built Main (2.6s)
+✔ [14/16] Built Main:c.o (996ms)
+✔ [15/16] Built Export.Parse:c.o (7.8s)
+✔ [16/16] Built comparator:exe (1.4s)
+Build completed successfully (16 jobs).
+✔ [2/6] Built Export (8.8s)
+✔ [3/6] Built Main (1.7s)
+✔ [4/6] Built Main:c.o (342ms)
+✔ [5/6] Built Export:c.o (4.8s)
+✔ [6/6] Built lean4export:exe (21s)
+Build completed successfully (6 jobs).
+    Updating crates.io index
+ Downloading crates ...
+  Downloaded serde_core v1.0.228
+  Downloaded equivalent v1.0.1
+  Downloaded itoa v1.0.15
+  Downloaded cfg-if v1.0.0
+  Downloaded autocfg v1.1.0
+  Downloaded rustc-hash v1.1.0
+  Downloaded ppv-lite86 v0.2.17
+  Downloaded rand_chacha v0.3.1
+  Downloaded semver v1.0.27
+  Downloaded quote v1.0.35
+  Downloaded rand_core v0.6.4
+  Downloaded num-integer v0.1.46
+  Downloaded ryu v1.0.20
+  Downloaded unicode-ident v1.0.12
+  Downloaded getrandom v0.2.11
+  Downloaded num-traits v0.2.17
+  Downloaded proc-macro2 v1.0.103
+  Downloaded serde_derive v1.0.228
+  Downloaded rand v0.8.5
+  Downloaded serde v1.0.228
+  Downloaded memchr v2.7.6
+  Downloaded num-bigint v0.4.4
+  Downloaded indexmap v2.13.0
+  Downloaded hashbrown v0.16.1
+  Downloaded serde_json v1.0.145
+  Downloaded syn v2.0.111
+  Downloaded libc v0.2.180
+   Compiling autocfg v1.1.0
+   Compiling proc-macro2 v1.0.103
+   Compiling unicode-ident v1.0.12
+   Compiling serde_core v1.0.228
+   Compiling serde v1.0.228
+   Compiling serde_json v1.0.145
+   Compiling equivalent v1.0.1
+   Compiling hashbrown v0.16.1
+   Compiling itoa v1.0.15
+   Compiling ryu v1.0.20
+   Compiling memchr v2.7.6
+   Compiling semver v1.0.27
+   Compiling rustc-hash v1.1.0
+   Compiling num-traits v0.2.17
+   Compiling num-bigint v0.4.4
+   Compiling indexmap v2.13.0
+   Compiling quote v1.0.35
+   Compiling syn v2.0.111
+   Compiling num-integer v0.1.46
+   Compiling serde_derive v1.0.228
+   Compiling nanoda_lib v0.4.6-beta (/tmp/sarkozy-palomar-tools/verification/nanoda)
+    Finished `release` profile [optimized] target(s) in 55.47s
+Current branch: HEAD
+Using cache from origin: (some leanprover-community/mathlib4)
+No files to download
+Already decompressed 8639 file(s)
+Building Challenge
+⚠ [8655/8656] Replayed Challenge
+warning: Challenge.lean:21:8: declaration uses `sorry`
+Build completed successfully (8656 jobs).
+Exporting #[Nat, String, String.mk, Char, Char.ofNat, List, Quot, Quot.mk, Quot.lift, Quot.ind, SarkozySubmission.finite_construction, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList] from Challenge
+Building Solution
+Build completed successfully (8658 jobs).
+Exporting #[Nat, String, String.mk, Char, Char.ofNat, List, Quot, Quot.mk, Quot.lift, Quot.ind, SarkozySubmission.finite_construction, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList] from Solution
+Running nanoda kernel on solution
+Nanoda kernel accepts the solution
+Running Lean default kernel on solution.
+Lean default kernel accepts the solution
+Your solution is okay!

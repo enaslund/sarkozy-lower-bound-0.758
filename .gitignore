@@ -1,0 +1,7 @@
+/.elan/
+/.lake/
+/.cache/
+/dist/
+__pycache__/
+*.py[cod]
+/papers/build/

@@ -1,0 +1,92 @@
+{
+  "recorded_utc": "2026-09-10T23:46:32.940236+00:00",
+  "scope": "General interval-moment criterion for square-difference-free integer sets, finite CRT construction, conditional target exponent 0.75806746, and unconditional illustrative exponent 3/5.",
+  "theorems": [
+    "SarkozySubmission.finite_construction",
+    "SarkozySubmission.interval_moment_bound",
+    "SarkozySubmission.conditional_improved_bound",
+    "SarkozySubmission.unconditional_example"
+  ],
+  "results": {
+    "lean_build": "passed",
+    "axiom_inspection": "passed: 15 declarations",
+    "comparator": "passed",
+    "nanoda": "passed",
+    "lean_kernel_replay": "passed",
+    "metadata_v0_4_schema": "passed",
+    "metadata_targeted_policy_checks": "passed; scope enumerated in metadata.log",
+    "package_static_checks": "passed; scope enumerated in package-check.log",
+    "hosted_ci": "not run",
+    "palomar_submission": "not submitted"
+  },
+  "permitted_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "remaining_hypotheses": "Canonical expanded alphabets at the fixed nine bases; common positive lower width bound and upper width bound strictly below one; unit-interval geometry; order along modular square differences; nine numerical moment inequalities. JSON parsing, odd/binary certificate expansion, and numerical enclosures have not been proved to discharge these hypotheses. Joint satisfiability of the nine target hypotheses is not proved in Lean.",
+  "proved_target_parameters": {
+    "alpha": "37903373/50000000",
+    "contribution_surplus": "25671/1000000000000"
+  },
+  "toolchains": {
+    "project_and_exporter": "leanprover/lean4:v4.32.0",
+    "comparator_build": "leanprover/lean4:v4.33.0-rc1"
+  },
+  "mathlib_commit": "81a5d257c8e410db227a6665ed08f64fea08e997",
+  "tool_commits": {
+    "comparator": "68a064109f01c08f47c8edc9f51d6a2bbffaa188",
+    "lean4export": "4e7915201d3f9f04470d9eae002fa695f7cdc589",
+    "landrun": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "nanoda": "68d5ca9db226849b41a6fff59d796ff19d0a8840"
+  },
+  "source_sha256": {
+    ".gitignore": "9b9610dd40fa0ea41b22a910d6c2ef3b020249745a642d8c3257b547d758532a",
+    "Challenge.lean": "629f0e53c95a3480574c354790603ecb28e033221a41a6c0c642aadbf9b68d6d",
+    "Check.lean": "063db96455d524cfb9819118dd9472c43b17cc6139f10639d20e8024c7ac3882",
+    "LICENSE": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+    "PROOF.md": "3a1b80631b29eb3209173b0ec5c26d3b62eb28fe2bba40e7e990bb5d96de309f",
+    "README.md": "1b7ac6bfab9d8a491d2995823e7028c4ebe86a444465ace5f97c5c3bccdb4563",
+    "SUBMISSION.md": "c3f758c93bf98a89a1d46384da63501033a3407ff99989ab41fbf4306872db24",
+    "Sarkozy.lean": "696f3fd6e69dc0177b25f0eb8aca8e3fe21931b2c86dc71110ad7b3aba78c6ca",
+    "Solution.lean": "171aaba65d645b7a85c09721d68d8e9ad28466b83a07cdf4ceb61b3fa5d63224",
+    "comparator.json": "84942d360b43d0b9148642ba48f79430c8aba33d7e7c7d3eca3cd7717eeee633",
+    "env.sh": "1e3d07bc1bea383e772b800bec04f4cd1f3060b06d2a7c6b2f0c5345e14a9e2d",
+    "formalization.yaml": "12848652c6e89293dbfffd36092a047da12e8000fb38651725474f689e8d4323",
+    "lake-manifest.json": "8aba48e285caa5cbbd53665707ef415a73d3d27d8b99dba241066e9dcd6bc55a",
+    "lakefile.toml": "6eb47bd8be7358b8b28d5896523bb7ea2a29e5224f3792e1519e0c23ad4c049c",
+    "lean-toolchain": "2773c517aa90b66ea8a2c52bddddf84393157797f8341be0df45294fff7fd32e",
+    ".github/workflows/ci.yml": "d7ced3ac93ec9c896fd46bf4ef9a1785f72d3fabc53cc52bfd0a42c863bd7a17",
+    "Sarkozy/Asymptotic.lean": "b49bd30ab18ae2470d82767e216525bcaf921a04a2c967a4f128e56bd4d244bd",
+    "Sarkozy/CRT.lean": "2c9dda7c108afddf0c336ca03e0b43dac5cce2057bec2cd85e11b1ebe3b6d15a",
+    "Sarkozy/Certificate.lean": "98eaa133841330c6e9b1bf5a292e084452e219c239340208fb8e954e44995dce",
+    "Sarkozy/Examples.lean": "0896072577744fe80c9903898ddde58fecb5f55b1b016662402b633e64bc577c",
+    "Sarkozy/Growth.lean": "f8316ee12f40e89a35c67c164895e741401fb899d9c6da301c67379e3dda6315",
+    "Sarkozy/Intervals.lean": "2573bbc1f2f56d201d49dad1ebc0a0af8363d42a67e6645bb512652fb724dda3",
+    "Sarkozy/Moment.lean": "bfd88fc98d195d2393ebe808f71b37f864c79d4945e7a756b8aaa997f91c3dc8",
+    "Sarkozy/Parameters.lean": "8cad2538a1ccebb592ef63ff16038ba2b2e30ca210d380a1c17a26080c80fae1",
+    "Sarkozy/QuantitativeExamples.lean": "647925a6c48fa895a8273f5f8641c3c7e0768bcd790341e066f7a7cd8c85d9a8",
+    "Sarkozy/Ranked.lean": "877bbc3691f2c5ac3739de8f13f567642547d260ff83365d5654d288c1ae8d8a",
+    "Sarkozy/Stopping.lean": "ccf8ee67a168ee08dd6ae301d933f06abdd37ec0d8167f798c441e986371d426",
+    "Sarkozy/Target.lean": "5d12aba78cf9a267cdbfae1713eb3778b83daec8596fab678feaba46d75faa41",
+    "Sarkozy/Words.lean": "56af1ec9da7b765c5698cb4ba037a0c3fd7246ac69466273bba5a8a5b8df8404",
+    "scripts/landrun-wrapper.sh": "1df02453c876edf109ffbdf1b3025ecabe31fef226356f06510966504c7dafd7",
+    "scripts/verify-comparator.sh": "c481ab46652e9f7f4c4ec10c1df2c2e63bb72d67bededaeb0bd87cff94debb17",
+    "verification/README.md": "b25990857bee6cd414a4c78020b87d00e82f9b42025ced1470f9b734f4159158",
+    "verification/finite-stage/README.md": "7721faf090293eca7fc0b8d0dde5f27e52df1d86fc82bbd19bc9dc3215a785be",
+    "verification/finite-stage/axioms.log": "c166ecd234388c7c4375fca53c3b6291b1c98a7ee86d1546b45310dd35f3ecbe",
+    "verification/finite-stage/build.log": "a5fd4043d3048457518566ffe0794105b94f7fc7c74491200867932cbd90fde8",
+    "verification/finite-stage/comparator.log": "183e04f52cc8aeca78446ecd23bea6fd7c73b27b54254da9f7646c04199fb124",
+    "verification/finite-stage/metadata.log": "13c3cb12761cd3172bd47bea78796e289d49e5c7f19b8aa620fd151efa167aad",
+    "verification/finite-stage/snapshot.json": "ba3f3c4df8b76586d35ddbe661c62e73ca2eeb54c0f6db67c262e52e1b58e1de"
+  },
+  "log_sha256": {
+    "verification/axioms.log": "bb16dab0de78af628344e446803dfd35392dbdb4d7345815fc3ecd5e6299e2ef",
+    "verification/build.log": "13e67e5f32446fa30f1fbc2d52a9c809400993042478292e811282006bf5b9b6",
+    "verification/comparator.log": "31358109dc53d90b1ae17273a78caade7949977cb6d45cb7ffde80f3c67d558c",
+    "verification/metadata.log": "3c2f1d72e5634213899e46f5967914bed4378d5f8d710124c01731de92dec289",
+    "verification/package-check.log": "f64e2d9e51588f9ada443bc8d8f115166785154e1279250617ac219362c2b237"
+  },
+  "note": "Four intentional statement placeholders in Challenge; none in the proved Solution/library. Comparator verifies all four advertised theorems and their dependencies. The source hashes cover all distributed files except this self-referential snapshot record, which is covered by the exported Git commit. Historical finite-stage records are retained as historical files. Nothing has been published or submitted to Palomar.",
+  "template_reference_commit": "128a6c5ce5f48622e69927ccd639cbff401022e8"
+}

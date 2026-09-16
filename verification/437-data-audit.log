@@ -1,0 +1,138 @@
+Independent 437 data and numerical-proposal audit
+Date: 2026-09-11 UTC
+Reviewer: Codex research agent, independent of the 437 certificate generators
+
+Scope and status
+----------------
+PASS: read-only Python comparison of the generated data with the original
+JSON, exact integer checks of every numerical proposal, and source review of
+the generic numerical checker. No Lean build or Lean axiom audit was run as
+part of this audit. These results do not certify that the complete Lean
+development builds, and do not constitute a Palomar verification or acceptance.
+The Lean builders were running separately.
+
+The order-data comparison completed at 2026-09-11T04:12:07.435857+00:00.
+The stable moment-data comparison ran from
+2026-09-11T04:12:57.369488+00:00 to 2026-09-11T04:13:04.034701+00:00.
+No file read during the moment comparison changed before its final hash check.
+An earlier attempted moment comparison overlapped module regrouping and was
+discarded; the successful comparison used the complete regenerated layout.
+
+Input and audited snapshot hashes (SHA256)
+----------------------------------------
+Source: research-notes/odd-push/q437-depth3-final.json
+7abd0c007c42fa1a5484ea8a4d02c56b04898209f74a0403c5503c03395e58d3
+
+lean-formalization/Sarkozy/OddOrderData437.lean
+be2a3e40193e22e5e52fb1b148dca505b635db45ab170aea336e16a87fa9fad2
+
+lean-formalization/scripts/generate-odd437-order.py
+36615897d856ba693f7d8d8b9666b7333b644237ff1a83702617fd11139d8476
+
+lean-formalization/Sarkozy/Odd437MomentData.lean
+a00c87c99ad7226443abf23b470a3fcfceeef9c371d3013f6aaf141e511b8a5a
+
+lean-formalization/scripts/generate-odd437-moments.py
+42f9e4dfcada0fe2b2ef875523c18708857e31e5bc8dbd254415906a5041c7f4
+
+lean-formalization/Sarkozy/Odd437MomentChecker.lean
+7f997ca241262ea95c6f52ca08099d40cde2a65e1eac913cdfe015245fb56366
+
+Aggregate digest of the 19 moment module hashes:
+586de650f1da949fcdefe70ac2af261a8612c8147eee312cca480dd7c03ea9e8
+Algorithm: SHA256 of the concatenation, without separators or a final newline,
+of the lowercase hexadecimal SHA256 digests of
+Sarkozy/Odd437MomentChunks/Chunk000.lean through Chunk018.lean, in that order.
+
+These hashes identify the audited snapshot. Source files may subsequently be
+changed for compilation performance or other reasons. Recheck the hashes at
+final verification and repeat affected comparisons if the content differs.
+
+Geometry and provenance comparison
+----------------------------------
+The JSON has primes [19, 23], depth 3, and interval denominator 10^16.
+All 19,683 point/start/width tuples were read directly from the JSON. Each
+three-digit coordinate word was independently packed in little-endian order:
+digit[0] + p*digit[1] + p^2*digit[2]. The resulting rows were sorted by
+(start + width, first_coordinate + 19^3*second_coordinate).
+
+Every resulting tuple agrees exactly with its endpoint-sorted row in
+OddOrderData437.lean. No point, start, or width is lost or altered by sorting.
+All 19,683 original OddData437.lean rows also have exactly the same tuple
+multiset as the JSON. All packed points are distinct.
+
+Every cutoff agrees with an independent bisect_right calculation: it is the
+number of source endpoints at most the target start. The maximum endpoint is
+9999999524038902, agreeing with the JSON exact_max_path_numerator and below
+the denominator 10000000000000000. This comparison did not independently
+recheck all prefix masks or graph edges; those are separate Lean order checks.
+
+Moment data and exact proposal checks
+------------------------------------
+The stable layout has 19 Lean modules containing 148 independent blocks:
+namespaces MomentChunk000 through MomentChunk147. Blocks contain 128 entries,
+except for the final block's 92 entries. The public moment histogram is the
+concatenation of those 148 block histograms.
+
+All 18,908 distinct width/multiplicity pairs, parsed from those histograms,
+equal the increasingly sorted Counter of the JSON width_numerators. Their
+total multiplicity is exactly 19,683. Each block histogram agrees entry by
+entry with the block's numerical certificate data.
+
+Parameters checked independently:
+  width denominator:       10000000000000000 = 10^16
+  lower-bound denominator: 1000000000000 = 10^12
+  internal ladder D:       100000000000000000000000000 = 10^26
+  component power:         67871875356 / 1000000000000
+  target exponent:         37903373 / 50000000 = 0.75806746
+
+For every entry (width w, multiplicity m, proposed lower numerator y), checked:
+  * m is positive and the histogram pair equals (w, m).
+  * a0 = w*10^10 and b0 = y*10^14, giving the correct initial ratios at D.
+  * Both root ladders have exactly 10 steps and all entries are positive.
+  * Each lower step is exactly floor(sqrt(previous*D)).
+  * Each upper step is exactly ceil(sqrt(previous*D)).
+  * All 378,160 corresponding integer square inequalities hold.
+  * Both terminal numerators lie in (0, D].
+  * All 18,908 integer polynomial comparisons used by FastPowerValid hold.
+  * Decimal arithmetic at precision 80 reproduces every proposed endpoint:
+      y = floor((w/10^16)^(67871875356/10^12) * 10^12) - 1.
+    This floating-point reproduction checks provenance only; the exact
+    integer inequalities provide the independent arithmetic checks.
+
+The polynomial was evaluated independently as follows. For a terminal a,
+let z = D-a, P(a) = a*sum_{k=1}^8 ((840/k)*z^k*D^(8-k)),
+and E(a) = 840*z^9. With p = 67871875356 and q = 10^12, checked
+  p*b*(P(a)+E(a)) + q*a*E(b) <= q*a*P(b)
+for every pair of terminal numerators a, b.
+
+Each block's exact sum of m*y agrees with its declared lower numerator and
+with the numerator used by the main module's momentBlocks list. Adding all
+blocks gives exactly
+  sum(m*y) = 12261229628963862.
+Thus the certified proposed lower moment sum is
+  12261229628963862 / 1000000000000.
+
+Numerical checker source review
+-------------------------------
+No denominator, scaling, inequality-direction, or analytic-soundness copy
+error was found in Odd437MomentChecker.lean. The initial equalities connect
+the certificate ratios to w/10^16 and y/10^12. FastPowerValid supplies all
+hypotheses of PowerChecker.Valid using PowerPolynomial.log_comparison_of_nat.
+PowerChecker.sound then gives the actual real-power lower bound. Summation
+multiplies by nonnegative natural-number multiplicities, and moment_blocks_lower
+adds the block bounds without changing the exponent or denominator.
+
+Historical JSON numerical metadata
+---------------------------------
+The source JSON retains target_alpha = 0.7580419 and tested_power = 0.0681.
+These are historical search metadata, not inputs to the new Lean numerical
+theorem. The new proposed endpoints and every exact comparison were recomputed
+at component power 67871875356/10^12, for the construction targeting
+37903373/50000000. The historical metadata therefore do not describe the
+stronger numerical check established by the new certificate files.
+
+Final moment generator reproducibility follow-up, 2026-09-11T04:40:49.221707+00:00:
+PASS: all 20 generated Lean files match fresh temporary regeneration; all 19 certificate-module hashes remain unchanged from the independently audited snapshot.
+The assembly proof and generator changed; the individual certificate data did not. See 437-moment-repro.json for exact hashes and scope.
+Root rechecked every receipt hash against the current source before preserving this receipt.

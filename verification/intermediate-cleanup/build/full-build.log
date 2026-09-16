@@ -1,0 +1,80 @@
+⚠ [8670/8804] Replayed Sarkozy.PrimeChains
+warning: Sarkozy/PrimeChains.lean:55:42: Variable name `hp` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [8676/8804] Replayed Sarkozy.OddData
+warning: Sarkozy/OddData.lean:56:10: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: Sarkozy/OddData.lean:56:34: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+⚠ [8677/8804] Replayed Sarkozy.PowerChecker
+warning: Sarkozy/PowerChecker.lean:53:61: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Sarkozy/PowerChecker.lean:77:61: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [8678/8804] Replayed Sarkozy.PowerPolynomial
+warning: Sarkozy/PowerPolynomial.lean:33:24: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Sarkozy/PowerPolynomial.lean:42:28: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: Sarkozy/PowerPolynomial.lean:42:28: 'ring' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+⚠ [8679/8804] Replayed Sarkozy.OddOrder
+warning: Sarkozy/OddOrder.lean:33:22: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [8680/8804] Replayed Sarkozy.OddOrderCertificate
+warning: Sarkozy/OddOrderCertificate.lean:109:10: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: Sarkozy/OddOrderCertificate.lean:109:34: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+⚠ [8745/8804] Replayed Challenge
+warning: Challenge.lean:27:8: declaration uses `sorry`
+warning: Challenge.lean:51:8: declaration uses `sorry`
+✔ [8777/8804] Built Sarkozy.Target (8.9s)
+⚠ [8778/8804] Built Sarkozy.OddMoments (9.2s)
+warning: Sarkozy/OddMoments.lean:41:2: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+✔ [8779/8804] Built Sarkozy.Binary (10s)
+✔ [8780/8804] Built Sarkozy.BinaryGrowth (7.8s)
+✔ [8781/8804] Built Sarkozy.QuantitativeExamples (21s)
+✔ [8782/8804] Built Sarkozy.BinaryPolicy (8.3s)
+✔ [8783/8804] Built Sarkozy.BinaryRealData (9.0s)
+✔ [8784/8804] Built Sarkozy.RecordBinaryTarget (7.1s)
+✔ [8785/8804] Built Sarkozy.OddData215 (49s)
+✔ [8786/8804] Built Sarkozy.BinaryDepth (16s)
+✖ [8787/8804] Building Sarkozy.Odd437WidthHistogram (80s)
+trace: .> LEAN_PATH=/home/naslund_eric/src/enaslund/sarkozy-lower-bound/master/lean-formalization/.lake/packages/Cli/.lake/build/lib/lean:/home/naslund_eric/src/enaslund/sarkozy-lower-bound/master/lean-formalization/.lake/packages/batteries/.lake/build/lib/lean:/home/naslund_eric/src/enaslund/sarkozy-lower-bound/master/lean-formalization/.lake/packages/Qq/.lake/build/lib/lean:/home/naslund_eric/src/enaslund/sarkozy-lower-bound/master/lean-formalization/.lake/packages/aesop/.lake/build/lib/lean:/home/naslund_eric/src/enaslund/sarkozy-lower-bound/master/lean-formalization/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/naslund_eric/src/enaslund/sarkozy-lower-bound/master/lean-formalization/.lake/packages/importGraph/.lake/build/lib/lean:/home/naslund_eric/src/enaslund/sarkozy-lower-bound/master/lean-formalization/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/naslund_eric/src/enaslund/sarkozy-lower-bound/master/lean-formalization/.lake/packages/plausible/.lake/build/lib/lean:/home/naslund_eric/src/enaslund/sarkozy-lower-bound/master/lean-formalization/.lake/packages/mathlib/.lake/build/lib/lean:/home/naslund_eric/src/enaslund/sarkozy-lower-bound/master/lean-formalization/.lake/build/lib/lean /home/naslund_eric/src/enaslund/sarkozy-lower-bound/master/lean-formalization/.elan/toolchains/leanprover--lean4---v4.32.0/bin/lean /home/naslund_eric/src/enaslund/sarkozy-lower-bound/master/lean-formalization/Sarkozy/Odd437WidthHistogram.lean -o /home/naslund_eric/src/enaslund/sarkozy-lower-bound/master/lean-formalization/.lake/build/lib/lean/Sarkozy/Odd437WidthHistogram.olean -i /home/naslund_eric/src/enaslund/sarkozy-lower-bound/master/lean-formalization/.lake/build/lib/lean/Sarkozy/Odd437WidthHistogram.ilean -c /home/naslund_eric/src/enaslund/sarkozy-lower-bound/master/lean-formalization/.lake/build/ir/Sarkozy/Odd437WidthHistogram.c --setup /home/naslund_eric/src/enaslund/sarkozy-lower-bound/master/lean-formalization/.lake/build/ir/Sarkozy/Odd437WidthHistogram.setup.json --json
+error: Lean exited with code 143
+⚠ [8788/8804] Built Sarkozy.BinaryRows (110s)
+warning: Sarkozy/BinaryRows.lean:54:56: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Sarkozy/BinaryRows.lean:59:56: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [8789/8804] Built Sarkozy.Odd215Threshold (97s)
+✔ [8790/8804] Built Sarkozy.Odd437Threshold (98s)
+✔ [8791/8804] Built Sarkozy.TwoOddTarget (7.8s)
+✔ [8792/8804] Built Sarkozy.RecordTarget (5.1s)
+✔ [8793/8804] Built Sarkozy.Odd215Moment (33s)
+✔ [8794/8804] Built Sarkozy.OddData437 (206s)
+✔ [8795/8804] Built Sarkozy.ActualOddTarget (5.1s)
+✔ [8797/8804] Built Sarkozy.Odd215Certificate (19s)
+✔ [8798/8804] Built Sarkozy.OneOddTarget (4.7s)
+✔ [8802/8804] Built Sarkozy.Odd437Moment (91s)
+Some required targets logged failures:
+- Sarkozy.Odd437WidthHistogram
+error: build failed

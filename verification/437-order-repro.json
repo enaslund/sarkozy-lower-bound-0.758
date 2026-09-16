@@ -1,0 +1,215 @@
+{
+  "status": "passed",
+  "verified_at_utc": "2026-09-11T05:20:07.256619+00:00",
+  "description": "Independent temporary-directory regeneration and exact byte comparison; no Lean build or production source edits.",
+  "source_json": {
+    "path": "research-notes/odd-push/q437-depth3-final.json",
+    "sha256": "7abd0c007c42fa1a5484ea8a4d02c56b04898209f74a0403c5503c03395e58d3"
+  },
+  "generators": {
+    "scripts/generate-odd437-order.py": "36615897d856ba693f7d8d8b9666b7333b644237ff1a83702617fd11139d8476",
+    "scripts/generate-odd437-order-chunks.py": "85fd044f5fc5e380288f6861a7c5cd8b8f7504be136dde5f3d27ef1054fe5312"
+  },
+  "wrapper_recipe": {
+    "template": "Sarkozy/OddOrder215.lean",
+    "template_sha256": "54553a310a1a5515f3a915d861fd9a3a5cd50339de16b86d8ced6843267e78fc",
+    "ordered_literal_replacements": [
+      [
+        "215",
+        "437"
+      ],
+      [
+        "4913",
+        "19683"
+      ],
+      [
+        "125",
+        "6859"
+      ],
+      [
+        "79507",
+        "12167"
+      ],
+      [
+        "recordOddPrimes 0",
+        "recordOddPrimes 1"
+      ],
+      [
+        "5 43",
+        "19 23"
+      ],
+      [
+        "G5",
+        "G19"
+      ],
+      [
+        "G43",
+        "G23"
+      ],
+      [
+        "open OddOrder\n",
+        "open OddOrder\n\nnoncomputable section\n"
+      ],
+      [
+        "end Sarkozy.OddOrder437",
+        "end\n\nend Sarkozy.OddOrder437"
+      ],
+      [
+        "import Sarkozy.OddOrderChecks437\n",
+        "import Sarkozy.OddOrderChecks437\nimport Sarkozy.OddOrderEndpoints437\n"
+      ],
+      [
+        "sources_checked targets_checked endpoints_sorted",
+        "sources_checked targets_checked endpoints_sorted_checked"
+      ]
+    ]
+  },
+  "verification_driver_sha256": "c6e76881dcbf31c16a201af72f8d2f1da5c2009fe3f8992711b65f9aa8ea4d05",
+  "counts": {
+    "rows": 19683,
+    "max_rows_per_block": 128,
+    "blocks": 154,
+    "separate_boolean_checks": 308,
+    "max_blocks_per_module": 8,
+    "chunk_modules": 20,
+    "compared_files": 24
+  },
+  "data_statistics": {
+    "rows": 19683,
+    "prefix_nodes": [
+      970,
+      2641
+    ],
+    "endpoint_nodes": 19683,
+    "lean_bytes": 12502494,
+    "largest_endpoint": 9999999524038902
+  },
+  "production_source_unchanged": true,
+  "supporting_proof_source_sha256": {
+    "Sarkozy/OddEndpointCheck.lean": "863576b94c43aafe219b8c584186015bfd0ae786ed81f34afef7715ca30caa47",
+    "Sarkozy/OddOrderEndpoints437.lean": "adb9ab2e7fe26d3fd45916fbf2fbfdae876208bdab0bb6ee32ceb144273535af"
+  },
+  "endpoint_proof_interface": "The wrapper uses endpoints_sorted_checked from the separately proved Boolean adjacent-endpoint checker; the original global IsChain decision in OddOrderBase437 is retained but is not used by low_order.",
+  "outputs": {
+    "Sarkozy/OddOrder437.lean": {
+      "sha256": "d8b8cc367b3266bdeb32fb9991a23e749655adeff8b7f47165006e1a75846e92",
+      "bytes": 2614,
+      "matches_frozen_source": true
+    },
+    "Sarkozy/OddOrderBase437.lean": {
+      "sha256": "bc763c5ef659a473faf4bc3f68547eeacd14dfe58b2c090bfdf48df921a2d0e3",
+      "bytes": 876,
+      "matches_frozen_source": true
+    },
+    "Sarkozy/OddOrderChecks437.lean": {
+      "sha256": "d79591520a74de16de9fb9737edce15c30e958a4ff1014e6ca5de310990ceedc",
+      "bytes": 9667,
+      "matches_frozen_source": true
+    },
+    "Sarkozy/OddOrderChunks437/Chunk00.lean": {
+      "sha256": "092ba575768bba5cf3c49e34dca6a802be5a3ea7c759d306aa53813c91e34d86",
+      "bytes": 3043,
+      "matches_frozen_source": true
+    },
+    "Sarkozy/OddOrderChunks437/Chunk01.lean": {
+      "sha256": "dc1ce15e1377060afeb4a509755c076087ab162495c07a51b59eaa1f69397fd7",
+      "bytes": 3096,
+      "matches_frozen_source": true
+    },
+    "Sarkozy/OddOrderChunks437/Chunk02.lean": {
+      "sha256": "29be7fc81872b5ecec32bdc79e5b5ef5ae133ae0136d537263d75a40f434c228",
+      "bytes": 3096,
+      "matches_frozen_source": true
+    },
+    "Sarkozy/OddOrderChunks437/Chunk03.lean": {
+      "sha256": "d98987118284438a09eeb69ad702ed75c3078fd9b921e630829d951dc6e931ce",
+      "bytes": 3096,
+      "matches_frozen_source": true
+    },
+    "Sarkozy/OddOrderChunks437/Chunk04.lean": {
+      "sha256": "df5872a5ae7e8ce46dc964bca997b0f2c8f864e326bf6aeb6c4cf5ea3d40b363",
+      "bytes": 3096,
+      "matches_frozen_source": true
+    },
+    "Sarkozy/OddOrderChunks437/Chunk05.lean": {
+      "sha256": "aaf488becdc912ba813881019eaea62f9a8777bd0ae634379edead45b8ba6e48",
+      "bytes": 3096,
+      "matches_frozen_source": true
+    },
+    "Sarkozy/OddOrderChunks437/Chunk06.lean": {
+      "sha256": "7102ce4a9542235645055ca7e493ccf5b74f769b26ca7f4328442a714907cfae",
+      "bytes": 3096,
+      "matches_frozen_source": true
+    },
+    "Sarkozy/OddOrderChunks437/Chunk07.lean": {
+      "sha256": "762399f91b11b0d33fa95d7156a274b9409b5fc7056d86458ba920404a808bbe",
+      "bytes": 3096,
+      "matches_frozen_source": true
+    },
+    "Sarkozy/OddOrderChunks437/Chunk08.lean": {
+      "sha256": "64c3eaa102863c8ab5b6a4750a20558f7c00dfadb1554ea0a4af4bc01f65a9d8",
+      "bytes": 3096,
+      "matches_frozen_source": true
+    },
+    "Sarkozy/OddOrderChunks437/Chunk09.lean": {
+      "sha256": "d65a5b9e6bec7caaaf62ad8dbd85d7c640be92139598349fbac0854682963af9",
+      "bytes": 3101,
+      "matches_frozen_source": true
+    },
+    "Sarkozy/OddOrderChunks437/Chunk10.lean": {
+      "sha256": "d5c32243623984bac9aeafa8144716207946ae7f81a30311cbdaacc7e57d4524",
+      "bytes": 3130,
+      "matches_frozen_source": true
+    },
+    "Sarkozy/OddOrderChunks437/Chunk11.lean": {
+      "sha256": "020b8fe6b451c13a82a67ebbb0ff2211b0a7a99bcc5d217cb0487657f27f9118",
+      "bytes": 3130,
+      "matches_frozen_source": true
+    },
+    "Sarkozy/OddOrderChunks437/Chunk12.lean": {
+      "sha256": "c704fe6e2ab6e2667f2c35eb1dd2cdea2d4e9d1d230977b95f770b389777eaa4",
+      "bytes": 3138,
+      "matches_frozen_source": true
+    },
+    "Sarkozy/OddOrderChunks437/Chunk13.lean": {
+      "sha256": "a5e14f9167852248a38b4010ce035b6539a1d35171ae3d6167a3546b031ab908",
+      "bytes": 3146,
+      "matches_frozen_source": true
+    },
+    "Sarkozy/OddOrderChunks437/Chunk14.lean": {
+      "sha256": "e4b58b3d6a949c0adc25392e5e3796a0ac4444c33fd0afc6f75dfa512f7ceb8f",
+      "bytes": 3146,
+      "matches_frozen_source": true
+    },
+    "Sarkozy/OddOrderChunks437/Chunk15.lean": {
+      "sha256": "9caebe6b4a7fe3a05db94d6ec27239b87d8d6857f94b0368af613bbc49da09e1",
+      "bytes": 3146,
+      "matches_frozen_source": true
+    },
+    "Sarkozy/OddOrderChunks437/Chunk16.lean": {
+      "sha256": "7ef9ccf262cedca282ec3e62676dc51d37d9d508bd5eebbf040e9e1bfcbc6557",
+      "bytes": 3146,
+      "matches_frozen_source": true
+    },
+    "Sarkozy/OddOrderChunks437/Chunk17.lean": {
+      "sha256": "4191be0a2076cf9d1c0cac86612a135100d559b7429f9aa2a33b9cb41e4d0495",
+      "bytes": 3146,
+      "matches_frozen_source": true
+    },
+    "Sarkozy/OddOrderChunks437/Chunk18.lean": {
+      "sha256": "9541e135d9dc8aefed2a89b051a5ad141a70ec12463dc1e99be35ede02b0f4c0",
+      "bytes": 3146,
+      "matches_frozen_source": true
+    },
+    "Sarkozy/OddOrderChunks437/Chunk19.lean": {
+      "sha256": "1b8104ae670026bad17c2f9307576a7d3b23ec197438bfeb89239caf7f6d7e0e",
+      "bytes": 1190,
+      "matches_frozen_source": true
+    },
+    "Sarkozy/OddOrderData437.lean": {
+      "sha256": "89ab16b82c9857aa076052816a03986ef92f7cb2f6c6987eb513efa3187c6a9c",
+      "bytes": 12502494,
+      "matches_frozen_source": true
+    }
+  }
+}

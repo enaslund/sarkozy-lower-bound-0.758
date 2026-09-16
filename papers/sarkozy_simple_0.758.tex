@@ -1,0 +1,1380 @@
+% Standalone paper: mathematics, references, data and verifier.
+% Compile three times with pdflatex -no-shell-escape.
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs,longtable,array}
+\usepackage{xcolor}
+\usepackage{microtype}
+\usepackage{listings}
+\usepackage[colorlinks=true,linkcolor=blue!55!black,citecolor=blue!55!black,urlcolor=blue!55!black]{hyperref}
+\usepackage{attachfile2}
+\hypersetup{pdftitle={A simpler construction of square-difference-free sets beyond exponent 0.758},pdfauthor={Eric Naslund}}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\N}{\mathbb N}
+\newcommand{\R}{\mathbb R}
+\newcommand{\QR}{\mathcal Q}
+\newcommand{\al}{\alpha_0}
+\newcommand{\card}[1]{\lvert #1\rvert}
+\DeclareMathOperator{\supp}{supp}
+\lstset{basicstyle=\ttfamily\small,columns=fullflexible,breaklines=true,keepspaces=true,showstringspaces=false,frame=single}
+\begin{filecontents*}[overwrite]{sarkozy-simple-certificate.py}
+#!/usr/bin/env python3
+"""Complete finite certificate for square-difference-free exponent 0.758001.
+Run with Python 3 without -O: standard library only, no network or optimizer.
+Default: extract to a temporary directory and execute all checks.
+Use --extract DIRECTORY to retain the unpacked data, verifiers, and report.
+"""
+import argparse, base64, hashlib, io, pathlib, subprocess, sys, tempfile, zipfile
+ARCHIVE_SHA256 = '4e768df0fcf2096bdde3416928a709a6ba1a6119231bc27510a1e377a50140c3'
+PAYLOAD = """
+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
+RqhezKLleODwuawNbP9YXz5+/rr+4/Pd+u0ywOrT3ke/dIOrx/X979vHz+svd9frff3q5+CiMbR6
+Obl9eNxuPt/tvm/vn08aH4aXUw+P68dvT+sJq38+/ZWLy+vt5X+2m4uHm693X26ubi7Xjze7208X
+m9332+/r+83F/e7b7ebm9veL3dXFw/p/+0uvtuuHm9++bC92m83F80rFwyv27tv95XaP/efzE62u
+br48fVrdbx+26/vL64+3uz2zX/a3fXyp+OW/dggfN9u7x2v+uL66urndftz/t/7y878fdrerF2FW
+D9drdv4JyFzx1m5jcFcbE4ar9Xq4cjFyIAoUtsNvZuvNpb1cp43d8voquM1VMBv322VItDXWZcT8
+TE+YV192u/u/PS+9/OP5Yf7+y/OH1f7Svz789eH/UEsDBBQAAAAIAAAAK13hpb1HXAIAAMUcAAAQ
+AAAAZGF0YS9iaW5hcnkuanNvbu1ZXY+qMBB991cQnr06bSkf9/6UzcZ0sVyasGBq1Riz/32LClvZ
+dQMCKkYeTOdQxp6Z6WEadiPLspeKqdXS/mvZkUiF4pZkSmQpS6w3kTK5tUIulYhEyBT/Z8lVegS2
+k8XWUpm15lIb9jj3xZJFzHJXMPGoD4AOcHSAEHWO03IbT3wX8AGY84WKNYggv/aQzDKVI3tjzUOV
+SW2+aEvbbhBgND3M3nvQGCoGGFyCppga9xwPKJlSc7pDMFSggJAgqHj1PYRIgWnodVzEjC/L9ez2
+vxrfiHSebb5u5BeMyyH6Gv45M0bH0WsB2W+SpWHMT53uylEeKn3L+BeNhLFI5kX0SnQZsoSfuKks
+ylzAySIOj8ciUt8eh9qPb9ji20IljxKd2xwv4Y/xeZr4gWgWmR4ZpC+opJ/RbusIagTYCSoh8vy7
+LiX0I1NSgymtLNQPeiaKzhBFLfYMvQZREtR30EVOycXVi52WVF3aA9U2EoGNvFNTGQBOjKsLBapI
+MYUB6sRFighNmVLUwMPvWtHm/fqAWSXDymrf7QTUE45OtQI/WnOKOts8zWuqyfbrrxF37y+l6EYy
+0T6luJLRG2sEMWLhwB31E4S0jfRQZILUrohOCupWrcTQEkqGktC+TxyG/JvyZx4j6fO8cZE8oObV
+hIfZQ1yDKfH66MD76SMqmxw3FQlE6ju4/mHjl66iU6FwnoeN4vLavl0bvZ/7Ewp4HjbuPKWnKlF+
+PYtEypLZRsxVPCv42GhafAsUyzBbc7md/ZfZRk9JV+9cijCvg/yTIfEBfJc6KADPHX2MPgFQSwME
+FAAAAAgAAAArXT0lBSWsAQAAhAoAABEAAABkYXRhL2xpYnJhcnkuanNvbs1VzW6CQBC++xSEM2l2
+Zv99lcYYU2nLQW3ApAfjuxdlZlkDWcHYphcZh2/m+8HF0yLL8qYst2sEnS+z1/Z7loEXxbUwrruC
+Nl2BnhrACE0NZKi1VHigGUDqCMYY1RWSEIK2SFpvgXdge10VQaWSNqhkLZrWKxQskteZsIcawHcU
+D0EYMuyExKGRbBZYHoGldaycg0EeV+RfIjAF7eEhqdg+qxHU0LxWh+BFCOBYb/bN+6HeNTcxdJ8t
+tKBCFIPO9boq7uGRKztxQIYKJk7MlZTEW75rhhbcbAtTKZ5qYYjHtKDfznQE31u3/8SyC5NzGdIO
+PBcqKPJjA3rgVE7MyE/LSA+EB8sTT5qZG9Ef/ozgOWfzvqbw7vyqq125fvvcVPsmvDlPBO7utu3A
+l2+rj+rYI29I+BEEPZcNh++ybuH5C7jLP+m1fy7GaexUmr7EBKNwRsg0I8B8StWXOuVXWGXS7PIB
+dhexRzH0pY/GRDIdr0Ran/YPPJBIINioj6MJoonqaCP6lHSFCu88WCEf0B5l53E0XQPj9mS00csI
+E8eR9CTQ8PG4nM7FefEDUEsDBBQAAAAIAAAAK11tQ+nkSQkAAJwZAAAJAAAAdmVyaWZ5LnB5lVlb
+b9s4Fn73r+B0sZDUKortpE3jaQYoOg1QYGZSpJ2nbCDIEm2z1W1IqrFb9L/vd0jKkiy32c2DIfFc
+eO4X5V+/nDZKni5FecrLL6ze6U1Vnk2ePHnypirqnGvO+DZJNVuJUuDlC5diJdJEi6pkq0oyveFM
+CUKVwKyrkpeaTaOL5y+n01k0mfytuGJVme/Ye8PbU0zppMwSmbFcLGUidwyvrKxYyfVDJT9H7Hee
+iiLJWZrkaZObu9SkllVdKc7q6oGuKtO8Uo3k6leW5DlL0pTXmmdMlPyfJsmFFri3UXvxJX6JTzT5
+CIlF6fRJcaRlY2BGjlystCjXLOdFkSiWSM6KBEriB2rjIrluCuiowGNCyuNmWCopd0RVJzWXIZTR
+LFGKS3Ml49B4mQu1gXzLHUwmFIM6a5kUEZl6AvtVUrNNojawSfv6SVXlZCWrgmXOIA7g7BOy25u/
+//o9vv7j5uY2ZHlF9qpKzbfaku2Vbgmv3QGEY9cWh5RrwUL9Ix1pjWOI0kLe43XSypWSXqtd+2pC
+YhensJ7IEs0tg3TD08/xmlcF13Cxw1VF9ZnHGgaZTG5vbj6yK8Paj+OVyHkcBxE8WuVfuB9ENWxf
+Am+S8RVTm+rB3waLCcPfg4DMfXX9gDRyLxaH/txBVEue4qbz6QgiqwZSw3FXfVvu0STXjSwRsNJ3
+Nve3UQn/y0RXMmCnrDvOeFkVojSAwEmdV0nmQwm5c5JLTuH8hbd6G9idR8p794FBsXFjQqjFjoSK
+kyXs0mhOqiJMvSjyDI4oOzRYTCt7T/KAK3xj4tM9Alk3yeLlDg7wB7e5yIvUJpk/f+GDPIg2fJuJ
+NVyFK6+umBPVYnj3k559KFAj0lUZSqe8jYB+guFFwr8oEjBWyv0qy8K2CDgDZfPZ85Bl52cXkB9w
+c6g4t+f0YEGOCvLgKAbQuw8PDoHoxHRK5rz0HSujkX3X+zNzOLs4RgJeIxI6M4fzAQmqkS+UKKnK
+QcdtCBdp67Qpe3XFtuwVw22meG7Jfe31/y8TMsSACQnUZ0Jc77xaioIr754kvYMNz8/uDR8LzVA1
+NxY4O0Jb4dqW9u5uy/7NnsPO5gF87kdK3I95PIhMb+Jedrjbpvj7EfY+xdzd/t1s9nJ2z56yl+wZ
+tLi4pOfzfZ7+/A8Us/OLFyG7fHkest4jfoZJRyY8sNjsMmTz1mQG3DPZfEz8qLpaJqWC3QrVD+Pu
+9HjcdvB+yCm0OiTU7BKsvm2fklvwvHcKaNbcn0Hny+B7n2B+1hHgeUwwP3MEaOk8pb4KU1ihDHLY
+qUF0X0XdpkQPooKuFB9TxWhybix7EO9fXbzTXV/pgo6m4xiyZchSFAvItocfXpiY4Nybie5Ke0fz
+s0MCk15LpJfDNu8Z5WyHSmLtelm3GARia7IoqWteZr7NG4ojP3m6e7YMzNt9+PPovbO+AVEKoiww
+b/dHw7WXpO3d/er8zZZDJb4iqBeIaPhofoE09pIVpiAeoz2uxDYukprgB9E2FNMrq1IguLXQuwM6
+1RS+Zr9QyoRsipjDry0QeuDBEctMKExcqT4ixzfdYLD0XSQc8Pl+yAhBFKNlxNYgMZp+23t4BoYf
+ZcO/u95UJKL0XXiKlWmkMZJ22azjuPOmTAQGyA87pXnxdiu07902pZk+qkazkxsGoU5ubhbDqbih
+ibeb/iLP+qxISrFCN0W09vpl26K9FhwR0HOd2s42zud5vUlAfO23qHeeOTsYHBweIXrtHO5EaOft
+KzuYdHwcoOVERsQkR7fdGUxMyoX1AT2RGzpaQqYJ2Ez+CENbJYadHoz+p2nA3NqNBIYTqnEJy39A
+DJ/agB0O7Qc3vX/94cPCCw+OQ7bKG7W5ohjAfGKSGKMwGgwVwvn3vdqS05yqunJn1g01LH9mFELh
+IRO56vdje4R7c47LIcWdkyOClriIG6V8Qu8aUVf0WuSmpkn7h2iOfZFsHcq4rQYoaX3YoGPtGfVM
+0pazw3E/sge+dZ2bEo3VSPdxrHZSWtO2fK/9IW3g/ITV9GjM2vPO1AdpcO1bhO5iygnzfBxt5VCQ
+NtHs+blnp60emw4+j16+mM69wX0tWn+gmh7OOFTTWkS0Om28RqgX5rIWJKtK92cyp6p1BOWSXcBa
+y1twMEaFNAJVUMdFlWGPlnG3fhH73jbmeCCmSfwrN4weOqhvKueddINKOs4ae1zVWhRNEedmZSfT
+TR3jREh4rilJm+k+r9risp+KTGTHhhks1aVPDUHFWmiFvAYHonPIFHP21SLQ+7XvEFxgHaZJb/Co
+e4N2zX5jc/eEcZfcMZoWaG4haGbkz7oZah7abdqvg2ezYHRl3e5uLqFHCZ5kGUiPjU9Wr8E24o4C
+CDw7JuFjm0TdTYCO1Z6Lm5O6cbE+Mi3Wbljc+zG0CNwVHN5KOByUCPVTaCepR1BdnxY0X3xaHJ2c
+nL6+vzvZBkbQbswz1vIFVP0UHCXuBeSzq7ERYSkE2qseIKbvLes6bpAbFNqjqghovKSvCwqJU/ci
+AABtMyJk8aOUPY/3eBQVfYLCpCTXUBKqzU5WwdOOMzth/vypKXYnMwNwko46xIDRb6z3heRIBpNp
+To4zPu0u/0F9XwUHvA/6yjeXwAvKbg96r1FHF/2Qf2RiZi7BF+Z7zTDlHyUloztjqEbWGBasMsSN
+Pj0NDBV8d9VPVzrJqZBi9rXahqbIDTqDQ7KdBfPYfOZ6iwGc9Oe1CP1iPr10nWVf77+5HmY1G7dU
+2GvfBm0UO8NZmUbaez8Zw0B5MDodEh8MOIv+kABJRn15MWxKI36DIr8YBkfYgiuZcYkthhJVxWaY
+NEN9l7hjJSWtFETsiirZD0w5YtEeHDHMIOpVG/ltFBxJijEP88E5NqYnDqBt3R62wHVeLZO8jTSD
+4Tw/4qbSqianeK/zvP0I335VDX82CYcuucmGP4p+by2rB70JTThaodiyydZc/2o+7JvP2fSp+gta
+AB0MPoX/mK37iB4ihNMGQhlx3J5/8hd9DM7dthR5tnXs96D+KtXuQg8SWttlyKxOWVPUynfhhDJP
+C+nVPHjm/af0+kvDz5CHG0F/0Xj35/s/3mKPeP/2lr15e/vx3fW7N68/vrWbhflng3PDZldXMIdZ
+9/Z7V/e/j4EvB+vHBK0sjssEoRlT5ntxTAtpHHsLtyrSdjr5L1BLAwQUAAAACAAAACtdcQXxhdoG
+AACEEgAAEwAAAHZlcmlmeV9jYW5kaWRhdGUucHmNF9tu2zb0XV+hBSgk2bJquy3WZWawAUWGAUVT
+FNtTFhCMRNtMdAtJ1YqL/vsOL5Io2c3mB0s6PPcbz7m4uPizzGhN4a+UPm1JKv0tK5mk/o5WBZX8
+2Sdl5nMiWVWS3C8ACJjpnqaPIvG8mzJ/9uWe+kICHuGZn7N7ToCMCb8RNEv8DzRlBZDWvKorQYWf
+VwfK/Vr/g+S6YqUUv3r0K1XS0pTWkmb9iWKkxQGsEazcDcrk1Y5wJvcFIKd5JRpOQaeLiwtvy6vC
+x3jbSIBh7LOirrgEU8pKamrheR2M72rCBTU0mVXWHlrdYxCVkjytSklbGftfbv7+9AFff7y5+WLI
+thw8p9h2hNcWYI+bMpVVlffHOW9wSsCsTosH0eEWRO47NCaeuDTgGsDg2u7kM3x2tJIV1PO8jG59
+QTmjAoNjwjaWlBcCvVlHl54PPyLgVPqrDWo3aK1BRxS2i1X0Omznq8hAjug4O+pXHSBk3iW4LUed
+UeHSIG8r7j/4rISIlDsaanlWWE80R5rP63A9e+iE9Nxn6Gj465RA65km0ZCmrgGi4fP1zPIAJloI
+MJqFq8XxGBmGnEKcS8Ml1pTgj483f6yR45Be+zVQed5vfQzCgrSCHSn6VJU00n4EfHxfNWUmwnbs
+vvZqqT8fkXke9iynfrtZDXa3M+tejbdAKxfxau0gvnYR5xYxr+I9cxVvjZFs6z9eoeVA3ls9f5wp
+Y2+Xd0DZfazuvLNIKxdpeWcTB2qPbZ/DjEgSa2fHJK/3xNoOxc0lUnmWFBWUUFWyNDRa1RygAinC
+28B8BHc2f1Rddyf6w54cWCb3uGwKCqVc8Q5nCrbY0JqqgpUKNEJ04BbThohBl1DtKKWhgxODApFu
+Zg7QBtMSkjwPHeKDIVFZflBZPtUvcmlzWoaCytC4IIoQUhD71VdLrfgY4BDHU7XrQdn6aq2fSrf6
+Vaa5ZEPNrWPdI8I6gpo4Uch43eryovrgj1ME6x24IOTeul6/v+BuOHUdDZ+nLu41GzupN1MrW/EM
+jjUHEwEAaOdVfVDs9WBhY3smoSSDUssNIpv6HAMDiztJR1Zb1WJHKNGZoLSbOvubbOocRJ2qOyE8
+J/t75wvHFPHUEE7R7TcyI6/qgYmJ/Cquo+/TpLKVB5cD/kryBgrz1oBotqM4hY4mbd/SvdsYhnUP
+pzbwtNNhSNB7KjqyjpRZUvYfpLZxMYQexkD1U/cpKxs6OthVVYb+4hOoCc0T19HBzDweJmEyDus0
+64yLTgVrV8b3HfmI5xl0awT5Cd2fP7QI4f2CRBAp6JCK9RP/MXZv6TXJBf0h2j2n5NE7I0qJUPTn
+JZySAcl59CExuvvH/XUlvnmIw0DJJOlzmrNUmSfgos0ZTGXgNsqDmMUP0QkDnTpwv4bqJXYS85bd
+OcPAAE9IrcZRjT+fdqTbB0sEHFnRFJqzQzxuaQZng9xLILTQ2AHa9jyMN/oCtLwGqLkQXQnLzXaz
+Mm3rqkdbxeuom5+wgKmRotVyNlu/HQYprAVgM/ScG6oYzONtfCjHxXXSn4doHgY2h/LUNnPpQid1
+x9gQ+iGM1rIdJwUAkprTFL1fjuBmfIcpMLRDMUiKXnfvrsgoycswmnVH26RXecDfJmeV7GfBwUwE
+RRyGnfSEtjXw7n0bJbLCgEF3HPyqsyDkanCDRQE5Y3o0yJi4fSIuHlhPL2hnKNREEcxS/gb525lz
+cojUGBYG4/XG3xKY/jIoEhXZaDwiu+kwNyOvHQR319jMwfoenImmCB1RQ75GWpXJXdBVCt+xEjlk
+JzKVxgsYrQmsArNB6LiWFJerZewHH1UKdXug3MPKta/yzD9ALqkGAYH6Cltf4P3fnOvz7e27Eexc
+FHuEjIk6J880w9Y+IXmflwZ0LuvsyShZ7ZQsmlyibwHMwZKlMMNeOrdxHGQMNIStFKt2CYdD14wD
+vTWDHi3WnagXG1x2vWaU3mem10u3Q5nMCS6VRaYRxYFuPQZkutCEZaq03kIvVvsCNrGxnsE7uAtg
+acJyT0qQNHHchJGgEKgMDNTeD6cT/0IvAvGb6Hs3+0NtqtU1yZqiFqFxo05yGDTW4+3MHNp9oyAw
+cNoGptdvjrpFPPmd7xplwWcN7/YM/ZGQLMPEnodBCr2XwWBKg1g+1xSprfgF9MXC+Dbm9KmBiJo5
+40UC43noqFuiEiRYJj+/e798u/oleJEMsgVuxROtAEUgS6IfikiEoxy0m5j2al4RKFiFk/SmJhDP
+DJtiimJ9Zhc29epcUmpiUSCji7s2Kjm3jvPudPmMxTjdb2CSHDiT1Ah/Iezz4J8yUDs2qIBxSQqK
+MUIBxirqGAeXtjOpFPD+BVBLAwQUAAAACAAAACtdnEkiMKIIAABBFQAACgAAAGNlcnRpZnkucHmV
+WN1zozgSf89foZt9AByZ2EwyH3GUuqnNpfbhZie1s3cvPhdFQNiaYKCQcHD++v3pAxvHztUsD8Zq
+dbda3T91t/jlHxetbC4eRXnByw2pt2pVle/P3r1799DwOmk4ScqMiDLjNcdPqYot2fBG5FuSkCZR
+oiqTgkA8abZkXa3BQVLeKJGLNFE8PDv7r+bWA7CSVnJJqhJKHsxKniRSYYWkyUghHhtoCckdT8Ua
+WjdJ0YJ9zRsOgbqp6krys7p65g3hZVpUsm24pOR5JdIVMbamKa8Vz+wSSa40Z5ekam9qUS1JWq2x
+NSGrUoZn43Hd7zTLhOWCcMl5JknZrustUVW/OjaNF7g2nDzwpsGWNjxVVRNql52JdV01CqYsoRC2
+5k21Jpnbjpt0u6OwJE2KtCoV7xQlf3z7z+938f2/v337w4rlDeyGNbIXvHcEkkhy73jaEotXxY6n
+aNo4TdIV701ZJXIFx/bDH9izFa0TpSd6wQcM7QSE06d4yRFLhZi6eUOlRK6rJx4rLtXZ2VnGc+3O
+WGI7hd/Rkn2cBNdnBM8L87vxNLjwu/NpMHuJ2MvoZabYy0yye38SGJ68asgPQAuxKZfcL52ofuQ5
+i0bq4t6PRj+0AjViL5GZbbhqm5JIKs81h69ZSrCM/On4JQoCmPXPnRP836uSBzs7BVzdAFR+55bq
+YEwXzBIpgVjS3U5mT2xiZgCpgpPuZnrdjVg0exqz6ZB+G113F5p+7uhFRVeCDZwRzIqIttGABEuD
+YLgHv6jOn0ZgWwm82yggIidPt2xCeAGk2enWTRdR4Dzu4AR/A7epkEAE+3DldvQs1OoAWH6g4ZKq
+bu9cDEItynbyB1NN1ZaZKJdsiMiewZl+19sQ4oBwnK2qCS72ROSJao2UoMlvBcQc40FIaH4YlByv
+3PoLbukYm167xe/9aUD1z9/f8afJjrZl/t/YRTAa7djzU+z5IftuGV5L1vN4Uz6+uvIADb137G87
+xnQwa+vaDs/10DqhoF3LXoF2VhS0eEU1qqCioO2rGaPVanMAL9oblo+g2vfyBDhGynW5NKsryHlU
+R2Eo0Ra3WqLdSxitpyRccIxGargcXm218LNEJS7CKRCmJDMpxdJndQNtvvcvk6t3uefhy/fv1x61
+/DQvWrlifzYtd/kDLtPScy/3FjjFu2FihkW9GpD0SJPXzBJQz9TKWww3O7nJb6am3CW37q2lbgE1
+isNp6qAUpa5XKffXFBZb6vqWRUNFO7OAhiJ+FplaxRIA5TCAMavO8G/YXGPdZMJOZ0IrZyuKt1jM
+pHTmYlEkXW/R56qCl/4GyvRbSmeG0LRbC/GmqpST1X/3koMt6In9LiY3TBNuhio3c01aMJflnviW
+SWlpc+8ZXUH1PDAK0/MJmPU7wntidOjR1FHfu/eldfwahRLWsPliVxAEldoR3B0xrk3ZH+RiNagf
+vcijFpBzD91DCUzBoL2AflqIjB7hQxeCGbScs1f5pwWOYfxoMwdniiyfwf87Nc7QMKl1F+RDwTgB
+q1jsiofjmI+ni9vJ/rg01bNHBe1z9oDL5QgH/K+iFOt27ZqVJcTUaoxfghanBu7JrbdXgjg7RQGN
+PgVHB6NIaJscJgMcseKStpeH1Hv/Mghmy6RmRTI2YB+1l0MkYwpF0dkIUeixfLqeXg6NAudJW1Jm
+ze2wmBxgBpAYH4wnC3owvlwE9CCM9tHR1wXhgDda3Lii+WqR968WiY4XCS50HAcrvYVC59uUtumh
+F9NhrR/4ti/3v5DfkgL9okkHxKQDdL0V4ciMW0ftxXS/ZlnQFzci1e32I0dSRUeLZlqrM5krtgBg
+RXrur9FojXYBXCOE4xx9wzCOQ5l9QO9FB4iaOdcrr2AoSr8zEql3TXXY+8b+BBiHmk8CwNWFDHvx
+bRZjNp/riPdHtidNF7RP/vGgSe+nEb4jSABeMQ5K7GyLbW2F8/y3zssJXOnI2UP3f/Q4iJ8Qx+FV
+IinEi7lkxKkRSwM6dM4Jha99F/QtnruQmDJCc5pQE1qrzmVD15bb+wkwU9aGfFwwyr5GzL6ysg5f
+eFNJ3y9pGQQ/mXTfyLFf54IOcuU5y4sqUf5hrkXf1JNztyBQLilKnLam0OBfhlws/a8Bmm+Q4A2d
+LTRX2PCkCGYbBu75NX1aGMJsc8E282Fps6f3jk0no9E0mm1QVrWb733Tyvrd6C6gd8GgzG4WfV+Z
+MOYlraq864RZGX0yzOpzt94YXdunwOk4CelWMl3rheJHN+LBVXhGmrZ0hG1ob5W2N/KOEWW7Fxv2
+nAECzIWfmV96VN6pbRrYZkPdKZPyWO1RR8K86UWE0yxkWul01J8CgwSRupgO3WFACs/FcZmseRzD
+gTEwDIDHnsUMykl/AQ6/NMtWp44HPWp8lEtEOMvixNF9T5R1iz5SbWvO9CX0BMvuhu5RewNmgHfV
+4B6KLOO5hvVYqGrVz6jWx1LnszxpC8W8STi9uvx89fnz5G3N1kkDoSj89GEyff/x40fv5CK2/Rwu
+8vHq0+Qyev/2GrZBtcYDkzvZ6aR/Tq5kLuhjfUE/7awZmCWDoImPFpW+tUGjienvAyFinklfT4Um
+OjruWWzvVrsbmZl2cdnnCldvzKT1PxpOUlaK6Jvfjs2sdZDlrDpzeTB/rYvtf3sMzF+bAvfL7dcJ
+nxscQGul2UWG1CitcmG+XLEoOPf+V3r9IdYJlA1vJwdb23/puB7cfrUMLg8Cl0kVr6usLZIm3rN6
+C7YfDJQOOr07I0ucrP2gQjR7f9v5iUWOimxvtHXF9Wn/CFPd8lx0vhduBl/lQu0vL3jDg9aekz5U
+0M8VO4j2ITJsV7aH0rDn/XWfG8n3376Mo6sP2L77YBXKVQKCb5ewCHzcYvuAYLjiXSaW2sXH/YZT
+bpzpvi0WgN4uIaOrwLBUfU+jVg2Xq6rAbU+R/pwO74zU07eYvKfmr9z/F1BLAwQUAAAACAAAACtd
+qBvvpMgEAACuCwAAEQAAAGNoZWNrX2dlb21ldHJ5LnB5fVZLc9s2EL7rV7DpeAjIkC25PnQkwdNe
+PFMf8pgcfOCwHIiELCQkSANgJCWT/97Fg6RkKtVBJPf57WLxAb//dttqdbsR8pbLb1FzNLta/jF5
+9+7dP7LgDYc/aSJ+YLmJXnhdcaOOUb7j+VcdbWsVKWZELVkZvShRzJq6FPkxevr84X20FSXXNxBo
+slV1FW0VhABTHYmqqZWJHoMgYjp6DDatzE1dl71NqdosZ5BuEgRfdC29bcPMrhSbzvIjfHZG+qgn
+k0nBtx4oKphheDmJ4KcNM1xTK0li/xGnq72QRb3XNEmdka0LIMhg7T3tj5ENyUlBXqlO4uAUp4Na
+aw7phRYSPGXO0SsR0uCIySJ6fZj3hgKQrefLYJ9TWlA6W/TqZ5qgR8TIKyaPaAMPTN7Xkge3iJea
+R2CQe4PCGgwgLPi9Bf884A45QawjWZvIRuuyz9d0n8zT9T5ZpGs6gAjl3bDGDgF6xk6zUVDXDjo4
+XwnJX1tWCiPsZ984QVzruGwrDsPBkW8iHtA80R8/V4prUbTgqblB+Az9xrU+ibtccXpeiaKbJFaw
+bKECZe3B9oWje99r5aq00pClT3fDigIpfBYvhIGges+aOLWOaE4WPpbNxbclz82J5pI/NBJs850o
+izhdl1x2lZ8Zt/QRTW2qnJU8TvHKdIKd2BorCOHak3k57fz1yRp1HWuGDtzh82a5paRhMZMBYJo0
+//YVpyOXblrcpOS1NEK2/JLVaXuWe4oWMztIxD7mKR55NCXLeUGRuW6n1oL4lwXU3TAFVNNDFWmi
+ru7GyEJ7vPXpQP+/pR1x6rPb1/BmRz7oATQSsL8b4nXEy8clPCXq+n7apCHa2T64pndno/yFuK34
+dCMMrzTCoy2Jvlwv8NWfzmj5qwr81nxKgnFq+wZYITgZhGOg58D81ChuWiWjk+kk3WCRU/vAn7qq
+v/IMzIwjUQIngtnR+1DHmO+cfuA89/kQUl+kXqf5q6d5ZBfSV2LTb1qYVaRJhS9ysIuR6PQSF0Nv
+K0oXo4bnD3Tusc3yh82MLUNHEFqQc0ol5x3t7ebkDTcPdsAybWngGFl9ovfTKapmizfU5no9HC0O
+/K94zlOFU474opMG0hgxwoGUNdkJm8k3sfMI259YaOOBO1KEEGimfYZ+c+Pp4bpP61gDX326yAhv
+PZcOCl3MdgJ4oaxHTr5t3UnTQwWKh412dBQBIexjJzB+e9zaWf5xCFVnJAu8DxF/Ykqt1n+dLpNb
+StM2JT9TsrLZsQ031PfMj6qqayjCjz5eVXXRlq22y+skKw17BmLQH9+n36+C1oH5PpByEOOfLkvD
+hLIHKFPKXjqGo/NAYLitV4djORmfMYd1l8ROMQjYenN6bttAR7tDLgcKi3Sg9HiZ1x26t4eMZarj
+7ID7Au0E+8J/yVqAKifoQI4kbFkcKn7DRYXIjScO6umja3F4kkK8CKPdSnb1YFKrgiteZL6Z7p94
+RFnoq39gYDJAn2WSVTzLKI2zrGJCZlm87Btvda6kI1wQ1Mu3ZLE82Yt53UrI7++S9gJ6U9as0Mhe
+OZF1xTeKswJo8gBXmZMBbRQwobMg8ce/P39ehl1P+sOchJu1XQkAVcGBc+sqA0kFB5CAbHoZEw8B
+T/4DUEsBAhQDFAAAAAgAAAArXVK9U9hDAQAAeAIAAA0AAAAAAAAAAAAAAIABAAAAAG1hbmlmZXN0
+Lmpzb25QSwECFAMUAAAACAAAACtd3Fobg7wBAAAUBwAADgAAAAAAAAAAAAAAgAFuAQAAZGF0YS9x
+MjE1Lmpzb25QSwECFAMUAAAACAAAACtddj8e34kPAAAZHAEADgAAAAAAAAAAAAAAgAFWAwAAZGF0
+YS9xNDM3Lmpzb25QSwECFAMUAAAACAAAACtd4aW9R1wCAADFHAAAEAAAAAAAAAAAAAAAgAELEwAA
+ZGF0YS9iaW5hcnkuanNvblBLAQIUAxQAAAAIAAAAK109JQUlrAEAAIQKAAARAAAAAAAAAAAAAACA
+AZUVAABkYXRhL2xpYnJhcnkuanNvblBLAQIUAxQAAAAIAAAAK11tQ+nkSQkAAJwZAAAJAAAAAAAA
+AAAAAACAAXAXAAB2ZXJpZnkucHlQSwECFAMUAAAACAAAACtdcQXxhdoGAACEEgAAEwAAAAAAAAAA
+AAAAgAHgIAAAdmVyaWZ5X2NhbmRpZGF0ZS5weVBLAQIUAxQAAAAIAAAAK12cSSIwoggAAEEVAAAK
+AAAAAAAAAAAAAACAAesnAABjZXJ0aWZ5LnB5UEsBAhQDFAAAAAgAAAArXagb76TIBAAArgsAABEA
+AAAAAAAAAAAAAIABtTAAAGNoZWNrX2dlb21ldHJ5LnB5UEsFBgAAAAAJAAkAHwIAAKw1AAAAAA==
+"""
+
+def main():
+    if not __debug__:
+        raise SystemExit('Run without -O or -OO: verification requires assertions.')
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--extract', type=pathlib.Path)
+    args = parser.parse_args()
+    payload = base64.b64decode(PAYLOAD)
+    if hashlib.sha256(payload).hexdigest() != ARCHIVE_SHA256:
+        raise SystemExit('Certificate archive checksum mismatch.')
+    def verify(destination):
+        destination.mkdir(parents=True, exist_ok=True)
+        with zipfile.ZipFile(io.BytesIO(payload)) as archive:
+            for entry in archive.infolist():
+                relative = pathlib.PurePosixPath(entry.filename)
+                if relative.is_absolute() or '..' in relative.parts:
+                    raise ValueError('Unsafe archive member')
+                target = destination.joinpath(*relative.parts)
+                if target.exists():
+                    raise FileExistsError('Use a fresh extraction directory: '+str(target))
+                target.parent.mkdir(parents=True, exist_ok=True)
+                target.write_bytes(archive.read(entry))
+        subprocess.run([sys.executable, str(destination/'verify.py')],
+                       cwd=destination, check=True)
+    if args.extract:
+        verify(args.extract.resolve())
+    else:
+        with tempfile.TemporaryDirectory(prefix='sarkozy-simple-') as directory:
+            verify(pathlib.Path(directory))
+if __name__ == '__main__':
+    main()
+\end{filecontents*}
+
+\title{A simpler construction of square-difference-free sets\\beyond exponent $0.758$}
+\author{Eric Naslund}
+\date{September 11, 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We construct subsets of $\{1,\ldots,N\}$ with no nonzero square difference
+and cardinality at least $N^{0.758001-o(1)}$. The construction improves on
+Krachun's exponent $0.752796455874514\ldots$ and is a simpler companion to
+our construction of exponent $0.75806746$. Its purpose is to make the
+mechanism accessible: allow modular square differences, order them with
+intervals, and combine the resulting local objects by the Chinese remainder
+theorem. A short stopping-tree argument turns interval moments into an
+exponent. The concrete ingredients are six small prime chains, two odd
+components with only 17 and 729 low points, and an explicit seven-state
+binary recursion. All general implications are proved here. The remaining
+finite checks use exact rational arithmetic; their complete data and a
+standalone verifier accompany this paper in its source and PDF attachment.
+\end{abstract}
+
+\section{Introduction}
+For $N\ge1$, let
+\[
+ D(N)=\max\bigl\{|A|:A\subseteq\{1,\ldots,N\},\quad
+ (A-A)\cap\{1,4,9,\ldots\}=\varnothing\bigr\}.
+\]
+The Furstenberg--S\'ark\"ozy theorem says that $D(N)=o(N)$
+\cite{Furstenberg1977,Sarkozy1978}. We study the complementary question:
+how large an exponent $\alpha$ can a construction achieve in
+$D(N)\ge N^{\alpha-o(1)}$? This notation means that for every
+$\varepsilon>0$ the inequality $D(N)\ge N^{\alpha-\varepsilon}$ holds
+for every sufficiently large integer $N$.
+
+\begin{theorem}\label{thm:main}
+With $\al=758001/1000000=0.758001$, we have
+\[
+ D(N)\ge N^{\al-o(1)}.
+\]
+\end{theorem}
+
+\paragraph{Previous constructions.}
+Ruzsa obtained the exponent
+\[
+ \frac12+\frac{\log7}{2\log65}=0.733077\ldots
+\]
+by an alternating-digit construction \cite{Ruzsa1984}.
+Beigel and Gasarch, and independently Lewko, obtained
+\[
+ \frac12+\frac{\log12}{2\log205}=0.7334117970\ldots
+\]
+using a 12-element square-difference-free set modulo 205
+\cite{BeigelGasarch2008,Lewko2015}.
+The often-mentioned three-quarter barrier concerns this particular
+modular-avoidance strategy and conjectured limitations on its inputs;
+it is not an upper bound on $D(N)$.
+
+Krachun's recent construction crosses that barrier
+\cite{Krachun2026}. Instead of requiring local residue sets to avoid all
+square differences, it permits such differences when they consistently
+increase a rank (in our sign convention). Ranks from coprime components add, while the numbers of
+digits multiply. His explicit prime-chain inputs give
+\begin{equation}\label{eq:krachun}
+ \alpha_{\rm K}=
+ \frac{10+\sum_{i=1}^{10}\log p_i/\log t_i}
+      {1+2\sum_{i=1}^{10}\log p_i/\log t_i}
+ =0.752796455874514\ldots,
+\end{equation}
+where
+\[
+ (p_i,t_i)=(3,2),(7,3),(11,4),(19,5),(23,5),
+ (31,7),(43,7),(59,9),(71,9),(103,11).
+\]
+Our theorem raises this exponent by approximately $0.005204544125486$.
+The ranked realization, repetition, and CRT mechanism are due to Krachun;
+we prove the needed statements below, with the reversed rank convention
+\cite[Lemmas 4--5]{Krachun2026}.
+
+For perspective, the upper-bound problem has developed through the work of
+Pintz, Steiger and Szemer\'edi, Bloom and Maynard, and Green and Sawhney
+\cite{PintzSteigerSzemeredi1988,BloomMaynard2022,GreenSawhney2025}.
+Green and Sawhney prove $D(N)\ll N\exp(-c\sqrt{\log N})$ for an absolute
+$c>0$ \cite[Theorem 1.1]{GreenSawhney2025}. There remains a large gap
+between these upper bounds and the construction problem considered here.
+
+\paragraph{The extra flexibility.}
+Replace a discrete rank by an interval. If $y-x$ is a square modulo the
+local modulus, require the interval of $x$ to lie to the left of that of
+$y$. Intervals for incomparable digits may overlap, and their lengths
+need not agree. Repeating digits multiplies interval lengths; this makes
+\emph{moments of the lengths} the natural measure of a local construction.
+For a target exponent $\alpha$, a component in a square base $b$ earns a
+contribution $f$ when its widths satisfy
+\[
+ \sum_x w_x^f\ge b^\alpha.
+\]
+Section~\ref{sec:criterion} proves that coprime components achieve the target
+as soon as their contributions add to more than $\alpha$. The proof uses
+a finite tree whose mass is conserved at every branching. No limiting
+frequency argument or optimization theorem is required.
+
+The two additional local ideas are to group odd primes and to use the
+prime 2. For odd primes, restricted digits are interleaved with free digits;
+the first differing position is inspected separately at each prime.
+For 2, a state records where the even and odd digit intervals may lie.
+The fact that odd squares are 1 modulo 8 then leads to a small recursion.
+The moment method accommodates both kinds of inputs in the same argument.
+
+\paragraph{Why this companion is simpler.}
+A separate manuscript attains $0.75806746$ with larger finite witnesses
+\cite{NaslundCompanion2026}. Here the target is deliberately lower:
+the two odd supports have 17 and 729 points, instead of 4,913 and 19,683,
+and the binary recursion has seven states and 26 branches, instead of
+25 states and 94 branches. Its windows, transitions, and positive comparison
+vector fit in explicit tables. The final budget is the exact addition
+\begin{equation}\label{eq:budgetintro}
+ 0.51011+0.0268+0.0673+0.154=0.75821>0.758001.
+\end{equation}
+This paper proves its own result without using the stronger companion.
+
+The theorem remains computer-assisted: the 729-point component carries a
+finite table of widths. We specify how those data define the construction,
+prove why the verification conditions suffice, and supply the complete
+checks. Optimization helped find the inputs; no optimizer or floating-point
+comparison is needed to accept them. All logarithms are natural, and all
+terminating decimals specifying parameters denote exact rationals.
+
+\section{From local order to square-difference-free sets}\label{sec:ranked}
+The local goal is an order compatible with square differences, rather than
+an immediate square-difference-free set. The final lift will put a higher
+rank into an earlier integer block, turning every potential positive square
+difference into a negative number.
+
+For $b\ge1$, let
+$\QR(b)=\{z^2\bmod b:z\in\Z\}$, including zero. Residues are represented
+canonically in $\{0,\ldots,b-1\}$. For distinct $x,y$ write $x\to_b y$ if
+$y-x\in\QR(b)$. For composite $b$, a nonzero square residue may vanish
+in some prime coordinates; invertibility is never imposed.
+
+\begin{definition}
+A ranked alphabet modulo $b$ is a finite set $C$ of canonical residues
+with an integer function $r:C\to\{0,\ldots,h-1\}$, for some $h\ge1$,
+such that $x\to_b y$ implies $r(x)<r(y)$.
+An ordered interval alphabet assigns to every $x\in C$ an interval
+$[a_x,a_x+w_x]\subseteq[0,1]$, with $w_x>0$, such that
+$x\to_b y$ implies $a_x+w_x\le a_y$.
+Its moment of order $f\ge0$ is $Z_f(C,w)=\sum_{x\in C}w_x^f$.
+\end{definition}
+
+Intervals may overlap when the corresponding digits are incomparable. The
+graph of an ordered interval alphabet is acyclic, since a directed cycle
+would imply that the sum of its positive widths is at most zero.
+
+The small abstract example in Figure~\ref{fig:intervals} illustrates the
+flexibility. If the only required arrows are $a\to b\to c$ and $d\to c$,
+the interval for $d$ can occupy two thirds of the unit interval. This is
+compatible with the shorter intervals for $a$ and $b$. The same idea applies
+to the directed modular-square graphs used in our construction.
+
+\begin{figure}[ht]
+\centering
+\setlength{\unitlength}{1mm}
+\begin{picture}(112,37)
+\put(5,21){\makebox(0,0){$a$}}\put(20,21){\makebox(0,0){$b$}}
+\put(35,21){\makebox(0,0){$c$}}\put(20,6){\makebox(0,0){$d$}}
+\put(8,21){\vector(1,0){8}}\put(23,21){\vector(1,0){8}}
+\put(23,9){\vector(1,1){9}}
+\put(60,28){\line(1,0){45}}
+\put(60,27){\line(0,1){2}}\put(75,27){\line(0,1){2}}
+\put(90,27){\line(0,1){2}}\put(105,27){\line(0,1){2}}
+\put(60,32){\makebox(0,0){$0$}}\put(75,32){\makebox(0,0){$1/3$}}
+\put(90,32){\makebox(0,0){$2/3$}}\put(105,32){\makebox(0,0){$1$}}
+\put(55,22){\makebox(0,0){$a$}}\put(55,16){\makebox(0,0){$b$}}
+\put(55,10){\makebox(0,0){$c$}}\put(55,4){\makebox(0,0){$d$}}
+{\color{blue!65!black}\linethickness{.7mm}
+\put(60,22){\line(1,0){15}}\put(75,16){\line(1,0){15}}
+\put(90,10){\line(1,0){15}}\put(60,4){\line(1,0){30}}}
+\end{picture}
+\caption{Intervals may overlap when no order is required. The moment here is
+$3(1/3)^f+(2/3)^f$. This is an illustrative directed graph, not a separate
+arithmetic input.}\label{fig:intervals}
+\end{figure}
+
+\begin{lemma}[Path budgets]\label{lem:paths}
+Let a finite directed acyclic graph have positive vertex weights $w_x$.
+There are intervals in $[0,1]$ of those widths ordered along every edge
+if and only if the sum of the weights on every directed path is at most one.
+\end{lemma}
+\begin{proof}
+Ordered intervals along a path have disjoint interiors, so their widths
+sum to at most one. Conversely, let $d_x$ be the maximum weight of a path
+ending at $x$, including $x$. Set $a_x=d_x-w_x$. Then $a_x\ge0$ and
+$a_x+w_x=d_x\le1$. If $x\to y$, appending $y$ to a maximizing path ending
+at $x$ gives $d_y\ge d_x+w_y$, whence $a_y\ge a_x+w_x$.
+\end{proof}
+This is the weighted-chain viewpoint underlying the chain polytope of a
+finite poset \cite{Stanley1986}; the elementary proof above supplies the
+part used here.
+
+\begin{lemma}[Reverse-rank realization]\label{lem:reverse}
+A ranked alphabet of size $q$ modulo $M$, with ranks in
+$\{0,\ldots,h-1\}$, gives a square-difference-free set of size $q$ in
+$\{1,\ldots,Mh\}$.
+\end{lemma}
+\begin{proof}
+For the canonical residue $x$, choose
+\[
+ T(x)=1+x+M(h-1-r(x)).
+\]
+These numbers lie in the stated interval and are distinct modulo $M$.
+If $T(y)-T(x)=z^2>0$, then $x\ne y$ and reduction modulo $M$ implies
+$r(y)-r(x)\ge1$. Consequently
+\[
+ T(y)-T(x)=y-x-M(r(y)-r(x))\le(M-1)-M<0,
+\]
+a contradiction.
+\end{proof}
+
+\begin{lemma}[CRT gluing]\label{lem:crt}
+Suppose $M_1,\ldots,M_n$ are pairwise coprime and $C_i$ is a ranked
+alphabet modulo $M_i$, with $q_i$ digits and ranks below $h_i$.
+Their CRT product is a ranked alphabet modulo $M=\prod_iM_i$, with
+$Q=\prod_iq_i$ digits and ranks below
+\[
+ h=1+\sum_{i=1}^n(h_i-1).
+\]
+\end{lemma}
+\begin{proof}
+The Chinese remainder map identifies residues modulo $M$ with tuples of
+residues modulo the $M_i$. Explicitly, writing $P_i=M/M_i$, choose
+$u_i$ with $P_iu_i\equiv1\pmod{M_i}$ and take the canonical residue of
+$\sum_i x_iP_iu_i$. This proves existence; divisibility by every $M_i$
+proves uniqueness. Assign rank $r(x)=\sum_ir_i(x_i)$. A square difference
+modulo $M$ is a square in each coordinate. Equal coordinates leave the rank
+unchanged and unequal ones increase it. At least one coordinate is unequal,
+so the sum strictly increases. The size and rank bounds follow.
+\end{proof}
+Lemmas~\ref{lem:reverse} and \ref{lem:crt} express the ranked realization
+and gluing mechanism of \cite[Lemmas 4--5]{Krachun2026} in our convention.
+
+\begin{lemma}[Square-base words]\label{lem:words}
+Let $b=s^2>1$. If digits $C$ form a ranked alphabet with rank height $h$,
+then their length-$k$ words form a ranked alphabet modulo $b^k$ with
+$\card C^k$ digits and rank height $h^k$. If the digits instead carry
+ordered intervals, the word intervals obtained by affine composition are
+ordered along modular square differences as well.
+\end{lemma}
+\begin{proof}
+Encode a word by $X=\sum_{j=0}^{k-1}x_jb^j$. Uniqueness of the base-$b$
+expansion gives injectivity. Suppose $Y-X\equiv z^2\pmod{b^k}$ and $X\ne Y$.
+Let $j$ be the first position at which $x_j\ne y_j$, reading from the
+least significant digit. Since $s^{2j}=b^j$ divides $z^2$, we have
+$s^j\mid z$: this follows by comparing the valuations of every prime
+dividing $s$. Dividing the congruence by $b^j$ and reducing modulo $b$
+gives $y_j-x_j\equiv(z/s^j)^2\pmod b$, a nonzero square edge.
+
+In the ranked case assign the word rank
+$R(X)=\sum_{j=0}^{k-1}r(x_j)h^{k-1-j}$. The first differing digit increases
+its rank, and its place value dominates every possible decrease in the
+remaining places. Thus $R(Y)>R(X)$. Its range is $0\le R<h^k$.
+
+For intervals, put $F_x(t)=a_x+w_xt$ and assign
+$F_{x_0}\circ\cdots\circ F_{x_{k-1}}([0,1])$. At the first differing
+position, the two digit intervals are ordered. The remaining compositions
+lie inside those digit intervals, and the common preceding maps are
+increasing. This preserves the required order. The width is
+$W_X=\prod_{j=0}^{k-1}w_{x_j}$.
+\end{proof}
+
+\begin{lemma}[Rounding intervals to ranks]\label{lem:round}
+If every interval in an ordered alphabet has width at least $\gamma>0$,
+then $r(x)=\lfloor a_x/\gamma\rfloor$ is a valid rank with
+$0\le r(x)<\lceil1/\gamma\rceil$.
+\end{lemma}
+\begin{proof}
+On an edge $a_y\ge a_x+\gamma$, so $r(y)\ge r(x)+1$.
+Moreover $0\le a_x\le1-\gamma$, which gives the stated upper bound.
+\end{proof}
+
+\section{A finite interval-moment criterion}\label{sec:criterion}
+\begin{theorem}\label{thm:criterion}
+Let $n\ge1$. For each $i\in\{1,\ldots,n\}$ let $C_i$ be an ordered
+interval alphabet in a square base $b_i>1$, with the bases pairwise coprime.
+Suppose there are common constants $0<\sigma\le\rho<1$ such that
+$\sigma\le w_{i,x}\le\rho$ for all digits. If $\alpha\ge0$, $f_i\ge0$,
+and
+\[
+ Z_{f_i}(C_i,w_i)\ge b_i^\alpha\quad(1\le i\le n),
+ \qquad F:=\sum_{i=1}^nf_i>\alpha,
+\]
+then $D(N)\ge N^{\alpha-o(1)}$.
+\end{theorem}
+The reason for the strict surplus is simple. At scale $\delta$, the
+number of available words is controlled by $\delta^{-\sum f_i}$,
+whereas the common rank height costs only a factor of order
+$\delta^{-1}$. The strict inequality $\sum f_i>\alpha$ pays for this
+height and for selecting a common length within each component.
+
+The common width bounds are automatic for a fixed finite collection of
+nonempty alphabets with every width strictly between zero and one. They need
+not be uniform over a sequence of proposed constructions.
+
+\begin{lemma}[Stopping at a common width]\label{lem:stopping}
+For one alphabet in base $b$, suppose $\sigma\le w_x\le\rho<1$ and
+$Z=\sum_xw_x^f\ge q=b^\alpha$, with $f\ge0$.
+For every integer $K\ge1$, put $\delta=\rho^K$. There are a length
+$1\le k\le K$ and a set $D$ of length-$k$ words such that
+\[
+ \sigma\delta<W_X\le\delta\quad(X\in D),\qquad
+ q^k\le K|D|\delta^f.
+\]
+\end{lemma}
+\begin{proof}
+Starting at the empty word, extend a word by every digit until its width
+first becomes at most $\delta$. Every branch stops by depth $K$, since a
+length-$K$ word has width at most $\rho^K$. A stopped word has a parent
+of width greater than $\delta$, so its width is greater than
+$\sigma\delta$.
+
+Give the edge labelled $x$ the probability $w_x^f/Z$. These probabilities
+sum to one. The mass of a word $X$ of length $k$ is therefore $W_X^f/Z^k$.
+Replacing a node by all its children preserves its mass, so the terminal
+masses in this finite tree sum to one. These are masses on words;
+overlap between their geometric intervals causes no difficulty.
+Let $T_k$ be the sum of $W_X^f$ over the words stopping at depth $k$.
+Because $Z\ge q$,
+\[
+ 1=\sum_{k=1}^K\frac{T_k}{Z^k}
+ \le\sum_{k=1}^K\frac{T_k}{q^k}.
+\]
+At least one summand on the right is at least $1/K$. Retain the words
+stopping at that length. They have $W_X\le\delta$, and hence
+$q^k/K\le T_k\le |D|\delta^f$, as required.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:criterion}]
+Apply Lemma~\ref{lem:stopping} separately in each component with the same
+$K$ and $\delta=\rho^K$. Obtain lengths $k_i\in[1,K]$ and word sets $D_i$.
+Their moduli $b_i^{k_i}$ are coprime perfect squares, and
+Lemmas~\ref{lem:words} and \ref{lem:round} give ranks below
+$H=\lceil1/(\sigma\delta)\rceil$ in every component.
+Put $M=\prod_ib_i^{k_i}$ and $Q=\prod_i\card D_i$.
+Lemma~\ref{lem:crt} gives a ranked alphabet of size $Q$ modulo $M$ with
+height $h=1+n(H-1)$. Multiplying the selected-moment estimates yields
+\begin{equation}\label{eq:productmoment}
+ M^\alpha\le Q\delta^F K^n.
+\end{equation}
+Since $\delta\le1$, the fixed constant $c=(n+1)(1+\sigma^{-1})$ satisfies
+$h\le c/\delta$. Consequently
+\[
+ (Mh)^\alpha\le Qc^\alpha K^n\delta^{F-\alpha}.
+\]
+Because $F-\alpha>0$ and $0<\rho<1$, the last factor
+$c^\alpha K^n\rho^{K(F-\alpha)}$ tends to zero.
+For example, the ratio of consecutive terms tends to
+$\rho^{F-\alpha}<1$, which proves this without any asymptotic counting
+formula. Choose and fix $K$ so that $(Mh)^\alpha\le Q$.
+
+Write $L=Mh>1$. Repeating this one ranked alphabet $t$ times and applying
+Lemmas~\ref{lem:words} and \ref{lem:reverse} gives $Q^t$ square-difference-free
+integers in $[1,L^t]$. For any $N\ge L$, let $t$ be the integer with
+$L^t\le N<L^{t+1}$. Then
+\[
+ N^\alpha\le L^{(t+1)\alpha}\le Q^{t+1},\qquad
+ D(N)\ge Q^t\ge Q^{-1}N^\alpha.
+\]
+For every $\varepsilon>0$, $N^\varepsilon\ge Q$ eventually, giving
+$D(N)\ge N^{\alpha-\varepsilon}$ for every sufficiently large $N$.
+All alphabets, $K$, and hence $L,Q$ have been fixed before $N$ varies.
+\end{proof}
+
+\section{Odd-prime digit constructions}\label{sec:odd}
+\subsection{Prime chains}
+\begin{lemma}\label{lem:chain}
+Let $p\equiv3\pmod4$ be prime and let $(s_0,\ldots,s_{t-1})$ be distinct
+residues such that $s_j-s_i$ is a nonzero square modulo $p$ whenever $i<j$.
+Then the $pt$ digits $s_j+pu$, $0\le u<p$, form an ordered interval
+alphabet modulo $p^2$, with interval $[j/t,(j+1)/t]$ on each digit
+$s_j+pu$. Its moment is $pt^{1-f}$.
+\end{lemma}
+\begin{proof}
+The element $-1$ is not a square modulo $p$: otherwise an element of order
+four would exist in the multiplicative group of order $p-1$, contradicting
+$4\nmid p-1$. A square difference between different low digits therefore
+points from the earlier to the later chain entry. If the low digits agree,
+a nonzero difference has valuation one, and cannot be a square modulo $p^2$.
+The intervals are ordered in the first case and no edge is possible in the
+second. There are $p$ free copies of each interval, giving the moment.
+\end{proof}
+This is the local Paley-chain mechanism of \cite{Krachun2026}; the
+alternating free-digit principle goes back to \cite{Ruzsa1984}.
+
+\subsection{Separate first differences at different primes}
+Fix distinct odd primes $p_1,\ldots,p_s$ and positive integers
+$e_1,\ldots,e_s$. A low point $a$ consists of words
+$(a_{p,0},\ldots,a_{p,e_p-1})$ with $0\le a_{p,j}<p$.
+For distinct low points $a,b$, impose an edge $a\rightsquigarrow b$ if,
+for every prime $p$, either the coordinate words are identical or their
+first differing position $j$ satisfies
+\begin{equation}\label{eq:lowedge}
+ b_{p,j}-a_{p,j}\in\QR(p)\setminus\{0\}.
+\end{equation}
+The first differing position is allowed to depend on $p$. No comparison is
+required from a prime whose entire low word is unchanged.
+
+\begin{lemma}[Prime-coordinate free-digit lift]\label{lem:odd}
+Suppose a finite set $S$ of distinct low points has positive intervals in
+$[0,1]$ ordered along every edge $\rightsquigarrow$.
+Put $F=\prod_pp^{e_p}$. For each $a\in S$, choose arbitrary
+$u_{p,j}\in\{0,\ldots,p-1\}$ and form
+\begin{equation}\label{eq:oddlift}
+ x_p=\sum_{j=0}^{e_p-1}
+       \bigl(a_{p,j}p^{2j}+u_{p,j}p^{2j+1}\bigr)\pmod{p^{2e_p}}.
+\end{equation}
+Combining the $x_p$ by CRT produces an ordered interval alphabet in base
+$F^2$, with $F\card S$ digits. Every free copy uses its low point's interval,
+and the moment is $F\sum_{a\in S}w_a^f$.
+\end{lemma}
+\begin{proof}
+Unique prime-adic digit expansions and CRT show that all these digits are
+distinct and count their number. Suppose different lifted digits $x,y$
+have a square difference modulo $F^2$. Consider a prime coordinate in which
+they differ. If $k<2e_p$ is the first differing actual digit position, then
+$y_p-x_p$ is divisible by $p^k$ but not by $p^{k+1}$: all lower digits
+agree and the coefficient at $p^k$ is nonzero modulo $p$.
+The congruence to a square forces $k$ to be even. Indeed, if
+$z^2\equiv y_p-x_p\pmod{p^{2e_p}}$, the valuation of $z^2$ below
+$2e_p$ must equal $k$, so $k=2j$; dividing shows that the leading nonzero
+difference is a square modulo $p$.
+
+If the low coordinate words differ, the first actual difference must thus
+occur at their first differing low digit, and \eqref{eq:lowedge} holds.
+If two distinct lifted digits have the same low point in every coordinate,
+some first actual difference would instead lie in a free, odd position,
+a contradiction. Thus their low points are distinct, and each coordinate
+is either identical as a low word or obeys \eqref{eq:lowedge}. The assumed
+low interval order therefore gives the required lifted order. Counting
+free copies gives the moment formula.
+\end{proof}
+
+The first differing position must be tested separately at each prime.
+For example, the 19-coordinate may first differ in position 0 while the
+23-coordinate first differs in position 1. If one coordinate word is
+unchanged, its zero difference is allowed. The lemma therefore does not
+require the difference to be invertible modulo the composite base.
+Only the explicit low points and their interval order enter the proof.
+
+\subsection{The two small composite inputs}
+For the first component use $p=5,43$, with one low digit in each
+coordinate. Table~\ref{tab:215} specifies all 17 points and widths.
+Every width is its displayed numerator divided by 10,000.
+\begin{table}[ht]
+\centering
+\begin{tabular}{rl}\toprule
+Width numerator&Low points $(a_5,a_{43})$\\\midrule
+1181&$(0,18),(3,25),(1,27),(4,29)$\\
+1181&$(0,24),(0,22),(3,42),(2,5)$\\
+579&$(1,19),(2,40),(3,22),(4,35)$\\
+1476&$(3,3),(4,39)$\\
+984&$(0,33),(1,28),(2,20)$\\\bottomrule
+\end{tabular}
+\caption{The complete 17-point input at $5$ and $43$.}\label{tab:215}
+\end{table}
+For the edge relation in \eqref{eq:lowedge}, the graph has 78 directed
+edges and maximum weighted path $9992/10000<1$. Thus Lemma~\ref{lem:paths}
+provides the intervals. Its low-point moment is
+\[
+ Z_{215}(f)=8(1181/10000)^f+4(579/10000)^f
+       +2(1476/10000)^f+3(984/10000)^f.
+\]
+With $f=0.0268$, exact arithmetic gives
+\begin{equation}\label{eq:215moment}
+ \log Z_{215}(f)-(2\al-1)\log215>0.00008383.
+\end{equation}
+By Lemma~\ref{lem:odd}, the resulting alphabet in base $215^2$ therefore
+has moment greater than $(215^2)^{\al}$.
+
+For the second component use $p=19,23$, with two low digits at each
+prime. Its 729 points have a short description. Let
+\[
+ S=\{(a_i,b_i):0\le i<27\}\subseteq\mathbb F_{19}\times\mathbb F_{23}
+\]
+be the seed in Table~\ref{tab:affine}. The same table specifies four
+integers $(A_i,B_i,C_i,D_i)$ for each seed point. Take all ordered pairs
+$(i,j)$ and set
+\begin{equation}\label{eq:437points}
+ \begin{split}
+ (a_{19,0},a_{19,1})&=(a_i,A_i a_j+B_i\bmod19),\\
+ (a_{23,0},a_{23,1})&=(b_i,C_i b_j+D_i\bmod23).
+ \end{split}
+\end{equation}
+Thus each first low digit selects an affine copy of the same seed for
+the second low digit. The multipliers $A_i,C_i$ are nonzero squares in
+their respective fields. They preserve the square relation inside a
+fiber. Varying the copies between fibers changes the constraints imposed
+by pairs whose prime coordinates first differ at different positions.
+The proof uses the explicit points \eqref{eq:437points}; no general
+claim that every such choice is feasible is needed.
+
+The accompanying array assigns each point a positive width $n_{ij}/10000$.
+These widths are chosen jointly, not by multiplying seed widths.
+The full graph has 109,116 edges; its maximum weighted path is
+$9972/10000<1$. For $f=0.0673$ the exact moment check gives
+\begin{equation}\label{eq:437moment}
+ \log\sum_{i,j=0}^{26}(n_{ij}/10000)^f
+       -2(2\al-1)\log437>0.00025511.
+\end{equation}
+Lemma~\ref{lem:odd} now gives an alphabet in base $437^4$ with moment
+greater than $(437^4)^{\al}$. The table of 729 width numerators has
+165 distinct values and is supplied as machine-readable data rather
+than as several pages of integers. Section~\ref{sec:verification}
+specifies its format and the exact checks that certify both statements.
+
+
+\section{A binary recursion with parity windows}\label{sec:binary}
+The prime 2 does not furnish an odd-prime chain. Its useful local fact is
+instead that every odd square is 1 modulo 8. A branch fixes a digit modulo
+4, and the parity of its remaining tail determines the digit modulo 8.
+Thus two windows per state contain exactly the information needed to order
+square differences between branches.
+
+\subsection{States and transitions}
+A state $s$ has an even window $E_s$ and an odd window $O_s$ in $[0,1]$.
+A window may be absent; each present window is a closed interval of
+positive length, and at least one window is present. At depth $m$, the
+state will describe an ordered interval alphabet modulo $4^m$, with the
+interval of each digit inside the window of its parity.
+
+A transition from $s$ has at most one branch for each $r\in\{0,1,2,3\}$.
+A branch specifies a child $j$, scale $u>0$, shift $t\in\R$, and bits
+$\tau,\eta\in\{0,1\}$, called swap and reflect. For a child digit $x$
+modulo $Q=4^{m-1}$, let
+\begin{equation}\label{eq:binarydigit}
+ x'=((-1)^\eta x+\tau)\bmod Q,\qquad y=r+4x'.
+\end{equation}
+When $\eta=1$ reflect the child interval $[a,a+w]$ to
+$[1-a-w,1-a]$; then apply the increasing affine map $z\mapsto t+uz$.
+The parity of $x'$ is the parity of $x$ toggled by $\tau$, since $Q$ is
+even. For transformed parity $p\in\{0,1\}$, let $J_{r+4p}$ be the
+placed window obtained from the child window of parity $p\mathbin{\mathrm{xor}}\tau$,
+with the same reflection and affine map. An absent child window contributes
+no $J_{r+4p}$.
+
+The transition conditions are
+\begin{align}
+ J_{r+4p}&\subseteq E_s\quad(r\text{ even}),\qquad
+ J_{r+4p}\subseteq O_s\quad(r\text{ odd}),\label{eq:containment}\\
+ \sup J_k&\le\inf J_{k+1\bmod8}
+ \quad\text{whenever both windows are present}.\label{eq:cyclic}
+\end{align}
+In particular, \eqref{eq:cyclic} includes the comparison from class $7$
+to class $0$. Missing classes make such a cyclic specification feasible.
+
+\begin{lemma}[Binary transition]\label{lem:binary}
+For $m\ge2$, if the child states are valid at depth $m-1$ and
+\eqref{eq:containment}--\eqref{eq:cyclic} hold, the branches construct a
+valid state at depth $m$.
+\end{lemma}
+\begin{proof}
+Different branches give different residues modulo four, and within a
+branch \eqref{eq:binarydigit} is injective. Thus the digits are distinct.
+Containment of intervals follows from \eqref{eq:containment}.
+
+Suppose $Y-X$ is a nonzero square modulo $4^m$. If the digits belong to
+one branch, then $Y-X=4(y'-x')$ modulo $4^m$. Any corresponding square root
+is even, so division by four gives a square difference modulo $Q$.
+Without reflection the child order applies directly. With reflection the
+transformed difference equals the negative of the original child
+difference; consequently the child square edge has the opposite orientation.
+Reflection of the intervals reverses that order once more, giving the
+required transformed interval order. Translation cancels in differences,
+and the positive scale preserves order.
+
+For different branches whose residues differ by two modulo four, the
+difference is $2$ modulo four and is not a square. In the remaining case
+the difference is odd. Every odd square is $1$ modulo eight, since
+$(2k+1)^2=4k(k+1)+1$. Therefore the numerical classes of $X,Y$ are
+$k,k+1$ cyclically modulo eight. Their intervals lie in the corresponding
+$J$ windows, so \eqref{eq:cyclic} orders them. This exhausts all cases.
+Only the necessary condition on odd squares is used.
+\end{proof}
+
+\subsection{Moment growth and a finite depth}
+Fix $0<f<1$. Let $v_s>0$ and $\lambda>1$ satisfy
+\begin{equation}\label{eq:rows}
+ \sum_{\text{branches }s\to j}u^f v_j\ge \lambda v_s\quad\text{for every }s.
+\end{equation}
+This positive-vector certificate is a familiar device for bounding the
+growth of a nonnegative matrix \cite{Seneta2006}. Here the required
+consequence is just the following elementary induction.
+
+\begin{lemma}\label{lem:growth}
+Let $d_s$ be the length of the wider present window of state $s$, and put
+$c=\min_s d_s/v_s>0$. The transitions construct depth-$m$ states with
+moments $Z_{s,m}\ge c\lambda^{m-1}v_s$ for all $m\ge1$.
+\end{lemma}
+\begin{proof}
+At depth one choose just the digit $0$ or $1$ of the parity of a widest
+window (either choice is allowed in a tie) and assign it the whole window. A singleton has no nontrivial
+square edge. Its moment $d_s^f$ is at least $d_s$, since $0<d_s\le1$.
+This gives $Z_{s,1}\ge cv_s$. Reflection and translation do not change
+widths, scaling multiplies each moment by $u^f$, and different branches
+are disjoint. Thus
+\[
+ Z_{s,m}=\sum_{s\to j}u^fZ_{j,m-1}
+ \ge c\lambda^{m-2}\sum_{s\to j}u^fv_j\ge c\lambda^{m-1}v_s.
+\]
+Validity follows inductively from Lemma~\ref{lem:binary}.
+\end{proof}
+
+If a root state has both windows $[0,1]$ and $v_{\mathrm{root}}=1$, it
+produces an unrestricted interval alphabet modulo $4^m$.
+Shrinking every final interval at its left endpoint by a factor of $1/2$
+preserves all orders, makes all widths at most $1/2$, and multiplies the
+moment by $2^{-f}$. Therefore the condition
+\begin{equation}\label{eq:binarymargin}
+ \log c+(m-1)\log \lambda-f\log2-\alpha m\log4>0
+\end{equation}
+implies the required moment $Z_f>(4^m)^\alpha$. This uses only a fixed
+finite depth, even if its numerical value is enormous.
+
+\subsection{The explicit seven-state example}
+Use states $0,\ldots,6$, with root 1 and windows in
+Table~\ref{tab:windows}. All 26 transitions are in
+Table~\ref{tab:transitions}. Together these two tables specify the entire
+recursion, including all shifts and reflections.
+\begin{table}[ht]
+\centering
+\begin{tabular}{rll}\toprule
+State&Even window $E_s$&Odd window $O_s$\\\midrule
+0&$[0,1]$&absent\\
+1&$[0,1]$&$[0,1]$\\
+2&$[0,.22]$&$[.51,1]$\\
+3&$[0,1]$&$[.22,.51]$\\
+4&$[0,.33]$&$[.40,1]$\\
+5&$[0,.52]$&$[.22,1]$\\
+6&$[0,1]$&$[.33,.40]$\\\bottomrule
+\end{tabular}
+\caption{The seven parity-window states.}\label{tab:windows}
+\end{table}
+
+The root illustrates how the geometry works. Its nonempty placed windows
+are
+\[
+\begin{array}{lll}
+ J_0=[0,49/178],&J_1=[49/178,39/89],&J_2=[39/89,65/89],\\
+ J_3=[65/89,1],&J_5=[0,50/89],&J_6=[50/89,1].
+\end{array}
+\]
+Classes 4 and 7 are absent. The required comparisons are precisely
+$J_0\le J_1\le J_2\le J_3$ and $J_5\le J_6$, where an inequality
+means that the left interval ends before the right one starts.
+They hold by the displayed endpoints. The other states are checked in
+the same way. In total there are 86 endpoint containment and order
+comparisons, all between short rational numbers.
+
+Fix $f_B=0.154$ and write $\phi(t)=t^{f_B}$. The moment transition matrix,
+with rows and columns ordered from 0 to 6, is explicitly
+\[
+ M=\begin{pmatrix}
+ 0&2&0&0&0&0&0\\
+ u&0&0&\beta&0&\beta&0\\
+ v&0&0&0&0&0&0\\
+ w&0&1&0&0&0&1\\
+ x&0&0&0&0&0&0\\
+ y&z&0&0&0&0&0\\
+ t&0&0&0&1&0&0
+ \end{pmatrix}.
+\]
+Here
+\[
+\begin{aligned}
+ u&=\phi(49/178)+\phi(24/89),&\beta&=\phi(50/89),\\
+ v&=2\phi(.22)+2\phi(.49),&w&=2\phi(.11),\\
+ x&=2\phi(.33)+2\phi(.60),&y&=\phi(.22)+\phi(.48),\\
+ z&=2\phi(.15),&t&=1+2\phi(.07).
+\end{aligned}
+\]
+To prove growth, we do not need to compute an eigenvalue. Use the exact
+positive vector
+\begin{equation}\label{eq:vector}
+ V=(.69921,1,.82524,.94106,.86406,.93399,.87113)^{\mathsf T}
+\end{equation}
+and the rational number $\lambda=2.8602$. Exact bounds for the fractional
+powers establish, in each of the seven rows,
+\begin{equation}\label{eq:rowmargin}
+ (MV)_s-\lambda V_s>0.0001195.
+\end{equation}
+In the growth lemma the initialization constant is
+$c=12250/20631$, attained at state 2. Set $m=100000$. The two useful
+numerical inequalities are
+\begin{align}
+ \log\lambda-\al\log4&>0.00007904,\label{eq:growthmargin}\\
+ \log c+(m-1)\log\lambda-f_B\log2-\al m\log4&>6.225.
+ \label{eq:depthmargin}
+\end{align}
+Consequently, halving the final widths produces a valid alphabet in
+base $4^{100000}$ with moment greater than $(4^{100000})^{\al}$.
+The depth is large but fixed; induction represents the alphabet, so its
+digits never have to be enumerated. Every resulting width is positive
+and at most $1/2$.
+
+
+\section{Combining the nine components}\label{sec:parameters}
+The six prime chains and their exact rational powers are in
+Table~\ref{tab:chains}. For a chain of length $t$ modulo $p$,
+Lemma~\ref{lem:chain} gives moment $pt^{1-f_p}$ in base $p^2$.
+The required inequality follows from
+\[
+ (1-f_p)\log t-(2\al-1)\log p>0.
+\]
+Every row passes this exact comparison; these powers are deliberately
+rounded down and are not individually optimized. Their sum is $0.51011$.
+\begin{table}[ht]
+\centering
+\begin{tabular}{rrll}\toprule
+$p$&$t$&Ordered chain&$f_p$\\\midrule
+3&2&$0,1$&.18215\\
+7&3&$0,1,2$&.08603\\
+11&4&$0,1,4,5$&.10746\\
+31&7&$0,1,8,5,2,9,10$&.08940\\
+59&9&$0,1,28,17,22,4,26,20,29$&.04242\\
+103&11&$0,1,29,92,2,61,17,30,93,18,19$&.00265\\\bottomrule
+\end{tabular}
+\caption{Six chains of square differences. All forward differences are
+nonzero squares modulo $p$, and all backward differences are nonsquares.}
+\label{tab:chains}
+\end{table}
+
+\begin{proof}[Proof of Theorem~\ref{thm:main}]
+The component bases and contributions are
+\[
+\begin{array}{c|c}
+\text{square bases}&\text{contributions}\\\hline
+3^2,7^2,11^2,31^2,59^2,103^2&\text{the six powers in Table~\ref{tab:chains}}\\
+215^2&.0268\\
+437^4&.0673\\
+4^{100000}&.154.
+\end{array}
+\]
+Their underlying prime factors are respectively
+$3,7,11,31,59,103,\{5,43\},\{19,23\},2$, so the bases are pairwise
+coprime perfect squares. The chain lemma,
+\eqref{eq:215moment}, \eqref{eq:437moment}, and
+\eqref{eq:depthmargin} establish the required moment inequalities.
+Their contributions add to $0.75821$, leaving the exact surplus
+\[
+ \sum_i f_i-\al=0.000209>0.
+\]
+Every alphabet is now finite and fixed. The chain widths are less than
+one, both odd inputs have widths strictly between zero and one, and the
+binary widths have been halved. Thus common constants
+$0<\sigma\le\rho<1$ exist. Theorem~\ref{thm:criterion} applies and
+proves the result for every sufficiently large $N$.
+\end{proof}
+
+The fixed binary depth is chosen before taking $N\to\infty$. Its size
+affects constants and the threshold for $N$, but causes no uniformity
+issue in the interval-moment criterion. In fact that criterion constructs
+one fixed block whose repetitions give $D(N)\ge cN^{\al}$ for a fixed
+$c>0$ and all sufficiently large $N$.
+
+\section{What the finite certificate checks}\label{sec:verification}
+The general proof has reduced the theorem to finite statements about
+explicit integer arrays and rational numbers. This section explains their
+verification. The attached Python program contains the complete data and
+checkers, uses only the standard library, and makes no network requests.
+
+\paragraph{Odd geometry.}
+The files \path{data/q215.json} and \path{data/q437.json}
+list the low points and their width numerators. For a list of primes,
+each point contains one low word for each prime, in increasing digit
+significance. The common width denominator is 10,000. Thus the latter
+file specifies all $n_{ij}$ in \eqref{eq:437moment}, with the point itself
+identifying its pair $(i,j)$. A separate seed-and-map check regenerates
+\eqref{eq:437points} and verifies that it agrees with the supplied array.
+
+The checker verifies primality, point distinctness, digit ranges, positive
+widths strictly below one, and the full edge relation \eqref{eq:lowedge}
+on every ordered pair of distinct points. All edges must point forward
+in the supplied ordering. For width numerator $n_j$, compute
+\[
+ d_j=n_j+\max\bigl(\{d_i:i\rightsquigarrow j\}\cup\{0\}\bigr).
+\]
+Induction in that ordering shows that $d_j$ is the maximum path numerator
+ending at $j$. The check $\max_jd_j\le10000$ therefore proves feasibility
+by Lemma~\ref{lem:paths}, and also defines the interval starts as
+$(d_j-n_j)/10000$. This checks all 78 and 109,116 edges; no graph sampling
+or assumption about a transitive reduction is involved.
+
+\paragraph{Binary geometry and prime chains.}
+The file \path{data/binary.json} records the windows,
+branches, vector, growth constant, moment power and depth displayed above.
+The checker constructs every placed window $J_k$ with exact fractions and
+checks all conditions \eqref{eq:containment}--\eqref{eq:cyclic}. It also
+checks the valid state indices, unique branch residues, positive scales,
+and the two bits. These 86 comparisons, together with the binary lemma,
+certify every depth. A direct check at depth 5 is an additional sanity
+check and is not used in place of induction. The six chains are checked
+in both orientations on all 244 ordered pairs of distinct entries.
+Primality and disjointness of all CRT prime factors are checked as well.
+
+\paragraph{Exact arithmetic for the moments.}
+For completeness we give the elementary enclosure used to check fractional
+powers. If $1\le x\le2$ and $z=(x-1)/(x+1)$, then $0\le z\le1/3$ and
+\begin{equation}\label{eq:logseries}
+ L_n(x):=2\sum_{j=0}^{n-1}\frac{z^{2j+1}}{2j+1}
+ \le\log x\le
+ L_n(x)+\frac{2z^{2n+1}}{(2n+1)(1-z^2)}.
+\end{equation}
+Indeed, integrate the geometric series to expand
+$\log((1+z)/(1-z))$. Bound the tail by replacing its denominators by
+$2n+1$ and summing a geometric series. For an arbitrary positive rational
+$x$, write $x=2^k y$, $1\le y\le2$, and bound
+$k\log2+\log y$, reversing endpoints when multiplying by a negative $k$.
+All these bounds are rational.
+
+Write $\ell(x),u(x)$ for the resulting lower and upper bounds on
+$\log x$. A proposed positive rational lower bound $L$ for $x^f$, $f\ge0$,
+is accepted only if
+\[
+ u(L)\le f\ell(x).
+\]
+This proves $L\le x^f$ by monotonicity of the logarithm.
+The odd checker uses 32 terms of \eqref{eq:logseries} and the binary
+checker uses 70. Decimal arithmetic proposes enclosures; exact rational
+comparisons accept or reject them. Thus the validity of a successful check
+does not depend on the accuracy of those proposals.
+
+Summing accepted lower bounds for the odd powers and using upper bounds
+for the subtracted logarithms proves \eqref{eq:215moment} and
+\eqref{eq:437moment}. The same procedure proves every row of
+\eqref{eq:rowmargin} and the fixed-depth inequality
+\eqref{eq:depthmargin}. Each chain power is checked directly as a rational,
+and the final contribution surplus is exact rational addition.
+No spectral-radius approximation or asymptotic estimate enters these
+acceptance tests.
+
+\paragraph{Scope.}
+The computer-assisted step is the execution of these finite integer and
+rational checks. The mathematical reasons that their acceptance implies
+the theorem are proved in the preceding sections. The certificate does
+not assert that the inputs are optimal. Its complete source and data can
+be extracted and inspected; no missing research notes or search programs
+are premises of the argument.
+
+\appendix
+\section{Explicit local tables}\label{app:tables}
+Table~\ref{tab:affine} supplies all seed points and conditional maps in
+\eqref{eq:437points}. Each row $i$ specifies the first low point
+$(a_i,b_i)$ and the map
+$(a,b)\mapsto(A_i a+B_i,C_i b+D_i)$ in
+$\mathbb F_{19}\times\mathbb F_{23}$ for its second low point.
+Table~\ref{tab:transitions} uses the branch convention
+\eqref{eq:binarydigit}. A blank branch is absent; every listed decimal
+is exact.
+
+\begin{table}[htbp]
+\centering\small
+\begin{tabular}{rrrrrrr}\toprule
+$i$&$a_i$&$b_i$&$A_i$&$B_i$&$C_i$&$D_i$\\\midrule
+0&10&6&1&0&1&0\\
+1&14&6&1&0&12&7\\
+2&2&6&1&0&13&11\\
+3&10&19&1&0&1&0\\
+4&0&16&1&0&1&0\\
+5&0&19&7&6&12&8\\
+6&11&16&1&0&13&10\\
+7&0&20&7&6&1&0\\
+8&11&19&1&0&1&0\\
+9&11&20&1&0&2&10\\
+10&10&9&1&0&1&0\\
+11&16&10&1&0&1&0\\
+12&16&19&1&0&16&17\\
+13&10&22&1&0&1&0\\
+14&17&10&1&0&2&10\\
+15&16&22&1&0&8&20\\
+16&17&19&1&0&2&7\\
+17&14&9&1&9&4&19\\
+18&17&22&5&1&3&17\\
+19&14&22&1&9&1&0\\
+20&2&9&5&2&8&1\\
+21&2&22&1&0&6&20\\
+22&16&12&1&0&1&0\\
+23&0&5&1&0&1&0\\
+24&1&12&1&0&16&11\\
+25&11&5&1&0&13&10\\
+26&17&12&1&0&1&0\\
+\bottomrule\end{tabular}
+\caption{The 27-point seed and its conditional affine maps for the
+729-point component.}\label{tab:affine}
+\end{table}
+
+\begin{table}[htbp]
+\centering\small
+\renewcommand{\arraystretch}{1.13}
+\begin{tabular}{rrrllrr}\toprule
+Parent $s$&$r$&Child $j$&Scale $u$&Shift $t$&Swap $\tau$&Reflect $\eta$\\\midrule
+0&0&1&$1$&$0$&0&0\\
+0&2&1&$1$&$0$&0&0\\
+\midrule
+1&0&0&$\frac{49}{178}$&$0$&0&0\\
+1&1&3&$\frac{50}{89}$&$0$&1&1\\
+1&2&5&$\frac{50}{89}$&$\frac{39}{89}$&0&0\\
+1&3&0&$\frac{24}{89}$&$\frac{65}{89}$&0&0\\
+\midrule
+2&0&0&$0.22$&$0$&0&0\\
+2&1&0&$0.49$&$0.51$&1&0\\
+2&2&0&$0.22$&$0$&0&0\\
+2&3&0&$0.49$&$0.51$&0&0\\
+\midrule
+3&0&2&$1$&$0$&0&0\\
+3&1&0&$0.11$&$0.22$&0&0\\
+3&2&6&$1$&$0$&1&0\\
+3&3&0&$0.11$&$0.4$&0&0\\
+\midrule
+4&0&0&$0.33$&$0$&0&0\\
+4&1&0&$0.6$&$0.4$&1&0\\
+4&2&0&$0.33$&$0$&0&0\\
+4&3&0&$0.6$&$0.4$&0&0\\
+\midrule
+5&0&0&$0.22$&$0$&0&0\\
+5&1&1&$0.15$&$0.22$&0&0\\
+5&2&1&$0.15$&$0.37$&0&0\\
+5&3&0&$0.48$&$0.52$&0&0\\
+\midrule
+6&0&4&$1$&$0$&0&0\\
+6&1&0&$0.07$&$0.33$&0&0\\
+6&2&0&$1$&$0$&1&0\\
+6&3&0&$0.07$&$0.33$&0&0\\
+\bottomrule\end{tabular}
+\caption{All 26 branches of the seven-state recursion. Each row means
+$x'=((-1)^\eta x+\tau)\bmod4^{m-1}$, $y=r+4x'$, with the interval
+reflected if $\eta=1$ and then mapped by $z\mapsto t+uz$.}
+\label{tab:transitions}
+\end{table}
+
+\clearpage
+\section{Reproducing the checks}\label{app:reproduction}
+The \LaTeX\ source contains the complete standalone verifier. Compilation
+writes it to a separate Python file and attaches the program to the PDF:
+\begin{center}
+\attachfile[description={Exact finite data and standard-library Python verifier},
+ mimetype=text/plain,icon=Paperclip]{sarkozy-simple-certificate.py}
+\quad\textbf{Complete certificate and verifier}
+\end{center}
+Save the attachment, or use the separate copy supplied with the paper,
+and run
+\begin{lstlisting}[language=bash]
+python3 sarkozy-simple-certificate.py
+\end{lstlisting}
+To retain the unpacked source, JSON inputs and reports in a fresh directory,
+run
+\begin{lstlisting}[language=bash]
+python3 sarkozy-simple-certificate.py --extract certificate-check
+\end{lstlisting}
+The program rejects Python's \texttt{-O} and \texttt{-OO} modes, so all
+verification assertions execute. It checks the identities of the bundled
+inputs as well as their mathematical conditions. It needs standard Python 3
+and no numerical optimization packages.
+
+To compile from the single \LaTeX\ source, use an ordinary TeX Live
+installation and run the following command until cross-references settle
+(three runs suffice):
+\begin{lstlisting}[language=bash]
+pdflatex -interaction=nonstopmode -halt-on-error \
+  -no-shell-escape sarkozy_simple_0.758.tex
+\end{lstlisting}
+The bibliography and certificate are embedded in that source; no external
+bibliography or certificate download is needed. The tables and explicit
+parameters above are part of the mathematical specification, and the
+attachment provides the remaining width array and executable checks.
+
+\begingroup
+\raggedright
+\begin{thebibliography}{99}
+
+\bibitem{Furstenberg1977}
+H. Furstenberg,
+\emph{Ergodic behavior of diagonal measures and a theorem of
+Szemer\'edi on arithmetic progressions},
+J. Analyse Math. \textbf{31} (1977), 204--256.
+\href{https://doi.org/10.1007/BF02813304}{doi:10.1007/BF02813304}.
+
+\bibitem{Sarkozy1978}
+A. S\'ark\"ozy,
+\emph{On difference sets of sequences of integers. I},
+Acta Math. Acad. Sci. Hungar. \textbf{31} (1978), no.~1--2, 125--149.
+\href{https://doi.org/10.1007/BF01896079}{doi:10.1007/BF01896079}.
+
+\bibitem{Ruzsa1984}
+I.~Z. Ruzsa, \emph{Difference sets without squares},
+Period. Math. Hungar. \textbf{15} (1984), no.~3, 205--209.
+\href{https://doi.org/10.1007/BF02454169}{doi:10.1007/BF02454169}.
+
+\bibitem{PintzSteigerSzemeredi1988}
+J. Pintz, W.~L. Steiger, and E. Szemer\'edi,
+\emph{On sets of natural numbers whose difference set contains no squares},
+J. London Math. Soc. (2) \textbf{37} (1988), no.~2, 219--231.
+\href{https://doi.org/10.1112/jlms/s2-37.2.219}{doi:10.1112/jlms/s2-37.2.219}.
+
+\bibitem{BeigelGasarch2008}
+R. Beigel and W. Gasarch,
+\emph{Square-difference-free sets of size $\Omega(n^{0.7334\ldots})$},
+2008, \href{https://arxiv.org/abs/0804.4892v3}{arXiv:0804.4892v3}.
+
+\bibitem{Lewko2015}
+M. Lewko,
+\emph{An improved lower bound related to the
+Furstenberg--S\'ark\"ozy theorem},
+Electron. J. Combin. \textbf{22} (2015), no.~1, Paper~1.32, 6~pp.
+\href{https://doi.org/10.37236/4656}{doi:10.37236/4656}.
+
+\bibitem{BloomMaynard2022}
+T.~F. Bloom and J. Maynard,
+\emph{A new upper bound for sets with no square differences},
+Compos. Math. \textbf{158} (2022), no.~8, 1777--1798.
+\href{https://doi.org/10.1112/S0010437X22007679}{doi:10.1112/S0010437X22007679}.
+
+\bibitem{GreenSawhney2025}
+B. Green and M. Sawhney,
+\emph{New bounds for the Furstenberg--S\'ark\"ozy theorem},
+2025, \href{https://arxiv.org/abs/2411.17448v2}{arXiv:2411.17448v2}
+(first version 2024).
+
+\bibitem{Krachun2026}
+D. Krachun,
+\emph{Square-difference-free sets beyond the three-quarter barrier},
+2026, \href{https://arxiv.org/abs/2608.01325v1}{arXiv:2608.01325v1}.
+
+\bibitem{Stanley1986}
+R.~P. Stanley,
+\emph{Two poset polytopes},
+Discrete Comput. Geom. \textbf{1} (1986), 9--23.
+\href{https://doi.org/10.1007/BF02187680}{doi:10.1007/BF02187680}.
+
+
+\bibitem{Seneta2006}
+E. Seneta,
+\emph{Non-negative Matrices and Markov Chains}, second ed.,
+Springer Series in Statistics, Springer, New York, 1981,
+reprinted 2006.
+\href{https://doi.org/10.1007/0-387-32792-4}{doi:10.1007/0-387-32792-4}.
+
+
+\bibitem{NaslundCompanion2026}
+E.~Naslund,
+\emph{Square-difference-free sets of exponent $0.75806746$: ordered
+intervals, composite digit codes, and a binary recursion},
+unpublished companion manuscript, September 2026.
+
+\end{thebibliography}
+
+\endgroup
+
+\end{document}

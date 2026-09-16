@@ -1,0 +1,47 @@
+{
+  "lean-formalization/Sarkozy/Target.lean": {
+    "comments_changed": true,
+    "noncomment_source_unchanged": true,
+    "noncomment_sha256": "31a3192cfa821c1f7a349414f613c2138e6e4f4097630b58973eaa90b83477f6"
+  },
+  "lean-formalization/Sarkozy/OneOddTarget.lean": {
+    "comments_changed": true,
+    "noncomment_source_unchanged": true,
+    "noncomment_sha256": "0fd1d7c93caec7eab67da6be75adf675dcae7fc683744a8f91e83976c9d12c33"
+  },
+  "lean-formalization/Sarkozy/TwoOddTarget.lean": {
+    "comments_changed": true,
+    "noncomment_source_unchanged": true,
+    "noncomment_sha256": "1e5fcc0d850cadab2af6db818da17195ff96d7223b159cf417dc3c7d4006f818"
+  },
+  "lean-formalization/Sarkozy/ActualOddTarget.lean": {
+    "comments_changed": true,
+    "noncomment_source_unchanged": true,
+    "noncomment_sha256": "275750b2be7d133c2d73906c7de1d935921b3f8bdf857d120e20d75484a2399e"
+  },
+  "lean-formalization/Sarkozy/RecordTarget.lean": {
+    "comments_changed": true,
+    "noncomment_source_unchanged": true,
+    "noncomment_sha256": "ee1bff31c13f5d090bfcfbac5da97dded530d31efd4d29c7b3c55e4e9d0a416b"
+  },
+  "lean-formalization/Sarkozy/ReducedTarget.lean": {
+    "comments_changed": true,
+    "noncomment_source_unchanged": true,
+    "noncomment_sha256": "792359f8ef760557a80ec8f31f30d7a2357198d05ae00a60a8b9db73c04b2b44"
+  },
+  "lean-formalization/Sarkozy/OddTarget.lean": {
+    "comments_changed": true,
+    "noncomment_source_unchanged": true,
+    "noncomment_sha256": "0624704494162e1e20667fe361ca38b3854318271399ed5734dfd59059321f92"
+  },
+  "lean-formalization/Sarkozy/RecordBinaryTarget.lean": {
+    "comments_changed": true,
+    "noncomment_source_unchanged": true,
+    "noncomment_sha256": "86c7153c3fafda8936813ba3107f506967a17b6091cbfb081082306c38dc5b3d"
+  },
+  "lean-formalization/Sarkozy/Certificate.lean": {
+    "comments_changed": true,
+    "noncomment_source_unchanged": true,
+    "noncomment_sha256": "862f22ee51d1b941119fda87ecf19e54e5863b6bc658d3f7c89813ca5bf3ada0"
+  }
+}

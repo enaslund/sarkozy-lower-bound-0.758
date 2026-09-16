@@ -1,0 +1,23 @@
+{
+  "baseline": {
+    "files": 147,
+    "bytes": 32409807,
+    "lines": 220131
+  },
+  "current": {
+    "files": 148,
+    "bytes": 10497588,
+    "lines": 178547
+  },
+  "generated": {
+    "files": 86,
+    "bytes": 10168796,
+    "lines": 171457
+  },
+  "other": {
+    "files": 62,
+    "bytes": 328792,
+    "lines": 7090
+  },
+  "source_reduction_percent": 67.60984105829448
+}

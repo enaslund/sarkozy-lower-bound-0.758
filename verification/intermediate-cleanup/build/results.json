@@ -1,0 +1,41 @@
+[
+  {
+    "command": [
+      "lake",
+      "build",
+      "Sarkozy.Odd437MomentData"
+    ],
+    "exit_code": 0,
+    "seconds": 675.08,
+    "log": "verification/intermediate-cleanup/build/Sarkozy-Odd437MomentData.log"
+  },
+  {
+    "command": [
+      "lake",
+      "build",
+      "Sarkozy.OddOrder215"
+    ],
+    "exit_code": 0,
+    "seconds": 522.56,
+    "log": "verification/intermediate-cleanup/build/Sarkozy-OddOrder215.log"
+  },
+  {
+    "command": [
+      "lake",
+      "build",
+      "Sarkozy.OddOrder437"
+    ],
+    "exit_code": 0,
+    "seconds": 974.12,
+    "log": "verification/intermediate-cleanup/build/Sarkozy-OddOrder437.log"
+  },
+  {
+    "command": [
+      "lake",
+      "build"
+    ],
+    "exit_code": 1,
+    "seconds": 316.76,
+    "log": "verification/intermediate-cleanup/build/full-build.log"
+  }
+]

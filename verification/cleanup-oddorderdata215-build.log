@@ -1,0 +1,35 @@
+✔ [8663/8676] Built Sarkozy.Certificate (6.3s)
+✔ [8664/8676] Built Sarkozy.Moment (6.2s)
+✔ [8665/8676] Built Sarkozy.FiniteAlphabets (5.1s)
+✔ [8666/8676] Built Sarkozy.OddLift (9.7s)
+⚠ [8667/8676] Built Sarkozy.PrimeChains (29s)
+warning: Sarkozy/PrimeChains.lean:55:42: Variable name `hp` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+✔ [8668/8676] Built Sarkozy.OddCertificate (5.9s)
+⚠ [8669/8676] Built Sarkozy.OddOrder (9.8s)
+warning: Sarkozy/OddOrder.lean:33:22: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [8670/8676] Built Sarkozy.ChainMoments (18s)
+✔ [8671/8676] Built Sarkozy.ReducedTarget (5.2s)
+✔ [8672/8676] Built Sarkozy.OddTarget (5.7s)
+✔ [8673/8676] Built Sarkozy.OddFiniteCertificate (5.3s)
+⚠ [8674/8676] Built Sarkozy.OddData (5.2s)
+warning: Sarkozy/OddData.lean:56:10: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: Sarkozy/OddData.lean:56:34: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+⚠ [8675/8676] Built Sarkozy.OddOrderCertificate (5.0s)
+warning: Sarkozy/OddOrderCertificate.lean:109:10: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: Sarkozy/OddOrderCertificate.lean:109:34: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+✔ [8676/8676] Built Sarkozy.OddOrderData215 (118s)
+Build completed successfully (8676 jobs).
