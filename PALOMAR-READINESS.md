@@ -14,8 +14,11 @@ completed in about 58 minutes. Its
 records `status: pass`, `phase: verification`, and `stage: complete`, with no
 reported verification errors or policy warnings. Both selected declarations
 passed Comparator, the protected Challenge audit, Lean's kernel, and NanoDa.
-Later changes that preserve this report only document that checked candidate;
-they are not included in its recorded source commit.
+Later manuscript revisions, filename and metadata-location updates, and
+documentation changes are not included in its recorded source commit. The
+Lean sources and build/verification configuration remain unchanged; the
+manuscript checks are recorded separately in
+[the revision report](papers/verification/revision-20260918.json).
 
 ## Submission scope and structure
 

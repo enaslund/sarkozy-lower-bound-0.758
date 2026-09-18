@@ -11,7 +11,10 @@ hypotheses. See [README.md](README.md), [PROOF.md](PROOF.md), and
 [official full preflight](https://github.com/enaslund/sarkozy-lower-bound-0.758/actions/runs/35392867341)
 on 2026-09-18, including both selected theorems and both kernels. The exact
 [mechanical report](verification/palomar-preflight-20260918.json) is preserved.
-The subsequent report/documentation commit is not itself the checked candidate.
+Later revisions update the manuscripts, filenames, metadata locations, and
+documentation; they are not included in that checked commit. Use the latest
+pushed commit to include these manuscript revisions, and record its exact SHA.
+The Lean sources and build/verification configuration remain unchanged.
 
 ## Public repository and submission fields
 

@@ -35,8 +35,8 @@ and conditional theorems remain in the library.
 
 | Paper | PDF | Self-contained LaTeX |
 |---|---|---|
-| Full result: exponent **0.75806746** | [Read](papers/square-difference-free.pdf) | [Source](papers/square-difference-free.tex) |
-| Simpler companion: exponent **0.758001** | [Read](papers/sarkozy_simple_0.758.pdf) | [Source](papers/sarkozy_simple_0.758.tex) |
+| Full result: exponent **0.75806746** | [Read](papers/square-difference-free-sets-of-exponent-0.75806746.pdf) | [Source](papers/square-difference-free-sets-of-exponent-0.75806746.tex) |
+| Simpler companion: exponent **0.758001** | [Read](papers/a-simpler-construction-of-square-difference-free-sets-beyond-exponent-0.758.pdf) | [Source](papers/a-simpler-construction-of-square-difference-free-sets-beyond-exponent-0.758.tex) |
 
 Both sources include their bibliography and exact computational certificates.
 [Paper instructions](papers/README.md) explain compilation and the attached
@@ -203,8 +203,10 @@ on 2026-09-18 for commit `e26058b55ab928e321d25318185acc69fbf62ab9`, checking
 both selected theorems with Comparator, the protected Challenge audit, Lean's
 kernel, and independent NanoDa replay. The
 [unmodified mechanical report](verification/palomar-preflight-20260918.json)
-is preserved. It applies to that exact commit; this later documentation records
-the result. Palomar's own submission review and registration remain separate.
+is preserved. It applies to that exact commit, before the later manuscript,
+filename, metadata-location, and documentation updates recorded in
+[PUBLICATION.md](PUBLICATION.md). Palomar's own submission review and
+registration remain separate.
 
 [Challenge.lean](Challenge.lean) selects two related results using Mathlib alone:
 the general interval-moment criterion and the unconditional numerical

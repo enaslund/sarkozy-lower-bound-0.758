@@ -1,0 +1,90 @@
+{
+  "recorded_utc": "2026-09-18T22:02:31.937156+00:00",
+  "base_commit": "645b0ca1068ec7c9fabbe967f90d20282263cb84",
+  "scope": "Author-selected opening note, filenames based on paper titles, and brief related-work discussion and bibliography entries for Naslund (2022) and Jones (Palomar version 1). Repository links and metadata locations updated. Proofs, certificate programs, and Lean source/configuration files unchanged. Fresh PDF build and attachment validation; no new proof check or certificate execution.",
+  "author": "Eric Naslund",
+  "contact": "naslund.math@gmail.com",
+  "license": "Apache-2.0",
+  "author_note": "This paper was written by GPT-6-Astra under my prompting and supervision. I recommend that readers explore the paper through a dialogue with AI, rather than a traditional reading. Upload the paper to your preferred AI assistant and ask questions such as: \"What are the key ideas that improve on the previous best bound?\", \"How, exactly do those ideas work?\" and \"Where is the meat of the argument?\" Follow up whenever an explanation leaves something unclear. The goal is to ask the paper questions, and to understand the mathematics and the contribution through conversation, rather than directly reading the text.",
+  "citation_sources": [
+    {
+      "url": "https://arxiv.org/abs/2203.01293v3",
+      "full_text_url": "https://arxiv.org/html/2203.01293v3",
+      "conjecture": 13
+    },
+    {
+      "url": "https://palomar-registry.org/entry?id=PALOMAR-2026-09-17-000003&version=1",
+      "record_url": "https://data.palomar-registry.org/entries/PALOMAR-2026-09-17-000003-v1.json",
+      "author": "JD Jones",
+      "version": 1
+    }
+  ],
+  "palomar_metadata_validation": {
+    "result": "pass",
+    "validator_commit": "3561d237dcc4b28482558ad28a64d767d7cc8615"
+  },
+  "frozen_lean_source_and_configuration_files_unchanged": 152,
+  "historical_reports_preserved_byte_for_byte": true,
+  "papers": [
+    {
+      "previous_source": "papers/square-difference-free.tex",
+      "previous_pdf": "papers/square-difference-free.pdf",
+      "source": "papers/square-difference-free-sets-of-exponent-0.75806746.tex",
+      "pdf": "papers/square-difference-free-sets-of-exponent-0.75806746.pdf",
+      "pages": 18,
+      "pdflatex_passes": 3,
+      "shell_escape": false,
+      "source_and_pdf_author_note_match_user_wording": true,
+      "source_changes_limited_to_author_note_citations_and_filename_references": true,
+      "unchanged_source_after_reverting_only_documented_edits": true,
+      "certificate_program_byte_identical_to_base": true,
+      "extracted_pdf_attachment_matches_distributed_program": true,
+      "undefined_references_or_overfull_boxes": false,
+      "arxiv_and_version_pinned_palomar_pdf_links_verified": true,
+      "visual_inspection": {
+        "pages": [
+          1,
+          2,
+          3,
+          18
+        ],
+        "result": "Front matter, related-work citations, and bibliography inspected; no clipping or overlap. Contents and reproduction instructions inspected where included on these pages."
+      },
+      "sha256": {
+        "square-difference-free-sets-of-exponent-0.75806746.tex": "d1ba46a136cd67b026e7b0fe9568c360a396947f81ed86efb85e9d63bb91af4b",
+        "square-difference-free-sets-of-exponent-0.75806746.pdf": "fa66b51be92b808427d2b0a9319bf4fe0e74d55038de5a34980a8c9f54d8354e",
+        "square-difference-free-certificate.py": "b50d8ef29fc95717f07aaadac8ebda94be92460470c8a6aa876acbeef5c908f6"
+      }
+    },
+    {
+      "previous_source": "papers/sarkozy_simple_0.758.tex",
+      "previous_pdf": "papers/sarkozy_simple_0.758.pdf",
+      "source": "papers/a-simpler-construction-of-square-difference-free-sets-beyond-exponent-0.758.tex",
+      "pdf": "papers/a-simpler-construction-of-square-difference-free-sets-beyond-exponent-0.758.pdf",
+      "pages": 17,
+      "pdflatex_passes": 3,
+      "shell_escape": false,
+      "source_and_pdf_author_note_match_user_wording": true,
+      "source_changes_limited_to_author_note_citations_and_filename_references": true,
+      "unchanged_source_after_reverting_only_documented_edits": true,
+      "certificate_program_byte_identical_to_base": true,
+      "extracted_pdf_attachment_matches_distributed_program": true,
+      "undefined_references_or_overfull_boxes": false,
+      "arxiv_and_version_pinned_palomar_pdf_links_verified": true,
+      "visual_inspection": {
+        "pages": [
+          1,
+          2,
+          16,
+          17
+        ],
+        "result": "Front matter, related-work citations, and bibliography inspected; no clipping or overlap. Contents and reproduction instructions inspected where included on these pages."
+      },
+      "sha256": {
+        "a-simpler-construction-of-square-difference-free-sets-beyond-exponent-0.758.tex": "99faa5b15a2ff5c005f1c82577e430418dbccb32cd57cdb2c94135d9abb747c9",
+        "a-simpler-construction-of-square-difference-free-sets-beyond-exponent-0.758.pdf": "9fbd96586e6dd3b9f31c6a12b38c577a5780c8292cc6a23e77a7ab25675efcac",
+        "sarkozy-simple-certificate.py": "3a6dda72c98872e99a99a821ff32eceb66ad7d701995d0a3f7bbdf71fe7fe591"
+      }
+    }
+  ]
+}

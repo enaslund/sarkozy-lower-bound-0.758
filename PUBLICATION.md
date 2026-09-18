@@ -52,6 +52,17 @@ unchanged. The rebuilt PDFs and their sources have new hashes, recorded in
 [papers/verification/publication-20260918.json](papers/verification/publication-20260918.json).
 The original paper reports remain historical evidence for the earlier files.
 
+A subsequent manuscript revision uses the author's updated opening paragraph
+and filenames based on the paper titles, with matching repository links and
+metadata locations. Both introductions and bibliographies now briefly cite
+Naslund's 2022 function-field paper and Jones's counterexamples registered as
+Palomar entry `PALOMAR-2026-09-17-000003`, version 1. The proofs, certificate
+programs, and all 152 frozen Lean source/configuration files are unchanged.
+Current artifact hashes and PDF checks are in
+[papers/verification/revision-20260918.json](papers/verification/revision-20260918.json).
+The earlier publication and Palomar reports retain their original filenames
+and hashes and apply to their recorded revisions.
+
 Submission preparation also adds structured manuscript references, citation
 metadata, and the official reusable full mechanical preflight, pinned to
 PalomarSubmission `3561d237dcc4b28482558ad28a64d767d7cc8615`.

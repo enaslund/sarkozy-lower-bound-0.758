@@ -331,10 +331,11 @@ if __name__ == '__main__':
 \begin{document}
 \maketitle
 \begin{quote}
-\small\noindent\textsuperscript{*}This paper was written by GPT-6-Astra, prompted and supervised by myself, the listed author.
-This paragraph is human written, and I intend for the reader to read this paper with AI, rather than how you might traditionally read a math paper.
-That is, put the paper into ChatGPT-6-Astra (or your preferred model) and ask it questions, such as, `what are the core ideas that improve on the previous best bound? And how does that work exactly?'
-Instead of reading the paper, use AI to \emph{ask the paper question}.
+\small\noindent\textsuperscript{*}This paper was written by GPT-6-Astra under my prompting and supervision.
+I recommend that readers explore the paper through a dialogue with AI, rather than a traditional reading.
+Upload the paper to your preferred AI assistant and ask questions such as: ``What are the key ideas that improve on the previous best bound?'', ``How, exactly do those ideas work?'' and ``Where is the meat of the argument?''
+Follow up whenever an explanation leaves something unclear.
+The goal is to ask the paper questions, and to understand the mathematics and the contribution through conversation, rather than directly reading the text.
 \end{quote}
 \noindent{\footnotesize Copyright \textcopyright\ 2026 Eric Naslund.
 Licensed under the \href{https://www.apache.org/licenses/LICENSE-2.0}{Apache License, Version 2.0}.\par}
@@ -389,7 +390,13 @@ The often-mentioned three-quarter barrier concerns this particular
 modular-avoidance strategy and conjectured limitations on its inputs;
 it is not an upper bound on $D(N)$.
 
-Krachun's recent construction crosses that barrier
+In the function-field analogue, Naslund \cite[Conjecture~13]{Naslund2022}
+conjectured that square-difference-free sets of polynomials of degree below
+$n$ over $\mathbb F_q$ have size at most $q^{3n/4}$, for odd $q$ and $4\mid n$.
+Jones \cite{JonesPalomar2026} disproves this at $q=3$ for every $n\ge8$
+divisible by $4$, with a Lean-verified construction registered in Palomar.
+
+Krachun's recent construction crosses the integer three-quarter barrier
 \cite{Krachun2026}. Instead of requiring local residue sets to avoid all
 square differences, it permits such differences when they consistently
 increase a rank (in our sign convention). Ranks from coprime components add, while the numbers of
@@ -1298,7 +1305,8 @@ installation and run the following command until cross-references settle
 (three runs suffice):
 \begin{lstlisting}[language=bash]
 pdflatex -interaction=nonstopmode -halt-on-error \
-  -no-shell-escape sarkozy_simple_0.758.tex
+  -no-shell-escape \
+  a-simpler-construction-of-square-difference-free-sets-beyond-exponent-0.758.tex
 \end{lstlisting}
 The bibliography and certificate are embedded in that source; no external
 bibliography or certificate download is needed. The tables and explicit
@@ -1344,6 +1352,20 @@ M. Lewko,
 Furstenberg--S\'ark\"ozy theorem},
 Electron. J. Combin. \textbf{22} (2015), no.~1, Paper~1.32, 6~pp.
 \href{https://doi.org/10.37236/4656}{doi:10.37236/4656}.
+
+\bibitem{Naslund2022}
+E. Naslund,
+\emph{Paley graphs and S\'ark\"ozy's theorem in function fields},
+2022, \href{https://arxiv.org/abs/2203.01293v3}{arXiv:2203.01293v3},
+Conjecture~13.
+
+\bibitem{JonesPalomar2026}
+JD Jones,
+\emph{ns-lean: Naslund's Conjecture 13 is false at $q=3$, $k=2$, for every
+$n$ congruent to $0$ mod $4$ with $n\ge8$},
+Palomar, entry
+\href{https://palomar-registry.org/entry?id=PALOMAR-2026-09-17-000003\&version=1}{\texttt{PALOMAR-2026-09-17-000003}},
+version~1, 17 September 2026.
 
 \bibitem{BloomMaynard2022}
 T.~F. Bloom and J. Maynard,

@@ -23,7 +23,7 @@ sources:
   authors:
   - Eric Naslund
   type: paper
-  location: papers/square-difference-free.tex and papers/square-difference-free.pdf at the submitted repository commit;
+  location: papers/square-difference-free-sets-of-exponent-0.75806746.tex and papers/square-difference-free-sets-of-exponent-0.75806746.pdf at the submitted repository commit;
     Theorem 1.1 and the finite interval-moment criterion.
   relationship: other
   note: Accompanying self-contained exposition of this development, not an independent prior source or
@@ -34,7 +34,7 @@ sources:
   authors:
   - Eric Naslund
   type: paper
-  location: papers/sarkozy_simple_0.758.tex and papers/sarkozy_simple_0.758.pdf at the submitted repository commit.
+  location: papers/a-simpler-construction-of-square-difference-free-sets-beyond-exponent-0.758.tex and papers/a-simpler-construction-of-square-difference-free-sets-beyond-exponent-0.758.pdf at the submitted repository commit.
   relationship: other
   note: Accompanying exposition of a simpler construction with exponent 0.758001; this construction is
     not a separate Lean formalization or a selected Comparator result. Written by GPT-6-Astra under

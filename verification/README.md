@@ -21,8 +21,9 @@ about 58 minutes; the Comparator phase took 3,155.198 seconds.
 
 The report's Challenge, Solution, Comparator configuration, metadata, Lakefile,
 and licence hashes were checked against the repository before archiving it.
-Subsequent report/documentation changes are not part of the source commit it
-checked. This is a successful hosted preflight, not a Palomar portal submission,
+Subsequent manuscript, filename, metadata-location, and documentation changes
+are not part of the source commit it checked; see
+[PUBLICATION.md](../PUBLICATION.md). This is a successful hosted preflight, not a Palomar portal submission,
 editorial review, or registration.
 
 The September 18 submission preparation adds the

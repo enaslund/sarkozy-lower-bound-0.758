@@ -2,8 +2,8 @@
 
 | Result | PDF | Self-contained LaTeX | Certificate program |
 |---|---|---|---|
-| Full exponent **0.75806746** | [PDF](square-difference-free.pdf) | [TeX](square-difference-free.tex) | [Python](square-difference-free-certificate.py) |
-| Simpler companion, exponent **0.758001** | [PDF](sarkozy_simple_0.758.pdf) | [TeX](sarkozy_simple_0.758.tex) | [Python](sarkozy-simple-certificate.py) |
+| Full exponent **0.75806746** | [PDF](square-difference-free-sets-of-exponent-0.75806746.pdf) | [TeX](square-difference-free-sets-of-exponent-0.75806746.tex) | [Python](square-difference-free-certificate.py) |
+| Simpler companion, exponent **0.758001** | [PDF](a-simpler-construction-of-square-difference-free-sets-beyond-exponent-0.758.pdf) | [TeX](a-simpler-construction-of-square-difference-free-sets-beyond-exponent-0.758.tex) | [Python](sarkozy-simple-certificate.py) |
 
 The Lean development at the repository root proves the full result. The
 companion presents a simpler construction for human readers and is not a
@@ -14,7 +14,7 @@ Both papers list **Eric Naslund** as author, with contact
 name refers to his supplied opening note, placed before the abstract, disclosing
 GPT-6-Astra's role under his prompting and supervision and explaining his
 intended way of reading the paper with AI. That paragraph is reproduced verbatim
-from the author's instructions, with typographic quotation marks and emphasis.
+from the author's instructions, with typographic quotation marks.
 
 Each TeX file includes its bibliography and exact certificate program.
 Compiling it writes the program and attaches it to the PDF. No external
@@ -25,7 +25,7 @@ build directory and run the following command three times, substituting the
 companion filename when appropriate:
 
 ```bash
-pdflatex -interaction=nonstopmode -halt-on-error -no-shell-escape square-difference-free.tex
+pdflatex -interaction=nonstopmode -halt-on-error -no-shell-escape square-difference-free-sets-of-exponent-0.75806746.tex
 ```
 
 Run either certificate program using Python 3 and its standard library:
@@ -41,11 +41,17 @@ The programs are also attached to the PDFs. The preserved
 build and finite-verification checks. They describe the original September 11
 paper versions. The September 18 front-matter revision adds the contact, author
 note, and explicit licence and rebuilds both PDFs; its build checks, attachment
-comparisons, and current hashes are recorded in
+comparisons, and hashes for that revision are recorded in
 [the publication revision report](verification/publication-20260918.json).
-The mathematical text and both certificate programs remain unchanged.
+A subsequent revision uses the author's revised opening note, renames the TeX
+and PDF files to follow the paper titles, and adds a brief discussion and
+citations of Naslund's function-field conjecture and Jones's Palomar
+counterexamples. Its current filenames, hashes, and PDF checks are recorded in
+[the manuscript revision report](verification/revision-20260918.json).
+The proofs and both certificate programs remain unchanged.
 Historical paths in the earlier reports refer to the original research
-workspace; [PUBLICATION.md](../PUBLICATION.md) records the copy.
+workspace or earlier filenames; [PUBLICATION.md](../PUBLICATION.md) records
+the copy and subsequent revisions.
 
 Both papers, their LaTeX sources and PDFs, and their certificate programs are
 licensed under the repository's [Apache License, Version 2.0](../LICENSE),
