@@ -1,5 +1,30 @@
 # Verification records
 
+## Official full preflight, 2026-09-18
+
+Candidate **`e26058b55ab928e321d25318185acc69fbf62ab9` passed** the official
+reusable Palomar verifier in
+[GitHub Actions run 35392867341](https://github.com/enaslund/sarkozy-lower-bound-0.758/actions/runs/35392867341).
+The [unmodified mechanical-report artifact](palomar-preflight-20260918.json)
+has SHA256 `ed4b0035ec3ade045e8bc1961c55aaf612c06b48f9271daf501b393ad4d6d0ad`.
+It records `status: pass`, `phase: verification`, `stage: complete`, and empty
+error/policy-warning lists. The normal Lean build emitted non-blocking linter
+warnings, retained in the report's Comparator log.
+
+Both `SarkozySubmission.interval_moment_bound` and
+`SarkozySubmission.improved_bound` passed the protected canonical-Challenge
+comparison, Lean's default kernel, and the independent NanoDa kernel. Licence
+detection matched `Apache-2.0`. The verifier used PalomarSubmission
+`3561d237dcc4b28482558ad28a64d767d7cc8615` under `palomar-standard-v1` on a
+four-CPU, approximately 16 GiB GitHub runner. The full verification job lasted
+about 58 minutes; the Comparator phase took 3,155.198 seconds.
+
+The report's Challenge, Solution, Comparator configuration, metadata, Lakefile,
+and licence hashes were checked against the repository before archiving it.
+Subsequent report/documentation changes are not part of the source commit it
+checked. This is a successful hosted preflight, not a Palomar portal submission,
+editorial review, or registration.
+
 The September 18 submission preparation adds the
 [official full mechanical preflight](../.github/workflows/palomar-preflight.yml).
 Its [hosted runs and mechanical-report artifacts](https://github.com/enaslund/sarkozy-lower-bound-0.758/actions/workflows/palomar-preflight.yml)

@@ -198,6 +198,14 @@ absence of asserted source-author endorsement or human peer review.
 
 ## Submission files and verification
 
+The [official full mechanical preflight passed](https://github.com/enaslund/sarkozy-lower-bound-0.758/actions/runs/35392867341)
+on 2026-09-18 for commit `e26058b55ab928e321d25318185acc69fbf62ab9`, checking
+both selected theorems with Comparator, the protected Challenge audit, Lean's
+kernel, and independent NanoDa replay. The
+[unmodified mechanical report](verification/palomar-preflight-20260918.json)
+is preserved. It applies to that exact commit; this later documentation records
+the result. Palomar's own submission review and registration remain separate.
+
 [Challenge.lean](Challenge.lean) selects two related results using Mathlib alone:
 the general interval-moment criterion and the unconditional numerical
 application, `improved_bound`. [Solution.lean](Solution.lean) proves both.

@@ -1,0 +1,660 @@
+{
+  "challenge": {
+    "bytes": 2676,
+    "canonical_olean_sha256": "268ae61d56f77e90f5171d70c3dd13bc6407e073b46c51077248dc054494bcf2",
+    "dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "direct_imports": [
+      "Mathlib"
+    ],
+    "lines": 59,
+    "module": "Challenge",
+    "path": "Challenge.lean",
+    "sha256": "7a38a915a39ac55cdb320ce1d0303da0637c29f70234b48184590b9a94759897",
+    "transitive_source_count": 2,
+    "trust_level": "high",
+    "untrusted_sources": []
+  },
+  "checked_at": "2026-09-18T21:40:18Z",
+  "classification": {
+    "arxiv": [
+      {
+        "code": "math.NT",
+        "name": "Number Theory"
+      },
+      {
+        "code": "math.CO",
+        "name": "Combinatorics"
+      }
+    ],
+    "msc2020": [
+      {
+        "code": "11B75",
+        "name": "Other combinatorial number theory"
+      },
+      {
+        "code": "03B35",
+        "name": "Mechanization of proofs and logical operations"
+      }
+    ]
+  },
+  "comparator": {
+    "challenge_module": "Challenge",
+    "definition_names": [],
+    "path": "comparator.json",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "sha256": "85f9fd5bf13a3e87cf8fd406f98f1e048edf86e9d6266a2dd1600398a796f52b",
+    "solution_module": "Solution",
+    "theorem_names": [
+      "SarkozySubmission.interval_moment_bound",
+      "SarkozySubmission.improved_bound"
+    ]
+  },
+  "comparator_commit": "575674928e239f5bc452aab72d1dd7b0f1326494",
+  "comparator_log_tail": "Building PalomarCanonical5648c53734de2dece0d5a3e7.Challenge\nExporting #[Nat, String, String.mk, Char, Quot, Quot.mk, Quot.lift, Quot.ind, SarkozySubmission.interval_moment_bound, SarkozySubmission.improved_bound, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce] from PalomarCanonical5648c53734de2dece0d5a3e7.Challenge\nBuilding Solution\n\u2714 [8655/8794] Built Sarkozy.OddKernelSort (1.8s)\n\u2714 [8656/8794] Built Sarkozy.Parameters (7.0s)\n\u2714 [8657/8794] Built Sarkozy.Ranked (8.4s)\n\u2714 [8658/8794] Built Sarkozy.BinaryData (9.4s)\n\u2714 [8659/8794] Built Sarkozy.Asymptotic (5.8s)\n\u2714 [8660/8794] Built Sarkozy.CRT (6.7s)\n\u2714 [8661/8794] Built Sarkozy.Words (8.1s)\n\u2714 [8662/8794] Built Sarkozy.Growth (5.9s)\n\u2714 [8663/8794] Built Sarkozy.Certificate (4.8s)\n\u2714 [8664/8794] Built Sarkozy.Intervals (6.8s)\n\u2714 [8665/8794] Built Sarkozy.Stopping (6.5s)\n\u2714 [8666/8794] Built Sarkozy.Binary (7.7s)\n\u2714 [8667/8794] Built Sarkozy.Moment (5.1s)\n\u2714 [8668/8794] Built Sarkozy.BinaryGrowth (6.0s)\n\u2714 [8669/8794] Built Sarkozy.FiniteAlphabets (5.4s)\n\u2714 [8670/8794] Built Sarkozy.BinaryPolicy (6.3s)\n\u2714 [8671/8794] Built Sarkozy.OddLift (11s)\n\u2714 [8672/8794] Built Sarkozy.BinaryRealData (8.8s)\n\u26a0 [8673/8794] Built Sarkozy.PrimeChains (30s)\nwarning: Sarkozy/PrimeChains.lean:55:42: Variable name `hp` is not explicitly referenced.\n\nThe binding can be removed (if unused) or named `_` (if used implicitly).\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n\u2714 [8674/8794] Built Sarkozy.OddCertificate (3.9s)\n\u26a0 [8675/8794] Built Sarkozy.OddOrder (5.6s)\nwarning: Sarkozy/OddOrder.lean:33:22: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice\n\nNote: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`\n\u2714 [8676/8794] Built Sarkozy.ChainMoments (11s)\n\u2714 [8677/8794] Built Sarkozy.ReducedTarget (4.6s)\n\u26a0 [8678/8794] Built Sarkozy.PowerChecker (5.1s)\nwarning: Sarkozy/PowerChecker.lean:53:61: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice\n\nNote: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`\nwarning: Sarkozy/PowerChecker.lean:77:61: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice\n\nNote: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`\n\u2714 [8679/8794] Built Sarkozy.OddTarget (4.5s)\n\u26a0 [8680/8794] Built Sarkozy.PowerPolynomial (5.3s)\nwarning: Sarkozy/PowerPolynomial.lean:33:24: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice\n\nNote: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`\nwarning: Sarkozy/PowerPolynomial.lean:42:28: this tactic is never executed\n\nNote: This linter can be disabled with `set_option linter.unreachableTactic false`\nwarning: Sarkozy/PowerPolynomial.lean:42:28: 'ring' tactic does nothing\n\nNote: This linter can be disabled with `set_option linter.unusedTactic false`\n\u2714 [8681/8794] Built Sarkozy.FastPowerCertificate (4.6s)\n\u2714 [8682/8794] Built Sarkozy.RecordBinaryTarget (5.9s)\n\u2714 [8683/8794] Built Sarkozy.OddFiniteCertificate (5.0s)\n\u2714 [8684/8794] Built Sarkozy.Odd437MomentChecker (7.6s)\n\u2714 [8685/8794] Built Sarkozy.BinaryDepth (9.9s)\n\u26a0 [8686/8794] Built Sarkozy.OddData (8.2s)\nwarning: Sarkozy/OddData.lean:56:10: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\nwarning: Sarkozy/OddData.lean:56:34: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n\u2714 [8687/8794] Built Sarkozy.Odd215MomentData (23s)\n\u2714 [8688/8794] Built Sarkozy.Odd437MomentChunks.Chunk000 (14s)\n\u2714 [8689/8794] Built Sarkozy.Odd437Threshold (10s)\n\u26a0 [8690/8794] Built Sarkozy.OddOrderCertificate (6.8s)\nwarning: Sarkozy/OddOrderCertificate.lean:109:10: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\nwarning: Sarkozy/OddOrderCertificate.lean:109:34: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n\u2714 [8691/8794] Built Sarkozy.Odd215Threshold (8.7s)\n\u26a0 [8692/8794] Built Sarkozy.OddMoments (6.4s)\nwarning: Sarkozy/OddMoments.lean:41:2: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n\u2714 [8693/8794] Built Sarkozy.Odd437MomentChunks.Chunk001 (12s)\n\u2714 [8694/8794] Built Sarkozy.OddEndpointCheck (7.9s)\n\u2714 [8695/8794] Built Sarkozy.OddData215 (38s)\n\u2714 [8696/8794] Built Sarkozy.OddOrderChunkLemma (5.5s)\n\u2714 [8697/8794] Built Sarkozy.OddOrderFast (5.6s)\n\u26a0 [8698/8794] Built Sarkozy.BinaryRows (102s)\nwarning: Sarkozy/BinaryRows.lean:54:56: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice\n\nNote: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`\nwarning: Sarkozy/BinaryRows.lean:59:56: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice\n\nNote: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`\n\u2714 [8699/8794] Built Sarkozy.Odd437MomentChunks.Chunk002 (13s)\n\u2714 [8700/8794] Built Sarkozy.TwoOddTarget (8.1s)\n\u2714 [8701/8794] Built Sarkozy.Odd437MomentChunks.Chunk003 (17s)\n\u2714 [8702/8794] Built Sarkozy.Odd437MomentChunks.Chunk004 (15s)\n\u2714 [8703/8794] Built Sarkozy.Odd437MomentChunks.Chunk005 (13s)\n\u2714 [8704/8794] Built Sarkozy.Odd437MomentChunks.Chunk006 (12s)\n\u2714 [8705/8794] Built Sarkozy.OddData437 (158s)\n\u2714 [8706/8794] Built Sarkozy.ActualOddTarget (7.4s)\n\u2714 [8707/8794] Built Sarkozy.Odd437MomentChunks.Chunk007 (11s)\n\u2714 [8708/8794] Built Sarkozy.Odd437MomentChunks.Chunk008 (10s)\n\u2714 [8709/8794] Built Sarkozy.Odd437MomentChunks.Chunk009 (11s)\n\u2714 [8710/8794] Built Sarkozy.Odd437MomentChunks.Chunk010 (11s)\n\u2714 [8711/8794] Built Sarkozy.Odd437MomentChunks.Chunk011 (9.6s)\n\u2714 [8712/8794] Built Sarkozy.Odd437MomentChunks.Chunk012 (9.0s)\n\u2714 [8713/8794] Built Sarkozy.OddOrderData215 (168s)\n\u2714 [8714/8794] Built Sarkozy.Odd437MomentChunks.Chunk013 (9.5s)\n\u2714 [8715/8794] Built Sarkozy.OddOrderBase215 (9.4s)\n\u2714 [8716/8794] Built Sarkozy.Odd437MomentChunks.Chunk014 (9.1s)\n\u2714 [8717/8794] Built Sarkozy.OddOrderChunks215.Chunk00 (11s)\n\u2714 [8718/8794] Built Sarkozy.Odd437MomentChunks.Chunk015 (9.3s)\n\u2714 [8719/8794] Built Sarkozy.OddOrderChunks215.Chunk01 (8.5s)\n\u2714 [8720/8794] Built Sarkozy.Odd437MomentChunks.Chunk016 (11s)\n\u2714 [8721/8794] Built Sarkozy.OddOrderChunks215.Chunk02 (9.1s)\n\u2714 [8722/8794] Built Sarkozy.Odd437MomentChunks.Chunk017 (9.7s)\n\u2714 [8723/8794] Built Sarkozy.OddOrderChunks215.Chunk03 (10s)\n\u2714 [8724/8794] Built Sarkozy.OddOrderData437 (241s)\n\u2714 [8725/8794] Built Sarkozy.Odd437MomentChunks.Chunk018 (7.5s)\n\u2714 [8726/8794] Built Sarkozy.Odd437MomentData (6.3s)\n\u2714 [8727/8794] Built Sarkozy.OddOrderChunks215.Chunk04 (11s)\n\u2714 [8728/8794] Built Sarkozy.OddOrderEndpoints437 (10s)\n\u2714 [8729/8794] Built Sarkozy.OddOrderChunks215.Chunk05 (8.0s)\n\u2714 [8730/8794] Built Sarkozy.OddOrderBase437 (21s)\n\u2714 [8731/8794] Built Sarkozy.OddOrderChunks215.Chunk06 (11s)\n\u2714 [8732/8794] Built Sarkozy.OddOrderChunks215.Chunk07 (11s)\n\u2714 [8733/8794] Built Sarkozy.OddOrderChunks437.Chunk00 (25s)\n\u2714 [8734/8794] Built Sarkozy.OddOrderChunks215.Chunk08 (10s)\n\u2714 [8735/8794] Built Sarkozy.OddOrderChunks215.Chunk09 (17s)\n\u2714 [8736/8794] Built Sarkozy.OddOrderChunks437.Chunk01 (43s)\n\u2714 [8737/8794] Built Sarkozy.OddOrderChunks215.Chunk10 (47s)\n\u2714 [8738/8794] Built Sarkozy.OddOrderChunks215.Chunk11 (23s)\n\u2714 [8739/8794] Built Sarkozy.OddOrderChunks437.Chunk02 (56s)\n\u2714 [8740/8794] Built Sarkozy.OddOrderChunks215.Chunk12 (18s)\n\u2714 [8741/8794] Built Sarkozy.OddOrderChunks215.Chunk13 (16s)\n\u2714 [8742/8794] Built Sarkozy.OddOrderChunks437.Chunk03 (45s)\n\u2714 [8743/8794] Built Sarkozy.OddOrderChunks215.Chunk14 (28s)\n\u2714 [8744/8794] Built Sarkozy.OddOrderChunks215.Chunk15 (12s)\n\u2714 [8745/8794] Built Sarkozy.OddOrderChunks215.Chunk16 (18s)\n\u2714 [8746/8794] Built Sarkozy.OddOrderChunks437.Chunk04 (46s)\n\u2714 [8747/8794] Built Sarkozy.OddOrderChunks215.Chunk17 (18s)\n\u2714 [8748/8794] Built Sarkozy.OddOrderChunks215.Chunk18 (13s)\n\u2714 [8749/8794] Built Sarkozy.OddOrderChunks215.Chunk19 (15s)\n\u2714 [8750/8794] Built Sarkozy.OddOrderChunks437.Chunk05 (49s)\n\u2714 [8751/8794] Built Sarkozy.OddOrderChunks215.Chunk20 (14s)\n\u2714 [8752/8794] Built Sarkozy.OddOrderChunks215.Chunk21 (15s)\n\u2714 [8753/8794] Built Sarkozy.OddOrderChunks215.Chunk22 (14s)\n\u2714 [8754/8794] Built Sarkozy.OddOrderChunks437.Chunk06 (48s)\n\u2714 [8755/8794] Built Sarkozy.OddOrderChunks215.Chunk23 (11s)\n\u2714 [8756/8794] Built Sarkozy.OddOrderChunks215.Chunk24 (15s)\n\u2714 [8757/8794] Built Sarkozy.OddOrderChunks215.Chunk25 (12s)\n\u2714 [8758/8794] Built Sarkozy.OddOrderChunks437.Chunk07 (43s)\n\u2714 [8759/8794] Built Sarkozy.OddOrderChunks215.Chunk26 (15s)\n\u2714 [8760/8794] Built Sarkozy.OddOrderChunks215.Chunk27 (15s)\n\u2714 [8761/8794] Built Sarkozy.OddOrderChunks215.Chunk28 (12s)\n\u2714 [8762/8794] Built Sarkozy.OddOrderChunks437.Chunk08 (42s)\n\u2714 [8763/8794] Built Sarkozy.OddOrderChunks215.Chunk29 (20s)\n\u2714 [8764/8794] Built Sarkozy.OddOrderChunks215.Chunk30 (14s)\n\u2714 [8765/8794] Built Sarkozy.OddOrderChunks215.Chunk31 (15s)\n\u2714 [8766/8794] Built Sarkozy.OddOrderChunks437.Chunk09 (44s)\n\u2714 [8767/8794] Built Sarkozy.OddOrderChunks215.Chunk32 (21s)\n\u2714 [8768/8794] Built Sarkozy.OddOrderChunks215.Chunk33 (15s)\n\u2714 [8769/8794] Built Sarkozy.OddOrderChunks215.Chunk34 (16s)\n\u2714 [8770/8794] Built Sarkozy.OddOrderChunks437.Chunk10 (56s)\n\u2714 [8771/8794] Built Sarkozy.OddOrderChunks215.Chunk35 (25s)\n\u2714 [8772/8794] Built Sarkozy.OddOrderChunks215.Chunk36 (14s)\n\u2714 [8773/8794] Built Sarkozy.OddOrderChunks215.Chunk37 (14s)\n\u2714 [8774/8794] Built Sarkozy.OddOrderChunks437.Chunk11 (51s)\n\u2714 [8775/8794] Built Sarkozy.OddOrderChunks215.Chunk38 (14s)\n\u2714 [8776/8794] Built Sarkozy.OddOrderChecks215 (6.2s)\n\u2714 [8777/8794] Built Sarkozy.OddOrder215 (6.3s)\n\u2714 [8778/8794] Built Sarkozy.Odd215Certificate (28s)\n\u2714 [8779/8794] Built Sarkozy.OddOrderChunks437.Chunk12 (51s)\n\u2714 [8780/8794] Built Sarkozy.OneOddTarget (24s)\n\u2714 [8781/8794] Built Sarkozy.OddOrderChunks437.Chunk13 (62s)\n\u2714 [8782/8794] Built Sarkozy.Odd437WidthHistogram (697s)\n\u2714 [8783/8794] Built Sarkozy.OddOrderChunks437.Chunk14 (46s)\n\u2714 [8784/8794] Built Sarkozy.OddOrderChunks437.Chunk15 (34s)\n\u2714 [8785/8794] Built Sarkozy.OddOrderChunks437.Chunk16 (33s)\n\u2714 [8786/8794] Built Sarkozy.OddOrderChunks437.Chunk17 (35s)\n\u2714 [8787/8794] Built Sarkozy.OddOrderChunks437.Chunk18 (34s)\n\u2714 [8788/8794] Built Sarkozy.OddOrderChunks437.Chunk19 (10s)\n\u2714 [8789/8794] Built Sarkozy.OddOrderChecks437 (5.3s)\n\u2714 [8790/8794] Built Sarkozy.OddOrder437 (3.8s)\n\u2714 [8791/8794] Built Sarkozy.Odd437Certificate (3.9s)\n\u2714 [8792/8794] Built Sarkozy.FullTarget (3.8s)\n\u2714 [8793/8794] Built Solution (3.8s)\nBuild completed successfully (8794 jobs).\nExporting #[Nat, String, String.mk, Char, Quot, Quot.mk, Quot.lift, Quot.ind, SarkozySubmission.interval_moment_bound, SarkozySubmission.improved_bound, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce] from Solution\nRunning nanoda kernel on solution\nnanoda kernel accepts the solution\nRunning Lean default kernel on solution.\nLean default kernel accepts the solution\nYour solution is okay!",
+  "errors": [],
+  "existing_id": null,
+  "formalization": {
+    "automation_method_count": 1,
+    "path": "formalization.yaml",
+    "project_name": "An interval-moment criterion for square-difference-free integer sets",
+    "review_status": "agent-reviewed",
+    "sha256": "5ee3e2b31de0d07d18762ee46d8ac7eb4bd4656a8cde4527fc4586f89fc6eb60",
+    "source_count": 4
+  },
+  "lake_manifest": {
+    "path": "lake-manifest.json",
+    "sha256": "8aba48e285caa5cbbd53665707ef415a73d3d27d8b99dba241066e9dcd6bc55a"
+  },
+  "lakefile": {
+    "format": "toml",
+    "path": "lakefile.toml",
+    "sha256": "6eb47bd8be7358b8b28d5896523bb7ea2a29e5224f3792e1519e0c23ad4c049c"
+  },
+  "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+  "lean4export_commit": "4e7915201d3f9f04470d9eae002fa695f7cdc589",
+  "lean_toolchain": "leanprover/lean4:v4.32.0",
+  "lean_toolchain_path": "lean-toolchain",
+  "license": {
+    "declared_identifier": "Apache-2.0",
+    "detected_identifier": "Apache-2.0",
+    "path": "LICENSE",
+    "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+  },
+  "mathlib_cache": {
+    "available": true,
+    "required": true
+  },
+  "mathlib_toolchain": [
+    {
+      "revision": "81a5d257c8e410db227a6665ed08f64fea08e997",
+      "toolchain": "leanprover/lean4:v4.32.0"
+    }
+  ],
+  "nanoda_commit": "68d5ca9db226849b41a6fff59d796ff19d0a8840",
+  "orcid_validation": {
+    "checked_at": "2026-09-18T20:42:47Z",
+    "records": [],
+    "registry": "https://orcid.org",
+    "schema_version": 1
+  },
+  "phase": "verification",
+  "project_dependencies": [
+    {
+      "name": "mathlib",
+      "repository": "leanprover-community/mathlib4",
+      "revision": "81a5d257c8e410db227a6665ed08f64fea08e997",
+      "url": "https://github.com/leanprover-community/mathlib4.git"
+    },
+    {
+      "name": "plausible",
+      "repository": "leanprover-community/plausible",
+      "revision": "e12c1910fe855cbfc38803cd4e55543906d5fa62",
+      "url": "https://github.com/leanprover-community/plausible"
+    },
+    {
+      "name": "LeanSearchClient",
+      "repository": "leanprover-community/LeanSearchClient",
+      "revision": "c5d5b8fe6e5158def25cd28eb94e4141ad97c843",
+      "url": "https://github.com/leanprover-community/LeanSearchClient"
+    },
+    {
+      "name": "importGraph",
+      "repository": "leanprover-community/import-graph",
+      "revision": "7e9612bf0b9ee66db3cb5b9988a35afc706f5a12",
+      "url": "https://github.com/leanprover-community/import-graph"
+    },
+    {
+      "name": "proofwidgets",
+      "repository": "leanprover-community/ProofWidgets4",
+      "revision": "6e311e2a844da9b2cc3971187df2fe0066947b93",
+      "url": "https://github.com/leanprover-community/ProofWidgets4"
+    },
+    {
+      "name": "aesop",
+      "repository": "leanprover-community/aesop",
+      "revision": "a7dbf0c63b694e47f425f3dcddbc0e178bb432d3",
+      "url": "https://github.com/leanprover-community/aesop"
+    },
+    {
+      "name": "Qq",
+      "repository": "leanprover-community/quote4",
+      "revision": "38d591e778f100aec9762bb582f9c7f55f50e9dc",
+      "url": "https://github.com/leanprover-community/quote4"
+    },
+    {
+      "name": "batteries",
+      "repository": "leanprover-community/batteries",
+      "revision": "023ce7d62a0531e22a5331e20b587817a80d49ff",
+      "url": "https://github.com/leanprover-community/batteries"
+    },
+    {
+      "name": "Cli",
+      "repository": "leanprover/lean4-cli",
+      "revision": "88679d088c9720c27ebdf2ba4dafe17341747f94",
+      "url": "https://github.com/leanprover/lean4-cli"
+    }
+  ],
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "authors": [
+          {
+            "name": "Eric Naslund"
+          }
+        ],
+        "location": "papers/square-difference-free.tex and papers/square-difference-free.pdf at the submitted repository commit; Theorem 1.1 and the finite interval-moment criterion.",
+        "note": "Accompanying self-contained exposition of this development, not an independent prior source or priority claim. The Lean proof uses the stopping-word argument described in the manuscript and PROOF.md. The manuscript was written by GPT-6-Astra, prompted and supervised by Eric Naslund; its opening author note was supplied verbatim by Eric Naslund. Contact naslund.math@gmail.com. Apache-2.0.",
+        "relationship": "other",
+        "title": "Square-difference-free sets of exponent 0.75806746: Ordered intervals, composite digit codes, and a binary recursion",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Eric Naslund"
+          }
+        ],
+        "location": "papers/sarkozy_simple_0.758.tex and papers/sarkozy_simple_0.758.pdf at the submitted repository commit.",
+        "note": "Accompanying exposition of a simpler construction with exponent 0.758001; this construction is not a separate Lean formalization or a selected Comparator result. Written by GPT-6-Astra under Eric Naslund's prompting and supervision, with his verbatim opening author note. Apache-2.0.",
+        "relationship": "other",
+        "title": "A simpler construction of square-difference-free sets beyond exponent 0.758",
+        "type": "paper"
+      },
+      {
+        "authors": [],
+        "location": "Unpublished September 2026 research notes, synthesized as METHODS.md and CAPACITY-IMPROVEMENT.md in the working repository https://github.com/enaslund/sarkozy-lower-bound at commit fe0b29937c56b77ba5dd46328db340936e8473ac. These source files and the external computation bundles are not included in this standalone package. PROOF.md supplies a self-contained mathematical account of the formalized implication; README.md gives context and scope.",
+        "note": "The general implication is formalized with finite stopping words. Original missing certificates were not retained; reconstructed data are encoded in Lean and checked by the kernel. All nine components, including the complete 215 and 437 witnesses, are proved without finite-check assumptions. No source-author endorsement or bibliographic priority is claimed.",
+        "relationship": "adapts",
+        "title": "Ranked residues, intervals, and the integer construction",
+        "type": "other"
+      },
+      {
+        "authors": [
+          {
+            "name": "Dmitry Krachun"
+          }
+        ],
+        "identifier": "https://arxiv.org/abs/2608.01325v1",
+        "location": "arXiv:2608.01325v1 (2026), Section 2, especially Lemmas 4 and 5.",
+        "note": "The ranked-block realization, square-base word lifting, and CRT combination follow this construction, using increasing ranks and reverse-rank representatives. The interval-moment criterion and stopping-word proof go beyond the cited lemmas. The paper's full numerical theorem is not formalized, and source-author endorsement is not asserted.",
+        "relationship": "adapts",
+        "title": "Square-Difference-Free Sets beyond the Three-Quarter Barrier",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Eric Naslund"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "resource_usage": [
+    {
+      "elapsed_seconds": 0.004,
+      "max_rss_kib": 13368,
+      "peak_tasks_observed": 1,
+      "phase": "confinement-initial",
+      "returncode": 0,
+      "system_cpu_seconds": 0.003,
+      "user_cpu_seconds": 0.001,
+      "workspace_disk_peak_bytes": 0
+    },
+    {
+      "elapsed_seconds": 0.007,
+      "max_rss_kib": 13368,
+      "peak_tasks_observed": 1,
+      "phase": "confinement-initial",
+      "returncode": 0,
+      "system_cpu_seconds": 0.005,
+      "user_cpu_seconds": 0.002,
+      "workspace_disk_peak_bytes": 0
+    },
+    {
+      "elapsed_seconds": 0.004,
+      "max_rss_kib": 13368,
+      "peak_tasks_observed": 1,
+      "phase": "confinement-initial",
+      "returncode": 1,
+      "system_cpu_seconds": 0.001,
+      "user_cpu_seconds": 0.003,
+      "workspace_disk_peak_bytes": 0
+    },
+    {
+      "cpu_usage_nanoseconds": 52507000,
+      "exec_main_code": "1",
+      "exec_main_status": "1",
+      "memory_events": {
+        "oom": 0,
+        "oom_kill": 0
+      },
+      "memory_peak_bytes": 524288,
+      "phase": "confinement-initial:cgroup",
+      "supervisor_timeout": false,
+      "systemd_active_state": "failed",
+      "systemd_result": "exit-code"
+    },
+    {
+      "elapsed_seconds": 0.024,
+      "max_rss_kib": 13368,
+      "peak_tasks_observed": 1,
+      "phase": "confinement-initial",
+      "returncode": 0,
+      "system_cpu_seconds": 0.003,
+      "user_cpu_seconds": 0.022,
+      "workspace_disk_peak_bytes": 0
+    },
+    {
+      "elapsed_seconds": 0.025,
+      "max_rss_kib": 13368,
+      "peak_tasks_observed": 1,
+      "phase": "confinement-initial",
+      "returncode": 1,
+      "system_cpu_seconds": 0.007,
+      "user_cpu_seconds": 0.018,
+      "workspace_disk_peak_bytes": 0
+    },
+    {
+      "cpu_usage_nanoseconds": 72813000,
+      "exec_main_code": "1",
+      "exec_main_status": "1",
+      "memory_events": {
+        "oom": 0,
+        "oom_kill": 0
+      },
+      "memory_peak_bytes": 262144,
+      "phase": "confinement-initial:cgroup",
+      "supervisor_timeout": false,
+      "systemd_active_state": "failed",
+      "systemd_result": "exit-code"
+    },
+    {
+      "elapsed_seconds": 0.025,
+      "max_rss_kib": 13204,
+      "peak_tasks_observed": 1,
+      "phase": "confinement-initial",
+      "returncode": 1,
+      "system_cpu_seconds": 0.005,
+      "user_cpu_seconds": 0.02,
+      "workspace_disk_peak_bytes": 0
+    },
+    {
+      "cpu_usage_nanoseconds": 72316000,
+      "exec_main_code": "1",
+      "exec_main_status": "1",
+      "memory_events": {
+        "oom": 0,
+        "oom_kill": 0
+      },
+      "memory_peak_bytes": 262144,
+      "phase": "confinement-initial:cgroup",
+      "supervisor_timeout": false,
+      "systemd_active_state": "failed",
+      "systemd_result": "exit-code"
+    },
+    {
+      "elapsed_seconds": 0.022,
+      "max_rss_kib": 13368,
+      "peak_tasks_observed": 1,
+      "phase": "confinement-initial",
+      "returncode": 1,
+      "system_cpu_seconds": 0.007,
+      "user_cpu_seconds": 0.015,
+      "workspace_disk_peak_bytes": 0
+    },
+    {
+      "cpu_usage_nanoseconds": 67929000,
+      "exec_main_code": "1",
+      "exec_main_status": "1",
+      "memory_events": {
+        "oom": 0,
+        "oom_kill": 0
+      },
+      "memory_peak_bytes": 262144,
+      "phase": "confinement-initial:cgroup",
+      "supervisor_timeout": false,
+      "systemd_active_state": "failed",
+      "systemd_result": "exit-code"
+    },
+    {
+      "elapsed_seconds": 2.274,
+      "max_rss_kib": 880920,
+      "peak_tasks_observed": 1,
+      "phase": "module-resolution",
+      "returncode": 0,
+      "system_cpu_seconds": 0.447,
+      "user_cpu_seconds": 1.882,
+      "workspace_disk_peak_bytes": 679936
+    },
+    {
+      "elapsed_seconds": 0.06,
+      "max_rss_kib": 88580,
+      "peak_tasks_observed": 1,
+      "phase": "module-resolution",
+      "returncode": 0,
+      "system_cpu_seconds": 0.026,
+      "user_cpu_seconds": 0.048,
+      "workspace_disk_peak_bytes": 0
+    },
+    {
+      "elapsed_seconds": 49.365,
+      "max_rss_kib": 1013212,
+      "peak_tasks_observed": 1,
+      "phase": "trusted-cache",
+      "returncode": 0,
+      "system_cpu_seconds": 39.025,
+      "user_cpu_seconds": 70.603,
+      "workspace_disk_peak_bytes": 7662051328
+    },
+    {
+      "elapsed_seconds": 5.167,
+      "max_rss_kib": 979040,
+      "peak_tasks_observed": 1,
+      "phase": "trusted-cache",
+      "returncode": 0,
+      "system_cpu_seconds": 3.031,
+      "user_cpu_seconds": 5.739,
+      "workspace_disk_peak_bytes": 1581056
+    },
+    {
+      "elapsed_seconds": 2.621,
+      "max_rss_kib": 881056,
+      "peak_tasks_observed": 1,
+      "phase": "trusted-cache",
+      "returncode": 0,
+      "system_cpu_seconds": 0.568,
+      "user_cpu_seconds": 2.006,
+      "workspace_disk_peak_bytes": 679936
+    },
+    {
+      "elapsed_seconds": 8.76,
+      "max_rss_kib": 6671252,
+      "peak_tasks_observed": 1,
+      "phase": "canonical-challenge",
+      "returncode": 0,
+      "system_cpu_seconds": 2.321,
+      "user_cpu_seconds": 2.613,
+      "workspace_disk_peak_bytes": 0
+    },
+    {
+      "elapsed_seconds": 0.067,
+      "max_rss_kib": 88480,
+      "peak_tasks_observed": 1,
+      "phase": "canonical-challenge",
+      "returncode": 0,
+      "system_cpu_seconds": 0.032,
+      "user_cpu_seconds": 0.05,
+      "workspace_disk_peak_bytes": 0
+    },
+    {
+      "elapsed_seconds": 0.065,
+      "max_rss_kib": 88632,
+      "peak_tasks_observed": 1,
+      "phase": "canonical-challenge",
+      "returncode": 0,
+      "system_cpu_seconds": 0.033,
+      "user_cpu_seconds": 0.044,
+      "workspace_disk_peak_bytes": 0
+    },
+    {
+      "elapsed_seconds": 0.004,
+      "max_rss_kib": 13368,
+      "peak_tasks_observed": 1,
+      "phase": "confinement-final",
+      "returncode": 0,
+      "system_cpu_seconds": 0.003,
+      "user_cpu_seconds": 0.001,
+      "workspace_disk_peak_bytes": 0
+    },
+    {
+      "elapsed_seconds": 0.006,
+      "max_rss_kib": 13368,
+      "peak_tasks_observed": 1,
+      "phase": "confinement-final",
+      "returncode": 0,
+      "system_cpu_seconds": 0.005,
+      "user_cpu_seconds": 0.002,
+      "workspace_disk_peak_bytes": 0
+    },
+    {
+      "elapsed_seconds": 0.004,
+      "max_rss_kib": 13368,
+      "peak_tasks_observed": 1,
+      "phase": "confinement-final",
+      "returncode": 1,
+      "system_cpu_seconds": 0.002,
+      "user_cpu_seconds": 0.002,
+      "workspace_disk_peak_bytes": 0
+    },
+    {
+      "cpu_usage_nanoseconds": 49674000,
+      "exec_main_code": "1",
+      "exec_main_status": "1",
+      "memory_events": {
+        "oom": 0,
+        "oom_kill": 0
+      },
+      "memory_peak_bytes": 524288,
+      "phase": "confinement-final:cgroup",
+      "supervisor_timeout": false,
+      "systemd_active_state": "failed",
+      "systemd_result": "exit-code"
+    },
+    {
+      "elapsed_seconds": 0.025,
+      "max_rss_kib": 13368,
+      "peak_tasks_observed": 1,
+      "phase": "confinement-final",
+      "returncode": 0,
+      "system_cpu_seconds": 0.007,
+      "user_cpu_seconds": 0.018,
+      "workspace_disk_peak_bytes": 0
+    },
+    {
+      "elapsed_seconds": 0.025,
+      "max_rss_kib": 13240,
+      "peak_tasks_observed": 1,
+      "phase": "confinement-final",
+      "returncode": 0,
+      "system_cpu_seconds": 0.006,
+      "user_cpu_seconds": 0.019,
+      "workspace_disk_peak_bytes": 0
+    },
+    {
+      "elapsed_seconds": 0.025,
+      "max_rss_kib": 13204,
+      "peak_tasks_observed": 1,
+      "phase": "confinement-final",
+      "returncode": 1,
+      "system_cpu_seconds": 0.01,
+      "user_cpu_seconds": 0.015,
+      "workspace_disk_peak_bytes": 0
+    },
+    {
+      "cpu_usage_nanoseconds": 72681000,
+      "exec_main_code": "1",
+      "exec_main_status": "1",
+      "memory_events": {
+        "oom": 0,
+        "oom_kill": 0
+      },
+      "memory_peak_bytes": 262144,
+      "phase": "confinement-final:cgroup",
+      "supervisor_timeout": false,
+      "systemd_active_state": "failed",
+      "systemd_result": "exit-code"
+    },
+    {
+      "elapsed_seconds": 0.025,
+      "max_rss_kib": 13120,
+      "peak_tasks_observed": 1,
+      "phase": "confinement-final",
+      "returncode": 1,
+      "system_cpu_seconds": 0.008,
+      "user_cpu_seconds": 0.017,
+      "workspace_disk_peak_bytes": 0
+    },
+    {
+      "cpu_usage_nanoseconds": 70410000,
+      "exec_main_code": "1",
+      "exec_main_status": "1",
+      "memory_events": {
+        "oom": 0,
+        "oom_kill": 0
+      },
+      "memory_peak_bytes": 262144,
+      "phase": "confinement-final:cgroup",
+      "supervisor_timeout": false,
+      "systemd_active_state": "failed",
+      "systemd_result": "exit-code"
+    },
+    {
+      "elapsed_seconds": 0.021,
+      "max_rss_kib": 13056,
+      "peak_tasks_observed": 1,
+      "phase": "confinement-final",
+      "returncode": 1,
+      "system_cpu_seconds": 0.004,
+      "user_cpu_seconds": 0.017,
+      "workspace_disk_peak_bytes": 0
+    },
+    {
+      "cpu_usage_nanoseconds": 68689000,
+      "exec_main_code": "1",
+      "exec_main_status": "1",
+      "memory_events": {
+        "oom": 0,
+        "oom_kill": 0
+      },
+      "memory_peak_bytes": 262144,
+      "phase": "confinement-final:cgroup",
+      "supervisor_timeout": false,
+      "systemd_active_state": "failed",
+      "systemd_result": "exit-code"
+    },
+    {
+      "elapsed_seconds": 1.353,
+      "max_rss_kib": 830940,
+      "peak_tasks_observed": 1,
+      "phase": "candidate-configuration",
+      "returncode": 0,
+      "system_cpu_seconds": 0.581,
+      "user_cpu_seconds": 0.675,
+      "workspace_disk_peak_bytes": 0
+    },
+    {
+      "elapsed_seconds": 1.185,
+      "max_rss_kib": 832176,
+      "peak_tasks_observed": 1,
+      "phase": "candidate-configuration",
+      "returncode": 0,
+      "system_cpu_seconds": 0.556,
+      "user_cpu_seconds": 0.659,
+      "workspace_disk_peak_bytes": 0
+    },
+    {
+      "elapsed_seconds": 3155.198,
+      "max_rss_kib": 12519940,
+      "peak_tasks_observed": 1,
+      "phase": "comparator",
+      "returncode": 0,
+      "system_cpu_seconds": 493.68,
+      "user_cpu_seconds": 4141.66,
+      "workspace_disk_peak_bytes": 1067810816
+    }
+  ],
+  "schema_version": 1,
+  "solution": {
+    "module": "Solution",
+    "path": "Solution.lean",
+    "sha256": "3eb21f518dcaba5ed68df87c41b0b2c430a605b2af4d3cb37e1c1124d6d49c86"
+  },
+  "source": {
+    "bytes": 13948892,
+    "commit": "e26058b55ab928e321d25318185acc69fbf62ab9",
+    "repository": "enaslund/sarkozy-lower-bound-0.758",
+    "repository_url": "https://github.com/enaslund/sarkozy-lower-bound-0.758",
+    "tree_url": "https://github.com/enaslund/sarkozy-lower-bound-0.758/tree/e26058b55ab928e321d25318185acc69fbf62ab9"
+  },
+  "stage": "complete",
+  "status": "pass",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "requested_paths": {
+      "comparator_config_path": "comparator.json",
+      "formalization_metadata_path": "",
+      "project_path": ""
+    },
+    "submission_id": "preflight001"
+  },
+  "verification_profile": {
+    "id": "palomar-standard-v1",
+    "limits": {
+      "execution_budget_seconds": 19800,
+      "file_size_max_bytes": 1099511627776,
+      "job_timeout_minutes": 350,
+      "memory_high_percent": 95,
+      "memory_max_percent": 98,
+      "minimum_host_memory_bytes": 15032385536,
+      "minimum_workspace_free_bytes": 21474836480,
+      "open_files_max": 1048576,
+      "tasks_max": 32768
+    },
+    "observed_host": {
+      "architecture": "x86_64",
+      "effective_cpus": 4.0,
+      "memory_bytes": 16766414848,
+      "memory_high_bytes": 15928094105,
+      "memory_max_bytes": 16431086551,
+      "workspace_free_bytes": 115182825472
+    },
+    "runner": {
+      "architecture": "x86_64",
+      "label": "ubuntu-24.04",
+      "provider": "github-hosted"
+    },
+    "sha256": "4131827553c344dc2bd49853ed3c1e651cdf74c5fb9cb2034ad90a38b9385c99",
+    "trusted_tools": {
+      "comparator_commit": "575674928e239f5bc452aab72d1dd7b0f1326494",
+      "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+      "lean4export": "release derived from the submitted Lean toolchain",
+      "nanoda_commit": "68d5ca9db226849b41a6fff59d796ff19d0a8840"
+    }
+  },
+  "warnings": [],
+  "workflow_url": "https://github.com/enaslund/sarkozy-lower-bound-0.758/actions/runs/35392867341",
+  "execution_profile": "palomar-standard-v1"
+}

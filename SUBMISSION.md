@@ -7,6 +7,12 @@ checks are formalized. The numerical statement has no finite-certificate
 hypotheses. See [README.md](README.md), [PROOF.md](PROOF.md), and
 [PALOMAR-READINESS.md](PALOMAR-READINESS.md).
 
+**Verified candidate:** `e26058b55ab928e321d25318185acc69fbf62ab9` passed the
+[official full preflight](https://github.com/enaslund/sarkozy-lower-bound-0.758/actions/runs/35392867341)
+on 2026-09-18, including both selected theorems and both kernels. The exact
+[mechanical report](verification/palomar-preflight-20260918.json) is preserved.
+The subsequent report/documentation commit is not itself the checked candidate.
+
 ## Public repository and submission fields
 
 The substantive development is in
@@ -19,7 +25,7 @@ preserved; the 152 frozen Lean source/configuration files are unchanged.
 | Submission field | Value |
 |---|---|
 | Repository | `enaslund/sarkozy-lower-bound-0.758` |
-| Revision | Full pushed 40-character commit from `git rev-parse HEAD` |
+| Verified revision | `e26058b55ab928e321d25318185acc69fbf62ab9` |
 | Project path | **Leave blank** for repository root; literal `.` is rejected |
 | Comparator configuration | `comparator.json` |
 | Metadata | Default `formalization.yaml`; no override needed |
@@ -38,7 +44,8 @@ Eric Naslund is the author and responsible maintainer; contact
 
 ## Run the official full mechanical preflight
 
-After committing and pushing the final candidate, start the manual workflow:
+The candidate above already passed. For a later revision, commit and push it,
+record `git rev-parse HEAD`, then start the manual workflow:
 
 ```bash
 gh workflow run palomar-preflight.yml --repo enaslund/sarkozy-lower-bound-0.758 --ref master

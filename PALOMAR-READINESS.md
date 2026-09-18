@@ -6,6 +6,17 @@ and [PalomarSubmission `3561d237dcc4b28482558ad28a64d767d7cc8615`](https://githu
 This is the author's preparation record. No Palomar editorial review or
 registration is claimed.
 
+**The official full mechanical preflight passed on 2026-09-18** for candidate
+commit `e26058b55ab928e321d25318185acc69fbf62ab9`.
+[Run 35392867341](https://github.com/enaslund/sarkozy-lower-bound-0.758/actions/runs/35392867341)
+completed in about 58 minutes. Its
+[unmodified mechanical report](verification/palomar-preflight-20260918.json)
+records `status: pass`, `phase: verification`, and `stage: complete`, with no
+reported verification errors or policy warnings. Both selected declarations
+passed Comparator, the protected Challenge audit, Lean's kernel, and NanoDa.
+Later changes that preserve this report only document that checked candidate;
+they are not included in its recorded source commit.
+
 ## Submission scope and structure
 
 One Comparator configuration selects two related results:
@@ -39,8 +50,8 @@ working notes, and both accompanying manuscripts with their exact scope.
 Human authorship, AI assistance, and the absence of human peer review are
 disclosed. [LICENSE](LICENSE) declares Apache-2.0 for this repository's original
 work, including the papers and certificate programs; [NOTICE](NOTICE) gives
-the scope and attribution. The root licence's structural checks pass; the
-hosted preflight performs the official SPDX detection.
+the scope and attribution. The hosted preflight passed the root licence checks
+and detected the declared SPDX identifier `Apache-2.0`.
 
 ## Verification evidence and current hosted checks
 
@@ -77,7 +88,8 @@ starts that review nor registers the result.
 
 ## Remaining service steps
 
-Use the final pushed 40-character commit and explicitly select
+Use the verified candidate `e26058b55ab928e321d25318185acc69fbf62ab9`, or a
+later deliberately selected pushed 40-character commit, and explicitly select
 `comparator.json`. **Leave the project-path field blank** for the repository
 root; do not enter `.`. The default metadata path is `formalization.yaml`.
 [SUBMISSION.md](SUBMISSION.md) gives the commands and submission fields.
