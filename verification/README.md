@@ -1,4 +1,15 @@
-# Local verification after cleanup, 2026-09-14
+# Verification records
+
+The September 18 submission preparation adds the
+[official full mechanical preflight](../.github/workflows/palomar-preflight.yml).
+Its [hosted runs and mechanical-report artifacts](https://github.com/enaslund/sarkozy-lower-bound-0.758/actions/workflows/palomar-preflight.yml)
+record the verdict for each exact source commit. This optional preflight runs
+Palomar's protected Challenge audit and both kernels but does not submit or
+register the project. [PALOMAR-READINESS.md](../PALOMAR-READINESS.md) records
+the current policy assessment. The local evidence below remains historical and
+is not rewritten to stand for a later hosted run.
+
+## Local verification after cleanup, 2026-09-14
 
 The full exponent `0.75806746` is proved without certificate hypotheses.
 The cleanup preserves the two selected theorem statements and all geometric rows, widths, multiplicities and certified lower bounds. Nothing has been submitted to Palomar.
@@ -97,10 +108,12 @@ No runner cancellation or proof error was recorded for these three attempts;
 the termination cause is unconfirmed. None is counted as a pass or as a test
 of the cleaned version.
 
-A successful current Comparator replay and statement-comparison pass remain
-outstanding. The repository's `comparator.json` still enables NanoDa.
-The ordinary Lean build and separate NanoDa pass do not constitute a complete
-configured Comparator run, hosted verification or service acceptance.
+These preserved local records contain no successful current Comparator replay
+and statement-comparison pass. Consult the hosted reports linked above for
+subsequent official-verifier preflights. The repository's `comparator.json`
+enables NanoDa; Palomar also forces it in its protected configuration.
+The ordinary Lean build and separate NanoDa pass alone do not constitute a
+complete configured Comparator run, hosted verification or service acceptance.
 
 The selected entries are `SarkozySubmission.interval_moment_bound` and
 `SarkozySubmission.improved_bound`. The latter has no certificate parameters;
@@ -125,8 +138,8 @@ ulimit -s 8192
 lake env /tmp/sarkozy-palomar-tools/verification/comparator/.lake/build/bin/comparator comparator.json
 ```
 
-This is the configured combined check; it has not completed successfully for
-the current version.
+This is the configured local combined check; these preserved records contain
+no successful completion for the cleaned version.
 
 The launch script uses submission-service revisions inspected on 2026-09-11:
 

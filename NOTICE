@@ -1,0 +1,13 @@
+Square-difference-free sets: exponent 0.75806746
+Copyright 2026 Eric Naslund
+Contact: naslund.math@gmail.com
+
+The Apache License, Version 2.0 in LICENSE covers this repository's original
+work: the Lean formalization, documentation, both papers in LaTeX and PDF
+form, certificate programs, and generated certificate data.
+
+The verification scripts derive from the Apache-2.0-licensed PalomarTemplate
+project: https://github.com/PalomarRegistry/PalomarTemplate
+
+Cited external publications and software dependencies retain their own
+copyright notices and licences. This notice does not relicense those works.

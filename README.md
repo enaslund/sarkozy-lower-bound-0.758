@@ -42,11 +42,16 @@ Both sources include their bibliography and exact computational certificates.
 [Paper instructions](papers/README.md) explain compilation and the attached
 certificate programs. The Lean project formalizes the full result.
 
+The author is **Eric Naslund**, [naslund.math@gmail.com](mailto:naslund.math@gmail.com).
+Both papers disclose GPT-6-Astra's role under his prompting and supervision,
+with his supplied note on reading the papers through questions to an AI model
+before the abstract. Citation metadata is in [CITATION.cff](CITATION.cff).
+
 This public result repository is separate from the
 [working research repository](https://github.com/enaslund/sarkozy-lower-bound).
-The Lean sources, dependency pins and paper deliverables were copied unchanged
-from its verified snapshot; [PUBLICATION.md](PUBLICATION.md) records provenance
-and the limited documentation and workflow changes made for this export.
+The Lean sources and dependency pins were copied unchanged from its verified
+snapshot. [PUBLICATION.md](PUBLICATION.md) records the import and the later
+paper front-matter, licensing, and submission-preparation changes.
 
 ## Build
 
@@ -210,13 +215,16 @@ See the verification record for the exact source hashes and replay results.
 The earlier 32,700-declaration NanoDa pass belongs to the preserved
 `before-cleanup-20260911` snapshot. Three incomplete Comparator attempts also
 belong to that earlier version; their unexplained SIGTERMs are not results
-for the cleaned source. No successful current Comparator run is claimed.
-The repository configuration still enables NanoDa.
+for the cleaned source. These local records establish no completed Comparator
+comparison. The current hosted checks and their exact source commits are in
+[Palomar mechanical preflight runs](https://github.com/enaslund/sarkozy-lower-bound-0.758/actions/workflows/palomar-preflight.yml).
 
-The mathematical formalization is complete. A successful configured Comparator
-run and hosted verification remain operational requirements before claiming
-submission readiness. To attempt the configured combined check, with Go and
-Rust/Cargo available in the Lean environment:
+The mathematical formalization is complete. Palomar registration requires the
+service's mechanical verification and editorial review. Our optional
+[full mechanical preflight](.github/workflows/palomar-preflight.yml) runs the
+official verifier, including the protected Challenge audit and both kernels,
+at a pinned pipeline revision. To attempt the separate local Comparator check,
+with Go and Rust/Cargo available in the Lean environment:
 
 ```bash
 ./scripts/verify-comparator.sh
@@ -230,17 +238,20 @@ verification tools. The [verification record](verification/README.md) contains
 the exact revisions, logs, source hashes, and commands for this box.
 The ordinary Lean build needs neither Go nor Rust.
 
-The [CI workflow](.github/workflows/ci.yml) provides the Lean build, axiom
-inspection, and sandboxed Comparator run on GitHub. It is manual
-(`workflow_dispatch`) while Palomar preparation is a separate next step.
-No hosted CI run has been performed for this public copy.
-[SUBMISSION.md](SUBMISSION.md) gives the local packaging and publication
-handoff, including the [Palomar submission portal](https://submit.palomar-registry.org/).
+The [ordinary CI workflow](.github/workflows/ci.yml) provides the Lean build,
+axiom inspection, and local Comparator setup. Both it and the official
+preflight are manual (`workflow_dispatch`). The official preflight uses
+`mode: full`; its mechanical report records the precise verdict and source SHA.
+It is predictive preparation, not a Palomar submission.
+[SUBMISSION.md](SUBMISSION.md) gives the workflow commands and submission fields.
 
 The source and papers are published in this repository; nothing has been
-submitted to or registered with Palomar. The Lean formalization retains its
-[Apache-2.0 license](LICENSE). This export does not assign a new license to
-the papers or the separate research archive; see [papers/README.md](papers/README.md).
+submitted to or registered with Palomar. The [Apache-2.0 license](LICENSE)
+covers this repository's original work, including the Lean formalization,
+documentation, both papers (LaTeX and PDF), certificate programs, and generated
+data. It permits use, modification, and redistribution, including commercial
+use, subject to its notice and other terms. [NOTICE](NOTICE) records attribution;
+cited external works and dependencies retain their own licences.
 Local verification does not establish Palomar's research-interest judgment.
 
 ## Recreate the Lean installation

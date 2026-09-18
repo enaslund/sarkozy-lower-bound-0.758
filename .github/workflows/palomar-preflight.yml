@@ -1,0 +1,25 @@
+name: Palomar mechanical preflight
+run-name: Palomar full mechanical preflight at ${{ github.sha }}
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  palomar-preflight:
+    # Keep this SHA and pipeline_commit identical. This is the official verifier,
+    # including the protected Challenge audit, Lean kernel, and NanoDa replay.
+    uses: PalomarRegistry/PalomarSubmission/.github/workflows/submission.yml@3561d237dcc4b28482558ad28a64d767d7cc8615
+    with:
+      repository: ${{ github.repository }}
+      commit: ${{ github.sha }}
+      pipeline_commit: 3561d237dcc4b28482558ad28a64d767d7cc8615
+      # The verifier requires exactly twelve lowercase alphanumeric characters;
+      # reusable-call concurrency and artifacts are additionally scoped by run.
+      request_id: preflight001
+      mode: full
+      # Eric Naslund requested this preflight for his substantive development.
+      # Omit project_path to select the repository root; a literal '.' is invalid.
+      options: '{"comparator_config_path":"comparator.json","authorization_relationship":"I am a responsible author or maintainer"}'

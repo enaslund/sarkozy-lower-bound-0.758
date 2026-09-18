@@ -1,5 +1,6 @@
 % Self-contained manuscript: all mathematics, bibliography, data and code.
 % Compile with pdflatex until references settle; no shell escape or external data files needed.
+% Copyright 2026 Eric Naslund. SPDX-License-Identifier: Apache-2.0
 \documentclass[11pt]{article}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
@@ -29,10 +30,19 @@
 \DeclareMathOperator{\supp}{supp}
 \lstset{basicstyle=\ttfamily\small,columns=fullflexible,breaklines=true,keepspaces=true,showstringspaces=false,frame=single}
 \title{Square-difference-free sets of exponent \texorpdfstring{$0.75806746$}{0.75806746}\\[3pt]\large Ordered intervals, composite digit codes, and a binary recursion}
-\author{Eric Naslund}
-\date{September 11, 2026}
+\author{Eric Naslund\textsuperscript{*}\\[3pt]
+\normalsize\href{mailto:naslund.math@gmail.com}{\texttt{naslund.math@gmail.com}}}
+\date{September 18, 2026}
 \begin{document}
 \maketitle
+\begin{quote}
+\small\noindent\textsuperscript{*}This paper was written by GPT-6-Astra, prompted and supervised by myself, the listed author.
+This paragraph is human written, and I intend for the reader to read this paper with AI, rather than how you might traditionally read a math paper.
+That is, put the paper into ChatGPT-6-Astra (or your preferred model) and ask it questions, such as, `what are the core ideas that improve on the previous best bound? And how does that work exactly?'
+Instead of reading the paper, use AI to \emph{ask the paper question}.
+\end{quote}
+\noindent{\footnotesize Copyright \textcopyright\ 2026 Eric Naslund.
+Licensed under the \href{https://www.apache.org/licenses/LICENSE-2.0}{Apache License, Version 2.0}.\par}
 \begin{abstract}
 Let $D(N)$ be the largest cardinality of a subset of $\{1,\ldots,N\}$
 containing no nonzero square difference. We give a computer-assisted construction
@@ -50,6 +60,7 @@ the finite checking procedures. The numerical conclusion is computer-assisted;
 the accompanying Lean 4 development formalizes the full bound, including all
 finite certificate conditions.
 \end{abstract}
+\clearpage
 \setcounter{tocdepth}{1}
 \tableofcontents
 \clearpage

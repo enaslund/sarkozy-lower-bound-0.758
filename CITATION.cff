@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+message: Please cite this repository when using the formalization or its certificates; the accompanying papers are in papers/.
+type: software
+title: "Square-difference-free sets: exponent 0.75806746"
+authors:
+  - family-names: Naslund
+    given-names: Eric
+    email: naslund.math@gmail.com
+repository-code: https://github.com/enaslund/sarkozy-lower-bound-0.758
+license: Apache-2.0
+abstract: >-
+  A Lean 4 formalization of an interval-moment criterion for
+  square-difference-free integer sets and its unconditional application
+  to exponent 0.75806746, with accompanying manuscripts and finite certificates.

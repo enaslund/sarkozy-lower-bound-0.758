@@ -1,100 +1,101 @@
-# Potential Palomar submission
+# Palomar submission preparation
 
-The proposed submission is the **general interval-moment criterion for
-square-difference-free integer sets**. It turns finite ordered interval
-alphabets and a strict moment surplus into an asymptotic lower bound for
-every sufficiently large ambient interval. The stopping-word proof is the
-main mathematical development; the fixed exponent is an application.
+The proposed entry combines the **general interval-moment criterion for
+square-difference-free integer sets** with its unconditional application to
+exponent **0.75806746**. All nine construction components and their numerical
+checks are formalized. The numerical statement has no finite-certificate
+hypotheses. See [README.md](README.md), [PROOF.md](PROOF.md), and
+[PALOMAR-READINESS.md](PALOMAR-READINESS.md).
 
-The exponent `0.75806746` is proved without certificate hypotheses. All nine
-components are formalized: six prime chains, both odd witnesses, and the
-complete binary construction with every numerical check. The library theorem
-`Sarkozy.record_exponent` derives the full bound from these concrete certificates.
+## Public repository and submission fields
 
-The numerical Comparator statement, `improved_bound`, independently spells
-out the unconditional all-large-N conclusion and exact rational exponent.
-Its exported proof includes the ordering and moment of the actual 437 witness.
-The original-row interfaces are also checked by the full build and axiom audit.
-See [PROOF.md](PROOF.md), [README.md](README.md), and the
-[Palomar assessment](PALOMAR-READINESS.md).
-
-## Public repository
-
-The public repository is
+The substantive development is in
 [enaslund/sarkozy-lower-bound-0.758](https://github.com/enaslund/sarkozy-lower-bound-0.758),
-with default branch `master` and the Lean project at its root. Both papers
-are under [papers/](papers/README.md). Select an exact pushed revision for any
-later submission, using `git rev-parse HEAD` from the checkout.
-
-[PUBLICATION.md](PUBLICATION.md) records the source import. The original
-verification receipts are preserved, and the 152 frozen Lean source and
-configuration files are unchanged. Publication documentation and the manual
-CI trigger are listed separately in `verification/public-export.json`.
-Build caches, toolchains and the research archive are not part of this repository.
-
-The earlier ignored `dist/` packages remain in the working research checkout;
-they are not required to build or inspect this public repository. After proof
-changes, rerun verification before selecting a revision for submission.
+on default branch `master`, with the Lean project at repository root.
+[PUBLICATION.md](PUBLICATION.md) records its source import and later manuscript
+and submission-preparation changes. The original verification receipts are
+preserved; the 152 frozen Lean source/configuration files are unchanged.
 
 | Submission field | Value |
 |---|---|
-| Project directory | `.` |
+| Repository | `enaslund/sarkozy-lower-bound-0.758` |
+| Revision | Full pushed 40-character commit from `git rev-parse HEAD` |
+| Project path | **Leave blank** for repository root; literal `.` is rejected |
 | Comparator configuration | `comparator.json` |
+| Metadata | Default `formalization.yaml`; no override needed |
 | Challenge / Solution modules | `Challenge` / `Solution` |
-| Metadata | `formalization.yaml` |
-| Repository and revision | `enaslund/sarkozy-lower-bound-0.758`; the full pushed SHA from `git rev-parse HEAD`. |
 
-The selected declarations, all in namespace `SarkozySubmission`, are:
+One configuration selects both declarations in namespace `SarkozySubmission`:
 
-- `interval_moment_bound`: the general asymptotic criterion.
+- `interval_moment_bound`: the general asymptotic criterion;
 - `improved_bound`: the unconditional full exponent `37903373/50000000`.
 
-`Solution.lean` contains exactly these two declarations, with their original
-statements unchanged. Four redundant submission wrappers were removed; their
-underlying finite CRT, conditional-bound and example theorems remain in the
-library. The [semantic audit](SEMANTIC-AUDIT.md) checks that the numerical
-statement means the intended bound for every sufficiently large `N`.
+The root [Apache-2.0 licence](LICENSE) applies to this repository's original
+Lean code, documentation, both papers in source and PDF form, certificate
+programs, and generated data. [NOTICE](NOTICE) records attribution.
+Eric Naslund is the author and responsible maintainer; contact
+[naslund.math@gmail.com](mailto:naslund.math@gmail.com).
 
-[verification/README.md](verification/README.md) records a fresh complete
-Lean build, 76 standard-axiom inspections and direct pinned NanoDa replay of
-the cleaned source with an 8 MiB stack. Its receipts bind the results to the
-current source hashes. The earlier 32,700-declaration NanoDa pass and three
-interrupted Comparator attempts belong to the preserved version before
-cleanup. No successful Comparator run or hosted verification is established
-for the cleaned version. The repository's `comparator.json` still enables
-NanoDa.
+## Run the official full mechanical preflight
 
-The mathematical formalization is complete. A successful configured Comparator
-run and hosted verification remain operational requirements before claiming
-submission readiness. The current evidence is preparation evidence, not a
-successful combined service run, Palomar verification, or registration.
+After committing and pushing the final candidate, start the manual workflow:
 
-## Handoff and submission
+```bash
+gh workflow run palomar-preflight.yml --repo enaslund/sarkozy-lower-bound-0.758 --ref master
+gh run list --repo enaslund/sarkozy-lower-bound-0.758 --workflow palomar-preflight.yml --limit 5
+```
 
-1. Review the exact statements, full numerical claim, authorship, and
-   provenance in the prepared snapshot, and complete the configured Comparator
-   check.
-2. Select a pushed revision of this public repository and record its full
-   40-character commit SHA. Palomar reviews an exact commit, not a branch or
-   tag. The verification workflow is currently manual. Complete the hosted
-   verification on that revision
-   before claiming submission readiness. See the
-   [ordinary submission requirements](https://github.com/PalomarRegistry/PalomarPolicy/blob/main/CONTRIBUTING.md#2-prepare-an-ordinary-submission).
-3. Start at [the Palomar submission portal](https://submit.palomar-registry.org/)
-   with that repository, revision, and `comparator.json`. Review the preview
-   and reports before making any later registration choice.
+The workflow verifies the immutable `${{ github.sha }}` selected by that
+dispatch. Confirm that it equals the candidate's `git rev-parse HEAD`.
+Inspect the run and download its report, replacing `RUN_ID` with the run number:
 
-The maintainer must honestly identify the human authors and responsible
-maintainers, and state whether they are responsible for the substantive
-formalization or have approval from someone who is. Source-author contact or
-endorsement is a separate fact; report only what occurred. Account access
-does not establish authorship, and this guide records no human endorsement
-or authorization to submit. See the
-[authorization policy](https://github.com/PalomarRegistry/PalomarPolicy/blob/main/CONTRIBUTING.md#4-confirm-that-you-are-authorised-to-submit).
+```bash
+gh run view RUN_ID --repo enaslund/sarkozy-lower-bound-0.758
+gh run download RUN_ID --repo enaslund/sarkozy-lower-bound-0.758 --dir /tmp/sarkozy-palomar-report
+```
 
-Mechanical success does not establish novelty or research interest. The
-submission should explain the numerical improvement and its relevance
-to researchers studying polynomial-difference-free sets. Publishing this repository does not constitute a Palomar submission or
-registration. The
-[official policy](https://github.com/PalomarRegistry/PalomarPolicy/blob/main/CONTRIBUTING.md)
-governs the eventual submission.
+The [workflow](.github/workflows/palomar-preflight.yml) calls
+PalomarSubmission `3561d237dcc4b28482558ad28a64d767d7cc8615` with `mode: full`.
+The `uses` SHA and `pipeline_commit` must remain identical. The recorded
+authorization relationship is Eric Naslund's responsibility for this
+substantive development; a different submitter must give their actual basis.
+No secrets are passed to the reusable verifier.
+
+This performs the protected canonical-Challenge audit, Comparator statement
+comparison, Lean kernel checking, and independent NanoDa replay. The
+`mechanical-report.json` artifact binds the verdict to the exact source SHA and
+tool revisions. `mode: preflight` only checks preparation and must not be used
+as evidence of checked proofs. The current
+[workflow history](https://github.com/enaslund/sarkozy-lower-bound-0.758/actions/workflows/palomar-preflight.yml)
+is the place to inspect hosted results.
+
+The preserved local results comprise the full Lean build, 76 standard-axiom
+inspections, and a direct NanoDa replay of 32,704 declarations; see
+[verification/README.md](verification/README.md). Those results are not a
+completed Comparator comparison. The separate `ci.yml` workflow and
+`scripts/verify-comparator.sh` remain useful for development.
+
+The official reusable preflight is recommended preparation. Palomar does not
+require authors to run repository CI, and even a successful preflight does not
+replace the service's required mechanical run or initiate editorial review.
+
+## Submit and review
+
+1. Check the final statements, abstract, source relationships, licences, and
+   authorship in the candidate commit. Inspect any preflight findings.
+2. Open [the Palomar submission portal](https://submit.palomar-registry.org/)
+   and use the fields above. Prove repository write access and declare that
+   you are a responsible author/maintainer or have approval from one.
+3. Keep the private status link. The service runs mechanical verification and
+   then automated editorial review. Inspect its reports before making the
+   separate registration decision.
+
+For agent-assisted submission, first read the portal's `llms.txt`; preparation
+and GitHub preflight are not a portal submission. Registration publishes the
+record and redacted review and preserves the pinned source permanently.
+
+The repository records AI assistance and agent review, not human peer review
+or source-author endorsement. Mechanical success does not establish novelty,
+research interest, or Palomar registration. The
+[pinned submitter policy](https://github.com/PalomarRegistry/PalomarPolicy/blob/792c7c0b9e798bd02719e795ef11fa2b5929e067/CONTRIBUTING.md)
+and the current service policy govern the eventual submission.

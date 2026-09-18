@@ -1,5 +1,6 @@
 % Standalone paper: mathematics, references, data and verifier.
 % Compile three times with pdflatex -no-shell-escape.
+% Copyright 2026 Eric Naslund. SPDX-License-Identifier: Apache-2.0
 \documentclass[11pt]{article}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
@@ -324,10 +325,19 @@ if __name__ == '__main__':
 \end{filecontents*}
 
 \title{A simpler construction of square-difference-free sets\\beyond exponent $0.758$}
-\author{Eric Naslund}
-\date{September 11, 2026}
+\author{Eric Naslund\textsuperscript{*}\\[3pt]
+\normalsize\href{mailto:naslund.math@gmail.com}{\texttt{naslund.math@gmail.com}}}
+\date{September 18, 2026}
 \begin{document}
 \maketitle
+\begin{quote}
+\small\noindent\textsuperscript{*}This paper was written by GPT-6-Astra, prompted and supervised by myself, the listed author.
+This paragraph is human written, and I intend for the reader to read this paper with AI, rather than how you might traditionally read a math paper.
+That is, put the paper into ChatGPT-6-Astra (or your preferred model) and ask it questions, such as, `what are the core ideas that improve on the previous best bound? And how does that work exactly?'
+Instead of reading the paper, use AI to \emph{ask the paper question}.
+\end{quote}
+\noindent{\footnotesize Copyright \textcopyright\ 2026 Eric Naslund.
+Licensed under the \href{https://www.apache.org/licenses/LICENSE-2.0}{Apache License, Version 2.0}.\par}
 \begin{abstract}
 We construct subsets of $\{1,\ldots,N\}$ with no nonzero square difference
 and cardinality at least $N^{0.758001-o(1)}$. The construction improves on

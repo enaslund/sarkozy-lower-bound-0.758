@@ -1,75 +1,95 @@
 # Palomar readiness assessment
 
-Checked against the official policy on **2026-09-11**. This is a local
-assessment; Palomar has not reviewed or accepted the project. The exact
-verified source and replay coverage are recorded in
-[verification/snapshot.json](verification/snapshot.json).
+Prepared on **2026-09-18** against
+[PalomarPolicy `792c7c0b9e798bd02719e795ef11fa2b5929e067`](https://github.com/PalomarRegistry/PalomarPolicy/blob/792c7c0b9e798bd02719e795ef11fa2b5929e067/CONTRIBUTING.md)
+and [PalomarSubmission `3561d237dcc4b28482558ad28a64d767d7cc8615`](https://github.com/PalomarRegistry/PalomarSubmission/tree/3561d237dcc4b28482558ad28a64d767d7cc8615).
+This is the author's preparation record. No Palomar editorial review or
+registration is claimed.
 
-The proposed submission is a **general interval-moment criterion and an
-unconditional application to exponent 0.75806746**. All nine components are
-fully formalized, including the ordering and numerical moments of both odd
-witnesses. `Sarkozy.record_exponent` has no finite-certificate hypotheses.
+## Submission scope and structure
 
-Palomar prohibits custom axioms and `native_decide`, allowing only `propext`,
-`Classical.choice` and `Quot.sound`. The audited proofs use only these standard
-axioms. Integer data generators are not trusted by the proofs; the finite
-certificates use kernel reduction. The complete numerical theorem no longer
-needs Palomar's allowance for explicit mathematical hypotheses.
-[Official submission guidance](https://palomar-registry.org/how-to-submit).
+One Comparator configuration selects two related results:
 
-The package selects two related statements: `interval_moment_bound` and
-`improved_bound`; these are now the only declarations in `Solution.lean`.
-Their statements are unchanged by the cleanup. The latter independently
-states the exact rational exponent and full all-large-N conclusion. Its
-exported proof includes all nine component certificates. The
-[semantic audit](SEMANTIC-AUDIT.md) found no weakened statement, hidden
-certificate hypothesis or mismatch with the intended lower bound. Original-row moment interfaces and supporting theorems are also
-included in the full library build and axiom audit. The Challenge imports only
-Mathlib and stays well below the policy limits. Pinned dependencies, an
-Apache-2.0 license, and v0.4 provenance metadata are included. The project
-uses Lean 4.32.0, above the service minimum inspected on that date.
-[Submission requirements](https://github.com/PalomarRegistry/PalomarPolicy/blob/main/CONTRIBUTING.md),
-[minimum toolchain](https://github.com/PalomarRegistry/PalomarSubmission/blob/main/toolchains.json).
+- `SarkozySubmission.interval_moment_bound`, the general asymptotic
+  interval-moment criterion proved with finite stopping words;
+- `SarkozySubmission.improved_bound`, the unconditional exponent
+  `37903373/50000000 = 0.75806746` for every sufficiently large ambient interval.
 
-The verifier launcher uses the service's Comparator commit inspected on
-2026-09-11, `575674928e239f5bc452aab72d1dd7b0f1326494`, using its
-separate Lean 4.34.0-rc1 build toolchain. The proof project and its matched
-exporter remain on Lean 4.32.0. The launcher now uses Landrun directly;
-the old compatibility wrapper is not needed. The cleaned source passed a
-fresh complete Lean build, 76 standard-axiom inspections and a complete
-direct NanoDa replay with an 8 MiB stack. The shared integer power checker,
-compact certificate encodings and proof-only data annotations retain kernel
-checking of every numerical comparison.
+All nine construction components are formalized, including every ordering and
+numerical moment of both odd witnesses. The numerical theorem has no remaining
+certificate hypotheses. [SEMANTIC-AUDIT.md](SEMANTIC-AUDIT.md) records the
+statement audit; [PROOF.md](PROOF.md) gives the formalized argument.
 
-The earlier 32,700-declaration NanoDa pass is preserved with the source
-snapshot before cleanup. The three Comparator attempts that received
-unexplained SIGTERM also apply to that earlier version. None establishes
-current Comparator success. A complete Comparator replay and
-statement-comparison pass for the cleaned source remain outstanding.
-The repository configuration still enables NanoDa. See the verification
-record for exact sources, commands, sandbox scope and results.
-[Service workflow](https://github.com/PalomarRegistry/PalomarSubmission/blob/main/.github/workflows/submission.yml).
+All conventional submission files are at repository root. `Challenge.lean`
+imports only Mathlib and has 59 lines and 2,676 bytes, well below the policy
+limits. Its two deliberate statement placeholders are permitted by policy;
+the corresponding Solution declarations are proved. The repository has no
+Git LFS pointers, submodules, or submitted compiled Lean/native artifacts.
 
-These local checks do not settle Palomar's research-interest or
-alignment review. The policy evaluates each distinct selected result group,
-allowing related corollaries to be grouped. The general criterion and its
-numerical application form the clearest proposed group. Attribution to
-Krachun's ranked-block and CRT arguments must remain explicit; this package
-does not claim formalization of his full numerical theorem or independent
-novelty of the general criterion.
-[Research-interest review](https://github.com/PalomarRegistry/PalomarPolicy/blob/main/prompts/04-literature-notability.md).
+Lean 4.32.0 exceeds the current 4.28.0 minimum and exactly matches the
+[canonical Mathlib toolchain at the pinned revision](https://github.com/leanprover-community/mathlib4/blob/81a5d257c8e410db227a6665ed08f64fea08e997/lean-toolchain).
+The manifest's eight transitive package revisions agree with Mathlib's
+manifest, and all nine Git dependencies are public GitHub repositories pinned
+to full lowercase commit SHAs.
 
-The mathematical formalization is complete for the stated exponent. Further
-work could improve checking speed or simplify proof organization, but these
-are maintenance improvements rather than missing proof obligations. A successful
-configured Comparator run and hosted verification remain operational requirements
-before claiming submission readiness. Mathematical completion does not establish
-that this exponent is optimal or settle bibliographic priority.
+`formalization.yaml` uses v0.4 and passes the pinned official metadata validator.
+Its provenance is source-based and this repository contains the substantive
+development. Sources include Krachun's ranked-block and CRT construction, the
+working notes, and both accompanying manuscripts with their exact scope.
+Human authorship, AI assistance, and the absence of human peer review are
+disclosed. [LICENSE](LICENSE) declares Apache-2.0 for this repository's original
+work, including the papers and certificate programs; [NOTICE](NOTICE) gives
+the scope and attribution. The root licence's structural checks pass; the
+hosted preflight performs the official SPDX detection.
 
-For any eventual submission, select an exact pushed 40-character commit of
-[this public repository](https://github.com/enaslund/sarkozy-lower-bound-0.758). Local Comparator does not reproduce
-the service's protected canonical-Challenge audit or its editorial review.
-This repository is public. Hosted CI, official review and Palomar
-registration have not been performed. The ordinary Lean build and direct NanoDa pass are not a successful
-combined verification run, acceptance or endorsement.
-[Submission specification](https://github.com/PalomarRegistry/PalomarPolicy/blob/main/docs/specification.md).
+## Verification evidence and current hosted checks
+
+The preserved local evidence establishes a complete Lean build, 76 inspections
+using only `propext`, `Classical.choice`, and `Quot.sound`, and direct NanoDa
+replay of **32,704 declarations** with no errors. All 152 frozen Lean source
+and build/configuration hashes still match the preserved successful source.
+See [verification/README.md](verification/README.md).
+
+The earlier 32,700-declaration replay and three interrupted Comparator attempts
+belong to the preserved version before cleanup. Neither those attempts nor
+the successful direct replay establishes the protected Challenge comparison.
+
+The [official full mechanical preflight workflow](.github/workflows/palomar-preflight.yml)
+calls Palomar's own pinned verifier with `mode: full`. It checks the licence,
+metadata, canonical Challenge dependencies and statement environment,
+Comparator, Lean's kernel, and independent NanoDa replay. Its
+[GitHub Actions runs](https://github.com/enaslund/sarkozy-lower-bound-0.758/actions/workflows/palomar-preflight.yml)
+and attached `mechanical-report.json` give the authoritative verdict for each
+exact checked commit. A launched or green preparation-only job is not a proof
+verification result. Consult the report's status, phase, source SHA, and
+verification evidence before claiming a mechanical pass.
+
+The standard profile has a 19,800-second execution budget within a 350-minute
+job, at least 14 GiB host memory and 20 GiB free workspace. It starts with fresh
+submitted Lake build state; the repository's sequential prebuild script is
+not run by this official verifier. Historical local timings therefore do not
+guarantee a successful hosted cold build.
+
+Repository preflight and local Comparator are recommended preparation, not
+additional policy prerequisites. Palomar itself must produce a passing
+mechanical report before editorial review. The optional preflight neither
+starts that review nor registers the result.
+
+## Remaining service steps
+
+Use the final pushed 40-character commit and explicitly select
+`comparator.json`. **Leave the project-path field blank** for the repository
+root; do not enter `.`. The default metadata path is `formalization.yaml`.
+[SUBMISSION.md](SUBMISSION.md) gives the commands and submission fields.
+
+The automated editorial review must find no blocking issue in statement
+alignment, definitions, provenance, literature, and research interest.
+The interval-moment criterion and its numerical application are directed at
+researchers in constructive additive combinatorics. Attribution to Krachun
+remains explicit; independent novelty of the general criterion and bibliographic
+priority are not asserted. Mechanical verification does not settle these
+editorial questions.
+
+Registration is a separate decision after the review is delivered, and creates
+permanent source-preservation and version history under the
+[Palomar protocol](https://github.com/PalomarRegistry/PalomarPolicy/blob/792c7c0b9e798bd02719e795ef11fa2b5929e067/docs/specification.md).

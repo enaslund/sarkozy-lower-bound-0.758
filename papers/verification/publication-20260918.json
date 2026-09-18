@@ -1,0 +1,56 @@
+{
+  "recorded_utc": "2026-09-18T20:41:05.838913+00:00",
+  "base_commit": "3dc062190b0774a1aa2694e08137e03dfb3a4014",
+  "scope": "Author/contact/AI-reading note, explicit Apache-2.0 licensing, displayed date, and full-paper contents pagination; mathematics and certificate programs unchanged. Fresh PDF build/attachment validation, not a new mathematical proof or certificate execution.",
+  "author": "Eric Naslund",
+  "contact": "naslund.math@gmail.com",
+  "license": "Apache-2.0",
+  "author_note": "Supplied verbatim by Eric Naslund, with LaTeX quotation marks and emphasis.",
+  "papers": [
+    {
+      "source": "papers/square-difference-free.tex",
+      "pdf": "papers/square-difference-free.pdf",
+      "pages": 18,
+      "pdflatex_passes": 3,
+      "shell_escape": false,
+      "abstract_and_mathematical_body_byte_identical_to_base": true,
+      "certificate_program_byte_identical_to_base": true,
+      "extracted_pdf_attachment_matches_distributed_program": true,
+      "undefined_references_or_overfull_boxes": false,
+      "visual_inspection": {
+        "pages": [
+          1,
+          2
+        ],
+        "result": "Author, contact, opening note, licence, and contents layout inspected; no clipping or overlap."
+      },
+      "sha256": {
+        "square-difference-free.tex": "aba63b1a7f971d422c62d049b4fb91bc408c65db435105eba66a6793c78b686d",
+        "square-difference-free.pdf": "6a210bb5a46d6b40ce057299cd316805cd558224c2f76625e8af2754c5b0fe53",
+        "square-difference-free-certificate.py": "b50d8ef29fc95717f07aaadac8ebda94be92460470c8a6aa876acbeef5c908f6"
+      }
+    },
+    {
+      "source": "papers/sarkozy_simple_0.758.tex",
+      "pdf": "papers/sarkozy_simple_0.758.pdf",
+      "pages": 17,
+      "pdflatex_passes": 3,
+      "shell_escape": false,
+      "abstract_and_mathematical_body_byte_identical_to_base": true,
+      "certificate_program_byte_identical_to_base": true,
+      "extracted_pdf_attachment_matches_distributed_program": true,
+      "undefined_references_or_overfull_boxes": false,
+      "visual_inspection": {
+        "pages": [
+          1
+        ],
+        "result": "Author, contact, opening note, licence, and contents layout inspected; no clipping or overlap."
+      },
+      "sha256": {
+        "sarkozy_simple_0.758.tex": "a31abf8943205b5911de2bd1ccfefaf54524ff689f44b2a39f094aebc8b46d06",
+        "sarkozy_simple_0.758.pdf": "7b593e1b8e72a9fecc80add41d639477e3a9192ac8f01d709359ac95b28c8edf",
+        "sarkozy-simple-certificate.py": "3a6dda72c98872e99a99a821ff32eceb66ad7d701995d0a3f7bbdf71fe7fe591"
+      }
+    }
+  ]
+}

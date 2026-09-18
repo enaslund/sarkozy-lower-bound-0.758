@@ -19,6 +19,26 @@ classification:
   - 11B75
   - 03B35
 sources:
+- title: 'Square-difference-free sets of exponent 0.75806746: Ordered intervals, composite digit codes, and a binary recursion'
+  authors:
+  - Eric Naslund
+  type: paper
+  location: papers/square-difference-free.tex and papers/square-difference-free.pdf at the submitted repository commit;
+    Theorem 1.1 and the finite interval-moment criterion.
+  relationship: other
+  note: Accompanying self-contained exposition of this development, not an independent prior source or
+    priority claim. The Lean proof uses the stopping-word argument described in the manuscript and PROOF.md.
+    The manuscript was written by GPT-6-Astra, prompted and supervised by Eric Naslund; its opening
+    author note was supplied verbatim by Eric Naslund. Contact naslund.math@gmail.com. Apache-2.0.
+- title: A simpler construction of square-difference-free sets beyond exponent 0.758
+  authors:
+  - Eric Naslund
+  type: paper
+  location: papers/sarkozy_simple_0.758.tex and papers/sarkozy_simple_0.758.pdf at the submitted repository commit.
+  relationship: other
+  note: Accompanying exposition of a simpler construction with exponent 0.758001; this construction is
+    not a separate Lean formalization or a selected Comparator result. Written by GPT-6-Astra under
+    Eric Naslund's prompting and supervision, with his verbatim opening author note. Apache-2.0.
 - title: Ranked residues, intervals, and the integer construction
   type: other
   location: Unpublished September 2026 research notes, synthesized as METHODS.md and CAPACITY-IMPROVEMENT.md
@@ -74,7 +94,9 @@ automation:
       and root integration.
   notes: Eric Naslund directed the research and chose the formalization scope. Codex agents wrote and
     checked the Lean development and prepared these files. AI assistance is credited here; human review
-    of every proof step is not asserted.
+    of every proof step is not asserted. The accompanying manuscripts were written by GPT-6-Astra under
+    Eric Naslund's prompting and supervision. Their opening AI-reading paragraph was supplied verbatim
+    by Eric Naslund; their author and contact are Eric Naslund, naslund.math@gmail.com.
 fidelity:
   divergences: The interval-moment proof uses stopping words instead of entropy/Stirling estimates. Chain
     powers are rounded down to exact rationals with proved moments. Binary seed factor c=1/4 is absorbed
