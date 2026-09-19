@@ -1,11 +1,10 @@
 version: v0.4
 project:
   name: An interval-moment criterion for square-difference-free integer sets
-  description: 'We prove a general interval-moment criterion for square-difference-free integer sets using
-    finite stopping words, rank rounding, CRT and geometric interpolation, and derive the unconditional
-    exponent 0.75806746. All nine concrete components are formalized: six prime chains, the entire binary
-    component, and both complete odd witnesses, including every ordering and numerical moment check. Two
-    related Comparator statements select the general criterion and its unconditional numerical application.'
+  description: >-
+    We prove an improved lower bound for Sarkozy's theorem, with an unconditional exponent of 0.75806746.
+    All nine concrete components are formalized. The project includes a .pdf write up of the result,
+    and a simpler .pdf write up that obtains 0.758 and contains some of the core ideas.
   authors:
   - Eric Naslund
   responsible_maintainers:
