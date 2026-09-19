@@ -9,6 +9,9 @@ subset of \([1,N]\) of size at least \(N^{0.75806746-\varepsilon}\).
 hypotheses.** Lean constructs and checks all six prime chains, the entire
 binary component, and both odd components, including every numerical moment.
 
+Subject classifications: **math.NT** (Number Theory), **math.CO** (Combinatorics);
+MSC2020 **11B75** (Other combinatorial number theory) and **05D05** (Extremal set theory).
+
 The full theorem is `Sarkozy.record_exponent` in
 [FullTarget.lean](Sarkozy/FullTarget.lean). Its independently stated submission
 form, `SarkozySubmission.improved_bound` in [Solution.lean](Solution.lean),
@@ -198,15 +201,19 @@ absence of asserted source-author endorsement or human peer review.
 
 ## Submission files and verification
 
-The [official full mechanical preflight passed](https://github.com/enaslund/sarkozy-lower-bound-0.758/actions/runs/35392867341)
-on 2026-09-18 for commit `e26058b55ab928e321d25318185acc69fbf62ab9`, checking
-both selected theorems with Comparator, the protected Challenge audit, Lean's
+The [Palomar submission passed mechanical verification](https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/35424167849)
+on 2026-09-19 for commit `4de015dae4f256ea9af929727f70afa8ee118c74`, checking
+both selected theorems with the protected Challenge audit, Comparator, Lean's
 kernel, and independent NanoDa replay. The
-[unmodified mechanical report](verification/palomar-preflight-20260918.json)
-is preserved. It applies to that exact commit, before the later manuscript,
-filename, metadata-location, and documentation updates recorded in
-[PUBLICATION.md](PUBLICATION.md). Palomar's own submission review and
-registration remain separate.
+[unmodified public mechanical report](verification/palomar-submission-20260919.json)
+is preserved. An earlier
+[official full preflight](https://github.com/enaslund/sarkozy-lower-bound-0.758/actions/runs/35392867341)
+passed on September 18 for `e26058b55ab928e321d25318185acc69fbf62ab9`;
+its [report](verification/palomar-preflight-20260918.json) is also preserved.
+Each verdict applies to its exact source commit. The current metadata and
+documentation revision is not a new mechanical run; its 152 frozen Lean
+source/configuration files remain unchanged. Palomar registration is a
+separate step. See [PUBLICATION.md](PUBLICATION.md) for the revision history.
 
 [Challenge.lean](Challenge.lean) selects two related results using Mathlib alone:
 the general interval-moment criterion and the unconditional numerical
@@ -220,8 +227,10 @@ Lean build and axiom audit.
 assistance; [Check.lean](Check.lean) prints axiom dependencies.
 
 The cleaned source passed the complete Lean build, 76 standard-axiom
-inspections, and a fresh complete direct NanoDa replay with an 8 MiB stack.
-See the verification record for the exact source hashes and replay results.
+inspections, and a separate direct NanoDa replay of 32,704 declarations with
+an 8 MiB stack on September 14. The replay covers the two selected declarations
+and their transitive dependencies. See the verification record for exact
+source hashes, dates, and replay results.
 The earlier 32,700-declaration NanoDa pass belongs to the preserved
 `before-cleanup-20260911` snapshot. Three incomplete Comparator attempts also
 belong to that earlier version; their unexplained SIGTERMs are not results
@@ -255,8 +264,9 @@ preflight are manual (`workflow_dispatch`). The official preflight uses
 It is predictive preparation, not a Palomar submission.
 [SUBMISSION.md](SUBMISSION.md) gives the workflow commands and submission fields.
 
-The source and papers are published in this repository; nothing has been
-submitted to or registered with Palomar. The [Apache-2.0 license](LICENSE)
+The source and papers are public, and the submitted commit above passed
+Palomar's mechanical verification. No Palomar registration is claimed.
+The [Apache-2.0 license](LICENSE)
 covers this repository's original work, including the Lean formalization,
 documentation, both papers (LaTeX and PDF), certificate programs, and generated
 data. It permits use, modification, and redistribution, including commercial

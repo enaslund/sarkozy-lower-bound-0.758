@@ -7,14 +7,15 @@ checks are formalized. The numerical statement has no finite-certificate
 hypotheses. See [README.md](README.md), [PROOF.md](PROOF.md), and
 [PALOMAR-READINESS.md](PALOMAR-READINESS.md).
 
-**Verified candidate:** `e26058b55ab928e321d25318185acc69fbf62ab9` passed the
-[official full preflight](https://github.com/enaslund/sarkozy-lower-bound-0.758/actions/runs/35392867341)
-on 2026-09-18, including both selected theorems and both kernels. The exact
-[mechanical report](verification/palomar-preflight-20260918.json) is preserved.
-Later revisions update the manuscripts, filenames, metadata locations, and
-documentation; they are not included in that checked commit. Use the latest
-pushed commit to include these manuscript revisions, and record its exact SHA.
-The Lean sources and build/verification configuration remain unchanged.
+**Last mechanically checked revision:** `4de015dae4f256ea9af929727f70afa8ee118c74`
+passed [Palomar submission verification](https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/35424167849)
+on 2026-09-19, including both selected theorems and both kernels. The exact
+[public mechanical report](verification/palomar-submission-20260919.json) is preserved.
+The present revision updates the classifications, public abstract, and verification
+history. Submit the latest pushed commit to include these changes, recording
+its full SHA with `git rev-parse HEAD`; the earlier mechanical verdict does
+not cover this metadata revision. All 152 frozen Lean source/configuration
+files remain unchanged.
 
 ## Public repository and submission fields
 
@@ -28,13 +29,17 @@ preserved; the 152 frozen Lean source/configuration files are unchanged.
 | Submission field | Value |
 |---|---|
 | Repository | `enaslund/sarkozy-lower-bound-0.758` |
-| Verified revision | `e26058b55ab928e321d25318185acc69fbf62ab9` |
+| Revision to submit | Latest pushed 40-character commit SHA from `git rev-parse HEAD` |
+| Last mechanically checked revision | `4de015dae4f256ea9af929727f70afa8ee118c74` |
 | Project path | **Leave blank** for repository root; literal `.` is rejected |
 | Comparator configuration | `comparator.json` |
 | Metadata | Default `formalization.yaml`; no override needed |
 | Challenge / Solution modules | `Challenge` / `Solution` |
+| Existing Palomar ID | **Leave blank** unless this result has already been registered publicly |
 
-One configuration selects both declarations in namespace `SarkozySubmission`:
+Choose the root `comparator.json` if the portal lists multiple configurations;
+the archived verification configurations describe historical checks.
+The root configuration selects both declarations in namespace `SarkozySubmission`:
 
 - `interval_moment_bound`: the general asymptotic criterion;
 - `improved_bound`: the unconditional full exponent `37903373/50000000`.
@@ -47,8 +52,10 @@ Eric Naslund is the author and responsible maintainer; contact
 
 ## Run the official full mechanical preflight
 
-The candidate above already passed. For a later revision, commit and push it,
-record `git rev-parse HEAD`, then start the manual workflow:
+The September 18 candidate passed the optional preflight, and the September 19
+submitted revision passed the service's mechanical run. To run an additional
+optional preflight for a later revision, commit and push it, record
+`git rev-parse HEAD`, then start the manual workflow:
 
 ```bash
 gh workflow run palomar-preflight.yml --repo enaslund/sarkozy-lower-bound-0.758 --ref master
@@ -94,11 +101,15 @@ replace the service's required mechanical run or initiate editorial review.
 1. Check the final statements, abstract, source relationships, licences, and
    authorship in the candidate commit. Inspect any preflight findings.
 2. Open [the Palomar submission portal](https://submit.palomar-registry.org/)
-   and use the fields above. Prove repository write access and declare that
+   and submit the corrected commit as a new submission using the fields above.
+   Leave the existing Palomar ID blank for this unregistered result.
+   Prove repository write access and declare that
    you are a responsible author/maintainer or have approval from one.
 3. Keep the private status link. The service runs mechanical verification and
    then automated editorial review. Inspect its reports before making the
    separate registration decision.
+4. If registration is offered after review, choose Register to request the public
+   record. The repository revision alone does not register the result.
 
 For agent-assisted submission, first read the portal's `llms.txt`; preparation
 and GitHub preflight are not a portal submission. Registration publishes the

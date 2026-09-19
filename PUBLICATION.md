@@ -12,9 +12,10 @@ the tracked Lean project exactly. The new repository starts its own history.
 
 All **148 Lean files** and the **four pinned build/verification configuration
 files** match `verification/cleanup-source.json`, which also matches the
-successful complete NanoDa replay record. The completed checks are the full
-Lean build, 76 standard-axiom inspections and a direct independent NanoDa
-replay of 32,704 declarations without errors. This import checks file identity;
+successful September 14 after-cleanup NanoDa replay record. The completed
+checks are the full Lean build, 76 standard-axiom inspections and a direct
+independent NanoDa replay of 32,704 declarations in the selected Solution
+dependency closure, without errors. This import checks file identity;
 it does not claim a new build or an additional replay.
 
 The original verification receipts remain unchanged. The initial publication changes
@@ -69,3 +70,21 @@ PalomarSubmission `3561d237dcc4b28482558ad28a64d767d7cc8615`.
 Its [manual workflow runs](https://github.com/enaslund/sarkozy-lower-bound-0.758/actions/workflows/palomar-preflight.yml)
 record exact checked revisions and verdicts. Running this preflight does not
 submit to or register with Palomar.
+
+On September 19, Palomar's submission verifier passed commit
+`4de015dae4f256ea9af929727f70afa8ee118c74` in
+[run 35424167849](https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/35424167849).
+Its [public mechanical report](verification/palomar-submission-20260919.json)
+is archived byte for byte. It checks both selected statements through the
+protected Challenge audit, Comparator, Lean, and NanoDa. This report is
+mechanical evidence for its recorded commit, not a registration record.
+
+The subsequent metadata revision retains arXiv `math.NT` and `math.CO`, replaces
+MSC2020 `03B35` with `05D05` alongside `11B75`, and expands the public abstract
+to cover the general interval-moment criterion and its numerical application.
+The verification scope and current documentation now distinguish the
+September 11 before-cleanup replay, the separate September 14 after-cleanup
+checks, the September 18 hosted preflight, and the September 19 submission run.
+Original receipts remain unchanged. All 152 frozen Lean source/configuration
+files retain their recorded hashes; this metadata revision is not a new build,
+kernel replay, or Palomar submission.

@@ -1,24 +1,25 @@
 # Palomar readiness assessment
 
-Prepared on **2026-09-18** against
+Policy assessment prepared on **2026-09-18**, with verification and metadata
+updated on **2026-09-19**, against
 [PalomarPolicy `792c7c0b9e798bd02719e795ef11fa2b5929e067`](https://github.com/PalomarRegistry/PalomarPolicy/blob/792c7c0b9e798bd02719e795ef11fa2b5929e067/CONTRIBUTING.md)
 and [PalomarSubmission `3561d237dcc4b28482558ad28a64d767d7cc8615`](https://github.com/PalomarRegistry/PalomarSubmission/tree/3561d237dcc4b28482558ad28a64d767d7cc8615).
-This is the author's preparation record. No Palomar editorial review or
-registration is claimed.
+This is the author's preparation record. No Palomar registration is claimed.
 
-**The official full mechanical preflight passed on 2026-09-18** for candidate
-commit `e26058b55ab928e321d25318185acc69fbf62ab9`.
-[Run 35392867341](https://github.com/enaslund/sarkozy-lower-bound-0.758/actions/runs/35392867341)
-completed in about 58 minutes. Its
-[unmodified mechanical report](verification/palomar-preflight-20260918.json)
+**Palomar submission mechanical verification passed on 2026-09-19** for
+commit `4de015dae4f256ea9af929727f70afa8ee118c74` in
+[run 35424167849](https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/35424167849).
+Its [unmodified public mechanical report](verification/palomar-submission-20260919.json)
 records `status: pass`, `phase: verification`, and `stage: complete`, with no
 reported verification errors or policy warnings. Both selected declarations
 passed Comparator, the protected Challenge audit, Lean's kernel, and NanoDa.
-Later manuscript revisions, filename and metadata-location updates, and
-documentation changes are not included in its recorded source commit. The
-Lean sources and build/verification configuration remain unchanged; the
-manuscript checks are recorded separately in
-[the revision report](papers/verification/revision-20260918.json).
+The earlier September 18
+[official full preflight](https://github.com/enaslund/sarkozy-lower-bound-0.758/actions/runs/35392867341)
+passed for `e26058b55ab928e321d25318185acc69fbf62ab9`; its
+[report](verification/palomar-preflight-20260918.json) is also preserved.
+The current metadata and documentation changes are not included in either
+report's exact source commit. All 152 frozen Lean source/configuration files
+remain unchanged; no additional proof run is claimed for this revision.
 
 ## Submission scope and structure
 
@@ -56,16 +57,39 @@ work, including the papers and certificate programs; [NOTICE](NOTICE) gives
 the scope and attribution. The hosted preflight passed the root licence checks
 and detected the declared SPDX identifier `Apache-2.0`.
 
+The public description covers both principal result families: the reusable
+interval-moment criterion and its unconditional numerical application. It also
+distinguishes the formalized full result from the simpler companion paper.
+The classifications describe the combinatorial number theory result itself:
+
+| Taxonomy | Code | Subject |
+|---|---|---|
+| arXiv | `math.NT` | Number Theory |
+| arXiv | `math.CO` | Combinatorics |
+| MSC2020 | `11B75` | Other combinatorial number theory |
+| MSC2020 | `05D05` | Extremal set theory |
+
+These codes were checked against Palomar's pinned taxonomies and the
+[arXiv category taxonomy](https://arxiv.org/category_taxonomy) and
+[MSC2020 classification](https://zbmath.org/static/msc2020.pdf).
+The extremal problem asks how large an integer set can be while avoiding
+prescribed differences. MSC2020 `03B35` has been removed: using Lean is not
+itself a mathematical contribution to proof theory or mechanized logic.
+
 ## Verification evidence and current hosted checks
 
-The preserved local evidence establishes a complete Lean build, 76 inspections
-using only `propext`, `Classical.choice`, and `Quot.sound`, and direct NanoDa
-replay of **32,704 declarations** with no errors. All 152 frozen Lean source
+The September 14 after-cleanup evidence establishes a complete Lean build,
+76 inspections using only `propext`, `Classical.choice`, and `Quot.sound`,
+and a separate direct NanoDa replay of **32,704 declarations** with no errors.
+The replay covers the selected Solution declarations and their transitive
+dependencies; original-row interfaces are covered by the full build and axiom
+audit. All 152 frozen Lean source
 and build/configuration hashes still match the preserved successful source.
 See [verification/README.md](verification/README.md).
 
-The earlier 32,700-declaration replay and three interrupted Comparator attempts
-belong to the preserved version before cleanup. Neither those attempts nor
+The September 11 replay of 32,700 declarations, its 79 axiom inspections,
+and three interrupted Comparator attempts belong to the preserved version
+before cleanup. Neither those attempts nor
 the successful direct replay establishes the protected Challenge comparison.
 
 The [official full mechanical preflight workflow](.github/workflows/palomar-preflight.yml)
@@ -91,10 +115,12 @@ starts that review nor registers the result.
 
 ## Remaining service steps
 
-Use the verified candidate `e26058b55ab928e321d25318185acc69fbf62ab9`, or a
-later deliberately selected pushed 40-character commit, and explicitly select
-`comparator.json`. **Leave the project-path field blank** for the repository
+Submit the latest pushed 40-character commit containing the metadata revisions,
+and explicitly select the root `comparator.json`. The most recent mechanically
+checked commit is `4de015dae4f256ea9af929727f70afa8ee118c74`; the revised
+metadata needs a new submission. **Leave the project-path field blank** for the repository
 root; do not enter `.`. The default metadata path is `formalization.yaml`.
+Leave the existing Palomar ID blank while this result is unregistered.
 [SUBMISSION.md](SUBMISSION.md) gives the commands and submission fields.
 
 The automated editorial review must find no blocking issue in statement

@@ -2,9 +2,23 @@ version: v0.4
 project:
   name: An interval-moment criterion for square-difference-free integer sets
   description: >-
-    We prove an improved lower bound for Sarkozy's theorem, with an unconditional exponent of 0.75806746.
-    All nine concrete components are formalized. The project includes a .pdf write up of the result,
-    and a simpler .pdf write up that obtains 0.758 and contains some of the core ideas.
+    We prove a general interval-moment criterion for square-difference-free integer sets and apply it
+    to obtain an improved unconditional lower bound in Sarkozy's theorem, with exponent 0.75806746.
+    If D(N) is the largest size of a subset of {1, ..., N} containing no two distinct elements whose
+    difference is a square, then for every epsilon > 0 and all sufficiently large N we prove
+    D(N) >= N^(0.75806746 - epsilon). The exact exponent is 37903373/50000000.
+    The reusable criterion starts from finite digit sets in pairwise coprime square bases, with
+    ordered intervals and width-moment inequalities. A strict surplus in the component exponents
+    yields the asymptotic bound through finite stopping words, rank rounding, the Chinese remainder
+    theorem, and interpolation between geometric scales.
+    Both the general criterion and its numerical application are formalized in Lean. All nine
+    concrete components are proved: six prime chains, a 25-state binary recursion, and the two
+    complete composite witnesses for 215 and 437. Every required ordering, numerical moment,
+    lifting, and asymptotic argument is checked, with no remaining finite-certificate hypotheses.
+    The repository includes self-contained PDF and LaTeX write-ups of the full result and a simpler
+    companion construction attaining exponent 0.758001 that explains several core ideas, together
+    with exact computational certificate programs. The simpler construction is not separately
+    formalized or a selected submission statement.
   authors:
   - Eric Naslund
   responsible_maintainers:
@@ -16,7 +30,7 @@ classification:
   - math.CO
   msc2020:
   - 11B75
-  - 03B35
+  - 05D05
 sources:
 - title: 'Square-difference-free sets of exponent 0.75806746: Ordered intervals, composite digit codes, and a binary recursion'
   authors:
@@ -63,16 +77,26 @@ sources:
     endorsement is not asserted.
 related_formalizations: []
 status:
-  scope: 'Proved: the general construction and all-large-N criterion; all six prime-chain certificates
+  scope: >-
+    Proved: the general construction and all-large-N criterion; all six prime-chain certificates
     and moments; all odd free-digit/CRT lifts; the full 25-state/94-branch binary geometry, all numerical
     growth rows and fixed-depth inequality; the complete actual 4913-point 215 and 19683-point 437 witnesses,
     including every first-difference edge and all 1861 plus 18908 distinct-width power certificates. The
     exact exponent 37903373/50000000 has no remaining certificate assumptions. Comparator selects the
-    criterion and the unconditional numerical result. Original-row moment interfaces were built and
-    axiom-audited in the preserved version before cleanup. The cleaned endpoint-only source now
-    passes the complete Lean build and all 76 axiom inspections; its complete independent NanoDa
-    replay checked 32704 declarations with no errors and only the three standard axioms.
-    Two deliberate Challenge placeholders are excluded from proof counts.'
+    criterion and the unconditional numerical result.
+    Verification history: the September 11 NanoDa replay of 32700 declarations and 79 axiom
+    inspections belong to the before-cleanup snapshot (verification/before-cleanup-20260911/).
+    The cleaned endpoint-only source has separate September 14 records for a complete Lean build,
+    76 axiom inspections, and a direct NanoDa replay of 32704 declarations with no errors
+    (verification/cleanup-build/ and verification/cleanup-kernel-replay/). All 152 source/configuration
+    hashes in that replay record still match this revision. Each NanoDa declaration count covers
+    the selected Solution declarations and their transitive dependencies; original-row moment
+    interfaces are covered by the full Lean build and axiom audit.
+    Palomar subsequently passed both selected statements through its protected Challenge audit,
+    Comparator, Lean, and NanoDa at commit 4de015dae4f256ea9af929727f70afa8ee118c74 on September 19
+    (verification/palomar-submission-20260919.json). This metadata/documentation revision is not a new
+    mechanical run. See verification/README.md for exact snapshot attribution. Only the three
+    standard axioms are allowed; two deliberate Challenge placeholders are excluded from proof counts.
   sorry_count: 0
   sorry_in_definitions: 0
   axioms:
@@ -113,7 +137,7 @@ review:
   notes: Agent review checked the construction, exact target parameters, compressed odd edge checker,
     polynomial log checker, histogram transport and unconditional submission statements. Reordered data
     retain the actual point/start/width tuples. Verification results and selected-statement coverage are
-    recorded in verification/README.md. No human peer review or Palomar editorial outcome is claimed.
+    recorded in verification/README.md. No human peer review or Palomar registration is claimed.
 alignment:
   namespace: SarkozySubmission
   statements:

@@ -37,8 +37,10 @@ The principal changes are:
 - Reuse the word-moment factorization, simplify real-power identities, and
   remove redundant submission wrappers. Construction and conditional results remain.
 - Provide [build-sequential.sh](scripts/build-sequential.sh), with the nine
-  successful build/audit commands. CI and the Comparator launcher use it to
-  check the heavy components separately. Hosted CI remains untested.
+  successful build/audit commands. The development CI and local Comparator
+  launcher use it to check the heavy components separately. Hosted CI was
+  untested at the September 14 measurement date; later official hosted passes
+  are recorded in [verification/README.md](verification/README.md).
 
 All 20,769 numerical rows preserve their widths, multiplicities, lower
 numerators, initial scalings and final root bounds. All new integer power
@@ -55,15 +57,18 @@ there is a finite set of distinct integers in [1,N], with no nonzero square
 difference, of cardinality at least N^(0.75806746 - epsilon).
 
 All nine components and the construction and asymptotic passage are included.
-The previously completed build and independent NanoDa replay certify the
-preserved version in [verification/before-cleanup-20260911](verification/before-cleanup-20260911/).
+The September 11 build, 79 axiom inspections, and independent NanoDa replay
+of 32,700 declarations apply to the preserved version
+in [verification/before-cleanup-20260911](verification/before-cleanup-20260911/).
 Its theorem depends only on Lean's standard `propext`, `Classical.choice`,
 and `Quot.sound`, with no computational axiom or `native_decide`.
 See [SEMANTIC-AUDIT.md](SEMANTIC-AUDIT.md) for the statement and dependency review.
 
-**The complete cleaned Lean build and all 76 axiom inspections passed.**
-The full independent NanoDa replay also passed: **32,704 declarations**,
-with no errors and only the three standard axioms. See the
+**The separate September 14 cleaned Lean build and all 76 axiom inspections passed.**
+Its independent NanoDa replay also passed: **32,704 declarations**,
+with no errors and only the three standard axioms. Both replay counts cover
+the selected Solution declarations and their transitive dependencies;
+original-row interfaces are covered by the full build and axiom audit. See the
 [complete verification record](verification/README.md). Its frozen
 source hashes are in [cleanup-source.json](verification/cleanup-source.json).
 Completed build phases are recorded in
