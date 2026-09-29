@@ -54,12 +54,9 @@ square differences. A finite stopping-word argument shows that a surplus of
 interval-moment contributions produces an asymptotic lower bound.
 We combine six prime-chain alphabets, two composite alphabets with three
 restricted digits in each prime coordinate, and a 25-state binary recursion.
-All finite witnesses and the exact verification programs are embedded in the
-\LaTeX\ source and attached to this PDF. The proof includes the lifting and
-recursion arguments, the stopping-word criterion, and the justification of
-the finite checking procedures. The numerical conclusion is computer-assisted;
-the accompanying Lean 4 development formalizes the full bound, including all
-finite certificate conditions.
+The numerical conclusion is computer-assisted. The construction is accompanied
+by a complete Lean 4 formalization, registered as PALOMAR-2026-09-19-000006,
+version 1.
 \end{abstract}
 \clearpage
 \setcounter{tocdepth}{1}
@@ -950,14 +947,6 @@ bound the composite and binary interval alphabets used here. The present
 proof gives no construction of exponent $0.76$ and no new general upper
 bound. Its very large fixed depths also make it unsuitable as a practical
 construction for moderate $N$; the objective here is the asymptotic exponent.
-
-\paragraph{Acknowledgements and provenance.}
-OpenAI Codex agents assisted with mathematical exploration, certificate
-construction and checking, Lean formalization, literature checking, and
-manuscript preparation. The elementary ranked-block and free-digit ideas
-are credited above to their mathematical antecedents. The present proof
-and saved certificates consolidate the September 2026 working research;
-no endorsement by the cited authors is asserted.
 
 \appendix
 
