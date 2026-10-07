@@ -10,7 +10,15 @@ numerical checks are formalized. The numerical statement has no
 finite-certificate hypotheses. See [README.md](README.md), [PROOF.md](PROOF.md),
 and [PALOMAR-READINESS.md](PALOMAR-READINESS.md).
 
-The official full preflight of this revision runs from the workflow described below; its verdict and run link are added here once it completes.
+**The official full preflight passed on 2026-10-07** for commit
+`389566cfec3a14ace44fe554558d824310351214` in [run 37552134159](https://github.com/enaslund/sarkozy-lower-bound-0.758/actions/runs/37552134159)
+(PalomarSubmission `d4e41c1d5b0d`, profile `palomar-standard-v1`, `existing_id`
+PALOMAR-2026-09-19-000006): `status: pass`, `stage: complete`, no errors or
+warnings. Both selected theorems passed the protected canonical-Challenge audit
+and `lake comparator` with con-ron (29,813 declarations), NanoDa and Lean's
+kernel, and all 117 Lean files passed the module-system and line-count check.
+The [mechanical report](verification/palomar-preflight-20261007.json) is preserved;
+later commits change only documentation.
 
 ## Submission fields
 

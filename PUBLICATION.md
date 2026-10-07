@@ -132,3 +132,8 @@ unchanged and apply to their recorded revisions.
 `CITATION.cff`, `PROOF.md`, `SEMANTIC-AUDIT.md` and `CLEANUP.md` describe
 version 2; the preflight workflow is pinned to PalomarSubmission
 `d4e41c1d5b0d114c4859e6e5831dc6d3ad1d0d44` and names the existing entry.
+
+The official full preflight passed on 2026-10-07 for commit `389566cfec3a14ace44fe554558d824310351214`
+([run 37552134159](https://github.com/enaslund/sarkozy-lower-bound-0.758/actions/runs/37552134159)); its report is archived byte for byte as
+[verification/palomar-preflight-20261007.json](verification/palomar-preflight-20261007.json).
+The following commit records that result and changes documentation only.

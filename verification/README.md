@@ -15,6 +15,7 @@ moment interfaces are covered by the full Lean builds and axiom audits.
 | 2026-09-19 | `4de015dae4f256ea9af929727f70afa8ee118c74` | Palomar submission mechanical verification: protected Challenge audit, Comparator, Lean, and NanoDa for both selected statements. | [Submission report](palomar-submission-20260919.json) |
 | 2026-10-06 | Port to `0.7580758318008816`, Lean 4.32.0 | Fresh build, 76 axiom inspections, `leanchecker` replays of every module and of the fresh closure of `Solution`. | [Port records](exponent-0.7580758318008816/) |
 | 2026-10-06 | Version-2 source, Lean v4.35.0-rc2, module system | Generators reproduce every file; fresh build, 76 axiom inspections, bundled `lake comparator` with Lean, NanoDa and con-ron, `leanchecker` replays. | [Records](lean-v4.35.0-rc2/) |
+| 2026-10-07 | `389566cfec3a14ace44fe554558d824310351214` | Official full hosted preflight (profile `palomar-standard-v1`, `existing_id` PALOMAR-2026-09-19-000006): protected Challenge audit, module-system source check, and `lake comparator` with con-ron, NanoDa and Lean for both selected statements. | [Preflight report](palomar-preflight-20261007.json) |
 
 The September rows check the source of version 1, whose 152 Lean
 source/build-configuration hashes are recorded in the September 14 replay
@@ -59,6 +60,23 @@ Lean v4.35.0-rc2; [SEMANTIC-AUDIT.md](../SEMANTIC-AUDIT.md) reviews both steps.
 The port was first checked on Lean 4.32.0, with a fresh build, the axiom audit
 and `leanchecker` replays; those records are in
 [exponent-0.7580758318008816/](exponent-0.7580758318008816/).
+
+## Official full preflight of version 2, 2026-10-07
+
+Commit **`389566cfec3a14ace44fe554558d824310351214` passed** the official full preflight in
+[GitHub Actions run 37552134159](https://github.com/enaslund/sarkozy-lower-bound-0.758/actions/runs/37552134159), which called PalomarSubmission
+`d4e41c1d5b0d114c4859e6e5831dc6d3ad1d0d44` with `mode: full`, the GitHub-hosted
+profile `palomar-standard-v1`, and `existing_id` PALOMAR-2026-09-19-000006.
+The [unmodified mechanical-report artifact](palomar-preflight-20261007.json)
+records `status: pass`, `phase: verification`, `stage: complete`, and empty
+error and warning lists, with `checked_at: 2026-10-07T02:13:12Z`. Its source
+check covered all 117 Lean files (module header required, at most 10,000 lines).
+Both `SarkozySubmission.interval_moment_bound` and
+`SarkozySubmission.improved_bound` passed the protected canonical-Challenge
+audit and `lake comparator`: con-ron accepted 29,813 declarations, and con-ron,
+NanoDa and Lean's default kernel each accepted the solution. The verify job took
+1 h 45 min. This is preparation evidence for that commit, not Palomar's own
+mechanical run for the submission.
 
 ## Palomar submission mechanical verification, 2026-09-19
 
