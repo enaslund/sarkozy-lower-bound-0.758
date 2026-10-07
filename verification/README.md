@@ -28,7 +28,8 @@ The version-2 source proves `SarkozySubmission.improved_bound` with exponent
 `473797394875551/625000000000000 = 0.7580758318008816`, Theorem 1.1 of the
 [full paper](../papers/square-difference-free-sets-of-exponent-0.7580758318.pdf).
 Its Lean files are identical to those of working commit `aa58ba9de353ae5a934455ed30b409f631b456b2`
-(`lean-formalization/`), where these checks were run; the records are in
+(`lean-formalization/`), where these checks were run; the records, completed in working
+commit `57ebb20d4cca05de8e3b291bbb9dce4dc61a0869`, are in
 [lean-v4.35.0-rc2/](lean-v4.35.0-rc2/).
 
 | Check | Result |
@@ -38,7 +39,7 @@ Its Lean files are identical to those of working commit `aa58ba9de353ae5a934455e
 | Axiom audit | `lake env lean Check.lean`: 76 inspections, all depending only on `propext`, `Classical.choice` and `Quot.sound` (or on no axioms). [axioms.log](lean-v4.35.0-rc2/axioms.log) |
 | Comparator | `./scripts/verify-comparator.sh` ran the toolchain's `lake comparator` (bubblewrap 0.12.0 sandbox) on `comparator.json` with the external kernels NanoDa and con-ron, the kernels Palomar registers. con-ron accepted 29,813 declarations; con-ron, NanoDa and Lean's default kernel each accepted both selected theorems ("Your solution is okay!"): exit 0, 77 min, peak memory about 2.5 GB. [comparator.log](lean-v4.35.0-rc2/comparator.log) |
 | Kernel replay (modules) | `lake env leanchecker <module>`, one module at a time: the 115 modules that declare constants replayed every declaration on top of their imports with 0 failures (peak 8.4 GB). `leanchecker Sarkozy` matches by prefix and replays all 114 `Sarkozy.*` modules at once; it reached 114 GB and was stopped by earlyoom. The aggregate module `Sarkozy` declares no constants ([log](lean-v4.35.0-rc2/aggregate-module-constants.log)). [log](lean-v4.35.0-rc2/leanchecker-modules.log) |
-| Kernel replay (fresh) | `lake env leanchecker -v --fresh Solution` (the entire closure of `Solution`, Mathlib included, into an empty environment): running when this revision was committed; the result follows in the next documentation commit. |
+| Kernel replay (fresh) | `lake env leanchecker -v --fresh Solution` replayed the entire dependency closure of `Solution`, Mathlib included, into an empty environment: exit 0, 28 min, peak 7.9 GB. [log](lean-v4.35.0-rc2/leanchecker-fresh-solution.log) |
 | Palomar limits | All 117 `.lean` files begin with `module`; the largest has 6,032 lines (limit 10,000); `Challenge.lean` has 64 lines and 2,780 bytes. The toolchain equals Palomar's minimum and Mathlib's own `lean-toolchain`. |
 
 [lean-v4.35.0-rc2/snapshot.json](lean-v4.35.0-rc2/snapshot.json) records the

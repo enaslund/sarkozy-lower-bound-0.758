@@ -1,0 +1,330 @@
+{
+ "recorded_utc": "2026-10-07T00:27:03.323065+00:00",
+ "scope": "Unconditional exponent 0.7580758318008816 = 473797394875551/625000000000000, with all nine components and every finite check discharged, on Lean v4.35.0-rc2 with every file in the module system. Fresh complete Lean build from a clean project build directory (Mathlib oleans reused), 76 axiom inspections, the bundled lake comparator with Lean, NanoDa and con-ron, and leanchecker replays (every module, and the fresh closure of Solution). All generators reproduce their files.",
+ "baseline_commit": "aa58ba9de353ae5a934455ed30b409f631b456b2",
+ "theorems": [
+  "Sarkozy.record_exponent",
+  "SarkozySubmission.improved_bound",
+  "SarkozySubmission.interval_moment_bound"
+ ],
+ "build_results": [
+  {
+   "command": [
+    "lake",
+    "build",
+    "Sarkozy.Odd437MomentData"
+   ],
+   "exit_code": 0,
+   "seconds": 61.69,
+   "log": "verification/lean-v4.35.0-rc2/Sarkozy-Odd437MomentData.log"
+  },
+  {
+   "command": [
+    "lake",
+    "build",
+    "Sarkozy.OddOrder215"
+   ],
+   "exit_code": 0,
+   "seconds": 298.11,
+   "log": "verification/lean-v4.35.0-rc2/Sarkozy-OddOrder215.log"
+  },
+  {
+   "command": [
+    "lake",
+    "build",
+    "Sarkozy.OddOrder437"
+   ],
+   "exit_code": 0,
+   "seconds": 74.63,
+   "log": "verification/lean-v4.35.0-rc2/Sarkozy-OddOrder437.log"
+  },
+  {
+   "command": [
+    "lake",
+    "build",
+    "Sarkozy.Odd215Moment"
+   ],
+   "exit_code": 0,
+   "seconds": 39.78,
+   "log": "verification/lean-v4.35.0-rc2/Sarkozy-Odd215Moment.log"
+  },
+  {
+   "command": [
+    "lake",
+    "build",
+    "Sarkozy.Odd215Certificate"
+   ],
+   "exit_code": 0,
+   "seconds": 26.36,
+   "log": "verification/lean-v4.35.0-rc2/Sarkozy-Odd215Certificate.log"
+  },
+  {
+   "command": [
+    "lake",
+    "build",
+    "Sarkozy.Odd437Moment"
+   ],
+   "exit_code": 0,
+   "seconds": 14.85,
+   "log": "verification/lean-v4.35.0-rc2/Sarkozy-Odd437Moment.log"
+  },
+  {
+   "command": [
+    "lake",
+    "build",
+    "Sarkozy.Odd437WidthHistogram"
+   ],
+   "exit_code": 0,
+   "seconds": 10.65,
+   "log": "verification/lean-v4.35.0-rc2/Sarkozy-Odd437WidthHistogram.log"
+  },
+  {
+   "command": [
+    "lake",
+    "build"
+   ],
+   "exit_code": 0,
+   "seconds": 9.95,
+   "log": "verification/lean-v4.35.0-rc2/full-build.log"
+  },
+  {
+   "command": [
+    "lake",
+    "env",
+    "lean",
+    "Check.lean"
+   ],
+   "exit_code": 0,
+   "seconds": 2.79,
+   "log": "verification/lean-v4.35.0-rc2/axioms.log"
+  }
+ ],
+ "axiom_inspections": 76,
+ "nonstandard_axioms": [],
+ "proved_target_parameters": {
+  "exponent": "473797394875551/625000000000000",
+  "bases": [
+   "3^2",
+   "7^2",
+   "11^2",
+   "31^2",
+   "59^2",
+   "103^2",
+   "215^6",
+   "3628411^2",
+   "4^(10^20)"
+  ],
+  "surplus": "15468032462/10^25"
+ },
+ "toolchain": "leanprover/lean4:v4.35.0-rc2",
+ "mathlib_commit": "065356127b1dc0016f66b7283ce0ce2c4055aa55",
+ "lean_source_size": {
+  "files": 117,
+  "bytes": 3070913,
+  "lines": 41007,
+  "max_lines": 6032
+ },
+ "comparator": {
+  "command": [
+   "./scripts/verify-comparator.sh"
+  ],
+  "runs": "lake comparator --config <comparator.json with external_kernels nanoda_bin and con-ron --jobs=2>",
+  "toolchain": "leanprover/lean4:v4.35.0-rc2",
+  "bwrap": "bubblewrap 0.12.0",
+  "exit_code": 0,
+  "seconds": 4616.3,
+  "log": "comparator.log"
+ },
+ "leanchecker": [
+  {
+   "command": "lake env leanchecker <module>, once per module, sequentially",
+   "toolchain": "leanprover/lean4:v4.35.0-rc2",
+   "modules": 116,
+   "failures": [
+    "Sarkozy"
+   ],
+   "seconds": 825.0,
+   "log": "leanchecker-modules.log",
+   "note": "leanchecker treats its argument as a module-name prefix, so `leanchecker Sarkozy` replays all 114 Sarkozy.* modules concurrently in one process; it reached 114 GB and was stopped by earlyoom (exit 143). Each of those modules passed when replayed on its own, and the aggregate module Sarkozy itself declares no constants (aggregate-module-constants.log), so every declaration of the project was replayed.",
+   "modules_with_declarations_replayed": 115
+  },
+  {
+   "command": [
+    "lake",
+    "env",
+    "leanchecker",
+    "-v",
+    "--fresh",
+    "Solution"
+   ],
+   "toolchain": "leanprover/lean4:v4.35.0-rc2",
+   "exit_code": 0,
+   "seconds": 1696.5,
+   "log": "leanchecker-fresh-solution.log"
+  }
+ ],
+ "source_sha256": {
+  "Challenge.lean": "64ae50bff1606f93818eaf7a70f99d495a8000d37edf7070efcf1e386b76fc3d",
+  "Check.lean": "28e42e666ae35ec69577b2aa1790b3eb3c998a1c9c4ddc2bce343cb23ec4acc3",
+  "Sarkozy/ActualOddTarget.lean": "a27a336c1adb6b160d59e138f59b78c5816121363043b39e2fe90905a9c983ea",
+  "Sarkozy/Asymptotic.lean": "1fe8ac72a06622e994f0fb63f0d1ffd01693aed5d7030ba507fb0fa458c2ef51",
+  "Sarkozy/Binary.lean": "3230e11f3fc1cbe77e9d329a822e33c90dfb7fc69bb976fc1bc1eec269bb7651",
+  "Sarkozy/BinaryData.lean": "4fa49a885fdc9107095d379afcc8bd12b87c7cb12a91586988177260594c9ff4",
+  "Sarkozy/BinaryDepth.lean": "c75af6fb44d4ad2ecce76d44198f6da0e232771a9a80dd6508bef64165560555",
+  "Sarkozy/BinaryGrowth.lean": "fff18a6b86529908e9c14776dcf0222e2efebd8c87cc81fc619c8981430b21b7",
+  "Sarkozy/BinaryPolicy.lean": "c1e7912a0e46b8be789eda9aa1ffd772e35b602bf829e66c566fdbb5f15d4a55",
+  "Sarkozy/BinaryRealData.lean": "03736ae1edbed47bd3078234ba6705f10036dfa006e83648be272cb1e560a5e6",
+  "Sarkozy/BinaryRows.lean": "581b789b3ce857e49e24dead03bae6235029c86cc87fbbb897894e3d260d04bb",
+  "Sarkozy/CRT.lean": "356e4c1462b5b6d54f817d92c8ea790926e82066fb3fcb05e42e63340e84769f",
+  "Sarkozy/Certificate.lean": "58e2c4f7678c4fafda14040530274d906c48403aaf92b3ee6040ec3bfd3f73ed",
+  "Sarkozy/ChainMoments.lean": "6f6951709da928ba6e4765062b9e27e6646414919f5f983093f2dd5fc88dd17a",
+  "Sarkozy/Examples.lean": "3c8ab4a55912dbcf63204c60504294d4af321b738f12352e7085f9f51474e44b",
+  "Sarkozy/FastPowerCertificate.lean": "cd993738e55126c9c3f0507d07cf61c0c8467ce788590c1accbbb4700ddfb510",
+  "Sarkozy/FiniteAlphabets.lean": "c552082d5cfa832698f85184353736385a8866a0eb9a70f384e6646c4e6cd870",
+  "Sarkozy/FullTarget.lean": "b268403f1748617810aef2085da8576ed3063bf52527b38a9708695d77c00690",
+  "Sarkozy/Growth.lean": "55f993641fa2667789622231438cb4af194080ce803485547b440cc810de4d22",
+  "Sarkozy/Intervals.lean": "8159f4c690d974a2a9bcb85744bb00147151caf9d0351d25e2b8a5bb50dcfdc6",
+  "Sarkozy/Moment.lean": "13cb9ffa27c4806d5253490e37fe7e92cc33f750956166a9d897293619de5a4f",
+  "Sarkozy/Odd215Certificate.lean": "62f005ee3775fa83abfbe6bb1fdf195c2a7c83b2f775878bb2e971c7280aa825",
+  "Sarkozy/Odd215Moment.lean": "ee4b816cd75fad7fc99b2741f289a272ea28c43e1e3d4a340ab4776f5667d60c",
+  "Sarkozy/Odd215MomentData.lean": "be0be3a851fb15bae28b69c0f2f1a517eedd1184c5bd54fe16f0b456ac450e44",
+  "Sarkozy/Odd215Threshold.lean": "f0a8700ba8ef9a7bdf9006e59eacc987871effc9591f6ff68109f2e86c4e4a63",
+  "Sarkozy/Odd437Certificate.lean": "129e1cdc6fe00d1dde4dcecce6e3f9f56b0d37bc14d6708cd6951aff2eb154e3",
+  "Sarkozy/Odd437Moment.lean": "e9fb33ab2df1f0dc29ff8bad0320506118062ad572db4e97f814eea1efabdb15",
+  "Sarkozy/Odd437MomentChecker.lean": "a02fe6b3775b64d7d4fff94d94e7cf0ad1123d6980b93fe839ac8c10c69173f9",
+  "Sarkozy/Odd437MomentChunks/Chunk000.lean": "791e36ac39574691c89e942f95a871fc574d46ad6ea2786c4a86822f12bac097",
+  "Sarkozy/Odd437MomentChunks/Chunk001.lean": "3104da69947e0c6300ea2d0a4a900112f886ff8fa987d7d3cb901e589712ccce",
+  "Sarkozy/Odd437MomentChunks/Chunk002.lean": "7a3b47042cddac798f75f27d0caeb90b93ad107f29b5378c215ec74969d042d9",
+  "Sarkozy/Odd437MomentChunks/Chunk003.lean": "5bcd3acb37b84d65adb9ebd5e12a0ec6113a7b2ef44d6fbc10cca7e053662835",
+  "Sarkozy/Odd437MomentData.lean": "1be397ec49695742d96d0a9926a9467df71e9fb37db6df82adc4fdcb94504bd4",
+  "Sarkozy/Odd437Threshold.lean": "6c332e8ae251d4dfd60724e1d861f53fde94830d71b0d62caaa85e02bb529a6d",
+  "Sarkozy/Odd437WidthHistogram.lean": "ec01de36ae49bfbc59c293c22be51130c1eab48d9d5796c137426d27d9cc21f5",
+  "Sarkozy/OddCertificate.lean": "a9e728cdd70a84bb1956f6f73dc4681936ebc38f37ccf29e453a5324d08dd66c",
+  "Sarkozy/OddData.lean": "cd315e16f39cbb364a35b9918d9135182fb881be33b8244772f4db3550986f1e",
+  "Sarkozy/OddData215.lean": "74227ad82ecc99198c9b0a8681427bd3641da764a04c8b7c865adc90c31ebb67",
+  "Sarkozy/OddData437.lean": "cbe50979b16ce35dc6079400eb8f98fb316add94a56afd02cd4dcd7fbf22c092",
+  "Sarkozy/OddEndpointCheck.lean": "def4265b878c0804842e311ca4639452fe7609223ddf817f1f4af0fe0ddad4a6",
+  "Sarkozy/OddFiniteCertificate.lean": "7550373f9eac4ed324b27fa2b5e2ff2ea2a3d506c829b545ccda37f99e8ca3cb",
+  "Sarkozy/OddKernelSort.lean": "969b2754596e89e829391121ea6bd3801f2bb6c803b71d34df20e2fdc70f6f6a",
+  "Sarkozy/OddLift.lean": "3a4b16c897f6274ce277245c22bd7e8904880d4f6dfd781c9c60b9d45a1e39d6",
+  "Sarkozy/OddMoments.lean": "ca4279058102418422c96677d6242ffa0cb16b3f6648517d0b8dc8b4d7ce753b",
+  "Sarkozy/OddOrder.lean": "6907a72f17a850b43d24f88c76ffdb44ef31bca46f5828f3328eb16c2f2623f1",
+  "Sarkozy/OddOrder215.lean": "8a92594bc4b7406d785b3efc21c53f41627e4d4a1f06e70cd8144259de00d2b9",
+  "Sarkozy/OddOrder437.lean": "6960749f1d1892dd70dcdb2ae06a5fe95e9bdfb2ca74f933ebe0ba33a41d9d16",
+  "Sarkozy/OddOrderBase215.lean": "894d7088c005e1c4158b2499e6addd282a1e1e59ffe0eaab4401d33ff2e268a4",
+  "Sarkozy/OddOrderBase437.lean": "8c5ed2afeab70935c2899b2ce82052c35ce1457d11c33f1a7f5d6407a63dc3e5",
+  "Sarkozy/OddOrderCertificate.lean": "0e655a91ca72f6630d7707c639d969be6c7704e5b997b8fbda9d546c27170f8b",
+  "Sarkozy/OddOrderChecks215.lean": "399ef47af46a5bf302de9b2a93966c169790b557e59e998fa51134fb1aff7e4d",
+  "Sarkozy/OddOrderChecks437.lean": "d74c4cb6d4a763a3817e5c90daa565405bc49d24295b446162f24dcde71cd016",
+  "Sarkozy/OddOrderChunkLemma.lean": "eb46d98d02dc834f73cb334f9ce1ae32f750cf6caf05cc30cb7af007723c8354",
+  "Sarkozy/OddOrderChunks215/Chunk00.lean": "86ea7cab5ef312cd024c923614078ea8919e9034e2f0bda09383ef29ed20f0be",
+  "Sarkozy/OddOrderChunks215/Chunk01.lean": "83a784925da6c858ab6ba2fd2055a51a3f117b528055f8851eb919ee7e5343d9",
+  "Sarkozy/OddOrderChunks215/Chunk02.lean": "95f957d77e810b096330a690b7192510faa49a3e3431bfdbf8e203832296f779",
+  "Sarkozy/OddOrderChunks215/Chunk03.lean": "0f816ecb5f2fe79e520ef40ba1daabbb703446ae2a3bbfa0e4b07300b8a96a16",
+  "Sarkozy/OddOrderChunks215/Chunk04.lean": "54d21f0b56457575f16d49ed9d33dc5fb029fa1581885352aced257b13b736a4",
+  "Sarkozy/OddOrderChunks215/Chunk05.lean": "c24d1798f60a475ce311f5f9bb3782a582a2d96f334a8d80d55f5b9266613d00",
+  "Sarkozy/OddOrderChunks215/Chunk06.lean": "db3bff854ef8ff6b73aad0815459e496fb94b90296469868d2f2cd3bca74b298",
+  "Sarkozy/OddOrderChunks215/Chunk07.lean": "9a2991538538f21c8cbd5b20b01230aa96036fa10b1e587d0765ef6e0e423acb",
+  "Sarkozy/OddOrderChunks215/Chunk08.lean": "6f9644ef98e7c019bb1e9d3e27362be8d026accf71d873516bfab6c24f503cc4",
+  "Sarkozy/OddOrderChunks215/Chunk09.lean": "4cccc8034fca2a048b5f16e2f7c520d0398891dbedf665c7be0d75ca55ae5540",
+  "Sarkozy/OddOrderChunks215/Chunk10.lean": "2b870388b76cb90c75dd5a13e24292d29adda77b01981b876e348a531fc4e907",
+  "Sarkozy/OddOrderChunks215/Chunk11.lean": "6b4331b5768e6e8dda6e05672656cedf9489dbaf3f55af1b48e3354b9b5fc00e",
+  "Sarkozy/OddOrderChunks215/Chunk12.lean": "9ba41a4bba873ad0027ed4051ad7e6e73c3bf85e2da9b89e50141273d222ffe4",
+  "Sarkozy/OddOrderChunks215/Chunk13.lean": "05fb333f5cf69f13bd198417f3d9563b88277e1d296b09d56ecd7b78bc15e77f",
+  "Sarkozy/OddOrderChunks215/Chunk14.lean": "9a522131d3d86fdd1e25a35aed7d9ccfdda8a0cad6f015dba582a96d6a570e5e",
+  "Sarkozy/OddOrderChunks215/Chunk15.lean": "8f09a0c362cb6a108d97eaefd75967fc7f06c9634de9d21781a482b2eca2146b",
+  "Sarkozy/OddOrderChunks215/Chunk16.lean": "38faedb2da4599cfbe12264a175bfb8747b0195582ae36270aa1fab91eeb109b",
+  "Sarkozy/OddOrderChunks215/Chunk17.lean": "9496f9d31521c313c136e8ed29a937f6b5edefce7db115f71e80f09434f32eb4",
+  "Sarkozy/OddOrderChunks215/Chunk18.lean": "9b6c3945072fb55e1d41e7d24b3a7899bca184d7dd4b6564ef839aa9ee76598c",
+  "Sarkozy/OddOrderChunks215/Chunk19.lean": "f4c54469789f1b8fd53865b00d1cadf8aa9d849d56e2ea0ecf9295478710d159",
+  "Sarkozy/OddOrderChunks215/Chunk20.lean": "f3f7223219f364640d404476951258f0042221c1ecfde501c7bd2e0c9ac3743b",
+  "Sarkozy/OddOrderChunks215/Chunk21.lean": "307a36848663894441dd25e37604f80e7f2fceca1fc6c49b924ea51cd6e1837b",
+  "Sarkozy/OddOrderChunks215/Chunk22.lean": "2c685b5b84c9993fe0198e7a619febc53cd41c3d2c58f4f074cfe60a5e80e476",
+  "Sarkozy/OddOrderChunks215/Chunk23.lean": "4c564aa96d2f5f44ec4bd5a0b3696d37a917604d7b727f5b1c0d65870dc5ad29",
+  "Sarkozy/OddOrderChunks215/Chunk24.lean": "0d29a8e89b8d7123554a8ffae8516ab7eb25e96334d277758dad06010ffda75f",
+  "Sarkozy/OddOrderChunks215/Chunk25.lean": "98d6daff765834059eb28ca74d85f325d4af44805a0eb179ded0efaccd98d3d6",
+  "Sarkozy/OddOrderChunks215/Chunk26.lean": "7807903f8e093d46cd56685feec99885c7a1d3bba6a2fa53588874190b1c1135",
+  "Sarkozy/OddOrderChunks215/Chunk27.lean": "0dedc92119b9bc7c79c22c38ed680ae852520e9d395c4c54a6eb814782da7fb5",
+  "Sarkozy/OddOrderChunks215/Chunk28.lean": "fc17745933de856afdfd57b0e38b62b4d29ff97a485b2360f9c195df04242bc6",
+  "Sarkozy/OddOrderChunks215/Chunk29.lean": "cdd79e276fb716bdddcdff6383ef504df64e4b2f1ea89a678cc57c00ae2526b4",
+  "Sarkozy/OddOrderChunks215/Chunk30.lean": "f810046285247fd3d229404993f54a6315d471d3b0644cbd65d45fae34830a0c",
+  "Sarkozy/OddOrderChunks215/Chunk31.lean": "b6cc66e0da4dcb7d9ad4c0d7927a77125bb5acdd158444b9756fdcc09045ba20",
+  "Sarkozy/OddOrderChunks215/Chunk32.lean": "1b229a88585f3b9876d7ac2555a9517e40a2761812cf1f9831845584237d68d3",
+  "Sarkozy/OddOrderChunks215/Chunk33.lean": "9581a5c79ea196a3c9612999461a3eca44073d53925ea0d960ecf6337b9748f9",
+  "Sarkozy/OddOrderChunks215/Chunk34.lean": "a6cadbcd066fc08c5ff3f9c7285b87a6321356ded734ddb08bc759c036d998e9",
+  "Sarkozy/OddOrderChunks215/Chunk35.lean": "e4db568e4920bb6f5b58d9450a96fb508990c19a180c067ac212b0580d14bb9a",
+  "Sarkozy/OddOrderChunks215/Chunk36.lean": "cf035e022098561d9242943ca15bbef8e61182bd258b4c5da4ecfc8cfc5d1f9e",
+  "Sarkozy/OddOrderChunks215/Chunk37.lean": "688e1abbeef9e6f2fad65a9040dc663a65563d05d93f212585720e68b95f88a2",
+  "Sarkozy/OddOrderChunks215/Chunk38.lean": "702adf848cfb039c37eae24b50f79e47f07c721b7f9061cd8e2a6dc25212cf45",
+  "Sarkozy/OddOrderChunks437/Chunk00.lean": "5929f7204e3ee96403df487236da38b1908030ff6860d0a3b68b315b064b5f45",
+  "Sarkozy/OddOrderChunks437/Chunk01.lean": "26029659173eff6a40b8422ceb7d7ca596c812e0c3c36637796353072fada313",
+  "Sarkozy/OddOrderChunks437/Chunk02.lean": "6b69712f53e6c1dcda8e67193604e33ce28c5ae58e162921daec110a0a5e8f99",
+  "Sarkozy/OddOrderChunks437/Chunk03.lean": "421c6fb7881b9dd5f2ae156491c4e5b098da5ca588ec48805776067c32b023d1",
+  "Sarkozy/OddOrderData215.lean": "0bdae1f95a4de85ba8ac7b93bae1a70234b48814f5022b18fc72f61019f4ff24",
+  "Sarkozy/OddOrderData437.lean": "76516ef319e4dedfc8886c4588c5df65130cb7fa954ca02d93bb47065167614f",
+  "Sarkozy/OddOrderEndpoints437.lean": "87bd31a018d67ee9070d126499315271de3c57fe313b499bc4e11275e2e1970a",
+  "Sarkozy/OddOrderFast.lean": "b70bb0b7caadf8ade1f66795ad5087ed83fad6db3ede6dc946e459e6a2088ea7",
+  "Sarkozy/OddTarget.lean": "565c1af5926ab873a742f1483bb4259528cf9e9134e12d22d0232915eb782fc2",
+  "Sarkozy/OneOddTarget.lean": "4a42d91cf376c379ad911bb8cec6c57709a651629f619f7454f0a4a0b8526c30",
+  "Sarkozy/Parameters.lean": "67179af0dc775e2d5ad35e97f26c8b9e394e5df14a35a4a5b88600067440c43c",
+  "Sarkozy/PowerChecker.lean": "edfcf4c573eabb091007dabd7e43346892dc1e701ac59696756a9c9744013676",
+  "Sarkozy/PowerPolynomial.lean": "5cede79516b24a1d71297aa2223915e5c43b6a4843e434e1e32939c8cee8d755",
+  "Sarkozy/PrimeChains.lean": "19df703e76c273b9bf2aae38c2a6c9308c8880fe629019504c1b008cb20eaa0f",
+  "Sarkozy/QuantitativeExamples.lean": "55b177b482365cdd65bf688b01887faee628ab1f6e5c52bed555f1b6c62156cc",
+  "Sarkozy/Ranked.lean": "5a35dc11bbbd724fc0b3e27d245caf62b612b1f78fbb2dd6205bc8d404eb25a3",
+  "Sarkozy/RecordBinaryTarget.lean": "f9d7ea187bb3686500de9052b5ba69abcfe99eedb66d53f3df649a0eec8d6551",
+  "Sarkozy/RecordTarget.lean": "016bceec06c2d61a21485bdffbde34ad267897294569465e85736e0de6785568",
+  "Sarkozy/ReducedTarget.lean": "0d103bc83ab2417cb8ebf84be1ed605b8c13f3cf104d9428b60199c0bea5760c",
+  "Sarkozy/Stopping.lean": "8e57d4796a3da0a7fa7e3b2c44788c3d2da8b8072d68532f8463605c78e5f8f7",
+  "Sarkozy/Target.lean": "f5b1d54b548b3b052ec0ece853b16a86215d3c0722098254aa288cb0938e210b",
+  "Sarkozy/TwoOddTarget.lean": "a66c3e5cf03919ff01b64a5ba6dc2d9cd31e2807110c075e210142c893175ec2",
+  "Sarkozy/Words.lean": "1f382491ce37e535eec970e2aab742c6a3e0ab017e4f0107aa854ad94c5fb0bb",
+  "Sarkozy.lean": "2bbe6f19c256d1f2c7b7c5eafc7da95db8d3ed07ff2b0f1ae5afcae42e27226a",
+  "Solution.lean": "93f4f168209e368fa68c00eb07a11cd5db92bd8ffc629b15abe9d75e00b10b5c",
+  "lean-toolchain": "8dc8d6f560141069d9073e370611716ef77ada0da8ffa37e2149f44b2e63ac7a",
+  "lakefile.toml": "0f4d48b0388de944a83e5b220a2b038f9fd338a838749748c99df7b8a27861ec",
+  "lake-manifest.json": "0ba686e036f3755d668b56318a95687432a3a0a8f5d05eec4a8c1a3069e5079d",
+  "comparator.json": "85f9fd5bf13a3e87cf8fd406f98f1e048edf86e9d6266a2dd1600398a796f52b"
+ },
+ "script_sha256": {
+  "scripts/binary-rows-proof.txt": "06d3964cae2083691e705592d84380af1cd0cba6758c2507c984c98204aef497",
+  "scripts/build-sequential.sh": "9c2c8e4aeb46b254119b16d556c96de3ba1fbe8cb80b3eff5442b8caef86338b",
+  "scripts/generate-binary-data.py": "12503b9be2541b846be1a53ccaa4956b46c5a3e9f58461f37663c5b45906a3d9",
+  "scripts/generate-binary-depth.py": "14c2dfc10f1f601a5aa55f486afdb6b7a0eb99b3a73c589b4e3a992e2a9c6336",
+  "scripts/generate-binary-rows.py": "a181c16149668151f0ce4243570876b71bfc048869e16ae55c28698973a41f98",
+  "scripts/generate-chain-log-bounds.py": "8e420747371d83dfba7dfce1744b68b031580679bdc559ef9eedca705bc6fa7a",
+  "scripts/generate-odd-data.py": "26b27b197d0cf5c01926d321753dde0a8b4b87ac0b909eaacc8bdfe98d90719c",
+  "scripts/generate-odd-order-chunks.py": "05cae751c68acf62345af1fb7ee39c3bee3d657e7e0b136637336b403c1e833b",
+  "scripts/generate-odd-order.py": "da0ae7aec5c414e1a0d7d25f90fc469deba1f69f6c2c75f56c40c6943f8caf8f",
+  "scripts/generate-odd-thresholds.py": "41d2329edd472cf80ab2c19bcd115f8d26d669c26dbdfc29017b79958c48639d",
+  "scripts/generate-odd215-moments.py": "f09a5a7d5928b8e826cdfe42cd38477c971fd02a62048eb6f0cbfd39a68ce5e6",
+  "scripts/generate-odd437-data.py": "49fe0e56f8b064c6f6d83716ae66c8abe86a4f5bd86ea7400153404289c86ad4",
+  "scripts/generate-odd437-moments.py": "95e4bea8f07a94e35d1c8c5e299b3fbbc5cbfee856cfd902e8f2c4bcce9e7e2e",
+  "scripts/generate-odd437-order-chunks.py": "60b9f9e862ba675736c487a38324c02a7d1be03be3a89700bdfb8d0bdd2ff986",
+  "scripts/generate-odd437-order.py": "797749e8761bad62306e9fa174297d458265188db5485ca53794099977088a8e",
+  "scripts/landrun-wrapper.sh": "1df02453c876edf109ffbdf1b3025ecabe31fef226356f06510966504c7dafd7",
+  "scripts/lean_module.py": "f71a73d4484a1291a8904bebe09b95ff2425062c95b1930da85d11471793b0c6",
+  "scripts/verify-comparator.sh": "5ce955c79af0df59b411216af4a6fac1c16e4acf2aa6f1689bf880665c673891"
+ },
+ "witness_sha256": {
+  "research-notes/capacity-bound/bound.json": "080735a362d5fb736ae932d4c775e74c6c05ce3a25119e17cc0f1b928022bf84",
+  "research-notes/odd-search/q215-depth3-product.json": "dae38a756de83c99d65973ff85f23a7068ce6e85a7a4f12400a923f24cf46574",
+  "research-notes/next-push/q437-unequal32s.json": "3ef1e78e59f6e90327bd739c8c114604a352bb4ae7f0faecc6d547b3cd0104bc",
+  "research-notes/next-push/binary-cert-0.7580758318008816.json": "1b388dd3cfda324a57d985fc96746a8d36b8e7d2e4ac25ecd264c854a8cb8af7"
+ },
+ "log_sha256": {
+  "verification/lean-v4.35.0-rc2/Sarkozy-Odd215Certificate.log": "f38f90b6d0a5fa7acc5aaea3252232472d9732698c398eed549727cf808f4071",
+  "verification/lean-v4.35.0-rc2/Sarkozy-Odd215Moment.log": "22fb662ffc65fcd1e5240bd78bfcbebcd5d1caaef08f2498c9809ea4ed34566e",
+  "verification/lean-v4.35.0-rc2/Sarkozy-Odd437Moment.log": "4601d0a6f0a31ba5efa29d47d5c7a9f3e8c72fe3993dbb3f52762c6fa907510c",
+  "verification/lean-v4.35.0-rc2/Sarkozy-Odd437MomentData.log": "e104e274896154b236fe0caaaf162276fc27bccddd9ecf9ba39124b13a12e60d",
+  "verification/lean-v4.35.0-rc2/Sarkozy-Odd437WidthHistogram.log": "8d9435d43db945b633cf86182f834348178c53a1ff4df02bce54a16b25875236",
+  "verification/lean-v4.35.0-rc2/Sarkozy-OddOrder215.log": "731f507bfe5b2c27f85a9508619cdb759b21b862fc8c97971706a085c76f71b3",
+  "verification/lean-v4.35.0-rc2/Sarkozy-OddOrder437.log": "32e194f4c58c8fe5468328f6ec5a5166307a5744d172e79647769960de1ccd3d",
+  "verification/lean-v4.35.0-rc2/aggregate-module-constants.log": "b435fc94d6580311a69c76839ecfaf84311f9467ac261b5f2bb4654c52f8dfcb",
+  "verification/lean-v4.35.0-rc2/axioms.log": "90e2cf948f375a901a1aca30d1ff8a991a2acb2c737a2612ed0d3469823887c5",
+  "verification/lean-v4.35.0-rc2/comparator.log": "234e27edcc9b4d9ba86be0af758e9a65a02e3e042aa87594c52a66fe8d0b66ba",
+  "verification/lean-v4.35.0-rc2/full-build.log": "aa759050931536bca327593acabead6147a1a9339ed2843544cdc2e7a1afd0c0",
+  "verification/lean-v4.35.0-rc2/leanchecker-fresh-solution.log": "021d67f6b7dea2f65249086df5ff833c8d26cb7bd1997400e2fe4b46d1397647",
+  "verification/lean-v4.35.0-rc2/leanchecker-modules.log": "311591c07214f835230a62da0447862c5259df5d4704ce93b3bb2412f1fcf30f"
+ }
+}

@@ -65,7 +65,9 @@ gh run download RUN_ID --repo enaslund/sarkozy-lower-bound-0.758 --dir /tmp/sark
 
 The [workflow](.github/workflows/palomar-preflight.yml) calls
 PalomarSubmission `d4e41c1d5b0d114c4859e6e5831dc6d3ad1d0d44` with `mode: full`
-and `existing_id` set to this entry. The `uses` SHA and `pipeline_commit` must
+and `existing_id` set to this entry. It selects the approved GitHub-hosted
+execution profile `palomar-standard-v1` (4 cores, 16 GB): Palomar's default
+profile runs on a Namespace runner available only to Palomar's own runs. The `uses` SHA and `pipeline_commit` must
 remain identical. The recorded authorization relationship is Eric Naslund's
 responsibility for this substantive development; a different submitter must
 give their actual basis. No secrets are passed to the reusable verifier.

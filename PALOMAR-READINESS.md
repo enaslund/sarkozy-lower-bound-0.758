@@ -84,10 +84,13 @@ pinned verifier with `mode: full` and `existing_id` set to this entry, and its
 [runs](https://github.com/enaslund/sarkozy-lower-bound-0.758/actions/workflows/palomar-preflight.yml)
 attach the authoritative `mechanical-report.json` for each exact commit.
 
-The standard profile has a 19,800-second execution budget within a 350-minute
-job, at least 14 GiB of host memory and 20 GiB of free workspace. It builds from
-fresh Lake state without the sequential build script. The local clean rebuild
-took about 20 minutes on a large machine, so a hosted cold build has ample margin.
+The preflight selects the GitHub-hosted profile `palomar-standard-v1`: a
+19,800-second execution budget within a 350-minute job, at least 14 GiB of host
+memory and 20 GiB of free workspace. Palomar's own run uses its default profile,
+a Namespace runner with 16 cores and 30 GiB and the same time limits, so a pass
+on the smaller hosted runner is the stricter test. Both build from fresh Lake
+state without the sequential build script. Locally (16 cores) the clean rebuild
+took 9 minutes and the comparator 77 minutes, with peak memory near 2.5 GB.
 
 ## Metadata, licence and classifications
 

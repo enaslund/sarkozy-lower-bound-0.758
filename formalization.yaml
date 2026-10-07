@@ -90,7 +90,8 @@ status:
     remaining certificate assumptions. Comparator selects the criterion and the unconditional
     numerical result. The sources use Lean v4.35.0-rc2 and the module system.
     Verification of this version: fresh Lean build, 76 axiom inspections, the bundled lake comparator with Lean, NanoDa and con-ron
-    (both theorems accepted), and leanchecker replays of every module; see verification/README.md.
+    (both theorems accepted), and leanchecker replays of every module and of the fresh closure of
+    Solution; see verification/README.md.
     Version 1 (exponent 0.75806746, Lean 4.32.0) was registered as PALOMAR-2026-09-19-000006 from commit
     e5d693729e23762b063a55015ad79ccaf28a3217; its records remain in verification/. Only the three
     standard axioms are allowed; two deliberate Challenge placeholders are excluded from proof counts.

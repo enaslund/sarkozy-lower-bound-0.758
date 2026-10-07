@@ -20,6 +20,9 @@ jobs:
       # reusable-call concurrency and artifacts are additionally scoped by run.
       request_id: preflight002
       mode: full
+      # Palomar's default execution profile runs on a Namespace runner available only
+      # to Palomar itself; this repository selects the approved GitHub-hosted profile.
+      execution_profile: palomar-standard-v1
       # Eric Naslund requested this preflight for his substantive development.
       # Omit project_path to select the repository root; a literal '.' is invalid.
       # existing_id marks this as a revision (version 2) of the registered entry.
