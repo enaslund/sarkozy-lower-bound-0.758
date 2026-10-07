@@ -1,0 +1,91 @@
+⚠ [8939/8963] Replayed Sarkozy.Moment
+warning: Sarkozy/Moment.lean:86:6: `Finset.single_le_prod'` has been deprecated: Use `Finset.single_le_prod` instead
+
+Hint: Replace the deprecated name:
+  Finset.single_le_prod'̵
+⚠ [8941/8963] Replayed Sarkozy.OddLift
+warning: Sarkozy/OddLift.lean:166:46: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: Sarkozy/OddLift.lean:170:36: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+⚠ [8942/8963] Replayed Sarkozy.OddCertificate
+warning: Sarkozy/OddCertificate.lean:61:36: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: Sarkozy/OddCertificate.lean:62:25: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+⚠ [8943/8963] Replayed Sarkozy.OddOrder
+warning: Sarkozy/OddOrder.lean:38:22: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Sarkozy/OddOrder.lean:77:38: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: Sarkozy/OddOrder.lean:82:38: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+warning: Sarkozy/OddOrder.lean:90:21: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+⚠ [8944/8963] Replayed Sarkozy.PrimeChains
+warning: Sarkozy/PrimeChains.lean:60:42: Variable name `hp` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hp
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: Sarkozy/PrimeChains.lean:123:2: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+⚠ [8950/8963] Replayed Sarkozy.OddData
+warning: Sarkozy/OddData.lean:61:10: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: Sarkozy/OddData.lean:61:34: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+⚠ [8951/8963] Replayed Sarkozy.OddOrderCertificate
+warning: Sarkozy/OddOrderCertificate.lean:115:10: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: Sarkozy/OddOrderCertificate.lean:115:34: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+✔ [8954/8963] Built Sarkozy.OddEndpointCheck (2.3s)
+✔ [8955/8963] Built Sarkozy.OddOrderData437 (17s)
+✔ [8956/8963] Built Sarkozy.OddOrderEndpoints437 (2.5s)
+✔ [8957/8963] Built Sarkozy.OddOrderBase437 (2.0s)
+✔ [8958/8963] Built Sarkozy.OddOrderChunks437.Chunk00 (12s)
+✔ [8959/8963] Built Sarkozy.OddOrderChunks437.Chunk01 (12s)
+✔ [8960/8963] Built Sarkozy.OddOrderChunks437.Chunk02 (12s)
+✔ [8961/8963] Built Sarkozy.OddOrderChunks437.Chunk03 (8.5s)
+✔ [8962/8963] Built Sarkozy.OddOrderChecks437 (2.3s)
+✔ [8963/8963] Built Sarkozy.OddOrder437 (2.2s)
+Build completed successfully (8963 jobs).

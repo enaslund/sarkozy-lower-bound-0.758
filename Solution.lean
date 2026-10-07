@@ -1,10 +1,15 @@
-import Sarkozy.FullTarget
+module
+
+public import Sarkozy.FullTarget
+
+@[expose] public section
+set_option backward.privateInPublic true
 
 /-!
 # Submission statements
 
 The general interval-moment criterion and its unconditional application to
-exponent 0.75806746. Both statements are written out independently of the
+exponent 0.7580758318008816. Both statements are written out independently of the
 Challenge module. Supporting constructions and specializations live in Sarkozy.
 -/
 
@@ -45,7 +50,7 @@ theorem improved_bound :
       ∃ A : Finset ℤ,
         (∀ x ∈ A, 1 ≤ x ∧ x ≤ N) ∧
         (∀ x ∈ A, ∀ y ∈ A, ∀ z : ℤ, z ≠ 0 → y - x ≠ z ^ 2) ∧
-        (N : ℝ) ^ ((37903373 : ℝ) / 50000000 - ε) ≤ A.card := by
+        (N : ℝ) ^ ((473797394875551 : ℝ) / 625000000000000 - ε) ≤ A.card := by
   exact Sarkozy.record_exponent
 
 end SarkozySubmission

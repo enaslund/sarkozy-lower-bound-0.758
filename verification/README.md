@@ -13,12 +13,51 @@ moment interfaces are covered by the full Lean builds and axiom audits.
 | 2026-09-14 | Cleaned endpoint-only source | Complete Lean build, 76 axiom inspections, separate direct NanoDa replay of 32,704 declarations with no errors. | [Build receipts](cleanup-build/results.json), [NanoDa receipt](cleanup-kernel-replay/nanoda-result.json) |
 | 2026-09-18 | `e26058b55ab928e321d25318185acc69fbf62ab9` | Official full hosted preflight: protected Challenge audit, Comparator, Lean, and NanoDa for both selected statements. | [Preflight report](palomar-preflight-20260918.json) |
 | 2026-09-19 | `4de015dae4f256ea9af929727f70afa8ee118c74` | Palomar submission mechanical verification: protected Challenge audit, Comparator, Lean, and NanoDa for both selected statements. | [Submission report](palomar-submission-20260919.json) |
+| 2026-10-06 | Port to `0.7580758318008816`, Lean 4.32.0 | Fresh build, 76 axiom inspections, `leanchecker` replays of every module and of the fresh closure of `Solution`. | [Port records](exponent-0.7580758318008816/) |
+| 2026-10-06 | Version-2 source, Lean v4.35.0-rc2, module system | Generators reproduce every file; fresh build, 76 axiom inspections, bundled `lake comparator` with Lean, NanoDa and con-ron, `leanchecker` replays. | [Records](lean-v4.35.0-rc2/) |
 
-All 152 Lean source/build-configuration hashes in the September 14 replay
-receipt still match this revision. That identity preserves the relevance of
-those source checks; it is not a new build or replay. Later metadata and
-documentation revisions are not covered by the exact-commit verdicts above.
-Historical receipts retain their original metadata, classifications, and hashes.
+The September rows check the source of version 1, whose 152 Lean
+source/build-configuration hashes are recorded in the September 14 replay
+receipt. The October rows check the version-2 source, which replaces it.
+Each exact-commit verdict applies only to its commit. Historical receipts
+retain their original metadata, classifications, and hashes.
+
+## Version 2: exponent 0.7580758318008816 on Lean v4.35.0-rc2, 2026-10-06
+
+The version-2 source proves `SarkozySubmission.improved_bound` with exponent
+`473797394875551/625000000000000 = 0.7580758318008816`, Theorem 1.1 of the
+[full paper](../papers/square-difference-free-sets-of-exponent-0.7580758318.pdf).
+Its Lean files are identical to those of working commit `aa58ba9de353ae5a934455ed30b409f631b456b2`
+(`lean-formalization/`), where these checks were run; the records are in
+[lean-v4.35.0-rc2/](lean-v4.35.0-rc2/).
+
+| Check | Result |
+|---|---|
+| Generators | All 13 generators reproduce every generated Lean file byte for byte. |
+| Fresh build | `.lake/build` deleted, then the commands of `scripts/build-sequential.sh` (Mathlib oleans reused): all 9 exited 0, 539 s in total. [results.json](lean-v4.35.0-rc2/results.json) |
+| Axiom audit | `lake env lean Check.lean`: 76 inspections, all depending only on `propext`, `Classical.choice` and `Quot.sound` (or on no axioms). [axioms.log](lean-v4.35.0-rc2/axioms.log) |
+| Comparator | `./scripts/verify-comparator.sh` ran the toolchain's `lake comparator` (bubblewrap 0.12.0 sandbox) on `comparator.json` with the external kernels NanoDa and con-ron, the kernels Palomar registers. con-ron accepted 29,813 declarations; con-ron, NanoDa and Lean's default kernel each accepted both selected theorems ("Your solution is okay!"): exit 0, 77 min, peak memory about 2.5 GB. [comparator.log](lean-v4.35.0-rc2/comparator.log) |
+| Kernel replay (modules) | `lake env leanchecker <module>`, one module at a time: the 115 modules that declare constants replayed every declaration on top of their imports with 0 failures (peak 8.4 GB). `leanchecker Sarkozy` matches by prefix and replays all 114 `Sarkozy.*` modules at once; it reached 114 GB and was stopped by earlyoom. The aggregate module `Sarkozy` declares no constants ([log](lean-v4.35.0-rc2/aggregate-module-constants.log)). [log](lean-v4.35.0-rc2/leanchecker-modules.log) |
+| Kernel replay (fresh) | `lake env leanchecker -v --fresh Solution` (the entire closure of `Solution`, Mathlib included, into an empty environment): running when this revision was committed; the result follows in the next documentation commit. |
+| Palomar limits | All 117 `.lean` files begin with `module`; the largest has 6,032 lines (limit 10,000); `Challenge.lean` has 64 lines and 2,780 bytes. The toolchain equals Palomar's minimum and Mathlib's own `lean-toolchain`. |
+
+[lean-v4.35.0-rc2/snapshot.json](lean-v4.35.0-rc2/snapshot.json) records the
+SHA-256 of every Lean source, configuration file, generator script, pinned
+witness and log. The Lean source has 117 files, 41,007 lines and 3,070,913
+bytes.
+
+**What changed from version 1.** The general theory is unchanged. The odd
+interface and the order checker take one digit depth per prime, which the new
+3,645-point (19,23) witness with depths (3,2) needs; the (5,43) witness is
+unchanged. All finite data were regenerated from the pinned witnesses at
+higher precision: 4096th-root endpoint certificates at denominator `10^30` for
+the 1,861 + 3,337 odd widths and the 73 binary scales, 80-step ladders at
+`10^50` for the odd thresholds and the binary depth, and 100-step ladders at
+`10^60` for the chain logarithms. Every file then moved to the module system on
+Lean v4.35.0-rc2; [SEMANTIC-AUDIT.md](../SEMANTIC-AUDIT.md) reviews both steps.
+The port was first checked on Lean 4.32.0, with a fresh build, the axiom audit
+and `leanchecker` replays; those records are in
+[exponent-0.7580758318008816/](exponent-0.7580758318008816/).
 
 ## Palomar submission mechanical verification, 2026-09-19
 

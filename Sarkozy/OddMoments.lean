@@ -1,6 +1,11 @@
-import Sarkozy.OddData
-import Mathlib.Algebra.BigOperators.Fin
-import Mathlib.Data.List.Sort
+module
+
+public import Sarkozy.OddData
+public import Mathlib.Algebra.BigOperators.Fin
+public import Mathlib.Data.List.Sort
+
+@[expose] public section
+set_option backward.privateInPublic true
 
 /-!
 # Transporting odd width moments through a histogram

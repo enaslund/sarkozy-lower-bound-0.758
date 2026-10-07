@@ -1,4 +1,9 @@
-import Sarkozy.Asymptotic
+module
+
+public import Sarkozy.Asymptotic
+
+@[expose] public section
+set_option backward.privateInPublic true
 
 /-! Elementary growth estimates used to turn strict finite budgets into exponents. -/
 

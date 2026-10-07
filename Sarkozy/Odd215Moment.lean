@@ -1,8 +1,13 @@
-import Sarkozy.OddData215
-import Sarkozy.OddMoments
-import Sarkozy.Odd215MomentData
-import Sarkozy.Odd215Threshold
-import Sarkozy.OddKernelSort
+module
+
+public import Sarkozy.OddData215
+public import Sarkozy.OddMoments
+public import Sarkozy.Odd215MomentData
+public import Sarkozy.Odd215Threshold
+public import Sarkozy.OddKernelSort
+
+@[expose] public section
+set_option backward.privateInPublic true
 
 /-!
 # The target moment of the original fixed 215 witness

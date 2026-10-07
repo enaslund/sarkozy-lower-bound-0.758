@@ -1,0 +1,110 @@
+⚠ [8940/8964] Replayed Sarkozy.Moment
+warning: Sarkozy/Moment.lean:86:6: `Finset.single_le_prod'` has been deprecated: Use `Finset.single_le_prod` instead
+
+Hint: Replace the deprecated name:
+  Finset.single_le_prod'̵
+⚠ [8942/8964] Replayed Sarkozy.OddLift
+warning: Sarkozy/OddLift.lean:166:46: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: Sarkozy/OddLift.lean:170:36: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+⚠ [8943/8964] Replayed Sarkozy.OddCertificate
+warning: Sarkozy/OddCertificate.lean:61:36: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: Sarkozy/OddCertificate.lean:62:25: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+⚠ [8944/8964] Replayed Sarkozy.OddOrder
+warning: Sarkozy/OddOrder.lean:38:22: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Sarkozy/OddOrder.lean:77:38: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: Sarkozy/OddOrder.lean:82:38: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+warning: Sarkozy/OddOrder.lean:90:21: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+⚠ [8945/8964] Replayed Sarkozy.PrimeChains
+warning: Sarkozy/PrimeChains.lean:60:42: Variable name `hp` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hp
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: Sarkozy/PrimeChains.lean:123:2: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+⚠ [8951/8964] Replayed Sarkozy.OddData
+warning: Sarkozy/OddData.lean:61:10: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: Sarkozy/OddData.lean:61:34: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+⚠ [8952/8964] Replayed Sarkozy.OddOrderCertificate
+warning: Sarkozy/OddOrderCertificate.lean:115:10: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: Sarkozy/OddOrderCertificate.lean:115:34: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+⚠ [8954/8964] Replayed Sarkozy.PowerChecker
+warning: Sarkozy/PowerChecker.lean:58:61: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Sarkozy/PowerChecker.lean:82:61: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [8955/8964] Replayed Sarkozy.PowerPolynomial
+warning: Sarkozy/PowerPolynomial.lean:38:24: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Sarkozy/PowerPolynomial.lean:47:28: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: Sarkozy/PowerPolynomial.lean:47:28: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+⚠ [8962/8964] Replayed Sarkozy.Odd437MomentData
+warning: Sarkozy/Odd437MomentData.lean:56:52: Private declaration `momentBlocks` accessed publicly; this is allowed only because the `backward.privateInPublic` option is enabled. 
+
+Disable `backward.privateInPublic.warn` to silence this warning.
+⚠ [8963/8964] Replayed Sarkozy.OddMoments
+warning: Sarkozy/OddMoments.lean:46:2: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+✔ [8964/8964] Built Sarkozy.Odd437WidthHistogram (7.6s)
+Build completed successfully (8964 jobs).

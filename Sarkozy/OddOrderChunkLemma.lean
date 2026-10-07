@@ -1,4 +1,9 @@
-import Sarkozy.OddOrderCertificate
+module
+
+public import Sarkozy.OddOrderCertificate
+
+@[expose] public section
+set_option backward.privateInPublic true
 
 /-!
 # Combining sequential checks of fixed-size row blocks

@@ -1,0 +1,47 @@
+⚠ [8664/8689] Replayed Sarkozy.PrimeChains
+warning: Sarkozy/PrimeChains.lean:55:42: Variable name `hp` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [8673/8689] Replayed Sarkozy.OddData
+warning: Sarkozy/OddData.lean:56:10: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: Sarkozy/OddData.lean:56:34: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+⚠ [8674/8689] Replayed Sarkozy.PowerChecker
+warning: Sarkozy/PowerChecker.lean:53:61: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Sarkozy/PowerChecker.lean:77:61: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [8675/8689] Replayed Sarkozy.PowerPolynomial
+warning: Sarkozy/PowerPolynomial.lean:33:24: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Sarkozy/PowerPolynomial.lean:42:28: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: Sarkozy/PowerPolynomial.lean:42:28: 'ring' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+✔ [8677/8689] Built Sarkozy.OddKernelSort (1.7s)
+⚠ [8678/8689] Built Sarkozy.OddMoments (7.2s)
+warning: Sarkozy/OddMoments.lean:41:2: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+✔ [8679/8689] Built Sarkozy.Binary (8.6s)
+✔ [8680/8689] Built Sarkozy.BinaryData (9.4s)
+✔ [8681/8689] Built Sarkozy.BinaryGrowth (6.3s)
+✔ [8682/8689] Built Sarkozy.BinaryPolicy (6.9s)
+✔ [8683/8689] Built Sarkozy.Odd215MomentData (24s)
+✔ [8684/8689] Built Sarkozy.BinaryRealData (8.1s)
+✔ [8685/8689] Built Sarkozy.OddData215 (33s)
+✔ [8686/8689] Built Sarkozy.RecordBinaryTarget (5.4s)
+✔ [8687/8689] Built Sarkozy.BinaryDepth (8.8s)
+✔ [8688/8689] Built Sarkozy.Odd215Threshold (8.5s)
+✔ [8689/8689] Built Sarkozy.Odd215Moment (27s)
+Build completed successfully (8689 jobs).

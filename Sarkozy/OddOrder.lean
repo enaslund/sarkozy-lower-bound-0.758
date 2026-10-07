@@ -1,4 +1,9 @@
-import Sarkozy.OddCertificate
+module
+
+public import Sarkozy.OddCertificate
+
+@[expose] public section
+set_option backward.privateInPublic true
 
 /-!
 # Compressed checks for odd low-word edge ordering
@@ -99,28 +104,29 @@ theorem belowOrSelf_sound (mask cutoff target source : ℕ)
   exact hb.elim Or.inl (fun hs => Or.inr hs.symm)
 
 /-- Generic order certificate after sources have been indexed by increasing
-right endpoint. Only one endpoint comparison is needed for each target. -/
+right endpoint. Only one endpoint comparison is needed for each target.
+The two prime coordinates may have different depths. -/
 theorem interval_order_of_masks
-    (n : ℕ) (p : Fin 2 → ℕ) (hp : ∀ c, 0 < p c) (e : ℕ)
+    (n : ℕ) (p : Fin 2 → ℕ) (hp : ∀ c, 0 < p c) (e : Fin 2 → ℕ)
     (point : Fin n → Fin 2 → ℤ) (start width : Fin n → ℕ)
     (G : Fin 2 → List ℤ → ℕ) (cutoff : Fin n → Fin (n+1))
     (hend : Monotone (fun k => start k + width k))
     (hcut : ∀ k, ∀ h : 0 < (cutoff k).val,
       start ⟨(cutoff k).val - 1, by have := (cutoff k).isLt; omega⟩ +
       width ⟨(cutoff k).val - 1, by have := (cutoff k).isLt; omega⟩ ≤ start k)
-    (hcovered : ∀ k c, sourceCovered (G c) (p c) e (point k c) [] k.val = true)
+    (hcovered : ∀ k c, sourceCovered (G c) (p c) (e c) (point k c) [] k.val = true)
     (hchecked : ∀ k, belowOrSelf
-      (predecessors (G 0) (p 0) e (point k 0) [] &&&
-        predecessors (G 1) (p 1) e (point k 1) []) (cutoff k).val k.val = true) :
+      (predecessors (G 0) (p 0) (e 0) (point k 0) [] &&&
+        predecessors (G 1) (p 1) (e 1) (point k 1) []) (cutoff k).val k.val = true) :
     ∀ k l, k ≠ l →
-      (∀ c, PrimeLowRelated (p c) e (point k c) (point l c)) →
+      (∀ c, PrimeLowRelated (p c) (e c) (point k c) (point l c)) →
       start k + width k ≤ start l := by
   intro k l hne hrel
-  have hbit (c : Fin 2) := predecessors_sound (G c) (p c) e (point k c)
+  have hbit (c : Fin 2) := predecessors_sound (G c) (p c) (e c) (point k c)
     (point l c) [] k.val (hcovered k c)
-    ((primeLowFinite_iff (p c) (hp c) e _ _).mpr (hrel c))
-  have hboth : (predecessors (G 0) (p 0) e (point l 0) [] &&&
-      predecessors (G 1) (p 1) e (point l 1) []).testBit k.val = true := by
+    ((primeLowFinite_iff (p c) (hp c) (e c) _ _).mpr (hrel c))
+  have hboth : (predecessors (G 0) (p 0) (e 0) (point l 0) [] &&&
+      predecessors (G 1) (p 1) (e 1) (point l 1) []).testBit k.val = true := by
     simp only [Nat.testBit_and, hbit, Bool.true_and]
   have hlt : k.val < (cutoff l).val := by
     rcases belowOrSelf_sound _ _ _ _ (hchecked l) hboth with h | h

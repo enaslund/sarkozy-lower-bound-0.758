@@ -1,5 +1,10 @@
-import Sarkozy.Moment
-import Sarkozy.Parameters
+module
+
+public import Sarkozy.Moment
+public import Sarkozy.Parameters
+
+@[expose] public section
+set_option backward.privateInPublic true
 
 /-!
 # A modular interface for the nine interval certificates

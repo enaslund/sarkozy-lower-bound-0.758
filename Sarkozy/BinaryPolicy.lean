@@ -1,4 +1,9 @@
-import Sarkozy.BinaryGrowth
+module
+
+public import Sarkozy.BinaryGrowth
+
+@[expose] public section
+set_option backward.privateInPublic true
 
 /-!+# A finite parity-window policy constructs every binary depth
 

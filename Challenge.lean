@@ -1,4 +1,9 @@
-import Mathlib
+module
+
+public import Mathlib
+
+@[expose] public section
+set_option backward.privateInPublic true
 
 /-!
 # Interval moments and the full square-difference-free exponent
@@ -8,7 +13,7 @@ Ordered intervals on finite alphabets in coprime square bases, with a strict
 moment surplus, yield square-difference-free integer sets at every large scale.
 The Solution proves the word selection, counting, rank rounding and CRT steps.
 
-The numerical application is the full exponent 0.75806746 with no remaining
+The numerical application is the full exponent 0.7580758318008816 with no remaining
 certificate hypotheses. All six prime chains, both complete odd witnesses,
 and the full binary construction are proved inside the Solution, including
 their numerical bounds. PROOF.md and formalization.yaml explain the scope.
@@ -53,7 +58,7 @@ theorem improved_bound :
       ∃ A : Finset ℤ,
         (∀ x ∈ A, 1 ≤ x ∧ x ≤ N) ∧
         (∀ x ∈ A, ∀ y ∈ A, ∀ z : ℤ, z ≠ 0 → y - x ≠ z ^ 2) ∧
-        (N : ℝ) ^ ((37903373 : ℝ) / 50000000 - ε) ≤ A.card := by
+        (N : ℝ) ^ ((473797394875551 : ℝ) / 625000000000000 - ε) ≤ A.card := by
   sorry
 
 end SarkozySubmission

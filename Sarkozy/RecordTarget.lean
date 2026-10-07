@@ -1,4 +1,9 @@
-import Sarkozy.TwoOddTarget
+module
+
+public import Sarkozy.TwoOddTarget
+
+@[expose] public section
+set_option backward.privateInPublic true
 
 /-!
 # A modular interface for odd low-support certificates
@@ -24,11 +29,11 @@ theorem record_exponent_of_finite_checks
     (hgeometry : ∀ j, ∀ a ∈ S j, 0 ≤ left j a ∧ 0 < width j a ∧ width j a < 1 ∧
       left j a + width j a ≤ 1)
     (horder : ∀ j, ∀ a ∈ S j, ∀ b ∈ S j, a ≠ b →
-      (∀ i, PrimeLowRelated (recordOddPrimes j i) 3 (a i) (b i)) →
+      (∀ i, PrimeLowRelated (recordOddPrimes j i) (recordOddDepths j i) (a i) (b i)) →
       left j a + width j a ≤ left j b)
     (hmoment : ∀ j,
       (componentBases (recordOddIndex j) : ℝ) ^ targetExponent ≤
-        (recordOddRoots j ^ 3 : ℕ) *
+        (recordOddFree j : ℕ) *
           ∑ x ∈ S j, (width j x) ^ (componentPowers (recordOddIndex j))) :
     LowerBoundExponent targetExponent := by
   obtain ⟨C,a,w,hcan,hgeom,hordered,hbinarymoment⟩ :=

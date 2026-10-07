@@ -1,9 +1,14 @@
-import Sarkozy.OddOrder215
-import Sarkozy.Odd215MomentData
-import Sarkozy.Odd215Threshold
-import Sarkozy.OddMoments
-import Sarkozy.OddKernelSort
-import Sarkozy.ActualOddTarget
+module
+
+public import Sarkozy.OddOrder215
+public import Sarkozy.Odd215MomentData
+public import Sarkozy.Odd215Threshold
+public import Sarkozy.OddMoments
+public import Sarkozy.OddKernelSort
+public import Sarkozy.ActualOddTarget
+
+@[expose] public section
+set_option backward.privateInPublic true
 
 /-!
 # The complete reconstructed 215 interval certificate

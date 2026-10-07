@@ -1,5 +1,12 @@
 # Lean cleanup and size
 
+**Historical record.** This report describes the September 2026 cleanup of
+the version for exponent `0.75806746`. After the October 2026 port to
+`0.7580758318008816` and the move to the Lean module system, the Lean source has
+3,070,913 bytes in 41,007 lines and 117 files, mainly because the new `(19,23)`
+witness has 3,645 rather than 19,683 points; see
+[verification/README.md](verification/README.md).
+
 Measured 2026-09-14. These sizes cover this project's Lean source, excluding
 Mathlib, toolchains, build caches, documentation, and archived copies.
 

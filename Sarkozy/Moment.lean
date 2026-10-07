@@ -1,7 +1,12 @@
-import Sarkozy.Intervals
-import Sarkozy.Certificate
-import Sarkozy.Growth
-import Sarkozy.Stopping
+module
+
+public import Sarkozy.Intervals
+public import Sarkozy.Certificate
+public import Sarkozy.Growth
+public import Sarkozy.Stopping
+
+@[expose] public section
+set_option backward.privateInPublic true
 
 /-! Combining width-selected finite word blocks into an asymptotic bound. -/
 
@@ -91,7 +96,7 @@ theorem exponent_of_selected_words {ι : Type*} [Fintype ι] [Nonempty ι]
   apply crt_alphabet_exponent D M J r hM hprod hMcop hMsq hcan hrange hranked α hα
   have hcards : ((∏ i, M i : ℕ) : ℝ) ^ α ≤
       (∏ i, (D i).card : ℕ) * δ ^ (∑ i, f i) * ((K : ℝ) + 1) ^ n := by
-    have hp := Finset.prod_le_prod (s := Finset.univ)
+    have hp := Finset.prod_le_prod₀ (s := Finset.univ)
       (fun i _ => Real.rpow_nonneg (Nat.cast_nonneg (M i)) α)
       (fun i _ => hsize i)
     simpa only [← Nat.cast_prod, Real.finsetProd_rpow Finset.univ

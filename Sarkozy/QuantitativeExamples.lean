@@ -1,4 +1,9 @@
-import Sarkozy.Certificate
+module
+
+public import Sarkozy.Certificate
+
+@[expose] public section
+set_option backward.privateInPublic true
 
 /-!
 # A completely discharged asymptotic example

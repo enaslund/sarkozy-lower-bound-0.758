@@ -1,0 +1,38 @@
+{
+ "recorded_utc": "2026-10-06T21:21:26.803319+00:00",
+ "scope": "October 2026 revision: the full paper proves exponent 0.7580758318008816 (473797394875551/625000000000000) and replaces the September paper for 0.75806746. The companion paper keeps its mathematics and certificate program; only its references to the full paper (exponent, witness sizes, citation, date) change.",
+ "author": "Eric Naslund",
+ "contact": "naslund.math@gmail.com",
+ "license": "Apache-2.0",
+ "source": {
+  "research_repository": "https://github.com/enaslund/sarkozy-lower-bound",
+  "research_commit": "75b95c24eee53d62f6cfea198b2cd6def27bfb77",
+  "research_file": "paper/square-difference-free.tex",
+  "difference": "Only the filename named in Appendix A differs from the research copy."
+ },
+ "files": {
+  "square-difference-free-sets-of-exponent-0.7580758318.tex": "98043a7870c2fc8fbf247d0d8613a2cacf612edfbcd609138852b22cc5670095",
+  "square-difference-free-sets-of-exponent-0.7580758318.pdf": "56c9c46d1c1c5363ee9129c79585d145677bd8dbbe2cb9737f99b93f2b218c7e",
+  "square-difference-free-certificate.py": "67e40fd5e2742a1b034940fdf0fbc2e8ffb096ea498604a0073b481da0b4e75b",
+  "a-simpler-construction-of-square-difference-free-sets-beyond-exponent-0.758.tex": "4faf85eb5bf3220fcd8b4585c0c9c026d424917c558a93f4deb1a5255a08c875",
+  "a-simpler-construction-of-square-difference-free-sets-beyond-exponent-0.758.pdf": "ca395f1e6cd850fc927c13cdc62379d9924ff60ee6946692eb1c1b898b5e8d3b",
+  "sarkozy-simple-certificate.py": "3a6dda72c98872e99a99a821ff32eceb66ad7d701995d0a3f7bbdf71fe7fe591"
+ },
+ "checks": {
+  "square-difference-free-sets-of-exponent-0.7580758318": {
+   "pages": "26",
+   "isolated_compile": "three pdflatex passes in an empty directory, no shell escape",
+   "overfull_boxes": 0,
+   "undefined_references": 0,
+   "attachment": "square-difference-free-certificate.py, byte-identical to the research copy",
+   "certificate_run": "The identical program passed the isolated complete certificate run of the research repository check (paper/verification/report.json there): PASS"
+  },
+  "a-simpler-construction-of-square-difference-free-sets-beyond-exponent-0.758": {
+   "pages": "17",
+   "isolated_compile": "three pdflatex passes in an empty directory, no shell escape",
+   "overfull_boxes": 0,
+   "undefined_references": 0,
+   "attachment": "sarkozy-simple-certificate.py, byte-identical to the September program"
+  }
+ }
+}

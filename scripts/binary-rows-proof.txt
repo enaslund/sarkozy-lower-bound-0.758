@@ -1,36 +1,21 @@
+private def rowCertificate (i : Fin @COUNT@) : PowerChecker.EndpointCertificate :=
+  ⟨rowScaleNumerator i, rowLowerNumerator i, rowRootLow i, rowRootHigh i⟩
 
-private theorem row_lower_positive : ∀ i j, 0 < rowLowerLadder i j := by decide +kernel
-private theorem row_upper_positive : ∀ i j, 0 < rowUpperLadder i j := by decide +kernel
-private theorem row_lower_steps : ∀ i (j : Fin @STEPS@),
-    (rowLowerLadder i j.succ)^2 ≤ rowLowerLadder i j.castSucc*@DEN@ := by decide +kernel
-private theorem row_upper_steps : ∀ i (j : Fin @STEPS@),
-    rowUpperLadder i j.castSucc*@DEN@ ≤ (rowUpperLadder i j.succ)^2 := by decide +kernel
-private theorem row_endpoints : ∀ i,
-    ((rowUpperLadder i (Fin.last @STEPS@) : ℤ)-@DEN@)*
-      rowLowerLadder i (Fin.last @STEPS@)*1000000000000 ≤
-    (154942497274:ℤ)*@DEN@*((rowLowerLadder i (Fin.last @STEPS@):ℤ)-@DEN@) := by
+private theorem row_certificates_valid : ∀ i,
+    PowerChecker.EndpointValid @D@ @PN@ @PD@ @N@ (rowCertificate i) := by
   decide +kernel
-private theorem row_first_lower : ∀ i,
-    rowLowerLadder i 0 = rowScaleNumerator i*@LFACTOR@ := by decide +kernel
-private theorem row_first_upper : ∀ i,
-    rowUpperLadder i 0 = rowLowerNumerator i*@UFACTOR@ := by decide +kernel
 
-/-- All fractional-power endpoints are proved by finite integer square tests. -/
+/-- All fractional-power endpoints are proved by exact integer power tests and
+the shared logarithm comparison. -/
 private theorem row_power_lower (i : Fin @COUNT@) :
     (rowLower i : ℝ) ≤ (rowScale i : ℝ)^(componentPowers 8) := by
-  have h := rpow_lower_of_integer_ladders @DEN@ 154942497274 1000000000000
-    (rowLowerLadder i) (rowUpperLadder i) (by decide) (by decide)
-    (row_lower_positive i) (row_upper_positive i) (row_lower_steps i)
-    (row_upper_steps i) (row_endpoints i)
-  rw [row_first_lower, row_first_upper, Nat.cast_mul, Nat.cast_mul] at h
-  have hl : ((rowScaleNumerator i:ℝ)*@LFACTOR@)/@DEN@ =
-      (rowScaleNumerator i:ℝ)/@GRID@ := by ring
-  have hu : ((rowLowerNumerator i:ℝ)*@UFACTOR@)/@DEN@ =
-      (rowLowerNumerator i:ℝ)/@POWERS@ := by ring
-  norm_num only [Nat.cast_ofNat] at h
-  rw [hl,hu] at h
-  have hf : componentPowers 8 = (154942497274/1000000000000:ℝ) := rfl
+  have h := PowerChecker.endpoint_valid_sound (row_certificates_valid i)
+  change ((rowLowerNumerator i : ℕ) : ℝ)/((@D@ : ℕ) : ℝ) ≤
+    (((rowScaleNumerator i : ℕ) : ℝ)/((@D@ : ℕ) : ℝ))^
+      (((@PN@ : ℕ) : ℝ)/((@PD@ : ℕ) : ℝ)) at h
+  have hf : componentPowers 8 = (@PN@/@PD@:ℝ) := rfl
   rw [hf]
+  norm_num only [Nat.cast_ofNat] at h
   norm_num only [rowScale, rowLower, Rat.cast_div, Rat.cast_natCast]
   exact h
 
@@ -39,7 +24,7 @@ private theorem row_scale_rational : ∀ s (r : Fin 4),
     rowScale (rowIndex s r) ≤ rationalPolicy.scale s r := by decide +kernel
 
 private theorem row_sum_rational : ∀ s,
-    (1430118728343/500000000000:ℚ)*rationalVector s ≤
+    (@GN@/@GD@:ℚ)*rationalVector s ≤
       ∑ r ∈ rationalPolicy.branches s,
         rowLower (rowIndex s r)*rationalVector (rationalPolicy.child s r) := by
   decide +kernel
@@ -57,7 +42,7 @@ private theorem row_scale_below (s : Fin 25) (r : ℤ) (hr : r ∈ policy.branch
 /-- The actual record policy's 25 growth inequalities require no hypotheses. -/
 theorem rows_verified : Rows := by
   intro s
-  have hrat : (((1430118728343/500000000000:ℚ)*rationalVector s:ℚ):ℝ) ≤
+  have hrat : (((@GN@/@GD@:ℚ)*rationalVector s:ℚ):ℝ) ≤
       ((∑ r ∈ rationalPolicy.branches s,
         rowLower (rowIndex s r)*rationalVector (rationalPolicy.child s r):ℚ):ℝ) :=
     Rat.cast_le.mpr (row_sum_rational s)

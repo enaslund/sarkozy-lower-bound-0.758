@@ -1,5 +1,10 @@
-import Sarkozy.OddCertificate
-import Sarkozy.OddFiniteCertificate
+module
+
+public import Sarkozy.OddCertificate
+public import Sarkozy.OddFiniteCertificate
+
+@[expose] public section
+set_option backward.privateInPublic true
 
 /-!
 # Integer representation for odd low-certificate rows

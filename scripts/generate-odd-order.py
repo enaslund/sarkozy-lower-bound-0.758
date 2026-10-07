@@ -12,10 +12,13 @@ from hashlib import sha256
 from pathlib import Path
 import json
 import re
+import sys as _sys
+_sys.path.insert(0, str(__import__("pathlib").Path(__file__).resolve().parent))
+from lean_module import moduleize
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / 'Sarkozy/OddData215.lean'
-EXPECTED_SHA = '8296504206f48d146f81c265c4ff36c354b945c412aedef990667377b364e7ed'
+EXPECTED_SHA = '74227ad82ecc99198c9b0a8681427bd3641da764a04c8b7c865adc90c31ebb67'
 DEST = ROOT / 'Sarkozy/OddOrderData215.lean'
 
 
@@ -120,7 +123,7 @@ noncomputable def rows : List Entry := [
     output += '/-- Right endpoints indexed by rank. -/\nnoncomputable def endpointTable : MaskTree :=\n'
     output += tree(list(enumerate(ends))) + '\n\n'
     output += 'end Sarkozy.OddOrder215\n'
-    DEST.write_text(output)
+    DEST.write_text(moduleize(output))
     print(json.dumps({'rows':len(rows),'prefix_nodes':[len(t) for t in masks],
                       'endpoint_nodes':len(ends),'lean_bytes':len(output.encode()),
                       'largest_endpoint':max(ends),'destination':str(DEST)},indent=2))

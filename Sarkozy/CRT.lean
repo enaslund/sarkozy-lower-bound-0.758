@@ -1,4 +1,9 @@
-import Sarkozy.Ranked
+module
+
+public import Sarkozy.Ranked
+
+@[expose] public section
+set_option backward.privateInPublic true
 
 /-!
 # Finite Chinese-remainder composition

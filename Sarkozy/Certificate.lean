@@ -1,6 +1,11 @@
-import Sarkozy.Words
-import Sarkozy.CRT
-import Sarkozy.Asymptotic
+module
+
+public import Sarkozy.Words
+public import Sarkozy.CRT
+public import Sarkozy.Asymptotic
+
+@[expose] public section
+set_option backward.privateInPublic true
 
 /-!
 # A finite certificate for an asymptotic exponent

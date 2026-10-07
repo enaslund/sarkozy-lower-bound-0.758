@@ -1,0 +1,24 @@
+[
+ {
+  "command": "lake env leanchecker <module>, once per module (3 in parallel)",
+  "toolchain": "leanprover/lean4:v4.32.0",
+  "modules": 114,
+  "failures": [],
+  "seconds": 443.8,
+  "log": "leanchecker-modules.log"
+ },
+ {
+  "command": [
+   "lake",
+   "env",
+   "leanchecker",
+   "-v",
+   "--fresh",
+   "Solution"
+  ],
+  "toolchain": "leanprover/lean4:v4.32.0",
+  "exit_code": 0,
+  "seconds": 2834.4,
+  "log": "leanchecker-fresh-solution.log"
+ }
+]

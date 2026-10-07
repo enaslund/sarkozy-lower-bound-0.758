@@ -1,4 +1,9 @@
-import Sarkozy.OddData
+module
+
+public import Sarkozy.OddData
+
+@[expose] public section
+set_option backward.privateInPublic true
 
 /-!
 # Actual depth-three low certificate for the 215 component
@@ -4972,7 +4977,7 @@ theorem row_bounds (k : Fin 4913) :
   OddData.bounds_of_list_all 125 79507 denominator rows rows_valid (Fin.cast rows_size.symm k)
 
 theorem point_bounds (k : Fin 4913) (i : Fin 2) :
-    point k i < (recordOddPrimes 0 i)^3 := by
+    point k i < (recordOddPrimes 0 i)^(recordOddDepths 0 i) := by
   have h := row_bounds k
   fin_cases i
   · change (row k).1.1 < 125

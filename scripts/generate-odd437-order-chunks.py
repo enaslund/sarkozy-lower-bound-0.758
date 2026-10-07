@@ -2,9 +2,13 @@
 """Split the actual 437 kernel checks into sequential, independently cached modules."""
 from pathlib import Path
 
+import sys as _sys
+_sys.path.insert(0, str(__import__("pathlib").Path(__file__).resolve().parent))
+from lean_module import moduleize
+
 ROOT = Path(__file__).resolve().parents[1]
 CHUNKS = ROOT / 'Sarkozy/OddOrderChunks437'
-N = 19683
+N = 3645
 BLOCK = 128
 COUNT = (N + BLOCK - 1) // BLOCK
 GROUP = 8
@@ -14,7 +18,7 @@ BASE = '''import Sarkozy.OddOrderData437
 import Sarkozy.OddOrderFast
 
 /-!
-# Basic data checks shared by the 437 order-verification chunks
+# Basic data checks shared by the (19,23) order-verification chunks
 
 The source and target mask checks are split into sequentially imported chunks
 to bound peak kernel evaluation state and preserve completed work in the cache.
@@ -35,9 +39,9 @@ def G23 : List ℤ → ℕ := fastPrefixLookup 23 table23
 
 def denominator : ℕ := 10000000000000000
 
-theorem rows_size : rows.length = 19683 := by decide +kernel
+theorem rows_size : rows.length = 3645 := by decide +kernel
 
-theorem rows_valid : rows.all (fun r => OddData.valid 6859 12167 denominator r.1) = true := by
+theorem rows_valid : rows.all (fun r => OddData.valid 6859 529 denominator r.1) = true := by
   decide +kernel
 
 theorem endpoints_sorted : (rows.map entryEnd).IsChain (· ≤ ·) := by
@@ -51,7 +55,7 @@ end Sarkozy.OddOrder437
 
 def main():
     CHUNKS.mkdir(exist_ok=True)
-    (ROOT / 'Sarkozy/OddOrderBase437.lean').write_text(BASE)
+    (ROOT / 'Sarkozy/OddOrderBase437.lean').write_text(moduleize(BASE))
     for old in CHUNKS.glob('Chunk*.lean'):
         old.unlink()
     for group in range(MODULES):
@@ -79,22 +83,22 @@ noncomputable section
             offset = i * BLOCK
             text += f'''
 theorem source_chunk_{i:02d} :
-    allIndexed (sourceCheck 19 23 3 G19 G23 endpointTable) {offset}
+    allIndexed (sourceCheck 19 23 3 2 G19 G23 endpointTable) {offset}
       ((rows.drop {offset}).take {BLOCK}) = true := by
   decide +kernel
 
 theorem target_chunk_{i:02d} :
-    allIndexed (fastTargetCheck {N} 19 23 3 G19 G23 endpointTable) {offset}
+    allIndexed (fastTargetCheck {N} 19 23 3 2 G19 G23 endpointTable) {offset}
       ((rows.drop {offset}).take {BLOCK}) = true := by
   decide +kernel
 '''
         text += '\nend\n\nend Sarkozy.OddOrder437\n'
-        (CHUNKS / f'Chunk{group:02d}.lean').write_text(text)
+        (CHUNKS / f'Chunk{group:02d}.lean').write_text(moduleize(text))
     aggregate = f'''import Sarkozy.OddOrderChunks437.Chunk{MODULES-1:02d}
 import Sarkozy.OddOrderChunkLemma
 
 /-!
-# Every row of the actual 437 order certificate is checked
+# Every row of the actual (19,23) order certificate is checked
 
 The generic block-concatenation theorem combines the independently checked
 source and target chunks without reevaluating their certificate computations.
@@ -109,8 +113,8 @@ open OddOrder
 
 noncomputable section
 
-theorem sources_checked : allIndexed (sourceCheck 19 23 3 G19 G23 endpointTable) 0 rows = true := by
-  apply allIndexed_of_blocks (P := sourceCheck 19 23 3 G19 G23 endpointTable)
+theorem sources_checked : allIndexed (sourceCheck 19 23 3 2 G19 G23 endpointTable) 0 rows = true := by
+  apply allIndexed_of_blocks (P := sourceCheck 19 23 3 2 G19 G23 endpointTable)
     (rows := rows) (b := {BLOCK}) (c := {COUNT}) (by decide) (by rw [rows_size]; decide)
   intro i
   fin_cases i
@@ -118,8 +122,8 @@ theorem sources_checked : allIndexed (sourceCheck 19 23 3 G19 G23 endpointTable)
     aggregate += ''.join(f'  · exact source_chunk_{i:02d}\n' for i in range(COUNT))
     aggregate += f'''
 theorem targets_checked_fast :
-    allIndexed (fastTargetCheck {N} 19 23 3 G19 G23 endpointTable) 0 rows = true := by
-  apply allIndexed_of_blocks (P := fastTargetCheck {N} 19 23 3 G19 G23 endpointTable)
+    allIndexed (fastTargetCheck {N} 19 23 3 2 G19 G23 endpointTable) 0 rows = true := by
+  apply allIndexed_of_blocks (P := fastTargetCheck {N} 19 23 3 2 G19 G23 endpointTable)
     (rows := rows) (b := {BLOCK}) (c := {COUNT}) (by decide) (by rw [rows_size]; decide)
   intro i
   fin_cases i
@@ -127,14 +131,14 @@ theorem targets_checked_fast :
     aggregate += ''.join(f'  · exact target_chunk_{i:02d}\n' for i in range(COUNT))
     aggregate += '''
 theorem targets_checked :
-    allIndexed (targetCheck rows.length 19 23 3 G19 G23 endpointTable) 0 rows = true := by
+    allIndexed (targetCheck rows.length 19 23 3 2 G19 G23 endpointTable) 0 rows = true := by
   simpa only [fastTargetCheck_eq, rows_size] using targets_checked_fast
 
 end
 
 end Sarkozy.OddOrder437
 '''
-    (ROOT / 'Sarkozy/OddOrderChecks437.lean').write_text(aggregate)
+    (ROOT / 'Sarkozy/OddOrderChecks437.lean').write_text(moduleize(aggregate))
     print(f'Generated {COUNT} separately checked blocks of at most {BLOCK} rows in {MODULES} sequential modules and their aggregate.')
 
 

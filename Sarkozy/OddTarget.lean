@@ -1,12 +1,19 @@
-import Sarkozy.OddLift
-import Sarkozy.ReducedTarget
+module
+
+public import Sarkozy.OddLift
+public import Sarkozy.ReducedTarget
+
+@[expose] public section
+set_option backward.privateInPublic true
 
 /-!
 # A modular interface for unexpanded odd low supports
 
-Both depth-three odd alphabets are constructed by the formal prime-coordinate
-free-digit lift. This interface takes their low supports, interval geometry,
-first-difference order and scalar moments, together with an expanded binary
+Both odd alphabets are constructed by the formal prime-coordinate free-digit
+lift. The `(5,43)` alphabet has three restricted digits at each prime; the
+`(19,23)` alphabet has three at `19` and two at `23`. This interface takes
+their low supports, interval geometry, first-difference order and scalar
+moments, together with an expanded binary
 certificate. All six prime chains and their numerical moments are supplied
 by library proofs. The concrete odd and binary inputs are also proved in the
 library and assembled into the unconditional result in `Sarkozy.FullTarget`.
@@ -18,9 +25,13 @@ open scoped BigOperators
 
 def recordOddPrimes : Fin 2 → Fin 2 → ℕ := ![![5, 43], ![19, 23]]
 
-def recordOddRoots : Fin 2 → ℕ := ![215, 437]
+/-- Number of restricted low digits at each prime of each odd component. -/
+def recordOddDepths : Fin 2 → Fin 2 → ℕ := ![![3, 3], ![3, 2]]
 
-abbrev RecordOddWord (j : Fin 2) := OddWord (recordOddPrimes j) (fun _ => 3)
+/-- The number of free words, `∏ p^e`: `215^3` and `19^3 * 23^2`. -/
+def recordOddFree : Fin 2 → ℕ := ![215 ^ 3, 3628411]
+
+abbrev RecordOddWord (j : Fin 2) := OddWord (recordOddPrimes j) (recordOddDepths j)
 
 def recordOddIndex (j : Fin 2) : Fin 9 := Fin.natAdd 6 (Fin.castAdd 1 j)
 
@@ -37,14 +48,16 @@ theorem recordOddPrimes_coprime (j : Fin 2) :
   fin_cases j <;> decide
 
 theorem recordOdd_modulus (j : Fin 2) :
-    (∏ i, recordOddPrimes j i ^ (2 * 3)) = componentBases (recordOddIndex j) := by
+    (∏ i, recordOddPrimes j i ^ (2 * recordOddDepths j i)) =
+      componentBases (recordOddIndex j) := by
   fin_cases j <;>
-    norm_num [recordOddPrimes, recordOddIndex, componentBases, componentRoots,
-      componentDepths, Fin.prod_univ_succ, Fin.natAdd, Fin.castAdd]
+    norm_num [recordOddPrimes, recordOddDepths, recordOddIndex, componentBases,
+      componentRoots, componentDepths, Fin.prod_univ_succ, Fin.natAdd, Fin.castAdd]
 
 theorem recordOdd_free_factor (j : Fin 2) :
-    (∏ i, recordOddPrimes j i ^ 3) = recordOddRoots j ^ 3 := by
-  fin_cases j <;> norm_num [recordOddPrimes, recordOddRoots, Fin.prod_univ_succ]
+    (∏ i, recordOddPrimes j i ^ recordOddDepths j i) = recordOddFree j := by
+  fin_cases j <;>
+    norm_num [recordOddPrimes, recordOddDepths, recordOddFree, Fin.prod_univ_succ]
 
 /-- Construct either record odd component from its correlated low support. -/
 theorem record_odd_interval_alphabet (j : Fin 2) (S : Finset (RecordOddWord j))
@@ -52,16 +65,16 @@ theorem record_odd_interval_alphabet (j : Fin 2) (S : Finset (RecordOddWord j))
     (hgeometry : ∀ a ∈ S, 0 ≤ left a ∧ 0 < width a ∧ width a < 1 ∧
       left a + width a ≤ 1)
     (horder : ∀ a ∈ S, ∀ b ∈ S, a ≠ b →
-      (∀ i, PrimeLowRelated (recordOddPrimes j i) 3 (a i) (b i)) →
+      (∀ i, PrimeLowRelated (recordOddPrimes j i) (recordOddDepths j i) (a i) (b i)) →
       left a + width a ≤ left b) :
     ∃ (C : Finset ℤ) (a w : ℤ → ℝ),
-      C.card = S.card * recordOddRoots j ^ 3 ∧
+      C.card = S.card * recordOddFree j ∧
       (∀ x ∈ C, 0 ≤ x ∧ x < componentBases (recordOddIndex j)) ∧
       (∀ x ∈ C, 0 ≤ a x ∧ 0 < w x ∧ w x < 1 ∧ a x + w x ≤ 1) ∧
       IntervalOrderedModulo C (componentBases (recordOddIndex j)) a w ∧
       ∀ f : ℝ, (∑ x ∈ C, (w x) ^ f) =
-        (recordOddRoots j ^ 3 : ℕ) * ∑ x ∈ S, (width x) ^ f := by
-  have h := odd_prime_interval_lift (recordOddPrimes j) (fun _ => 3)
+        (recordOddFree j : ℕ) * ∑ x ∈ S, (width x) ^ f := by
+  have h := odd_prime_interval_lift (recordOddPrimes j) (recordOddDepths j)
     (recordOddPrimes_prime j) (recordOddPrimes_pos j) (recordOddPrimes_coprime j)
     S left width hgeometry horder
   simpa only [recordOdd_modulus, recordOdd_free_factor] using h
@@ -74,11 +87,11 @@ theorem target_exponent_of_odd_low_supports
     (hgeometry : ∀ j, ∀ a ∈ S j, 0 ≤ left j a ∧ 0 < width j a ∧ width j a < 1 ∧
       left j a + width j a ≤ 1)
     (horder : ∀ j, ∀ a ∈ S j, ∀ b ∈ S j, a ≠ b →
-      (∀ i, PrimeLowRelated (recordOddPrimes j i) 3 (a i) (b i)) →
+      (∀ i, PrimeLowRelated (recordOddPrimes j i) (recordOddDepths j i) (a i) (b i)) →
       left j a + width j a ≤ left j b)
     (hmoment : ∀ j,
       (componentBases (recordOddIndex j) : ℝ) ^ targetExponent ≤
-        (recordOddRoots j ^ 3 : ℕ) *
+        (recordOddFree j : ℕ) *
           ∑ x ∈ S j, (width j x) ^ (componentPowers (recordOddIndex j)))
     (CB : Finset ℤ) (aB wB : ℤ → ℝ)
     (hCB : ∀ x ∈ CB, 0 ≤ x ∧ x < componentBases 8)

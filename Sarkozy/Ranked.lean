@@ -1,4 +1,9 @@
-import Mathlib
+module
+
+public import Mathlib
+
+@[expose] public section
+set_option backward.privateInPublic true
 
 /-!
 # Reverse-rank realization of ranked residues

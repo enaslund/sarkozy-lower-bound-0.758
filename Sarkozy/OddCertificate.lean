@@ -1,4 +1,9 @@
-import Sarkozy.OddLift
+module
+
+public import Sarkozy.OddLift
+
+@[expose] public section
+set_option backward.privateInPublic true
 
 /-!
 # Finite reflection for the odd-prime low-word relation

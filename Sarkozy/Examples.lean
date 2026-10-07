@@ -1,4 +1,9 @@
-import Sarkozy.CRT
+module
+
+public import Sarkozy.CRT
+
+@[expose] public section
+set_option backward.privateInPublic true
 
 /-! A small application with every modular hypothesis proved inside Lean. -/
 

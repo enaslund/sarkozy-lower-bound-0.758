@@ -1,0 +1,135 @@
+⚠ [8934/8996] Replayed Sarkozy.PrimeChains
+warning: Sarkozy/PrimeChains.lean:60:42: Variable name `hp` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hp
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: Sarkozy/PrimeChains.lean:123:2: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+✔ [8937/8996] Built Sarkozy.CRT (2.5s)
+✔ [8938/8996] Built Sarkozy.Asymptotic (2.4s)
+✔ [8939/8996] Built Sarkozy.Stopping (2.8s)
+✔ [8940/8996] Built Sarkozy.Certificate (2.4s)
+✔ [8941/8996] Built Sarkozy.Growth (2.7s)
+⚠ [8942/8996] Built Sarkozy.Moment (2.6s)
+warning: Sarkozy/Moment.lean:86:6: `Finset.single_le_prod'` has been deprecated: Use `Finset.single_le_prod` instead
+
+Hint: Replace the deprecated name:
+  Finset.single_le_prod'̵
+✔ [8943/8996] Built Sarkozy.FiniteAlphabets (2.3s)
+✔ [8944/8996] Built Sarkozy.ReducedTarget (2.5s)
+⚠ [8945/8996] Built Sarkozy.OddLift (4.1s)
+warning: Sarkozy/OddLift.lean:166:46: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: Sarkozy/OddLift.lean:170:36: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+⚠ [8946/8996] Built Sarkozy.OddCertificate (2.4s)
+warning: Sarkozy/OddCertificate.lean:61:36: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: Sarkozy/OddCertificate.lean:62:25: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+✔ [8947/8996] Built Sarkozy.OddTarget (2.6s)
+⚠ [8948/8996] Built Sarkozy.OddOrder (2.4s)
+warning: Sarkozy/OddOrder.lean:38:22: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Sarkozy/OddOrder.lean:77:38: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: Sarkozy/OddOrder.lean:82:38: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+warning: Sarkozy/OddOrder.lean:90:21: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+✔ [8949/8996] Built Sarkozy.OddFiniteCertificate (2.4s)
+⚠ [8950/8996] Built Sarkozy.OddData (2.5s)
+warning: Sarkozy/OddData.lean:61:10: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: Sarkozy/OddData.lean:61:34: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+⚠ [8951/8996] Built Sarkozy.OddOrderCertificate (2.4s)
+warning: Sarkozy/OddOrderCertificate.lean:115:10: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: Sarkozy/OddOrderCertificate.lean:115:34: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+✔ [8952/8996] Built Sarkozy.OddOrderFast (2.3s)
+✔ [8953/8996] Built Sarkozy.OddOrderChunkLemma (2.3s)
+✔ [8954/8996] Built Sarkozy.OddOrderData215 (67s)
+✔ [8955/8996] Built Sarkozy.OddOrderBase215 (3.1s)
+✔ [8956/8996] Built Sarkozy.OddOrderChunks215.Chunk00 (4.8s)
+✔ [8957/8996] Built Sarkozy.OddOrderChunks215.Chunk01 (4.9s)
+✔ [8958/8996] Built Sarkozy.OddOrderChunks215.Chunk02 (4.8s)
+✔ [8959/8996] Built Sarkozy.OddOrderChunks215.Chunk03 (4.9s)
+✔ [8960/8996] Built Sarkozy.OddOrderChunks215.Chunk04 (4.0s)
+✔ [8961/8996] Built Sarkozy.OddOrderChunks215.Chunk05 (4.9s)
+✔ [8962/8996] Built Sarkozy.OddOrderChunks215.Chunk06 (4.0s)
+✔ [8963/8996] Built Sarkozy.OddOrderChunks215.Chunk07 (4.9s)
+✔ [8964/8996] Built Sarkozy.OddOrderChunks215.Chunk08 (4.0s)
+✔ [8965/8996] Built Sarkozy.OddOrderChunks215.Chunk09 (4.0s)
+✔ [8966/8996] Built Sarkozy.OddOrderChunks215.Chunk10 (5.0s)
+✔ [8967/8996] Built Sarkozy.OddOrderChunks215.Chunk11 (4.0s)
+✔ [8968/8996] Built Sarkozy.OddOrderChunks215.Chunk12 (4.9s)
+✔ [8969/8996] Built Sarkozy.OddOrderChunks215.Chunk13 (4.0s)
+✔ [8970/8996] Built Sarkozy.OddOrderChunks215.Chunk14 (4.9s)
+✔ [8971/8996] Built Sarkozy.OddOrderChunks215.Chunk15 (4.9s)
+✔ [8972/8996] Built Sarkozy.OddOrderChunks215.Chunk16 (4.9s)
+✔ [8973/8996] Built Sarkozy.OddOrderChunks215.Chunk17 (4.0s)
+✔ [8974/8996] Built Sarkozy.OddOrderChunks215.Chunk18 (5.1s)
+✔ [8975/8996] Built Sarkozy.OddOrderChunks215.Chunk19 (4.8s)
+✔ [8976/8996] Built Sarkozy.OddOrderChunks215.Chunk20 (4.0s)
+✔ [8977/8996] Built Sarkozy.OddOrderChunks215.Chunk21 (4.8s)
+✔ [8978/8996] Built Sarkozy.OddOrderChunks215.Chunk22 (5.1s)
+✔ [8979/8996] Built Sarkozy.OddOrderChunks215.Chunk23 (4.9s)
+✔ [8980/8996] Built Sarkozy.OddOrderChunks215.Chunk24 (5.0s)
+✔ [8981/8996] Built Sarkozy.OddOrderChunks215.Chunk25 (4.9s)
+✔ [8982/8996] Built Sarkozy.OddOrderChunks215.Chunk26 (4.9s)
+✔ [8983/8996] Built Sarkozy.OddOrderChunks215.Chunk27 (5.1s)
+✔ [8984/8996] Built Sarkozy.OddOrderChunks215.Chunk28 (5.2s)
+✔ [8985/8996] Built Sarkozy.OddOrderChunks215.Chunk29 (5.3s)
+✔ [8986/8996] Built Sarkozy.OddOrderChunks215.Chunk30 (5.4s)
+✔ [8987/8996] Built Sarkozy.OddOrderChunks215.Chunk31 (5.2s)
+✔ [8988/8996] Built Sarkozy.OddOrderChunks215.Chunk32 (5.5s)
+✔ [8989/8996] Built Sarkozy.OddOrderChunks215.Chunk33 (5.6s)
+✔ [8990/8996] Built Sarkozy.OddOrderChunks215.Chunk34 (5.5s)
+✔ [8991/8996] Built Sarkozy.OddOrderChunks215.Chunk35 (5.3s)
+✔ [8992/8996] Built Sarkozy.OddOrderChunks215.Chunk36 (5.3s)
+✔ [8993/8996] Built Sarkozy.OddOrderChunks215.Chunk37 (5.5s)
+✔ [8994/8996] Built Sarkozy.OddOrderChunks215.Chunk38 (3.6s)
+✔ [8995/8996] Built Sarkozy.OddOrderChecks215 (2.4s)
+✔ [8996/8996] Built Sarkozy.OddOrder215 (2.2s)
+Build completed successfully (8996 jobs).

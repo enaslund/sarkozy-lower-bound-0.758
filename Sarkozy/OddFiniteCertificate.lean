@@ -1,4 +1,9 @@
-import Sarkozy.OddTarget
+module
+
+public import Sarkozy.OddTarget
+
+@[expose] public section
+set_option backward.privateInPublic true
 
 /-!
 # From finite integer low-point data to an odd interval certificate
@@ -13,26 +18,27 @@ namespace Sarkozy
 
 open scoped BigOperators
 
-/-- Realize an indexed integer certificate for either depth-three odd component.
+/-- Realize an indexed integer certificate for either odd component.
 The order hypothesis refers only to its packed low words, before free digits
 or CRT are introduced. All resulting moments are preserved exactly. -/
 theorem record_odd_finite_certificate
     (j : Fin 2) (n D : ℕ) (point : Fin n → Fin 2 → ℕ)
     (start width : Fin n → ℕ)
     (hD : 0 < D)
-    (hpoint : ∀ k i, point k i < (recordOddPrimes j i)^3)
+    (hpoint : ∀ k i, point k i < (recordOddPrimes j i)^(recordOddDepths j i))
     (hinj : Function.Injective point)
     (hwidth : ∀ k, 0 < width k ∧ width k < D)
     (hend : ∀ k, start k + width k ≤ D)
     (horder : ∀ k l, k ≠ l →
-      (∀ i, PrimeLowRelated (recordOddPrimes j i) 3 (point k i : ℤ) (point l i : ℤ)) →
+      (∀ i, PrimeLowRelated (recordOddPrimes j i) (recordOddDepths j i)
+        (point k i : ℤ) (point l i : ℤ)) →
       start k + width k ≤ start l) :
     ∃ (S : Finset (RecordOddWord j)) (left widthS : RecordOddWord j → ℝ),
       S.card = n ∧
       (∀ a ∈ S, 0 ≤ left a ∧ 0 < widthS a ∧ widthS a < 1 ∧
         left a + widthS a ≤ 1) ∧
       (∀ a ∈ S, ∀ b ∈ S, a ≠ b →
-        (∀ i, PrimeLowRelated (recordOddPrimes j i) 3 (a i) (b i)) →
+        (∀ i, PrimeLowRelated (recordOddPrimes j i) (recordOddDepths j i) (a i) (b i)) →
         left a + widthS a ≤ left b) ∧
       ∀ f : ℝ, (∑ a ∈ S, (widthS a)^f) =
         ∑ k : Fin n, ((width k : ℝ) / D)^f := by

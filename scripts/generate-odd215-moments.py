@@ -15,21 +15,27 @@ import hashlib
 import json
 from math import isqrt
 from pathlib import Path
+import sys as _sys
+_sys.path.insert(0, str(__import__("pathlib").Path(__file__).resolve().parent))
+from lean_module import moduleize
 
 ROOT = Path(__file__).resolve().parents[2]
 SOURCE = ROOT / 'research-notes/odd-search/q215-depth3-product.json'
 DEST = ROOT / 'lean-formalization/Sarkozy/Odd215MomentData.lean'
 SHA256 = 'dae38a756de83c99d65973ff85f23a7068ce6e85a7a4f12400a923f24cf46574'
-D = 10**26
+D = 10**30
 WIDTH_DENOMINATOR = 10**14
-LOWER_DENOMINATOR = 10**12
-POWER = Fraction(26537312662, 10**12)
-STEPS = 10
+LOWER_DENOMINATOR = 10**24
+POWER_NUMERATOR = 264983230432418544045862
+POWER_DENOMINATOR = 10**25
+POWER = Fraction(POWER_NUMERATOR, POWER_DENOMINATOR)
+STEPS = 12
 ROOT_POWER = 2**STEPS
 DENOMINATOR_POWER = D**(ROOT_POWER-1)
 CHUNK_SIZE = 64
+EXPECTED_SUM = None
 
-HEADER = '''import Sarkozy.FastPowerCertificate
+HEADER_TEMPLATE = '''import Sarkozy.FastPowerCertificate
 
 /-!
 # Certified real-power moment of the actual 215 width histogram
@@ -53,31 +59,31 @@ set_option maxHeartbeats 0
 abbrev MomentEntry := PowerChecker.MomentEntry
 /-- The initial values are fixed by the width and lower numerators. -/
 def momentEntry (width multiplicity lower low high : ℕ) : MomentEntry :=
-  PowerChecker.MomentEntry.scaled 1000000000000 100000000000000 width multiplicity lower low high
+  PowerChecker.MomentEntry.scaled @WSCALE@ @LSCALE@ width multiplicity lower low high
 
 /-- The finite check includes the link from certificate endpoints to the actual width. -/
 def momentEntryCheck (e : MomentEntry) : Bool :=
-  decide (e.certificate.a0 = e.width * 1000000000000 ∧
-    e.certificate.b0 = e.lower * 100000000000000) &&
-    decide (PowerChecker.EndpointValid 100000000000000000000000000 26537312662 1000000000000 1023 e.certificate)
+  decide (e.certificate.a0 = e.width * @WSCALE@ ∧
+    e.certificate.b0 = e.lower * @LSCALE@) &&
+    decide (PowerChecker.EndpointValid @D@ @PN@ @PD@ @N@ e.certificate)
 
 /-- Analytic soundness of one checked row of the histogram. -/
 theorem moment_entry_lower (e : MomentEntry) (he : momentEntryCheck e = true) :
-    (e.lower : ℝ) / 1000000000000 ≤
-      ((e.width : ℝ) / 100000000000000) ^ (26537312662 / 1000000000000 : ℝ) := by
+    (e.lower : ℝ) / @LD@ ≤
+      ((e.width : ℝ) / @WD@) ^ (@PN@ / @PD@ : ℝ) := by
   have hh := Bool.and_eq_true_iff.mp he
-  have heq : e.certificate.a0 = e.width * 1000000000000 ∧
-      e.certificate.b0 = e.lower * 100000000000000 := of_decide_eq_true hh.1
-  have hc : PowerChecker.EndpointValid 100000000000000000000000000 26537312662 1000000000000 1023 e.certificate :=
+  have heq : e.certificate.a0 = e.width * @WSCALE@ ∧
+      e.certificate.b0 = e.lower * @LSCALE@ := of_decide_eq_true hh.1
+  have hc : PowerChecker.EndpointValid @D@ @PN@ @PD@ @N@ e.certificate :=
     of_decide_eq_true hh.2
   have h := PowerChecker.endpoint_valid_sound hc
-  have ha : (e.certificate.a0 : ℝ) / 100000000000000000000000000 =
-      (e.width : ℝ) / 100000000000000 := by
+  have ha : (e.certificate.a0 : ℝ) / @D@ =
+      (e.width : ℝ) / @WD@ := by
     rw [heq.1]
     push_cast
     ring
-  have hb : (e.certificate.b0 : ℝ) / 100000000000000000000000000 =
-      (e.lower : ℝ) / 1000000000000 := by
+  have hb : (e.certificate.b0 : ℝ) / @D@ =
+      (e.lower : ℝ) / @LD@ := by
     rw [heq.2]
     push_cast
     ring
@@ -87,10 +93,10 @@ theorem moment_entry_lower (e : MomentEntry) (he : momentEntryCheck e = true) :
 /-- Add checked lower endpoints with their natural-number multiplicities. -/
 theorem moment_entries_lower (es : List MomentEntry)
     (he : es.all momentEntryCheck = true) :
-    (((es.map (fun e => e.multiplicity * e.lower)).sum : ℕ) : ℝ) / 1000000000000 ≤
+    (((es.map (fun e => e.multiplicity * e.lower)).sum : ℕ) : ℝ) / @LD@ ≤
       (es.map (fun e => (e.multiplicity : ℝ) *
-        ((e.width : ℝ) / 100000000000000) ^
-          (26537312662 / 1000000000000 : ℝ))).sum := by
+        ((e.width : ℝ) / @WD@) ^
+          (@PN@ / @PD@ : ℝ))).sum := by
   induction es with
   | nil => simp
   | cons e es ih =>
@@ -102,6 +108,12 @@ theorem moment_entries_lower (es : List MomentEntry)
     nlinarith
 
 '''
+HEADER = (HEADER_TEMPLATE.replace('@WSCALE@', str(D//WIDTH_DENOMINATOR))
+          .replace('@LSCALE@', str(D//LOWER_DENOMINATOR)).replace('@D@', str(D))
+          .replace('@PN@', str(POWER_NUMERATOR)).replace('@PD@', str(POWER_DENOMINATOR))
+          .replace('@N@', str(ROOT_POWER-1)).replace('@LD@', str(LOWER_DENOMINATOR))
+          .replace('@WD@', str(WIDTH_DENOMINATOR)))
+
 
 def log_bounds(x):
     z = 1-x
@@ -110,21 +122,33 @@ def log_bounds(x):
     return -s-error, -s+error
 
 
-def certificate(width, multiplicity):
-    with localcontext() as ctx:
-        ctx.prec = 80
-        f = Decimal(POWER.numerator)/Decimal(POWER.denominator)
-        q = Decimal(width)/Decimal(WIDTH_DENOMINATOR)
-        y = int(((q.ln()*f).exp()*LOWER_DENOMINATOR).to_integral_value(rounding=ROUND_FLOOR))-1
-    a0, b0 = width*(D//WIDTH_DENOMINATOR), y*(D//LOWER_DENOMINATOR)
+def root_endpoints(a0, b0):
     a, b = a0, b0
     for _ in range(STEPS):
         a = isqrt(a*D)
         z = b*D
         b = isqrt(z)
         b += b*b < z
+    return a, b
+
+
+def certificate(width, multiplicity):
+    a0 = width*(D//WIDTH_DENOMINATOR)
+    a, _ = root_endpoints(a0, a0)
+    # The proposal is taken just below the certified lower logarithm, so the
+    # exact acceptance test below normally succeeds at the first attempt.
+    certified = POWER*ROOT_POWER*log_bounds(Fraction(a, D))[0]
+    with localcontext() as ctx:
+        ctx.prec = 100
+        exponent = Decimal(certified.numerator)/Decimal(certified.denominator)-Decimal(10)**-26
+        y = int((exponent.exp()*LOWER_DENOMINATOR).to_integral_value(rounding=ROUND_FLOOR))-1
+    while True:
+        b0 = y*(D//LOWER_DENOMINATOR)
+        _, b = root_endpoints(a0, b0)
+        if log_bounds(Fraction(b,D))[1] <= POWER*log_bounds(Fraction(a,D))[0]:
+            break
+        y -= 1
     assert a0 > 0 and b0 > 0 and 0 < a <= D and 0 < b <= D
-    assert log_bounds(Fraction(b,D))[1] <= POWER*log_bounds(Fraction(a,D))[0]
     assert a**ROOT_POWER <= a0*DENOMINATOR_POWER
     assert b0*DENOMINATOR_POWER <= b**ROOT_POWER
     return width, multiplicity, y, a0, b0, a, b
@@ -132,7 +156,7 @@ def certificate(width, multiplicity):
 
 def lean_entry(e):
     w, m, y, a0, b0, low, high = e
-    # Only final root endpoints are stored; Lean checks their 1024th powers.
+    # Only final root endpoints are stored; Lean checks their 4096th powers.
     return f'  momentEntry {w} {m} {y} {hex(low)} {hex(high)}'
 
 
@@ -154,10 +178,10 @@ def generate(entries):
     parts.append(f'theorem moment_lower_numerator_sum :\n    (momentEntries.map (fun e => e.multiplicity * e.lower)).sum = {weighted} := by\n  decide +kernel\n\n')
     parts.append(f'''/-- The checked lower endpoints give the stated real-power histogram moment. -/
 theorem moment_histogram_lower_bound :
-    ({weighted} / 1000000000000 : ℝ) ≤
+    ({weighted} / {LOWER_DENOMINATOR} : ℝ) ≤
       (momentHistogram.map (fun wc => (wc.2 : ℝ) *
-        ((wc.1 : ℝ) / 100000000000000) ^
-          (26537312662 / 1000000000000 : ℝ))).sum := by
+        ((wc.1 : ℝ) / {WIDTH_DENOMINATOR}) ^
+          ({POWER_NUMERATOR} / {POWER_DENOMINATOR} : ℝ))).sum := by
   have h := moment_entries_lower momentEntries moment_entries_checked
   rw [moment_lower_numerator_sum] at h
   rw [moment_histogram_eq_entries, List.map_map]
@@ -187,9 +211,9 @@ def main():
     if args.smoke_rows is not None:hist=hist[:args.smoke_rows]
     entries=[certificate(w,m) for w,m in hist]
     weighted=sum(e[1]*e[2] for e in entries)
-    if args.smoke_rows is None:assert weighted==4088451159413731
+    if args.smoke_rows is None and EXPECTED_SUM is not None:assert weighted==EXPECTED_SUM
     text=generate(entries)
-    args.output.write_text(text)
+    args.output.write_text(moduleize(text))
     print(json.dumps({'output':str(args.output),'source_sha256':SHA256,'distinct_widths':len(entries),
                       'weighted_lower_numerator':weighted,'bytes':len(text.encode()),
                       'proposal_root_steps':STEPS,'endpoint_root_power':ROOT_POWER,'sqrt_denominator':D},indent=2))

@@ -6,8 +6,9 @@ notes with finite stopping words. The project also proves the prime-chain,
 odd free-digit, and binary recursive constructions that supply the finite
 alphabets. All six prime chains, the full binary component, and both complete
 odd witnesses are proved, including their numerical moments. Their concrete
-certificates establish the full exponent 0.75806746 without additional
-mathematical hypotheses.
+certificates establish the full exponent 0.7580758318008816 without additional
+mathematical hypotheses. (The September 2026 version established 0.75806746
+with different finite data; it is preserved in git history.)
 
 ## Finite input and conclusion
 
@@ -174,7 +175,8 @@ moment inequalities for the exact exponent and rational powers in
 (2\alpha-1)\log p\le(1-f)\log t.
 \]
 The logarithmic bounds have short arithmetic certificates. Fix
-\(D=10^{35}\) and \(n=52\). For a positive integer \(x\), choose positive
+\(D=10^{60}\) and \(n=100\); the margins of these six inequalities are only
+about \(2.4\cdot10^{-26}\), so the ladders must be long. For a positive integer \(x\), choose positive
 integer lower and upper ladders starting at \(L_0=U_0=xD\), with
 \[
 L_{k+1}^2\le DL_k,\qquad DU_k\le U_{k+1}^2.
@@ -190,7 +192,7 @@ relations through the ladder. Applying the proved elementary inequalities
 The generator
 [generate-chain-log-bounds.py](scripts/generate-chain-log-bounds.py)
 uses exact integer square roots to propose the ladders. Lean checks all
-624 square comparisons for the twelve enclosures, their positivity and
+1,200 square comparisons for the twelve enclosures, their positivity and
 endpoints, and the final rational inequalities. The generator is not a
 trusted proof step; neither floating-point evaluation nor `native_decide`
 is used. The resulting theorem `concretePrime_certified_moment` proves all
@@ -237,9 +239,11 @@ It allows arbitrary correlations between low coordinates; the support is
 not assumed to be a Cartesian product.
 
 [OddTarget.lean](Sarkozy/OddTarget.lean) specializes this theorem to
-three low digits at each of \((5,43)\) and \((19,23)\). This proves the
-free multiplicities \(215^3,437^3\), the square bases \(215^6,437^6\), and
-the lifted geometry and moments from the corresponding low certificates.
+three low digits at each of \(5\) and \(43\), and to three low digits at
+\(19\) and two at \(23\) (the depths `recordOddDepths`). This proves the
+free multiplicities \(215^3\) and \(19^3\cdot23^2=3628411\), the square
+bases \(215^6\) and \(3628411^2\), and the lifted geometry and moments from
+the corresponding low certificates.
 At this generic interface, the low supports, geometry, low-edge order and
 moments are inputs. The concrete witnesses in Section 10 discharge them.
 
@@ -295,9 +299,9 @@ implies the required root moment \(Z\ge(4^m)^\alpha\).
 [BinaryRealData.lean](Sarkozy/BinaryRealData.lean) supplies the exact
 25-state rational policy and proves its real policy validity.
 [RecordBinaryTarget.lean](Sarkozy/RecordBinaryTarget.lean) fixes its
-comparison vector, root, \(m=10^{10}\), and
+comparison vector (with denominator \(10^{45}\)), root, \(m=10^{20}\), and
 \[
-a=\frac{1430118728343}{500000000000},\qquad c=\frac14.
+a=\frac{1430135321718334301514215293356149372101}{5\cdot10^{38}},\qquad c=\frac14.
 \]
 The simpler initialization constant \(1/4\) is smaller than the constant
 in the paper; its seed inequalities are checked in Lean. This module
@@ -306,38 +310,30 @@ constructs the binary interval certificate from only `RecordBinary.Rows`
 (the displayed depth comparison with this choice of \(c\)).
 
 [BinaryDepth.lean](Sarkozy/BinaryDepth.lean) fully discharges the depth
-condition. Two more 52-step integer ladders, with the same denominator
-\(10^{35}\), certify
-\[
-1.050904648198512\le\log a,\qquad
-\log2\le0.693147180559946.
-\]
-All 104 additional square comparisons are kernel checked. The lower
+condition. Two 80-step integer ladders, with denominator \(10^{50}\), certify
+\(\log a\) from below and \(\log2\) from above to about \(10^{-24}\). This
+precision is needed because \(\log a-\alpha\log4\) is only about
+\(4.9\cdot10^{-19}\) and is multiplied by \(m=10^{20}\). All 160 square
+comparisons are kernel checked. The lower
 ladder starts at the exact rational growth parameter, encoded with this
 common denominator. Rewriting \(\log4=2\log2\) and
 \(\log(1/4)=-2\log2\) reduces the depth check to rational arithmetic.
 The proved theorem `RecordBinary.depth_margin` gives
 \[
-\log(1/4)+(m-1)\log a-f_B\log2-\alpha m\log4\ge27.
+\log(1/4)+(m-1)\log a-f_B\log2-\alpha m\log4\ge45.
 \]
 Thus `RecordBinary.depth_condition` has no hypotheses.
 
 [BinaryRows.lean](Sarkozy/BinaryRows.lean) also discharges all 25 row
-inequalities. The 94 branches use 54 distinct downward-rounded rational
-scales. For each rounded scale \(u\), it certifies a rational lower bound
-\(L\le u^{f_B}\) using two square-root ladders. A lower ladder bounds
-\(\log u\) from below, and an upper ladder bounds \(\log L\) from above.
-The terminal integer comparison proves
-\[
-\log L\le 2^{36}(b_{36}-1)
- \le f_B\,2^{36}(1-a_{36}^{-1})
- \le f_B\log u,
-\]
-where \(a_k,b_k\) denote the normalized positive ladder entries. Exponentiating
-gives the required real-power bound. Each ladder has 36 steps and 37
-entries, with common denominator \(10^{26}\): there are exactly
-\(54\cdot2\cdot37=3996\) integer entries. Their square relations, positivity,
-initial values, and terminal comparisons are all kernel checked.
+inequalities. The 94 branches use 73 distinct rational scales, each rounded
+down to denominator \(10^{30}\). For each rounded scale \(u\), it certifies a
+rational lower bound \(L\le u^{f_B}\) with the same endpoint power checker
+as the odd moments (Section 10): two terminal 4096th-root bounds and the
+eighth-order logarithm enclosure. The smallest exact row surplus is
+\(3.274\cdot10^{-19}\); the certificates lose less than \(10^{-26}\) of it.
+(The September version used 36-step square-root ladders, which are not
+precise enough for these margins; the lemmas
+`rpow_lower_of_integer_ladders` that justified them remain in the library.)
 
 Lean also verifies that every rounded scale is at most its actual branch
 scale. Since \(f_B\ge0\), monotonicity transfers the lower power bound to
@@ -372,8 +368,8 @@ satisfy the strict upper bound needed here.
 
 ## 10. Exact finite witnesses and compact numerical checks
 
-[OddData437.lean](Sarkozy/OddData437.lean) encodes all 19,683 rows of the
-reconstructed depth-three witness at primes 19 and 23. As for the 4,913-row
+[OddData437.lean](Sarkozy/OddData437.lean) encodes all 3,645 rows of the
+witness at primes 19 and 23, with three base-19 and two base-23 low digits. As for the 4,913-row
 215 witness, each row contains two packed low words, an integer interval
 start, and an integer width. Lean checks canonical coordinates, positive
 widths below the common denominator, and containment in the unit interval.
@@ -389,8 +385,9 @@ source rows with that prefix. Containment suffices; exact equality of these
 masks with their intended sets is unnecessary. Each source's membership is
 checked directly.
 
-For a target low word, the first-difference relation determines a union of
-prefix masks: equal digits recurse, and a different digit must differ by a
+Each prime has its own depth; for the \((19,23)\) witness, words have three
+base-19 digits and two base-23 digits. For a target low word, the
+first-difference relation determines a union of prefix masks: equal digits recurse, and a different digit must differ by a
 square modulo the prime. Intersect the two prime-specific masks. A proved
 soundness lemma says that every relevant source appears in this intersection.
 For each target, an integer cutoff records a prefix of the endpoint-sorted
@@ -401,7 +398,7 @@ target interval. The checked endpoint lookup identities and prefix
 containment make the auxiliary lookup trees untrusted certificate data;
 no correctness assumption about their generation or internal shape is used.
 The actual checks are split into consecutive blocks of at most 128 rows: 39
-blocks for 215 and 154 blocks for 437. A proved block-coverage lemma combines their Boolean results into the
+blocks for 215 and 29 blocks for 437. A proved block-coverage lemma combines their Boolean results into the
 full source and target checks. Chunking limits evaluation memory and lets
 builds preserve completed checks. A separate extensional lemma justifies the
 numeric materialization used to speed up repeated prefix queries; it changes
@@ -431,7 +428,7 @@ A proved logarithm remainder bound gives
 The large odd moments use two terminal root bounds, without storing or
 checking intermediate square-root ladders. Let \(D,A,B,L,H\) be positive
 integers, with \(L,H\le D\), and put \(u=A/D\), \(v=B/D\), \(a=L/D\),
-\(b=H/D\). For \(r=1024\), Lean checks
+\(b=H/D\). For \(r=4096\), Lean checks
 \[
  L^r\le AD^{r-1},\qquad BD^{r-1}\le H^r.
 \]
@@ -450,7 +447,9 @@ therefore gives
 \]
 Exponentiating proves \(v\le u^f\). The generic Lean soundness theorem
 works for every positive integer degree \(r=n+1\); the data instantiate
-\(n=1023\). Positivity, both power inequalities, and the endpoint bounds
+\(n=4095\) with \(D=10^{30}\). For a width \(w\ge10^{-4}\) the remainder
+term then contributes less than \(10^{-20}\) to \(\log w\), well below the
+moment margins of about \(6\cdot10^{-18}\). Positivity, both power inequalities, and the endpoint bounds
 are part of the checked predicate. No square-root algorithm is trusted.
 
 [PowerPolynomial.lean](Sarkozy/PowerPolynomial.lean) clears the positive
@@ -460,38 +459,36 @@ comparison above. This avoids repeated rational normalization in the large
 finite checks without weakening their mathematical content.
 [FastPowerCertificate.lean](Sarkozy/FastPowerCertificate.lean) packages the
 integer tests and proves `PowerChecker.endpoint_valid_sound` once for both
-odd witnesses. Their 20,769 distinct-width rows store their width,
-multiplicity, proposed lower numerator, and two terminal root bounds.
-The terminal bounds are unchanged from the earlier ten-step certificates;
-the initial numerators are derived by exact scaling. The new proof checks
-the terminal inequalities directly, so the eighteen intermediate entries
-per row are no longer needed. The logarithm remainder estimate and the
+odd witnesses and the binary scales. The 5,198 distinct-width rows of the two
+odd witnesses store their width, multiplicity, proposed lower numerator over
+\(10^{24}\), and two terminal root bounds; the initial numerators are derived
+by exact scaling. No intermediate square-root entries are stored. The logarithm remainder estimate and the
 passage to a real-power bound are proved in Lean; a generator's high-precision
 proposal is never a trusted premise.
 
 [Odd215Threshold.lean](Sarkozy/Odd215Threshold.lean) separately proves
 \[
  (215^6)^\alpha\le215^3\,
- \frac{4088451159413731}{10^{12}}.
+ \frac{4089554252844355796121018868}{10^{24}}.
 \]
-Two 52-step integer square-root ladders prove
-\(\log(4088451159413731/10^{12})\ge8.315921487685\) and
-\(\log215\le5.370638028128\). With
-\(\alpha=37903373/50000000\), the sufficient logarithmic comparison has
-positive rational slack \(6.9459091072\cdot10^{-10}\). This scalar theorem
+Two 80-step integer square-root ladders at denominator \(10^{50}\) bound
+\(\log\) of the lower sum from below and \(\log215\) from above to within
+about \(10^{-22}\). With \(\alpha=473797394875551/625000000000000\), the
+sufficient logarithmic comparison has positive rational slack about
+\(6.919\cdot10^{-18}\). This scalar theorem
 has no hypotheses. The actual 215 width sum is shown to be at least this lower sum by the
 finite certificates described below.
 
 ## Specialization to the unconditional full exponent
 
 [Parameters.lean](Sarkozy/Parameters.lean) fixes the six prime bases
-\(3^2,7^2,11^2,31^2,59^2,103^2\), the odd bases \(215^6,437^6\), and the
-binary base \(4^{10^{10}}\). Lean proves their coprimality and square-base
+\(3^2,7^2,11^2,31^2,59^2,103^2\), the odd bases \(215^6\) and
+\((19^3\cdot23^2)^2=3628411^2\), and the binary base \(4^{10^{20}}\). Lean proves their coprimality and square-base
 properties symbolically, without evaluating the huge binary power.
 It also proves, with exact rational arithmetic,
 \[
-\alpha=\frac{37903373}{50000000}=0.75806746,\qquad
-\sum_i f_i-\alpha=\frac{25671}{10^{12}}>0.
+\alpha=\frac{473797394875551}{625000000000000}=0.7580758318008816,\qquad
+\sum_i f_i-\alpha=\frac{15468032462}{10^{25}}>0.
 \]
 
 The original theorem in [Target.lean](Sarkozy/Target.lean) takes nine
@@ -501,8 +498,10 @@ component, including all their numerical moments. The odd lifts, common
 finite width bounds, and the full asymptotic implication are also proved.
 
 For 215, [Odd215MomentData.lean](Sarkozy/Odd215MomentData.lean) checks 1,861
-distinct widths using 3,722 direct 1024th-power comparisons and 1,861 final
-polynomial comparisons, together with positivity and scaling checks. The exact weighted lower sum is `4088451159413731/10^12`.
+distinct widths using 3,722 direct 4096th-power comparisons and 1,861 final
+polynomial comparisons, together with positivity and scaling checks. The
+power is `264983230432418544045862/10^25` and the exact weighted lower sum is
+`4089554252844355796121018868/10^24`.
 [Odd215Certificate.lean](Sarkozy/Odd215Certificate.lean) connects the histogram
 to the endpoint-sorted geometry by a kernel-checked sorted-list identity.
 It then combines every edge-order check with the threshold proved above,
@@ -510,21 +509,25 @@ and constructs the complete expanded 215 alphabet without assumptions.
 [Odd215Moment.lean](Sarkozy/Odd215Moment.lean) also establishes the same moment
 for the original packed-coordinate row order.
 
-For 437, [Odd437MomentData.lean](Sarkozy/Odd437MomentData.lean) combines
-18,908 distinct-width certificates with total multiplicity 19,683. The integer
-width denominator is `10^16`, the power is `67871875356/10^12`, and the exact
-weighted lower sum is `12261229628963862/10^12`. The endpoint certificates
-require 37,816 direct 1024th-power comparisons and 18,908 polynomial comparisons.
+For the \((19,23)\) component (module names keep `437`),
+[Odd437MomentData.lean](Sarkozy/Odd437MomentData.lean) combines 3,337
+distinct-width certificates with total multiplicity 3,645. The integer width
+denominator is `10^16`, the power is `681150585658841330427119/10^25`, and the
+exact weighted lower sum is `2431132176156040890913535684/10^24`. The endpoint
+certificates require 6,674 direct 4096th-power comparisons and 3,337
+polynomial comparisons.
 The generated blocks each prove their histogram, weighted lower sum and
 analytic moment bound; a generic addition lemma assembles the full result.
 [Odd437Threshold.lean](Sarkozy/Odd437Threshold.lean) proves
-`(437^6)^α ≤ 437^3 * (12261229628963862/10^12)` using 104 square comparisons.
+`(3628411^2)^α ≤ 3628411 * (2431132176156040890913535684/10^24)` using 160
+square comparisons; the logarithmic slack is about `5.927e-18`.
 Thus the actual width powers attain the required threshold.
 
 [Odd437WidthHistogram.lean](Sarkozy/Odd437WidthHistogram.lean) proves that the
 endpoint-sorted geometry has exactly this width histogram.
 [Odd437Certificate.lean](Sarkozy/Odd437Certificate.lean) combines that identity
-with the complete ordering and moment checks to construct the expanded 437 alphabet.
+with the complete ordering and moment checks to construct the expanded
+\((19,23)\) alphabet.
 [Odd437Moment.lean](Sarkozy/Odd437Moment.lean) also verifies the moment for the
 original packed-coordinate row order.
 
@@ -533,7 +536,7 @@ in `Sarkozy.record_exponent`. The numerical submission statement
 `SarkozySubmission.improved_bound` in [Solution.lean](Solution.lean) has no
 certificate parameters or hypotheses: for every positive epsilon and all
 sufficiently large N, it gives a square-difference-free subset of `[1,N]`
-with cardinality at least `N^(37903373/50000000-epsilon)`.
+with cardinality at least `N^(473797394875551/625000000000000-epsilon)`.
 No finite numerical, edge-order, lifting, counting or asymptotic assertion
 remains an assumption. Earlier conditional interfaces and the illustrative
 `exponent_three_fifths` theorem remain supporting library results.

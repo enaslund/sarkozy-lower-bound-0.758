@@ -1,0 +1,14 @@
+[
+ {
+  "command": "lake env leanchecker <module>, once per module, sequentially",
+  "toolchain": "leanprover/lean4:v4.35.0-rc2",
+  "modules": 116,
+  "failures": [
+   "Sarkozy"
+  ],
+  "seconds": 825.0,
+  "log": "leanchecker-modules.log",
+  "note": "leanchecker treats its argument as a module-name prefix, so `leanchecker Sarkozy` replays all 114 Sarkozy.* modules concurrently in one process; it reached 114 GB and was stopped by earlyoom (exit 143). Each of those modules passed when replayed on its own, and the aggregate module Sarkozy itself declares no constants (aggregate-module-constants.log), so every declaration of the project was replayed.",
+  "modules_with_declarations_replayed": 115
+ }
+]

@@ -1,4 +1,9 @@
-import Mathlib
+module
+
+public import Mathlib
+
+@[expose] public section
+set_option backward.privateInPublic true
 
 /-! Exact parameters of the target construction. No large power is evaluated. -/
 
@@ -6,24 +11,30 @@ namespace Sarkozy
 
 open scoped BigOperators
 
-/-- The target exponent, exactly `0.75806746`. -/
-noncomputable def targetExponent : ℝ := 37903373 / 50000000
+/-- The target exponent, exactly `0.7580758318008816`. -/
+noncomputable def targetExponent : ℝ := 473797394875551 / 625000000000000
 
-/-- Six prime chains, two odd composite alphabets, and the binary alphabet. -/
-def componentRoots : Fin 9 → ℕ := ![3, 7, 11, 31, 59, 103, 215, 437, 2]
+/-- Six prime chains, two odd composite alphabets, and the binary alphabet.
+The `(19,23)` alphabet has three restricted digits at `19` and two at `23`,
+so its square base is `(19^3 * 23^2)^2 = 3628411^2`. -/
+def componentRoots : Fin 9 → ℕ := ![3, 7, 11, 31, 59, 103, 215, 3628411, 2]
 
-def componentDepths : Fin 9 → ℕ := ![1, 1, 1, 1, 1, 1, 3, 3, 10000000000]
+def componentDepths : Fin 9 → ℕ := ![1, 1, 1, 1, 1, 1, 3, 1, 100000000000000000000]
 
 /-- The square bases, represented symbolically even for the binary component. -/
 def componentBases (i : Fin 9) : ℕ := componentRoots i ^ (2 * componentDepths i)
 
-/-- Rational moment powers, rounded down for the six chains. -/
+/-- Exact rational contributions with 25 decimals. -/
 noncomputable def componentPowers : Fin 9 → ℝ :=
-  ![181945506487 / 1000000000000, 85799249226 / 1000000000000,
-    107233269134 / 1000000000000, 89166212567 / 1000000000000,
-    42173711274 / 1000000000000, 2397851691 / 1000000000000,
-    26537312662 / 1000000000000, 67871875356 / 1000000000000,
-    154942497274 / 1000000000000]
+  ![1819189685063644313459576 / 10000000000000000000000000,
+    857695922261077385453455 / 10000000000000000000000000,
+    1072043074619092931875010 / 10000000000000000000000000,
+    891366647927413831505830 / 10000000000000000000000000,
+    421426390460550181119771 / 10000000000000000000000000,
+    23654891206769647316637 / 10000000000000000000000000,
+    264983230432418544045862 / 10000000000000000000000000,
+    681150585658841330427119 / 10000000000000000000000000,
+    1549247890379023302829202 / 10000000000000000000000000]
 
 theorem componentRoots_gt_one : ∀ i, 1 < componentRoots i := by decide
 
@@ -53,9 +64,10 @@ theorem componentPowers_nonneg : ∀ i, 0 ≤ componentPowers i := by
   intro i
   fin_cases i <;> norm_num [componentPowers]
 
-/-- The exact contribution surplus is `0.000000025671`. -/
+/-- The exact contribution surplus is `15468032462 / 10^25`. -/
 theorem componentPowers_surplus :
-    (∑ i, componentPowers i) - targetExponent = 25671 / 1000000000000 := by
+    (∑ i, componentPowers i) - targetExponent =
+      15468032462 / 10000000000000000000000000 := by
   norm_num [componentPowers, targetExponent, Fin.sum_univ_succ]
 
 theorem componentPowers_budget : targetExponent < ∑ i, componentPowers i := by

@@ -1,0 +1,48 @@
+✔ [8931/8945] Built Sarkozy.Parameters (2.5s)
+✔ [8932/8945] Built Sarkozy.Ranked (2.8s)
+✔ [8933/8945] Built Sarkozy.Words (3.3s)
+✔ [8934/8945] Built Sarkozy.Intervals (3.2s)
+⚠ [8935/8945] Built Sarkozy.PrimeChains (3.1s)
+warning: Sarkozy/PrimeChains.lean:60:42: Variable name `hp` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hp
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: Sarkozy/PrimeChains.lean:123:2: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+✔ [8936/8945] Built Sarkozy.ChainMoments (14s)
+⚠ [8937/8945] Built Sarkozy.PowerChecker (2.8s)
+warning: Sarkozy/PowerChecker.lean:58:61: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Sarkozy/PowerChecker.lean:82:61: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [8938/8945] Built Sarkozy.PowerPolynomial (2.9s)
+warning: Sarkozy/PowerPolynomial.lean:38:24: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Sarkozy/PowerPolynomial.lean:47:28: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: Sarkozy/PowerPolynomial.lean:47:28: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+✔ [8939/8945] Built Sarkozy.FastPowerCertificate (2.4s)
+✔ [8940/8945] Built Sarkozy.Odd437MomentChecker (2.3s)
+✔ [8941/8945] Built Sarkozy.Odd437MomentChunks.Chunk000 (5.4s)
+✔ [8942/8945] Built Sarkozy.Odd437MomentChunks.Chunk001 (5.3s)
+✔ [8943/8945] Built Sarkozy.Odd437MomentChunks.Chunk002 (5.3s)
+✔ [8944/8945] Built Sarkozy.Odd437MomentChunks.Chunk003 (2.0s)
+⚠ [8945/8945] Built Sarkozy.Odd437MomentData (2.2s)
+warning: Sarkozy/Odd437MomentData.lean:56:52: Private declaration `momentBlocks` accessed publicly; this is allowed only because the `backward.privateInPublic` option is enabled. 
+
+Disable `backward.privateInPublic.warn` to silence this warning.
+Build completed successfully (8945 jobs).

@@ -1,4 +1,9 @@
-import Sarkozy.PowerChecker
+module
+
+public import Sarkozy.PowerChecker
+
+@[expose] public section
+set_option backward.privateInPublic true
 
 /-!
 # Integer polynomial checks for the logarithmic power certificates

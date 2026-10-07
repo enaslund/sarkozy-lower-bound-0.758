@@ -1,4 +1,9 @@
-import Sarkozy.Words
+module
+
+public import Sarkozy.Words
+
+@[expose] public section
+set_option backward.privateInPublic true
 
 /-!
 # Converting separated intervals into integer ranks

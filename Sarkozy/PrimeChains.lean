@@ -1,4 +1,9 @@
-import Sarkozy.Intervals
+module
+
+public import Sarkozy.Intervals
+
+@[expose] public section
+set_option backward.privateInPublic true
 
 /-!
 # Prime-square alphabets from ordered low-digit chains
@@ -103,6 +108,31 @@ instance {p t : ℕ} [NeZero p] (s : Fin t → Fin p) : Decidable (PrimeChainOrd
   unfold PrimeChainOrdered
   infer_instance
 
+/-- A natural-number check of chain orientation: for distinct indices with
+`i > j`, no square `z^2` with `z < p` satisfies `s_j ≡ s_i + z^2 (mod p)`. -/
+def primeChainCheck {p t : ℕ} (s : Fin t → Fin p) : Bool :=
+  (List.finRange t).all fun i => (List.finRange t).all fun j =>
+    decide (i = j) || decide (i < j) ||
+      (List.range p).all fun z => decide ((s j).val % p ≠ ((s i).val + z * z) % p)
+
+/-- The natural-number check implies the orientation of every square edge. -/
+theorem primeChainOrdered_of_check {p t : ℕ} (s : Fin t → Fin p)
+    (h : primeChainCheck s = true) : PrimeChainOrdered s := by
+  intro i j hij z hz
+  have hp : 0 < p := Fin.pos (s i)
+  haveI : NeZero p := ⟨by omega⟩
+  by_contra hlt
+  have hi := List.all_eq_true.mp h i (List.mem_finRange i)
+  have hj := List.all_eq_true.mp hi j (List.mem_finRange j)
+  simp only [Bool.or_eq_true, decide_eq_true_eq, hij, hlt, false_or, List.all_eq_true,
+    List.mem_range] at hj
+  apply hj z.val (ZMod.val_lt z)
+  have hcast : (((s j).val : ℕ) : ZMod p) = (((s i).val + z.val * z.val : ℕ) : ZMod p) := by
+    push_cast
+    rw [ZMod.natCast_zmod_val]
+    linear_combination hz
+  exact (ZMod.natCast_eq_natCast_iff' _ _ _).mp hcast
+
 theorem primeChain_interval_ordered {p t : ℕ} (hp : p.Prime) (ht : 0 < t)
     (s : Fin t → Fin p) (hs : Function.Injective s) (horder : PrimeChainOrdered s) :
     IntervalOrderedModulo (primeChainDigits s) ((p : ℤ)^2)
@@ -172,12 +202,9 @@ theorem concretePrimeChain_injective (i : Fin 6) :
     Function.Injective (concretePrimeChain i) := by
   fin_cases i <;> decide
 
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 4000000 in
 theorem concretePrimeChain_ordered (i : Fin 6) :
     PrimeChainOrdered (concretePrimeChain i) := by
-  haveI : NeZero (primeChainPrimes i) := ⟨ne_of_gt (primeChainPrimes_prime i).pos⟩
-  fin_cases i <;> decide
+  fin_cases i <;> exact primeChainOrdered_of_check _ (by decide +kernel)
 
 /-- Explicit alphabets, with every upper digit allowed. -/
 def concretePrimeDigits (i : Fin 6) : Finset ℤ := primeChainDigits (concretePrimeChain i)

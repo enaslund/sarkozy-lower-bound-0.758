@@ -1,5 +1,10 @@
-import Sarkozy.OddOrderData437
-import Sarkozy.OddEndpointCheck
+module
+
+public import Sarkozy.OddOrderData437
+public import Sarkozy.OddEndpointCheck
+
+@[expose] public section
+set_option backward.privateInPublic true
 
 /-!
 # Endpoint ordering through a Boolean certificate

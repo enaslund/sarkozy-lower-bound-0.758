@@ -1,5 +1,10 @@
-import Sarkozy.OddOrder
-import Sarkozy.OddData
+module
+
+public import Sarkozy.OddOrder
+public import Sarkozy.OddData
+
+@[expose] public section
+set_option backward.privateInPublic true
 
 /-!
 # Executable representation of compressed odd order certificates
@@ -59,42 +64,43 @@ theorem allIndexed_sound {α : Type} (P : ℕ → α → Bool)
           have hr := ih (offset+1) hs.2 k (by simpa using hk)
           simpa [Nat.add_assoc, Nat.add_comm, Nat.add_left_comm] using hr
 
-def sourceCheck (p0 p1 e : ℕ) (G0 G1 : List ℤ → ℕ) (E : MaskTree)
+/-- Source checks; the depths `e0` and `e1` of the two primes may differ. -/
+def sourceCheck (p0 p1 e0 e1 : ℕ) (G0 G1 : List ℤ → ℕ) (E : MaskTree)
     (i : ℕ) (r : Entry) : Bool :=
-  sourceCovered G0 p0 e (entryPoint r 0) [] i &&
-    (sourceCovered G1 p1 e (entryPoint r 1) [] i &&
+  sourceCovered G0 p0 e0 (entryPoint r 0) [] i &&
+    (sourceCovered G1 p1 e1 (entryPoint r 1) [] i &&
       decide (E.lookup i = entryEnd r))
 
-def targetCheck (n p0 p1 e : ℕ) (G0 G1 : List ℤ → ℕ) (E : MaskTree)
+def targetCheck (n p0 p1 e0 e1 : ℕ) (G0 G1 : List ℤ → ℕ) (E : MaskTree)
     (i : ℕ) (r : Entry) : Bool :=
   decide (r.2 ≤ n) &&
     ((decide (r.2 = 0) || decide (E.lookup (r.2-1) ≤ entryStart r)) &&
-      belowOrSelf (predecessors G0 p0 e (entryPoint r 0) [] &&&
-        predecessors G1 p1 e (entryPoint r 1) []) r.2 i)
+      belowOrSelf (predecessors G0 p0 e0 (entryPoint r 0) [] &&&
+        predecessors G1 p1 e1 (entryPoint r 1) []) r.2 i)
 
 /-- Successful finite checks imply every semantic two-prime square edge has
 its source interval entirely before its target interval. -/
 theorem interval_order_of_checked_rows
-    (p0 p1 e : ℕ) (hp0 : 0 < p0) (hp1 : 0 < p1)
+    (p0 p1 e0 e1 : ℕ) (hp0 : 0 < p0) (hp1 : 0 < p1)
     (rows : List Entry) (G0 G1 : List ℤ → ℕ) (E : MaskTree)
-    (hsource : allIndexed (sourceCheck p0 p1 e G0 G1 E) 0 rows = true)
-    (htarget : allIndexed (targetCheck rows.length p0 p1 e G0 G1 E) 0 rows = true)
+    (hsource : allIndexed (sourceCheck p0 p1 e0 e1 G0 G1 E) 0 rows = true)
+    (htarget : allIndexed (targetCheck rows.length p0 p1 e0 e1 G0 G1 E) 0 rows = true)
     (hsorted : (rows.map entryEnd).IsChain (· ≤ ·)) :
     ∀ k l : Fin rows.length, k ≠ l →
-      (∀ c : Fin 2, PrimeLowRelated (![p0,p1] c) e
+      (∀ c : Fin 2, PrimeLowRelated (![p0,p1] c) (![e0,e1] c)
         (entryPoint (rows.get k) c) (entryPoint (rows.get l) c)) →
       entryEnd (rows.get k) ≤ entryStart (rows.get l) := by
   have hs (k : Fin rows.length) :
-      sourceCovered G0 p0 e (entryPoint (rows.get k) 0) [] k.val = true ∧
-      sourceCovered G1 p1 e (entryPoint (rows.get k) 1) [] k.val = true ∧
+      sourceCovered G0 p0 e0 (entryPoint (rows.get k) 0) [] k.val = true ∧
+      sourceCovered G1 p1 e1 (entryPoint (rows.get k) 1) [] k.val = true ∧
       E.lookup k.val = entryEnd (rows.get k) := by
     have h := allIndexed_sound _ 0 rows hsource k.val k.isLt
     simpa only [Nat.zero_add, List.get_eq_getElem, sourceCheck, Bool.and_eq_true, decide_eq_true_eq] using h
   have ht (k : Fin rows.length) :
       (rows.get k).2 ≤ rows.length ∧
       ((rows.get k).2 = 0 ∨ E.lookup ((rows.get k).2-1) ≤ entryStart (rows.get k)) ∧
-      belowOrSelf (predecessors G0 p0 e (entryPoint (rows.get k) 0) [] &&&
-        predecessors G1 p1 e (entryPoint (rows.get k) 1) []) (rows.get k).2 k.val = true := by
+      belowOrSelf (predecessors G0 p0 e0 (entryPoint (rows.get k) 0) [] &&&
+        predecessors G1 p1 e1 (entryPoint (rows.get k) 1) []) (rows.get k).2 k.val = true := by
     have h := allIndexed_sound _ 0 rows htarget k.val k.isLt
     simpa only [Nat.zero_add, List.get_eq_getElem, targetCheck, Bool.and_eq_true, Bool.or_eq_true,
       decide_eq_true_eq] using h
@@ -112,7 +118,7 @@ theorem interval_order_of_checked_rows
     intro c
     fin_cases c
     · exact hp0
-    · exact hp1) e (fun k c => entryPoint (rows.get k) c)
+    · exact hp1) ![e0,e1] (fun k c => entryPoint (rows.get k) c)
       (fun k => entryStart (rows.get k)) (fun k => entryWidth (rows.get k))
       ![G0,G1] cut hm
   · intro k hpos
@@ -139,18 +145,18 @@ theorem primeLowRelated_refl (p : ℤ) (e : ℕ) (a : ℤ) : PrimeLowRelated p e
   | succ e ih => simpa only [PrimeLowRelated, ite_true] using ih (a/p)
 
 /-- An ordered positive-width certificate cannot contain duplicate low points. -/
-theorem point_injective_of_order (n : ℕ) (p : Fin 2 → ℕ) (e : ℕ)
+theorem point_injective_of_order (n : ℕ) (p e : Fin 2 → ℕ)
     (point : Fin n → Fin 2 → ℤ) (start width : Fin n → ℕ)
     (hwidth : ∀ k, 0 < width k)
     (horder : ∀ k l, k ≠ l →
-      (∀ c, PrimeLowRelated (p c) e (point k c) (point l c)) →
+      (∀ c, PrimeLowRelated (p c) (e c) (point k c) (point l c)) →
       start k + width k ≤ start l) : Function.Injective point := by
   intro k l heq
   by_contra hne
-  have hrel (c : Fin 2) : PrimeLowRelated (p c) e (point k c) (point l c) := by
+  have hrel (c : Fin 2) : PrimeLowRelated (p c) (e c) (point k c) (point l c) := by
     rw [congrFun heq c]
     exact primeLowRelated_refl _ _ _
-  have hrev (c : Fin 2) : PrimeLowRelated (p c) e (point l c) (point k c) := by
+  have hrev (c : Fin 2) : PrimeLowRelated (p c) (e c) (point l c) (point k c) := by
     rw [congrFun heq c]
     exact primeLowRelated_refl _ _ _
   have hf := horder k l hne hrel

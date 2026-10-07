@@ -1,4 +1,9 @@
-import Sarkozy.PowerPolynomial
+module
+
+public import Sarkozy.PowerPolynomial
+
+@[expose] public section
+set_option backward.privateInPublic true
 
 /-! A finite power certificate retaining only its two terminal root bounds. -/
 namespace Sarkozy.PowerChecker

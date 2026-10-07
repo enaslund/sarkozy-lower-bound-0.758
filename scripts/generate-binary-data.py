@@ -9,6 +9,9 @@ from fractions import Fraction
 import hashlib
 import json
 import sys
+import sys as _sys
+_sys.path.insert(0, str(__import__("pathlib").Path(__file__).resolve().parent))
+from lean_module import moduleize
 
 source = Path(sys.argv[1])
 data = json.loads(source.read_text())
@@ -35,7 +38,7 @@ for state in data['states']:
 header = '''import Mathlib
 
 /-!
-# Exact geometry of the 25-state certificate for exponent 0.75806746
+# Exact geometry of the 25-state certificate for exponent 0.7580758318008816
 
 All endpoints and affine maps are rational. `geometry_verified` is proved
 by `decide +kernel`, so the finite checks are reduced by Lean's kernel.
@@ -121,5 +124,5 @@ digest = hashlib.sha256(source.read_bytes()).hexdigest()
 result = header+f'-- Source certificate SHA-256: {digest}\n'
 result += 'def states : List State := [\n'+',\n'.join(states)+']\n'+footer
 output = Path(__file__).resolve().parents[1] / 'Sarkozy/BinaryData.lean'
-output.write_text(result)
+output.write_text(moduleize(result))
 print(f'Wrote {output}: {len(states)} states, source SHA-256 {digest}')

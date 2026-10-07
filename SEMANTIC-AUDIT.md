@@ -1,9 +1,11 @@
 # Semantic audit of the full lower bound
 
-Reviewed 2026-09-11; numerical-checker extension reviewed 2026-09-14. **No mathematical or statement-level defect was found.**
+Reviewed 2026-09-11; numerical-checker extension reviewed 2026-09-14; port to
+the exponent `0.7580758318008816` reviewed 2026-10-06 (see the last section).
+**No mathematical or statement-level defect was found.**
 The final theorem proves the intended square-difference-free lower bound with
-the full exponent `0.75806746`. This is a source-level adversarial review;
-fresh build and verifier results are recorded separately in
+the full exponent `0.7580758318008816`. This is a source-level adversarial
+review; fresh build and verifier results are recorded separately in
 [verification/README.md](verification/README.md).
 
 ## What the theorem actually says
@@ -16,16 +18,16 @@ number \(N\geq N_0\) admits a finite set \(A\subseteq\mathbb Z\) satisfying
 \[
  A\subseteq\{1,\ldots,N\},\qquad
  y-x\ne z^2\quad(x,y\in A,\ z\in\mathbb Z\setminus\{0\}),\qquad
- |A|\geq N^{37903373/50000000-\varepsilon}.
+ |A|\geq N^{473797394875551/625000000000000-\varepsilon}.
 \]
 
 This is the usual meaning of the lower bound
-\(N^{0.75806746-o(1)}\). The quantifier order permits the set and the threshold
+\(N^{0.7580758318008816-o(1)}\). The quantifier order permits the set and the threshold
 to depend on \(\varepsilon\), as required. It establishes all sufficiently
 large \(N\), rather than merely an infinite subsequence.
 
-The numeral `37903373 / 50000000` is division in **the real numbers**, exactly
-`0.75806746`. The base `N` and cardinality are also cast to the reals in the
+The numeral `(473797394875551 : ℝ) / 625000000000000` is division in **the real
+numbers**, exactly `0.7580758318008816`. The base `N` and cardinality are also cast to the reals in the
 size inequality. There is no natural-number division or truncated exponent.
 The upper bound on set elements is an integer comparison with the cast of
 `N`. Using `Finset ℤ` counts distinct integers, not a multiset.
@@ -48,13 +50,13 @@ not assumptions of the final theorem.
 |---|---|---|
 | Six prime chains | \(3^2,7^2,11^2,31^2,59^2,103^2\) | `concretePrime_interval_ordered`, `concretePrime_geometry`, `concretePrime_certified_moment`; assembled in [ReducedTarget](Sarkozy/ReducedTarget.lean) |
 | First odd component | \(215^6\), with primes 5 and 43 | `OddOrder215.interval_certificate` in [Odd215Certificate](Sarkozy/Odd215Certificate.lean) |
-| Second odd component | \(437^6\), with primes 19 and 23 | `OddOrder437.interval_certificate` in [Odd437Certificate](Sarkozy/Odd437Certificate.lean) |
-| Binary component | \(4^{10^{10}}\) | `RecordBinary.policy_valid`, `rows_verified`, `depth_condition`; assembled by `record_binary_interval_certificate` in [TwoOddTarget](Sarkozy/TwoOddTarget.lean) |
+| Second odd component | \((19^3\cdot23^2)^2\), with three digits at 19 and two at 23 | `OddOrder437.interval_certificate` in [Odd437Certificate](Sarkozy/Odd437Certificate.lean) |
+| Binary component | \(4^{10^{20}}\) | `RecordBinary.policy_valid`, `rows_verified`, `depth_condition`; assembled by `record_binary_interval_certificate` in [TwoOddTarget](Sarkozy/TwoOddTarget.lean) |
 
 [Parameters](Sarkozy/Parameters.lean) proves that all nine bases are squares,
 greater than one, and pairwise coprime. The nine moment powers are
 nonnegative, and their sum exceeds the target exponent by exactly
-`25671 / 1000000000000`. The strict surplus used to absorb losses is therefore
+`15468032462 / 10^25`. The strict surplus used to absorb losses is therefore
 positive, not a floating-point approximation.
 
 For each odd component, the checked ordering and positive widths imply
@@ -68,7 +70,7 @@ to be a permutation of the geometry widths, so a correct numerical bound for
 the wrong widths cannot be substituted.
 
 The binary alphabet is defined recursively and verified by induction at
-every depth. The depth `10^10` is an ordinary finite natural number; its
+every depth. The depth `10^20` is an ordinary finite natural number; its
 alphabet need not be explicitly enumerated. All policy validity checks,
 growth rows, initialization, reflection/parity conditions and the final
 depth inequality are proved. Exact integer square comparisons and proved
@@ -107,15 +109,14 @@ found no `sorry`, `admit`, custom axiom, `unsafe`, `native_decide`, or
 does not import that module. They are absent from the proved theorem's
 dependency chain.
 
-The endpoint cleanup preserves every width, multiplicity, lower numerator
-and terminal root bound. Its new shared checker proves that two direct
-integer power inequalities and the logarithm comparison imply the real-power
-bound. The proof handles any positive integer degree and the certificates
-use degree 1024. Its positivity hypotheses, denominator scalings and
-inequality directions were checked; the general theorem separately passed
-Lean and independent NanoDa. The integrated source also passed the complete Lean build, 76 axiom
-inspections and full independent NanoDa replay; their exact coverage is in
-[verification/README.md](verification/README.md).
+The shared endpoint checker proves that two direct integer power
+inequalities and the logarithm comparison imply the real-power bound. The
+proof handles any positive integer degree; the current certificates use
+degree 4096. Its positivity hypotheses, denominator scalings and inequality
+directions were checked. The current source passed a fresh complete Lean
+build and 76 axiom inspections. The independent NanoDa replay recorded in
+[verification/README.md](verification/README.md) covers the September source,
+not the current one.
 
 The data generators propose witnesses. Their output is checked through
 proved soundness lemmas and ordinary kernel reduction, so generator
@@ -132,3 +133,61 @@ claims are not needed for the stated Sarkozy lower bound. Stale introductions
 that described earlier conditional stages were corrected during this review.
 The conditional lemmas remain useful modular interfaces; their inputs are
 discharged in the full theorem.
+
+## Review of the port to 0.7580758318008816 (2026-10-06)
+
+The port changed the selected numerical statement only in its exponent
+literal. `interval_moment_bound` is unchanged, and `improved_bound` differs
+only in replacing `37903373 / 50000000` by `473797394875551 / 625000000000000`;
+the Challenge and Solution statements were compared textually and agree. The
+review checked the following points.
+
+- **General theorems.** No theorem of the asymptotic criterion, the odd lift
+  or the binary recursion changed. `odd_prime_interval_lift` already allowed a
+  separate depth for each prime.
+- **Odd interface.** `recordOddDepths` gives depths `(3,3)` and `(3,2)`.
+  `recordOdd_modulus` and `recordOdd_free_factor` prove that the lifted
+  modulus is `componentBases` and the free multiplicity is `215^3`,
+  respectively `3628411 = 19^3*23^2`, by computation rather than by
+  assumption. `componentBases 7 = 3628411^2` is a square greater than one and
+  coprime to the other bases, as `Parameters` proves.
+- **Order checker.** `sourceCheck`, `targetCheck` and
+  `interval_order_of_masks` now take one depth per prime. The soundness proof
+  is the same induction applied separately in each coordinate, and the
+  conclusion quantifies over `PrimeLowRelated (p c) (e c)`, exactly the
+  relation required by the lift. The `(5,43)` call sites pass depths `3 3`.
+- **Numerical certificates.** All moment, row, threshold, chain and depth
+  certificates are checked by the same proved lemmas as before, now with more
+  precision. In particular the binary rows switched from square-root ladders
+  to `PowerChecker.endpoint_valid_sound`; the proof compares each rounded
+  scale with the actual branch scale (`row_scale_rational`) and uses
+  monotonicity of `rpow`, as before. The binary power literal is the
+  unreduced `1549247890379023302829202/10^25`, which `rfl` identifies with
+  `componentPowers 8`.
+- **Weakened constant.** The binary initialization constant remains `1/4`,
+  below the certificate's `0.3551`; `rational_seed_bound` checks it for all 25
+  states, and the depth margin is still at least 45.
+
+### Lean v4.35.0-rc2 and the module system (2026-10-06)
+
+The same source was then moved to Lean v4.35.0-rc2 and Mathlib
+`065356127b1dc0016f66b7283ce0ce2c4055aa55`, as Palomar now requires. Every
+file starts with `module`, imports with `public import` and wraps its
+declarations in `@[expose] public section`, with
+`backward.privateInPublic` so that the generated `private` certificate chunks
+remain usable from public proofs. These headers change visibility only: no
+statement, definition or certificate value changed, and Challenge and
+Solution differ from their previous text only in the header lines. Three
+proofs were repaired for the new versions: `Finset.prod_le_prod₀` replaces a
+renamed Mathlib lemma; `component_base` now rewrites with the equation lemma
+instead of letting the kernel evaluate `4^(10^20)`; and the prime-chain
+ordering is checked by a Boolean function `primeChainCheck` with a proved
+soundness lemma `primeChainOrdered_of_check`, replacing a `decide` that no
+longer reduces through `ZMod`. The soundness lemma quantifies over every
+`z : ZMod p`, exactly as `PrimeChainOrdered` does. The (19,23) order table is
+reformatted to at most 100 characters per line, which keeps every file below
+Palomar's 10,000-line limit.
+
+The build, axiom audit, `leanchecker` kernel replays and the bundled
+comparator run (Lean's kernel, NanoDa and con-ron) of this source are recorded
+in [verification/README.md](verification/README.md).

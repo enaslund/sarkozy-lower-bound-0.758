@@ -1,5 +1,10 @@
-import Sarkozy
-import Solution
+module
+
+public import Sarkozy
+public import Solution
+
+@[expose] public section
+set_option backward.privateInPublic true
 
 -- These declarations should depend only on Lean's standard foundational axioms.
 #print axioms Sarkozy.reverseRank_realization

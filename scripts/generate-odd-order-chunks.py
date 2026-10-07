@@ -2,6 +2,10 @@
 """Split the actual 215 kernel checks into sequential, independently cached modules."""
 from pathlib import Path
 
+import sys as _sys
+_sys.path.insert(0, str(__import__("pathlib").Path(__file__).resolve().parent))
+from lean_module import moduleize
+
 ROOT = Path(__file__).resolve().parents[1]
 CHUNKS = ROOT / 'Sarkozy/OddOrderChunks215'
 N = 4913
@@ -45,7 +49,7 @@ end Sarkozy.OddOrder215
 
 def main():
     CHUNKS.mkdir(exist_ok=True)
-    (ROOT / 'Sarkozy/OddOrderBase215.lean').write_text(BASE)
+    (ROOT / 'Sarkozy/OddOrderBase215.lean').write_text(moduleize(BASE))
     for i in range(COUNT):
         previous = 'Sarkozy.OddOrderBase215' if i == 0 else f'Sarkozy.OddOrderChunks215.Chunk{i-1:02d}'
         offset = i * BLOCK
@@ -63,18 +67,18 @@ namespace Sarkozy.OddOrder215
 open OddOrder
 
 theorem source_chunk_{i:02d} :
-    allIndexed (sourceCheck 5 43 3 G5 G43 endpointTable) {offset}
+    allIndexed (sourceCheck 5 43 3 3 G5 G43 endpointTable) {offset}
       ((rows.drop {offset}).take {BLOCK}) = true := by
   decide +kernel
 
 theorem target_chunk_{i:02d} :
-    allIndexed (fastTargetCheck {N} 5 43 3 G5 G43 endpointTable) {offset}
+    allIndexed (fastTargetCheck {N} 5 43 3 3 G5 G43 endpointTable) {offset}
       ((rows.drop {offset}).take {BLOCK}) = true := by
   decide +kernel
 
 end Sarkozy.OddOrder215
 '''
-        (CHUNKS / f'Chunk{i:02d}.lean').write_text(text)
+        (CHUNKS / f'Chunk{i:02d}.lean').write_text(moduleize(text))
     aggregate = f'''import Sarkozy.OddOrderChunks215.Chunk{COUNT-1:02d}
 import Sarkozy.OddOrderChunkLemma
 
@@ -89,8 +93,8 @@ namespace Sarkozy.OddOrder215
 
 open OddOrder
 
-theorem sources_checked : allIndexed (sourceCheck 5 43 3 G5 G43 endpointTable) 0 rows = true := by
-  apply allIndexed_of_blocks (P := sourceCheck 5 43 3 G5 G43 endpointTable)
+theorem sources_checked : allIndexed (sourceCheck 5 43 3 3 G5 G43 endpointTable) 0 rows = true := by
+  apply allIndexed_of_blocks (P := sourceCheck 5 43 3 3 G5 G43 endpointTable)
     (rows := rows) (b := {BLOCK}) (c := {COUNT}) (by decide) (by rw [rows_size]; decide)
   intro i
   fin_cases i
@@ -98,8 +102,8 @@ theorem sources_checked : allIndexed (sourceCheck 5 43 3 G5 G43 endpointTable) 0
     aggregate += ''.join(f'  · exact source_chunk_{i:02d}\n' for i in range(COUNT))
     aggregate += f'''
 theorem targets_checked_fast :
-    allIndexed (fastTargetCheck {N} 5 43 3 G5 G43 endpointTable) 0 rows = true := by
-  apply allIndexed_of_blocks (P := fastTargetCheck {N} 5 43 3 G5 G43 endpointTable)
+    allIndexed (fastTargetCheck {N} 5 43 3 3 G5 G43 endpointTable) 0 rows = true := by
+  apply allIndexed_of_blocks (P := fastTargetCheck {N} 5 43 3 3 G5 G43 endpointTable)
     (rows := rows) (b := {BLOCK}) (c := {COUNT}) (by decide) (by rw [rows_size]; decide)
   intro i
   fin_cases i
@@ -107,12 +111,12 @@ theorem targets_checked_fast :
     aggregate += ''.join(f'  · exact target_chunk_{i:02d}\n' for i in range(COUNT))
     aggregate += '''
 theorem targets_checked :
-    allIndexed (targetCheck rows.length 5 43 3 G5 G43 endpointTable) 0 rows = true := by
+    allIndexed (targetCheck rows.length 5 43 3 3 G5 G43 endpointTable) 0 rows = true := by
   simpa only [fastTargetCheck_eq, rows_size] using targets_checked_fast
 
 end Sarkozy.OddOrder215
 '''
-    (ROOT / 'Sarkozy/OddOrderChecks215.lean').write_text(aggregate)
+    (ROOT / 'Sarkozy/OddOrderChecks215.lean').write_text(moduleize(aggregate))
     print(f'Generated {COUNT} sequential chunks of at most {BLOCK} rows and their aggregate.')
 
 

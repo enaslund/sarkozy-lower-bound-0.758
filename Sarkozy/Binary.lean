@@ -1,4 +1,9 @@
-import Sarkozy.Intervals
+module
+
+public import Sarkozy.Intervals
+
+@[expose] public section
+set_option backward.privateInPublic true
 
 /-!+# Binary square differences and parity-window assembly
 

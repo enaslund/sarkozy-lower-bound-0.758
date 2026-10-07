@@ -1,4 +1,9 @@
-import Sarkozy.OddOrderCertificate
+module
+
+public import Sarkozy.OddOrderCertificate
+
+@[expose] public section
+set_option backward.privateInPublic true
 
 /-!
 # Definitionally transparent evaluation for repeated prefix queries
@@ -52,16 +57,17 @@ theorem fastPredecessors_eq (G : List ℤ → ℕ) (p e : ℕ) (b : ℤ) (pre : 
   | zero => rfl
   | succ e ih =>
       simp only [fastPredecessors, withInt_eq, predecessors, ih, candidate, Int.emod_emod]
+      rfl
 
-def fastTargetCheck (n p0 p1 e : ℕ) (G0 G1 : List ℤ → ℕ) (E : MaskTree)
+def fastTargetCheck (n p0 p1 e0 e1 : ℕ) (G0 G1 : List ℤ → ℕ) (E : MaskTree)
     (i : ℕ) (r : Entry) : Bool :=
   decide (r.2 ≤ n) &&
     ((decide (r.2 = 0) || decide (E.lookup (r.2-1) ≤ entryStart r)) &&
-      belowOrSelf (fastPredecessors G0 p0 e (entryPoint r 0) [] &&&
-        fastPredecessors G1 p1 e (entryPoint r 1) []) r.2 i)
+      belowOrSelf (fastPredecessors G0 p0 e0 (entryPoint r 0) [] &&&
+        fastPredecessors G1 p1 e1 (entryPoint r 1) []) r.2 i)
 
-theorem fastTargetCheck_eq (n p0 p1 e : ℕ) (G0 G1 : List ℤ → ℕ) (E : MaskTree) :
-    fastTargetCheck n p0 p1 e G0 G1 E = targetCheck n p0 p1 e G0 G1 E := by
+theorem fastTargetCheck_eq (n p0 p1 e0 e1 : ℕ) (G0 G1 : List ℤ → ℕ) (E : MaskTree) :
+    fastTargetCheck n p0 p1 e0 e1 G0 G1 E = targetCheck n p0 p1 e0 e1 G0 G1 E := by
   funext i r
   simp only [fastTargetCheck, targetCheck, fastPredecessors_eq]
 

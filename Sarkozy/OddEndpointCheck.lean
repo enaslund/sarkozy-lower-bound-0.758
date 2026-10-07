@@ -1,4 +1,9 @@
-import Sarkozy.OddOrderCertificate
+module
+
+public import Sarkozy.OddOrderCertificate
+
+@[expose] public section
+set_option backward.privateInPublic true
 
 /-!
 # Boolean checking of adjacent endpoint inequalities

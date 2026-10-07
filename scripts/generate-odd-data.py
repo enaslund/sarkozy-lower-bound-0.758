@@ -10,6 +10,9 @@ from __future__ import annotations
 import hashlib
 import json
 from pathlib import Path
+import sys as _sys
+_sys.path.insert(0, str(__import__("pathlib").Path(__file__).resolve().parent))
+from lean_module import moduleize
 
 ROOT = Path(__file__).resolve().parents[2]
 SOURCE = ROOT / 'research-notes/odd-search/q215-depth3-product.json'
@@ -135,7 +138,7 @@ theorem row_bounds (k : Fin 4913) :
   OddData.bounds_of_list_all 125 79507 denominator rows rows_valid (Fin.cast rows_size.symm k)
 
 theorem point_bounds (k : Fin 4913) (i : Fin 2) :
-    point k i < (recordOddPrimes 0 i)^3 := by
+    point k i < (recordOddPrimes 0 i)^(recordOddDepths 0 i) := by
   have h := row_bounds k
   fin_cases i
   · change (row k).1.1 < 125
@@ -162,7 +165,7 @@ end
 
 end Sarkozy.Odd215
 ''' 
-    DEST.write_text(header + literal + footer)
+    DEST.write_text(moduleize(header + literal + footer))
     print(json.dumps({'source_sha256': SHA256, 'vertices': n,
                       'edges': edge_count, 'max_endpoint': max(ends),
                       'denominator': denominator, 'lean_file': str(DEST)}, indent=2))

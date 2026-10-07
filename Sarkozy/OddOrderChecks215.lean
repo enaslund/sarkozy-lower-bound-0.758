@@ -1,5 +1,10 @@
-import Sarkozy.OddOrderChunks215.Chunk38
-import Sarkozy.OddOrderChunkLemma
+module
+
+public import Sarkozy.OddOrderChunks215.Chunk38
+public import Sarkozy.OddOrderChunkLemma
+
+@[expose] public section
+set_option backward.privateInPublic true
 
 /-!
 # Every row of the actual 215 order certificate is checked
@@ -12,8 +17,8 @@ namespace Sarkozy.OddOrder215
 
 open OddOrder
 
-theorem sources_checked : allIndexed (sourceCheck 5 43 3 G5 G43 endpointTable) 0 rows = true := by
-  apply allIndexed_of_blocks (P := sourceCheck 5 43 3 G5 G43 endpointTable)
+theorem sources_checked : allIndexed (sourceCheck 5 43 3 3 G5 G43 endpointTable) 0 rows = true := by
+  apply allIndexed_of_blocks (P := sourceCheck 5 43 3 3 G5 G43 endpointTable)
     (rows := rows) (b := 128) (c := 39) (by decide) (by rw [rows_size]; decide)
   intro i
   fin_cases i
@@ -58,8 +63,8 @@ theorem sources_checked : allIndexed (sourceCheck 5 43 3 G5 G43 endpointTable) 0
   · exact source_chunk_38
 
 theorem targets_checked_fast :
-    allIndexed (fastTargetCheck 4913 5 43 3 G5 G43 endpointTable) 0 rows = true := by
-  apply allIndexed_of_blocks (P := fastTargetCheck 4913 5 43 3 G5 G43 endpointTable)
+    allIndexed (fastTargetCheck 4913 5 43 3 3 G5 G43 endpointTable) 0 rows = true := by
+  apply allIndexed_of_blocks (P := fastTargetCheck 4913 5 43 3 3 G5 G43 endpointTable)
     (rows := rows) (b := 128) (c := 39) (by decide) (by rw [rows_size]; decide)
   intro i
   fin_cases i
@@ -104,7 +109,7 @@ theorem targets_checked_fast :
   · exact target_chunk_38
 
 theorem targets_checked :
-    allIndexed (targetCheck rows.length 5 43 3 G5 G43 endpointTable) 0 rows = true := by
+    allIndexed (targetCheck rows.length 5 43 3 3 G5 G43 endpointTable) 0 rows = true := by
   simpa only [fastTargetCheck_eq, rows_size] using targets_checked_fast
 
 end Sarkozy.OddOrder215

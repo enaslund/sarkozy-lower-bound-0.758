@@ -1,5 +1,10 @@
-import Sarkozy.BinaryRows
-import Sarkozy.BinaryDepth
+module
+
+public import Sarkozy.BinaryRows
+public import Sarkozy.BinaryDepth
+
+@[expose] public section
+set_option backward.privateInPublic true
 
 /-!
 # A modular interface for the two odd components

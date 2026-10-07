@@ -1,4 +1,9 @@
-import Sarkozy.Ranked
+module
+
+public import Sarkozy.Ranked
+
+@[expose] public section
+set_option backward.privateInPublic true
 
 /-! Passing from an explicit geometric family to a bound for every large integer. -/
 

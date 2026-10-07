@@ -1,4 +1,9 @@
-import Sarkozy.Moment
+module
+
+public import Sarkozy.Moment
+
+@[expose] public section
+set_option backward.privateInPublic true
 
 /-!
 # Automatic uniform bounds for finite interval alphabets

@@ -1,0 +1,92 @@
+[
+ {
+  "command": [
+   "lake",
+   "build",
+   "Sarkozy.Odd437MomentData"
+  ],
+  "exit_code": 0,
+  "seconds": 154.51,
+  "log": "verification/exponent-0.7580758318008816/Sarkozy-Odd437MomentData.log"
+ },
+ {
+  "command": [
+   "lake",
+   "build",
+   "Sarkozy.OddOrder215"
+  ],
+  "exit_code": 0,
+  "seconds": 618.23,
+  "log": "verification/exponent-0.7580758318008816/Sarkozy-OddOrder215.log"
+ },
+ {
+  "command": [
+   "lake",
+   "build",
+   "Sarkozy.OddOrder437"
+  ],
+  "exit_code": 0,
+  "seconds": 158.85,
+  "log": "verification/exponent-0.7580758318008816/Sarkozy-OddOrder437.log"
+ },
+ {
+  "command": [
+   "lake",
+   "build",
+   "Sarkozy.Odd215Moment"
+  ],
+  "exit_code": 0,
+  "seconds": 86.72,
+  "log": "verification/exponent-0.7580758318008816/Sarkozy-Odd215Moment.log"
+ },
+ {
+  "command": [
+   "lake",
+   "build",
+   "Sarkozy.Odd215Certificate"
+  ],
+  "exit_code": 0,
+  "seconds": 54.63,
+  "log": "verification/exponent-0.7580758318008816/Sarkozy-Odd215Certificate.log"
+ },
+ {
+  "command": [
+   "lake",
+   "build",
+   "Sarkozy.Odd437Moment"
+  ],
+  "exit_code": 0,
+  "seconds": 30.11,
+  "log": "verification/exponent-0.7580758318008816/Sarkozy-Odd437Moment.log"
+ },
+ {
+  "command": [
+   "lake",
+   "build",
+   "Sarkozy.Odd437WidthHistogram"
+  ],
+  "exit_code": 0,
+  "seconds": 21.63,
+  "log": "verification/exponent-0.7580758318008816/Sarkozy-Odd437WidthHistogram.log"
+ },
+ {
+  "command": [
+   "lake",
+   "build"
+  ],
+  "exit_code": 0,
+  "seconds": 29.92,
+  "log": "verification/exponent-0.7580758318008816/full-build.log"
+ },
+ {
+  "command": [
+   "lake",
+   "env",
+   "lean",
+   "Check.lean"
+  ],
+  "exit_code": 0,
+  "seconds": 5.54,
+  "log": "verification/exponent-0.7580758318008816/axioms.log"
+ }
+]

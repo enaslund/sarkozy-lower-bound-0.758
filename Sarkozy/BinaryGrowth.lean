@@ -1,4 +1,9 @@
-import Sarkozy.Binary
+module
+
+public import Sarkozy.Binary
+
+@[expose] public section
+set_option backward.privateInPublic true
 
 /-!+# Exact binary moment accounting and positive-vector growth
 

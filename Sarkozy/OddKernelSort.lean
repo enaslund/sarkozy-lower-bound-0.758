@@ -1,4 +1,9 @@
-import Mathlib.Data.List.Sort
+module
+
+public import Mathlib.Data.List.Sort
+
+@[expose] public section
+set_option backward.privateInPublic true
 
 /-!
 # A kernel-reducible multiset check for width lists

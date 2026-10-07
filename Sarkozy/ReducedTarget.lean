@@ -1,7 +1,12 @@
-import Sarkozy.FiniteAlphabets
-import Sarkozy.PrimeChains
-import Sarkozy.Parameters
-import Sarkozy.ChainMoments
+module
+
+public import Sarkozy.FiniteAlphabets
+public import Sarkozy.PrimeChains
+public import Sarkozy.Parameters
+public import Sarkozy.ChainMoments
+
+@[expose] public section
+set_option backward.privateInPublic true
 
 /-!
 # A modular interface adjoining three components to the prime chains

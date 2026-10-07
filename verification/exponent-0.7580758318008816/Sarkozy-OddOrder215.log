@@ -1,0 +1,82 @@
+⚠ [8658/8720] Replayed Sarkozy.PrimeChains
+warning: Sarkozy/PrimeChains.lean:55:42: Variable name `hp` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+✔ [8661/8720] Built Sarkozy.Asymptotic (5.0s)
+✔ [8662/8720] Built Sarkozy.CRT (6.2s)
+✔ [8663/8720] Built Sarkozy.Stopping (6.6s)
+✔ [8664/8720] Built Sarkozy.Certificate (5.5s)
+✔ [8665/8720] Built Sarkozy.Growth (6.2s)
+✔ [8666/8720] Built Sarkozy.Moment (5.7s)
+✔ [8667/8720] Built Sarkozy.FiniteAlphabets (5.0s)
+✔ [8668/8720] Built Sarkozy.ReducedTarget (6.0s)
+✔ [8669/8720] Built Sarkozy.OddLift (9.3s)
+✔ [8670/8720] Built Sarkozy.OddCertificate (4.0s)
+✔ [8671/8720] Built Sarkozy.OddTarget (5.8s)
+⚠ [8672/8720] Built Sarkozy.OddOrder (4.0s)
+warning: Sarkozy/OddOrder.lean:33:22: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [8673/8720] Built Sarkozy.OddFiniteCertificate (5.3s)
+⚠ [8674/8720] Built Sarkozy.OddData (5.3s)
+warning: Sarkozy/OddData.lean:56:10: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: Sarkozy/OddData.lean:56:34: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+⚠ [8675/8720] Built Sarkozy.OddOrderCertificate (5.2s)
+warning: Sarkozy/OddOrderCertificate.lean:110:10: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: Sarkozy/OddOrderCertificate.lean:110:34: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+✔ [8676/8720] Built Sarkozy.OddOrderChunkLemma (5.0s)
+✔ [8677/8720] Built Sarkozy.OddOrderFast (5.2s)
+✔ [8678/8720] Built Sarkozy.OddOrderData215 (121s)
+✔ [8679/8720] Built Sarkozy.OddOrderBase215 (8.7s)
+✔ [8680/8720] Built Sarkozy.OddOrderChunks215.Chunk00 (10s)
+✔ [8681/8720] Built Sarkozy.OddOrderChunks215.Chunk01 (10s)
+✔ [8682/8720] Built Sarkozy.OddOrderChunks215.Chunk02 (10s)
+✔ [8683/8720] Built Sarkozy.OddOrderChunks215.Chunk03 (10s)
+✔ [8684/8720] Built Sarkozy.OddOrderChunks215.Chunk04 (10s)
+✔ [8685/8720] Built Sarkozy.OddOrderChunks215.Chunk05 (10s)
+✔ [8686/8720] Built Sarkozy.OddOrderChunks215.Chunk06 (10s)
+✔ [8687/8720] Built Sarkozy.OddOrderChunks215.Chunk07 (10s)
+✔ [8688/8720] Built Sarkozy.OddOrderChunks215.Chunk08 (10s)
+✔ [8689/8720] Built Sarkozy.OddOrderChunks215.Chunk09 (10s)
+✔ [8690/8720] Built Sarkozy.OddOrderChunks215.Chunk10 (10s)
+✔ [8691/8720] Built Sarkozy.OddOrderChunks215.Chunk11 (10s)
+✔ [8692/8720] Built Sarkozy.OddOrderChunks215.Chunk12 (10s)
+✔ [8693/8720] Built Sarkozy.OddOrderChunks215.Chunk13 (11s)
+✔ [8694/8720] Built Sarkozy.OddOrderChunks215.Chunk14 (10s)
+✔ [8695/8720] Built Sarkozy.OddOrderChunks215.Chunk15 (10s)
+✔ [8696/8720] Built Sarkozy.OddOrderChunks215.Chunk16 (10s)
+✔ [8697/8720] Built Sarkozy.OddOrderChunks215.Chunk17 (10s)
+✔ [8698/8720] Built Sarkozy.OddOrderChunks215.Chunk18 (10s)
+✔ [8699/8720] Built Sarkozy.OddOrderChunks215.Chunk19 (10s)
+✔ [8700/8720] Built Sarkozy.OddOrderChunks215.Chunk20 (11s)
+✔ [8701/8720] Built Sarkozy.OddOrderChunks215.Chunk21 (10s)
+✔ [8702/8720] Built Sarkozy.OddOrderChunks215.Chunk22 (11s)
+✔ [8703/8720] Built Sarkozy.OddOrderChunks215.Chunk23 (10s)
+✔ [8704/8720] Built Sarkozy.OddOrderChunks215.Chunk24 (11s)
+✔ [8705/8720] Built Sarkozy.OddOrderChunks215.Chunk25 (11s)
+✔ [8706/8720] Built Sarkozy.OddOrderChunks215.Chunk26 (10s)
+✔ [8707/8720] Built Sarkozy.OddOrderChunks215.Chunk27 (11s)
+✔ [8708/8720] Built Sarkozy.OddOrderChunks215.Chunk28 (11s)
+✔ [8709/8720] Built Sarkozy.OddOrderChunks215.Chunk29 (10s)
+✔ [8710/8720] Built Sarkozy.OddOrderChunks215.Chunk30 (11s)
+✔ [8711/8720] Built Sarkozy.OddOrderChunks215.Chunk31 (11s)
+✔ [8712/8720] Built Sarkozy.OddOrderChunks215.Chunk32 (11s)
+✔ [8713/8720] Built Sarkozy.OddOrderChunks215.Chunk33 (11s)
+✔ [8714/8720] Built Sarkozy.OddOrderChunks215.Chunk34 (11s)
+✔ [8715/8720] Built Sarkozy.OddOrderChunks215.Chunk35 (11s)
+✔ [8716/8720] Built Sarkozy.OddOrderChunks215.Chunk36 (10s)
+✔ [8717/8720] Built Sarkozy.OddOrderChunks215.Chunk37 (11s)
+✔ [8718/8720] Built Sarkozy.OddOrderChunks215.Chunk38 (7.5s)
+✔ [8719/8720] Built Sarkozy.OddOrderChecks215 (4.0s)
+✔ [8720/8720] Built Sarkozy.OddOrder215 (4.8s)
+Build completed successfully (8720 jobs).

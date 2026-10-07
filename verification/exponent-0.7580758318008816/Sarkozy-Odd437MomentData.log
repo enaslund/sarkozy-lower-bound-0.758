@@ -1,0 +1,36 @@
+✔ [8655/8669] Built Sarkozy.Parameters (5.5s)
+✔ [8656/8669] Built Sarkozy.Ranked (5.8s)
+✔ [8657/8669] Built Sarkozy.Words (6.0s)
+✔ [8658/8669] Built Sarkozy.Intervals (7.2s)
+⚠ [8659/8669] Built Sarkozy.PrimeChains (25s)
+warning: Sarkozy/PrimeChains.lean:55:42: Variable name `hp` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+✔ [8660/8669] Built Sarkozy.ChainMoments (32s)
+⚠ [8661/8669] Built Sarkozy.PowerChecker (6.4s)
+warning: Sarkozy/PowerChecker.lean:53:61: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Sarkozy/PowerChecker.lean:77:61: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [8662/8669] Built Sarkozy.PowerPolynomial (6.4s)
+warning: Sarkozy/PowerPolynomial.lean:33:24: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Sarkozy/PowerPolynomial.lean:42:28: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: Sarkozy/PowerPolynomial.lean:42:28: 'ring' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+✔ [8663/8669] Built Sarkozy.FastPowerCertificate (5.5s)
+✔ [8664/8669] Built Sarkozy.Odd437MomentChecker (5.4s)
+✔ [8665/8669] Built Sarkozy.Odd437MomentChunks.Chunk000 (12s)
+✔ [8666/8669] Built Sarkozy.Odd437MomentChunks.Chunk001 (11s)
+✔ [8667/8669] Built Sarkozy.Odd437MomentChunks.Chunk002 (11s)
+✔ [8668/8669] Built Sarkozy.Odd437MomentChunks.Chunk003 (6.9s)
+✔ [8669/8669] Built Sarkozy.Odd437MomentData (4.9s)
+Build completed successfully (8669 jobs).

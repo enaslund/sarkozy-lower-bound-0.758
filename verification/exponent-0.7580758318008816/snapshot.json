@@ -1,0 +1,286 @@
+{
+ "recorded_utc": "2026-10-06T17:52:42.853792+00:00",
+ "scope": "Unconditional exponent 0.7580758318008816 = 473797394875551/625000000000000, with all nine components and every finite check discharged. Fresh complete Lean build from a clean project build directory (Mathlib oleans reused), 76 axiom inspections, and a leanchecker replay. No NanoDa or Comparator replay of this source.",
+ "baseline_commit": "43a614b53e0b5b308ccad34686a01f441852098a",
+ "theorems": [
+  "Sarkozy.record_exponent",
+  "SarkozySubmission.improved_bound",
+  "SarkozySubmission.interval_moment_bound"
+ ],
+ "build_results": [
+  {
+   "command": [
+    "lake",
+    "build",
+    "Sarkozy.Odd437MomentData"
+   ],
+   "exit_code": 0,
+   "seconds": 154.51,
+   "log": "verification/exponent-0.7580758318008816/Sarkozy-Odd437MomentData.log"
+  },
+  {
+   "command": [
+    "lake",
+    "build",
+    "Sarkozy.OddOrder215"
+   ],
+   "exit_code": 0,
+   "seconds": 618.23,
+   "log": "verification/exponent-0.7580758318008816/Sarkozy-OddOrder215.log"
+  },
+  {
+   "command": [
+    "lake",
+    "build",
+    "Sarkozy.OddOrder437"
+   ],
+   "exit_code": 0,
+   "seconds": 158.85,
+   "log": "verification/exponent-0.7580758318008816/Sarkozy-OddOrder437.log"
+  },
+  {
+   "command": [
+    "lake",
+    "build",
+    "Sarkozy.Odd215Moment"
+   ],
+   "exit_code": 0,
+   "seconds": 86.72,
+   "log": "verification/exponent-0.7580758318008816/Sarkozy-Odd215Moment.log"
+  },
+  {
+   "command": [
+    "lake",
+    "build",
+    "Sarkozy.Odd215Certificate"
+   ],
+   "exit_code": 0,
+   "seconds": 54.63,
+   "log": "verification/exponent-0.7580758318008816/Sarkozy-Odd215Certificate.log"
+  },
+  {
+   "command": [
+    "lake",
+    "build",
+    "Sarkozy.Odd437Moment"
+   ],
+   "exit_code": 0,
+   "seconds": 30.11,
+   "log": "verification/exponent-0.7580758318008816/Sarkozy-Odd437Moment.log"
+  },
+  {
+   "command": [
+    "lake",
+    "build",
+    "Sarkozy.Odd437WidthHistogram"
+   ],
+   "exit_code": 0,
+   "seconds": 21.63,
+   "log": "verification/exponent-0.7580758318008816/Sarkozy-Odd437WidthHistogram.log"
+  },
+  {
+   "command": [
+    "lake",
+    "build"
+   ],
+   "exit_code": 0,
+   "seconds": 29.92,
+   "log": "verification/exponent-0.7580758318008816/full-build.log"
+  },
+  {
+   "command": [
+    "lake",
+    "env",
+    "lean",
+    "Check.lean"
+   ],
+   "exit_code": 0,
+   "seconds": 5.54,
+   "log": "verification/exponent-0.7580758318008816/axioms.log"
+  }
+ ],
+ "axiom_inspections": 76,
+ "nonstandard_axioms": [],
+ "proved_target_parameters": {
+  "exponent": "473797394875551/625000000000000",
+  "bases": [
+   "3^2",
+   "7^2",
+   "11^2",
+   "31^2",
+   "59^2",
+   "103^2",
+   "215^6",
+   "3628411^2",
+   "4^(10^20)"
+  ],
+  "surplus": "15468032462/10^25"
+ },
+ "toolchain": "leanprover/lean4:v4.32.0",
+ "mathlib_commit": "81a5d257c8e410db227a6665ed08f64fea08e997",
+ "lean_source_size": {
+  "files": 117,
+  "bytes": 3059466
+ },
+ "source_sha256": {
+  "Challenge.lean": "96e347d9da002f9fd9cf1be7641e1919393a10f45d3c748d619e43d93b08924e",
+  "Check.lean": "b6e3f1fa9d8bf13105dee014509d9d7bd8c93e10a219ce4b52ca8c2fee50f92d",
+  "Sarkozy/ActualOddTarget.lean": "7f8d1146ba230c4c32f2bd97347f10917ac45d66726189857fd0a74c8a34c7d6",
+  "Sarkozy/Asymptotic.lean": "92a5013659bbaea243b01d84c78780a15e0c35c22b2706648715f7c9693b5228",
+  "Sarkozy/Binary.lean": "51af4395c8b8f3a0d90566acbf801fd5e383deba3dbeb4eb6fc82e720c413b88",
+  "Sarkozy/BinaryData.lean": "148cd309b3039cfd576b0c58d2e6eb7f38592fb0f93c0d8db5c872416aeb6461",
+  "Sarkozy/BinaryDepth.lean": "2019c2194372dc449165b7f07248aca963a54c5dec6741342ae4977947e4bb64",
+  "Sarkozy/BinaryGrowth.lean": "a098ed911d84cda6225251c44e4d456728b23be2bb5cdb618efb6444c88e6a5b",
+  "Sarkozy/BinaryPolicy.lean": "ac062cf3952f145066dd2217f1f8f86e6f700f2a2d9b602cda1cf9d0aa4537e2",
+  "Sarkozy/BinaryRealData.lean": "fc61a6b14745f12d11f2933fc59710eec7ec6ae51efead346a953dd22aca4a57",
+  "Sarkozy/BinaryRows.lean": "cbed63c10350bf5a46e52888a90e63a861783bdf33cbc6ff5b5093c8946c48d3",
+  "Sarkozy/CRT.lean": "2c9dda7c108afddf0c336ca03e0b43dac5cce2057bec2cd85e11b1ebe3b6d15a",
+  "Sarkozy/Certificate.lean": "fd77d51771a3d7775ff301f4852c679cdf8b278c24c169b166f8f484ab0e3723",
+  "Sarkozy/ChainMoments.lean": "a1572ba6e189c88910b6cb013ad343db3d8fbe86de1c398a0858a20ac1117c16",
+  "Sarkozy/Examples.lean": "0896072577744fe80c9903898ddde58fecb5f55b1b016662402b633e64bc577c",
+  "Sarkozy/FastPowerCertificate.lean": "ff6352baf991c1a445823a9639836e27e363e61148912c7abd2261f8971b94dd",
+  "Sarkozy/FiniteAlphabets.lean": "346489aa422347522d3cd97ca99539b6c3ab5b3bbd9575b48e5ac9ea2abaf528",
+  "Sarkozy/FullTarget.lean": "1eea7c230091427edc71d95f2082e4657b0e11013a4b0727753b1070fa9f78d9",
+  "Sarkozy/Growth.lean": "74ccc6f5fc3f9765b8874f0e28e662ae2891d2d969b5a71f2c7ed958b7f75823",
+  "Sarkozy/Intervals.lean": "a29bb7d0b44a8469ccfde4a035733d46d18e737fc426939a91f18e6fd3b28d8b",
+  "Sarkozy/Moment.lean": "c142c7fa7c58679427ac05e29ba861c11f8413f2766596ba8d2d8a1ca82be09e",
+  "Sarkozy/Odd215Certificate.lean": "8e7fa645d0859ea4242b4ea21603c745641fccd17067b923c05142168a3c772e",
+  "Sarkozy/Odd215Moment.lean": "3611382311625034aa7b5f7a7ede58b0dedd8d491975fc7df9bd12c7f83cea34",
+  "Sarkozy/Odd215MomentData.lean": "882535bc7b7dd3c154837c45e9971d18baf55602dc54d9f7b650cb0e3fbcb5c2",
+  "Sarkozy/Odd215Threshold.lean": "04447482a15782281bc1b20a12ffc487726ba2f9f77fa758d41cd8f10e9dc16c",
+  "Sarkozy/Odd437Certificate.lean": "94ae201479dedc12f55b3c740f39aba8cd258409440c71e1379958709f0b400e",
+  "Sarkozy/Odd437Moment.lean": "b2d717b8ff1e69b7d90f30aa42bc281b3bae0deceb0ea342edc608c1831cced2",
+  "Sarkozy/Odd437MomentChecker.lean": "42aa1f9e7574fcfb1124bb9875e1b628e4ed883cec4d30a4ed637814282d794c",
+  "Sarkozy/Odd437MomentChunks/Chunk000.lean": "0a0ad7acd806741135ea9152bb83fe1ba8118a7f48e27b7ab22876b58d1cc752",
+  "Sarkozy/Odd437MomentChunks/Chunk001.lean": "f72d6d8deae692404d825d55302524ab59e1b6940f1d3cb81b124726d35e4ccd",
+  "Sarkozy/Odd437MomentChunks/Chunk002.lean": "d00ba3d46fd08e54f87b678a0401d0599a041a292184b00286b1bb612112523c",
+  "Sarkozy/Odd437MomentChunks/Chunk003.lean": "1876bc2bce774da190b2a4b339b2f1dcda4db5548b77b67247c39da7df1725f1",
+  "Sarkozy/Odd437MomentData.lean": "77db66b1ff35d5b70fe0905b683e717b1bc73f4796469f09464e77297c576f6b",
+  "Sarkozy/Odd437Threshold.lean": "e059e09a05c5f5878d88ea351f96a37015115b7069bcc6cc23d7c38aa3ace107",
+  "Sarkozy/Odd437WidthHistogram.lean": "426db5ce6b13d242047af742f457b308eda461a285d07c7ce20cb35057338b81",
+  "Sarkozy/OddCertificate.lean": "1d3c60e79dfee1cff349c113b812cb564b22fab5ba836f8b3be98433eccceb4b",
+  "Sarkozy/OddData.lean": "a6dc5d37c4b7996c811d1a1e01eb49ce7a3efdc956c7946a7c54cdae520ae8ea",
+  "Sarkozy/OddData215.lean": "3adb564070aa8121d7554b57f55a9a05c01d1a0d3403dbf3268364be073b7bfa",
+  "Sarkozy/OddData437.lean": "bcacadb115702f8622f943fb0b541678dfcd50deea48cf24ea25d0ffc126e510",
+  "Sarkozy/OddEndpointCheck.lean": "863576b94c43aafe219b8c584186015bfd0ae786ed81f34afef7715ca30caa47",
+  "Sarkozy/OddFiniteCertificate.lean": "8216f5fabe09f04aa6c7e8587e19598453067f4f117cbc47d0ab61d7800a4977",
+  "Sarkozy/OddKernelSort.lean": "72111b2907a151168fc4e2d18c5e1210e5840d06e31e191caff406d8ff88f796",
+  "Sarkozy/OddLift.lean": "c932fdff24898cf2559d6ed3ce60e7058d2b19ee60e0c6e5a59d69dc21f7cda5",
+  "Sarkozy/OddMoments.lean": "93f028f5f180e5791770c339638e2d48666d515a2e0b586261752b1befa971f3",
+  "Sarkozy/OddOrder.lean": "e98fc20424b1c3681bf3b6b13a9fe30211ffe2dd0cd491bcd687520388a9bdcf",
+  "Sarkozy/OddOrder215.lean": "47df7da2235f14fabe6629b6106fce9bfc6ea892a8b7ab95e006dc2ebd00b1e0",
+  "Sarkozy/OddOrder437.lean": "ff05488d4b3edfbeb64e93cdd78faec87f25e9c454eefb2e3cf6c05270c85987",
+  "Sarkozy/OddOrderBase215.lean": "719c56ec841f7ff604322d2614e6e41a52c9df0b31657a0ec93bde1e8d260f8a",
+  "Sarkozy/OddOrderBase437.lean": "58699899e60a69c863dbeaf3a760bda5c3a50dd9262d5f55ddfc3994a48e6a17",
+  "Sarkozy/OddOrderCertificate.lean": "b8edbfa013890584b3309db44c1cbd00c360460bd4ecbbb30c3e7f473a075b6d",
+  "Sarkozy/OddOrderChecks215.lean": "a4c968a1fbcecc5d8957b6e5edc29caf4c427d5a3251ff19fca8618556680a0b",
+  "Sarkozy/OddOrderChecks437.lean": "ec3bd963454ce7bacc5b367721992252d8132d531fb44c620bf6eda6bc9d4e81",
+  "Sarkozy/OddOrderChunkLemma.lean": "29bd2f892a979ae2e240150f27fee36ee746a8d1610a83ec6c8f6968b892fddc",
+  "Sarkozy/OddOrderChunks215/Chunk00.lean": "1176c835434ccd60430fa1174fa2efa4b0df3a551f64e9c70ee2561f37544668",
+  "Sarkozy/OddOrderChunks215/Chunk01.lean": "5df5d4db3c584eceda489266fa5d32be3c2bc22e50397ba22cc0dcef5307a459",
+  "Sarkozy/OddOrderChunks215/Chunk02.lean": "50df23b627c70dd72f7e6d030d34a5f3dbb351f0b49227238b8c24e0c287a19a",
+  "Sarkozy/OddOrderChunks215/Chunk03.lean": "d5eac4f9dc14b3fdf6798d95892c1c5a3193e1e73b464e86192d42bfe5223cd5",
+  "Sarkozy/OddOrderChunks215/Chunk04.lean": "000416c63857f03aa9f6cf1549095f24051a37cd51535388bda5f15e52e12059",
+  "Sarkozy/OddOrderChunks215/Chunk05.lean": "1f241e5e4c785acda6f2609fff20df0c6c2860e31dccc0b8786319be5f7732a0",
+  "Sarkozy/OddOrderChunks215/Chunk06.lean": "c0690aeb2070c03a8f3e0481b3826230382f3de2b5e0077b70d89874bef7be16",
+  "Sarkozy/OddOrderChunks215/Chunk07.lean": "83a773d643c0a981df74601affe5e951a6074238d52d8c0a9f222a716bd8bc8d",
+  "Sarkozy/OddOrderChunks215/Chunk08.lean": "41f6d59cc9f240066a55e062d553165b3390222026cb6f45d4a47789687d3bed",
+  "Sarkozy/OddOrderChunks215/Chunk09.lean": "7e99097bd301bb63ccf51ee2e61374dced0bbfd1ecf3e9a01e9d737759acde93",
+  "Sarkozy/OddOrderChunks215/Chunk10.lean": "470876d1a93c970bc69a27231dac0fe70129be2e1cb127569ed66e312ea684f5",
+  "Sarkozy/OddOrderChunks215/Chunk11.lean": "a90d6f037d608421bdeb9839b69f037a4f11f6ccba7edfb2f211701b5a38f638",
+  "Sarkozy/OddOrderChunks215/Chunk12.lean": "bd99b2bd338e985178fb5f3e65895c0cee42f26363b75fd55617c297550d90db",
+  "Sarkozy/OddOrderChunks215/Chunk13.lean": "3a8683a63d733050aaed9afc38a7d9c536fc86d94b21b1a254add0991a2f2e5f",
+  "Sarkozy/OddOrderChunks215/Chunk14.lean": "ef19a354f1bddf5ffd68e2b11fbbd3f39b305f7b034a2d9956dda35ae03eb441",
+  "Sarkozy/OddOrderChunks215/Chunk15.lean": "f052487acdf2241308e8e0c40d90624984774b9e14b0d274322a0dfe3c06434e",
+  "Sarkozy/OddOrderChunks215/Chunk16.lean": "3d0a5371ede72e8c8df2feeadbb9f5f63adc0816598ce67a27e0d551f44b35bd",
+  "Sarkozy/OddOrderChunks215/Chunk17.lean": "c090f632d809d24c216d7bce7697a0b1e838f6df15fbc4e89bb1d47d992fc208",
+  "Sarkozy/OddOrderChunks215/Chunk18.lean": "876b90a5035dbd96f35d0780f57e6b293a79cbeeb70fe47177ea05ba18b4436d",
+  "Sarkozy/OddOrderChunks215/Chunk19.lean": "803c4cfc29b3a2ef71a0480cf5f23986f96f476de9460c7caa683a373e823d5e",
+  "Sarkozy/OddOrderChunks215/Chunk20.lean": "41dafd589f09e6171b2a0337be31b95c5b1d0703fffe41da6e88c1b066825ed9",
+  "Sarkozy/OddOrderChunks215/Chunk21.lean": "b29672af222d0cb41736bd741dc5eb5527f343b8063f959922c232045414310d",
+  "Sarkozy/OddOrderChunks215/Chunk22.lean": "534c46c136af575c7f487f4954174588346229d81e022393771d0d213e4b2415",
+  "Sarkozy/OddOrderChunks215/Chunk23.lean": "42ea991153d5be74c48fa34107f00bae6cc64797c240795ae5edd6ded115fab7",
+  "Sarkozy/OddOrderChunks215/Chunk24.lean": "6e9a42390182d83efab25c2785dd943c8373c1ec916bdbe44e08178bed64bd28",
+  "Sarkozy/OddOrderChunks215/Chunk25.lean": "693d8d40f288700fe17990b48a87411b1bfcf0c68484f3d7473f62b9919f3344",
+  "Sarkozy/OddOrderChunks215/Chunk26.lean": "d3f9342d17b83a59f668b194e2bfa120175af6fef257c2b81ac6d452dddd6c18",
+  "Sarkozy/OddOrderChunks215/Chunk27.lean": "6b210fd464ecca5b7aa213a8bb307fe01dfeb913aad4ead5ae5a020d8e89bf04",
+  "Sarkozy/OddOrderChunks215/Chunk28.lean": "6b58d4e7c6ebfb1a2f4405c8f1162705cd44fb29f4e8774623a2d31c05c8fe01",
+  "Sarkozy/OddOrderChunks215/Chunk29.lean": "1bd2ac18a3fd79095e3e6cc67be8beb7cc2f55dc4bd8605009a008958966d83d",
+  "Sarkozy/OddOrderChunks215/Chunk30.lean": "5dd011cc9c2f3fb233e0f83634ebd92da7fee081678218b6df726b424687d54e",
+  "Sarkozy/OddOrderChunks215/Chunk31.lean": "c060cccb236e709656067337bf05b398513a62ef31a2eec1e57081231f92cff7",
+  "Sarkozy/OddOrderChunks215/Chunk32.lean": "d61a2655100315941c705aa5880ae77eee4b4dbc38a00f86659309015535ad86",
+  "Sarkozy/OddOrderChunks215/Chunk33.lean": "5305ba237e8696c3442ae0b2d20cffc6a2d73197a3ce6982925ea2b0bb840e86",
+  "Sarkozy/OddOrderChunks215/Chunk34.lean": "26e189dc996c3c68d31c79604baea278fb86bc384286a499f84ad1f2ebd6fa01",
+  "Sarkozy/OddOrderChunks215/Chunk35.lean": "ca910b2263ef2d3b9c77308747ca804ac76c02e418954fcad37eb8845f9b2720",
+  "Sarkozy/OddOrderChunks215/Chunk36.lean": "a87785392b32204e6f193d8aec1e6160dc6fd8e20df0dd8624f796a41ee43aa3",
+  "Sarkozy/OddOrderChunks215/Chunk37.lean": "6bcc676996d7be1536b1e1f84e9f279a613052e80c8c64afed201dd60a963738",
+  "Sarkozy/OddOrderChunks215/Chunk38.lean": "6af37b173fac5e39df7e91018482d9b8973c89a49d584bd0c3cf7d570bfd316d",
+  "Sarkozy/OddOrderChunks437/Chunk00.lean": "fee841f7869c62d32c052d45edf30e43d6651d3edbaaccbebf9056c094dc21f3",
+  "Sarkozy/OddOrderChunks437/Chunk01.lean": "e2c54c955d8c6a99cc5286d0ccfa66bde41b19cfd55035a0251d545f6e1ff27b",
+  "Sarkozy/OddOrderChunks437/Chunk02.lean": "7a46fa9e6e06101ac681d3784a9f22693e944b802593feb0baf6df0560dddfa5",
+  "Sarkozy/OddOrderChunks437/Chunk03.lean": "58b57b3216cae7c285922c94a99b3780f7f520d29ead6b095c689e81d1bff41f",
+  "Sarkozy/OddOrderData215.lean": "36843897f577cc6fe5f1b48310a1e7faac7a167c8c0257910a1cd29248da2cb8",
+  "Sarkozy/OddOrderData437.lean": "5bc613b50637a33845cca8199135597a2a7e2d9b5de2d93fc0c612e82b60359d",
+  "Sarkozy/OddOrderEndpoints437.lean": "adb9ab2e7fe26d3fd45916fbf2fbfdae876208bdab0bb6ee32ceb144273535af",
+  "Sarkozy/OddOrderFast.lean": "9a2dcf64522779207c24a13273b62e9912bae000223aefa7f95a513668055f29",
+  "Sarkozy/OddTarget.lean": "26f65d4fec5821e020a37016a3cc1bc23f1f949382a06bbcb702270965f90fef",
+  "Sarkozy/OneOddTarget.lean": "33b08da27e0e08e09b3efbae3f3b97fffc365323b4cee65c4660bcd8bcc1e402",
+  "Sarkozy/Parameters.lean": "638e53e1feaf0d5b4e026e79661b574383ecf9ed52d4537228a7e3396275d6e9",
+  "Sarkozy/PowerChecker.lean": "d081165450ad1664d191a81698ae6a940b94ab125b8a508031f51e24ec893ceb",
+  "Sarkozy/PowerPolynomial.lean": "3518d32e0848464f2990f829d59d604956ac13ab35f1d4fd010c29c3a7c8b1ec",
+  "Sarkozy/PrimeChains.lean": "76813e8c445ee872ed97f037190b6f16ae611e629b991ae3fc26c320c010f226",
+  "Sarkozy/QuantitativeExamples.lean": "647925a6c48fa895a8273f5f8641c3c7e0768bcd790341e066f7a7cd8c85d9a8",
+  "Sarkozy/Ranked.lean": "877bbc3691f2c5ac3739de8f13f567642547d260ff83365d5654d288c1ae8d8a",
+  "Sarkozy/RecordBinaryTarget.lean": "6dc1db811ed454a48b5b755348fdd9ad7fd39aa8e830cc1161e373b6e7dc544c",
+  "Sarkozy/RecordTarget.lean": "8e78e5af9dcbe18717bab5b57cea3d8dfdf403ba86a71c6628578e35ef1ed94d",
+  "Sarkozy/ReducedTarget.lean": "8434cb0db5e463f1d96fc66e8ac138d007ea46824f6ef4c7ce8fcd08f8058743",
+  "Sarkozy/Stopping.lean": "1c65b3deb1df8dab6ac3df441d9ad5f2a4efec538d5c4379114119e521d03c54",
+  "Sarkozy/Target.lean": "7c92508e8252e57ca05674ba5a89a83a1822552589844514abdd9f60af4081c7",
+  "Sarkozy/TwoOddTarget.lean": "08a57ad664032bca76b294204108eef9f97c03713289ecd69c62917bd4d35105",
+  "Sarkozy/Words.lean": "56af1ec9da7b765c5698cb4ba037a0c3fd7246ac69466273bba5a8a5b8df8404",
+  "Sarkozy.lean": "d32547fc7764ecf91489404ce0addbe7e13ea656736a8e60a2e72c1a88d93333",
+  "Solution.lean": "2eff49a9a8b538a64ee14a6de62cdda7c8f87ed2f6be14eb660f713dc84df29b",
+  "lean-toolchain": "2773c517aa90b66ea8a2c52bddddf84393157797f8341be0df45294fff7fd32e",
+  "lakefile.toml": "6eb47bd8be7358b8b28d5896523bb7ea2a29e5224f3792e1519e0c23ad4c049c",
+  "lake-manifest.json": "8aba48e285caa5cbbd53665707ef415a73d3d27d8b99dba241066e9dcd6bc55a",
+  "comparator.json": "85f9fd5bf13a3e87cf8fd406f98f1e048edf86e9d6266a2dd1600398a796f52b"
+ },
+ "script_sha256": {
+  "scripts/binary-rows-proof.txt": "06d3964cae2083691e705592d84380af1cd0cba6758c2507c984c98204aef497",
+  "scripts/build-sequential.sh": "9c2c8e4aeb46b254119b16d556c96de3ba1fbe8cb80b3eff5442b8caef86338b",
+  "scripts/generate-binary-data.py": "216dba992472fbc12a8c8e1ad04b39dd0d68ffdcd8d1bb9d2499b4e2ecf4043e",
+  "scripts/generate-binary-depth.py": "14c2dfc10f1f601a5aa55f486afdb6b7a0eb99b3a73c589b4e3a992e2a9c6336",
+  "scripts/generate-binary-rows.py": "a181c16149668151f0ce4243570876b71bfc048869e16ae55c28698973a41f98",
+  "scripts/generate-chain-log-bounds.py": "8e420747371d83dfba7dfce1744b68b031580679bdc559ef9eedca705bc6fa7a",
+  "scripts/generate-odd-data.py": "1ddc70a7bf5d2090e3834ee95683bb4d52a929599ff05df58afce8fa99982e65",
+  "scripts/generate-odd-order-chunks.py": "b0e891af27ae17f946d6bd65cb8ee503b9e5e1fc6e4ccfd7a90678f3726849d9",
+  "scripts/generate-odd-order.py": "a4896c32b5e025d44a75cdfd1d338cc63b0060871da12ac33d77df0f665a70f5",
+  "scripts/generate-odd-thresholds.py": "ab01042802d59396c1633374c6010c85e01f7137c78b5066d6db514866b62b39",
+  "scripts/generate-odd215-moments.py": "dab167e5260ff3de1975b74b031a729b25038e241eb31e8d55d56e20ec09a9ad",
+  "scripts/generate-odd437-data.py": "dc140c0deb2d70f4530d4a9ffe16265fa6c5ab7048cce3d0e4f3f5ac356601a7",
+  "scripts/generate-odd437-moments.py": "82d2bf2eb4cbc26cb80c9ac2e760ea0019720c2a0fa8f38407b4e4c2497477f4",
+  "scripts/generate-odd437-order-chunks.py": "c77c25e2f9f7566793a561087b78fc8c2a6b45d5ff4c8f3396935fd79bc11c3e",
+  "scripts/generate-odd437-order.py": "de5a2966b2a7cb47ff01444130a4bba167f759d606a7891465ac4780a1595430",
+  "scripts/landrun-wrapper.sh": "1df02453c876edf109ffbdf1b3025ecabe31fef226356f06510966504c7dafd7",
+  "scripts/verify-comparator.sh": "f9bb784c1a7a9edd89235f4094f69a1016682f1a9032a1059911da8e11ce27ed"
+ },
+ "witness_sha256": {
+  "research-notes/capacity-bound/bound.json": "080735a362d5fb736ae932d4c775e74c6c05ce3a25119e17cc0f1b928022bf84",
+  "research-notes/odd-search/q215-depth3-product.json": "dae38a756de83c99d65973ff85f23a7068ce6e85a7a4f12400a923f24cf46574",
+  "research-notes/next-push/q437-unequal32s.json": "3ef1e78e59f6e90327bd739c8c114604a352bb4ae7f0faecc6d547b3cd0104bc",
+  "research-notes/next-push/binary-cert-0.7580758318008816.json": "1b388dd3cfda324a57d985fc96746a8d36b8e7d2e4ac25ecd264c854a8cb8af7"
+ },
+ "log_sha256": {
+  "verification/exponent-0.7580758318008816/Sarkozy-Odd215Certificate.log": "f071816148467ea86d6195ec37df3072ba3fa7f309c8a9f1ff32bf106b48a328",
+  "verification/exponent-0.7580758318008816/Sarkozy-Odd215Moment.log": "f68133edd6aa7c0b09dd344bb340c0fe6908e9ad918849054be3b0366c1c6f6f",
+  "verification/exponent-0.7580758318008816/Sarkozy-Odd437Moment.log": "8dcd5b5fc02e84c5d0a2f6619b4487c04958fa7fdfeb6fe1d13821877cd7954b",
+  "verification/exponent-0.7580758318008816/Sarkozy-Odd437MomentData.log": "3571a7ff47348e274724f99fc451714f7da5a1bcdad59535b5bba80d8cd18b02",
+  "verification/exponent-0.7580758318008816/Sarkozy-Odd437WidthHistogram.log": "a52efbfb9a541bb6d9a2e7fab0df4e95b3ccb35daa328b2f479c9fe3657d5657",
+  "verification/exponent-0.7580758318008816/Sarkozy-OddOrder215.log": "0cfe2db422da237dfc623c4faf5fd72a2852a63485727d8819728688bec3eb2c",
+  "verification/exponent-0.7580758318008816/Sarkozy-OddOrder437.log": "e1fd114dd16d79cf52ecb867ebf4b7bcdc4091a313d5a5e66655925e95f6ce04",
+  "verification/exponent-0.7580758318008816/axioms.log": "90e2cf948f375a901a1aca30d1ff8a991a2acb2c737a2612ed0d3469823887c5",
+  "verification/exponent-0.7580758318008816/full-build.log": "e424a2721c40bf29325d285203aa41ebe0b3fa01436a2326546a97fed79f97a2",
+  "verification/exponent-0.7580758318008816/leanchecker-fresh-solution.log": "a32fc96172c9c52fc5f37af9d513297e082278c70b801e6f1d88b06fcf04faf3",
+  "verification/exponent-0.7580758318008816/leanchecker-modules.log": "bb831ef1234412de4233604aac9d1dcb9197ab9b3a1092126d4a84cf7a6350a6"
+ }
+}

@@ -1,0 +1,57 @@
+⚠ [8668/8740] Replayed Sarkozy.OddOrder
+warning: Sarkozy/OddOrder.lean:33:22: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [8669/8740] Replayed Sarkozy.PrimeChains
+warning: Sarkozy/PrimeChains.lean:55:42: Variable name `hp` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [8675/8740] Replayed Sarkozy.OddData
+warning: Sarkozy/OddData.lean:56:10: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: Sarkozy/OddData.lean:56:34: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+⚠ [8676/8740] Replayed Sarkozy.OddOrderCertificate
+warning: Sarkozy/OddOrderCertificate.lean:110:10: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: Sarkozy/OddOrderCertificate.lean:110:34: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+⚠ [8722/8740] Replayed Sarkozy.PowerChecker
+warning: Sarkozy/PowerChecker.lean:53:61: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Sarkozy/PowerChecker.lean:77:61: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [8723/8740] Replayed Sarkozy.PowerPolynomial
+warning: Sarkozy/PowerPolynomial.lean:33:24: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Sarkozy/PowerPolynomial.lean:42:28: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: Sarkozy/PowerPolynomial.lean:42:28: 'ring' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+⚠ [8734/8740] Replayed Sarkozy.OddMoments
+warning: Sarkozy/OddMoments.lean:41:2: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+⚠ [8736/8740] Built Sarkozy.BinaryRows (9.0s)
+warning: Sarkozy/BinaryRows.lean:55:56: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Sarkozy/BinaryRows.lean:60:56: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [8737/8740] Built Sarkozy.TwoOddTarget (5.4s)
+✔ [8738/8740] Built Sarkozy.OddData437 (23s)
+✔ [8739/8740] Built Sarkozy.ActualOddTarget (5.1s)
+✔ [8740/8740] Built Sarkozy.Odd215Certificate (19s)
+Build completed successfully (8740 jobs).

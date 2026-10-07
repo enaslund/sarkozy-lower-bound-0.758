@@ -1,48 +1,42 @@
-# Palomar submission preparation
+# Palomar submission preparation (version 2)
 
-The proposed entry combines the **general interval-moment criterion for
-square-difference-free integer sets** with its unconditional application to
-exponent **0.75806746**. All nine construction components and their numerical
-checks are formalized. The numerical statement has no finite-certificate
-hypotheses. See [README.md](README.md), [PROOF.md](PROOF.md), and
-[PALOMAR-READINESS.md](PALOMAR-READINESS.md).
+This revision updates
+[PALOMAR-2026-09-19-000006](https://palomar-registry.org/entry?id=PALOMAR-2026-09-19-000006&version=1)
+from exponent `0.75806746` to **0.7580758318008816**. It keeps the **general
+interval-moment criterion for square-difference-free integer sets** and its
+unconditional application, now with new finite witnesses, on Lean
+v4.35.0-rc2 with the module system. All nine construction components and their
+numerical checks are formalized. The numerical statement has no
+finite-certificate hypotheses. See [README.md](README.md), [PROOF.md](PROOF.md),
+and [PALOMAR-READINESS.md](PALOMAR-READINESS.md).
 
-**Last mechanically checked revision:** `4de015dae4f256ea9af929727f70afa8ee118c74`
-passed [Palomar submission verification](https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/35424167849)
-on 2026-09-19, including both selected theorems and both kernels. The exact
-[public mechanical report](verification/palomar-submission-20260919.json) is preserved.
-The present revision updates the classifications, public abstract, and verification
-history. Submit the latest pushed commit to include these changes, recording
-its full SHA with `git rev-parse HEAD`; the earlier mechanical verdict does
-not cover this metadata revision. All 152 frozen Lean source/configuration
-files remain unchanged.
+The official full preflight of this revision runs from the workflow described below; its verdict and run link are added here once it completes.
 
-## Public repository and submission fields
-
-The substantive development is in
-[enaslund/sarkozy-lower-bound-0.758](https://github.com/enaslund/sarkozy-lower-bound-0.758),
-on default branch `master`, with the Lean project at repository root.
-[PUBLICATION.md](PUBLICATION.md) records its source import and later manuscript
-and submission-preparation changes. The original verification receipts are
-preserved; the 152 frozen Lean source/configuration files are unchanged.
+## Submission fields
 
 | Submission field | Value |
 |---|---|
-| Repository | `enaslund/sarkozy-lower-bound-0.758` |
-| Revision to submit | Latest pushed 40-character commit SHA from `git rev-parse HEAD` |
-| Last mechanically checked revision | `4de015dae4f256ea9af929727f70afa8ee118c74` |
-| Project path | **Leave blank** for repository root; literal `.` is rejected |
-| Comparator configuration | `comparator.json` |
+| Repository | `enaslund/sarkozy-lower-bound-0.758` (unchanged) |
+| Revision to submit | The pushed 40-character commit SHA from `git rev-parse HEAD` |
+| Existing Palomar ID | **`PALOMAR-2026-09-19-000006`** |
+| Project path | **Leave blank** for repository root (unchanged); literal `.` is rejected |
+| Comparator configuration | `comparator.json` (unchanged) |
 | Metadata | Default `formalization.yaml`; no override needed |
 | Challenge / Solution modules | `Challenge` / `Solution` |
-| Existing Palomar ID | **Leave blank** unless this result has already been registered publicly |
 
-Choose the root `comparator.json` if the portal lists multiple configurations;
-the archived verification configurations describe historical checks.
-The root configuration selects both declarations in namespace `SarkozySubmission`:
+The policy requires an update to keep the repository, project path and
+Comparator configuration path of the current version; all three are unchanged.
+The root configuration selects both declarations in namespace
+`SarkozySubmission`:
 
-- `interval_moment_bound`: the general asymptotic criterion;
-- `improved_bound`: the unconditional full exponent `37903373/50000000`.
+- `interval_moment_bound`: the general asymptotic criterion (unchanged);
+- `improved_bound`: the unconditional full exponent
+  `473797394875551/625000000000000` (version 1: `37903373/50000000`).
+
+Say in the submission that version 2 strengthens the numerical exponent with
+new finite witnesses and moves to the current Lean toolchain; the general
+criterion and its proof are unchanged. [PUBLICATION.md](PUBLICATION.md) records
+the changes.
 
 The root [Apache-2.0 licence](LICENSE) applies to this repository's original
 Lean code, documentation, both papers in source and PDF form, certificate
@@ -52,10 +46,8 @@ Eric Naslund is the author and responsible maintainer; contact
 
 ## Run the official full mechanical preflight
 
-The September 18 candidate passed the optional preflight, and the September 19
-submitted revision passed the service's mechanical run. To run an additional
-optional preflight for a later revision, commit and push it, record
-`git rev-parse HEAD`, then start the manual workflow:
+To rerun the optional preflight for a later revision, commit and push it,
+record `git rev-parse HEAD`, then start the manual workflow on that ref:
 
 ```bash
 gh workflow run palomar-preflight.yml --repo enaslund/sarkozy-lower-bound-0.758 --ref master
@@ -72,44 +64,40 @@ gh run download RUN_ID --repo enaslund/sarkozy-lower-bound-0.758 --dir /tmp/sark
 ```
 
 The [workflow](.github/workflows/palomar-preflight.yml) calls
-PalomarSubmission `3561d237dcc4b28482558ad28a64d767d7cc8615` with `mode: full`.
-The `uses` SHA and `pipeline_commit` must remain identical. The recorded
-authorization relationship is Eric Naslund's responsibility for this
-substantive development; a different submitter must give their actual basis.
-No secrets are passed to the reusable verifier.
+PalomarSubmission `d4e41c1d5b0d114c4859e6e5831dc6d3ad1d0d44` with `mode: full`
+and `existing_id` set to this entry. The `uses` SHA and `pipeline_commit` must
+remain identical. The recorded authorization relationship is Eric Naslund's
+responsibility for this substantive development; a different submitter must
+give their actual basis. No secrets are passed to the reusable verifier.
 
-This performs the protected canonical-Challenge audit, Comparator statement
-comparison, Lean kernel checking, and independent NanoDa replay. The
-`mechanical-report.json` artifact binds the verdict to the exact source SHA and
-tool revisions. `mode: preflight` only checks preparation and must not be used
-as evidence of checked proofs. The current
-[workflow history](https://github.com/enaslund/sarkozy-lower-bound-0.758/actions/workflows/palomar-preflight.yml)
-is the place to inspect hosted results.
+This performs the protected canonical-Challenge audit and runs the toolchain's
+`lake comparator`, which checks the statements and has Lean's kernel, NanoDa
+and con-ron each accept the proofs. The `mechanical-report.json` artifact binds
+the verdict to the exact source SHA and tool revisions. `mode: preflight` only
+checks preparation and must not be used as evidence of checked proofs.
 
-The preserved local results comprise the full Lean build, 76 standard-axiom
-inspections, and a direct NanoDa replay of 32,704 declarations; see
-[verification/README.md](verification/README.md). Those results are not a
-completed Comparator comparison. The separate `ci.yml` workflow and
-`scripts/verify-comparator.sh` remain useful for development.
-
-The official reusable preflight is recommended preparation. Palomar does not
-require authors to run repository CI, and even a successful preflight does not
-replace the service's required mechanical run or initiate editorial review.
+`scripts/verify-comparator.sh` runs the same bundled comparator and kernels
+locally (it needs `bwrap`); the local results are in
+[verification/README.md](verification/README.md). The separate `ci.yml`
+workflow remains useful for development. Palomar does not require authors to
+run repository CI, and a successful preflight neither replaces the service's
+required mechanical run nor initiates editorial review.
 
 ## Submit and review
 
 1. Check the final statements, abstract, source relationships, licences, and
    authorship in the candidate commit. Inspect any preflight findings.
 2. Open [the Palomar submission portal](https://submit.palomar-registry.org/)
-   and submit the corrected commit as a new submission using the fields above.
-   Leave the existing Palomar ID blank for this unregistered result.
-   Prove repository write access and declare that
-   you are a responsible author/maintainer or have approval from one.
+   and submit the commit as an update, entering the existing Palomar ID
+   `PALOMAR-2026-09-19-000006` and the fields above. Prove repository write
+   access and declare that you are a responsible author/maintainer or have
+   approval from one; the existing identifier does not by itself authorise an
+   update.
 3. Keep the private status link. The service runs mechanical verification and
    then automated editorial review. Inspect its reports before making the
    separate registration decision.
-4. If registration is offered after review, choose Register to request the public
-   record. The repository revision alone does not register the result.
+4. If registration is offered after review, choose Register to append version 2.
+   Version 1 and its source commit remain unchanged in the registry.
 
 For agent-assisted submission, first read the portal's `llms.txt`; preparation
 and GitHub preflight are not a portal submission. Registration publishes the
@@ -118,5 +106,15 @@ record and redacted review and preserves the pinned source permanently.
 The repository records AI assistance and agent review, not human peer review
 or source-author endorsement. Mechanical success does not establish novelty,
 research interest, or Palomar registration. The
-[pinned submitter policy](https://github.com/PalomarRegistry/PalomarPolicy/blob/792c7c0b9e798bd02719e795ef11fa2b5929e067/CONTRIBUTING.md)
-and the current service policy govern the eventual submission.
+[pinned submitter policy](https://github.com/PalomarRegistry/PalomarPolicy/blob/96b034cc31a72a63d4f4041911dce337a85c9a04/CONTRIBUTING.md)
+and the current service policy govern the submission.
+
+## Version 1 record
+
+Version 1 passed the service's
+[mechanical verification](https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/35424167849)
+on 2026-09-19 for commit `4de015dae4f256ea9af929727f70afa8ee118c74` and was
+registered from `e5d693729e23762b063a55015ad79ccaf28a3217`; the
+[mechanical report](verification/palomar-submission-20260919.json) and the
+September 18 [preflight report](verification/palomar-preflight-20260918.json)
+are preserved.

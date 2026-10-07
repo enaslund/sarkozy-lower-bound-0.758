@@ -1,4 +1,9 @@
-import Sarkozy.OddOrderChecks215
+module
+
+public import Sarkozy.OddOrderChecks215
+
+@[expose] public section
+set_option backward.privateInPublic true
 
 /-!
 # The actual 215 low certificate has correctly ordered square edges
@@ -30,7 +35,7 @@ theorem row_bounds (k : Fin 4913) :
   exact List.all_eq_true.mp rows_valid _ (List.get_mem _ _)
 
 theorem point_bounds (k : Fin 4913) (c : Fin 2) :
-    point k c < (recordOddPrimes 0 c)^3 := by
+    point k c < (recordOddPrimes 0 c)^(recordOddDepths 0 c) := by
   have h := row_bounds k
   fin_cases c
   · change (row k).1.1.1 < 125
@@ -46,10 +51,11 @@ theorem endpoint_bound (k : Fin 4913) : start k + width k ≤ denominator :=
 
 /-- Every semantic square edge has its entire source interval before the target. -/
 theorem low_order : ∀ k l : Fin 4913, k ≠ l →
-    (∀ c, PrimeLowRelated (recordOddPrimes 0 c) 3 (point k c : ℤ) (point l c : ℤ)) →
+    (∀ c, PrimeLowRelated (recordOddPrimes 0 c) (recordOddDepths 0 c)
+      (point k c : ℤ) (point l c : ℤ)) →
     start k + width k ≤ start l := by
   intro k l hne hrel
-  have h := interval_order_of_checked_rows 5 43 3 (by decide) (by decide)
+  have h := interval_order_of_checked_rows 5 43 3 3 (by decide) (by decide)
     rows G5 G43 endpointTable sources_checked targets_checked endpoints_sorted
   change entryEnd (rows.get (Fin.cast rows_size.symm k)) ≤
     entryStart (rows.get (Fin.cast rows_size.symm l))
@@ -60,7 +66,7 @@ theorem low_order : ∀ k l : Fin 4913, k ≠ l →
   · exact hrel 1
 
 theorem point_injective : Function.Injective point := by
-  have h := point_injective_of_order 4913 (recordOddPrimes 0) 3
+  have h := point_injective_of_order 4913 (recordOddPrimes 0) (recordOddDepths 0)
     (fun k c => (point k c : ℤ)) start width (fun k => (width_bounds k).1) low_order
   intro k l heq
   apply h

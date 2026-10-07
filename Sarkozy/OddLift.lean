@@ -1,6 +1,11 @@
-import Sarkozy.Intervals
-import Sarkozy.CRT
-import Sarkozy.FiniteAlphabets
+module
+
+public import Sarkozy.Intervals
+public import Sarkozy.CRT
+public import Sarkozy.FiniteAlphabets
+
+@[expose] public section
+set_option backward.privateInPublic true
 
 /-!
 # Interleaving restricted and free prime-adic digits

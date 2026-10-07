@@ -1,12 +1,17 @@
-import Sarkozy.Odd215Certificate
+module
+
+public import Sarkozy.Odd215Certificate
+
+@[expose] public section
+set_option backward.privateInPublic true
 
 /-!
-# A modular interface for the 437 component
+# A modular interface for the (19,23) component
 
 The six prime chains, the entire binary component and the complete 215 odd
 component are supplied by proved library certificates. The first interface
-takes a single expanded 437 interval certificate. The second fixes the actual
-19,683 low rows and takes their order and moment checks. `Sarkozy.FullTarget`
+takes a single expanded (19,23) interval certificate. The second fixes the actual
+3,645 low rows and takes their order and moment checks. `Sarkozy.FullTarget`
 discharges the 437 certificate and proves the unconditional result.
 -/
 
@@ -40,19 +45,19 @@ theorem target_exponent_of_one_odd_interval_certificate
 Its point bounds, distinctness, and interval geometry are already proved. -/
 theorem record_exponent_of_437_checks
     (horder : ∀ k l, k ≠ l →
-      (∀ i, PrimeLowRelated (recordOddPrimes 1 i) 3
+      (∀ i, PrimeLowRelated (recordOddPrimes 1 i) (recordOddDepths 1 i)
         (Odd437.point k i : ℤ) (Odd437.point l i : ℤ)) →
       Odd437.start k + Odd437.width k ≤ Odd437.start l)
-    (hmoment : (437^6 : ℝ)^targetExponent ≤ (437^3 : ℕ) *
-      ∑ k : Fin 19683, ((Odd437.width k : ℝ)/Odd437.denominator)^(componentPowers 7)) :
+    (hmoment : (3628411^2 : ℝ)^targetExponent ≤ (3628411 : ℕ) *
+      ∑ k : Fin 3645, ((Odd437.width k : ℝ)/Odd437.denominator)^(componentPowers 7)) :
     LowerBoundExponent targetExponent := by
   obtain ⟨C,a,w,hC,hgeom,hord,hmom⟩ :=
-    record_odd_interval_of_integer_checks 1 19683 Odd437.denominator
+    record_odd_interval_of_integer_checks 1 3645 Odd437.denominator
       Odd437.point Odd437.start Odd437.width Odd437.denominator_pos
       Odd437.point_bounds Odd437.point_injective Odd437.width_bounds
       Odd437.endpoint_bound horder (by
-        change ((437^6 : ℕ) : ℝ)^targetExponent ≤ (437^3 : ℕ) *
-          ∑ k : Fin 19683, ((Odd437.width k : ℝ)/Odd437.denominator)^(componentPowers 7)
+        change ((3628411^2 : ℕ) : ℝ)^targetExponent ≤ (3628411 : ℕ) *
+          ∑ k : Fin 3645, ((Odd437.width k : ℝ)/Odd437.denominator)^(componentPowers 7)
         simpa only [Nat.cast_pow, Nat.cast_ofNat] using hmoment)
   exact target_exponent_of_one_odd_interval_certificate C a w hC hgeom hord hmom
 

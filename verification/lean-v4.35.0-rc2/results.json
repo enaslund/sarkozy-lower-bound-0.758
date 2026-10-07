@@ -1,0 +1,92 @@
+[
+ {
+  "command": [
+   "lake",
+   "build",
+   "Sarkozy.Odd437MomentData"
+  ],
+  "exit_code": 0,
+  "seconds": 61.69,
+  "log": "verification/lean-v4.35.0-rc2/Sarkozy-Odd437MomentData.log"
+ },
+ {
+  "command": [
+   "lake",
+   "build",
+   "Sarkozy.OddOrder215"
+  ],
+  "exit_code": 0,
+  "seconds": 298.11,
+  "log": "verification/lean-v4.35.0-rc2/Sarkozy-OddOrder215.log"
+ },
+ {
+  "command": [
+   "lake",
+   "build",
+   "Sarkozy.OddOrder437"
+  ],
+  "exit_code": 0,
+  "seconds": 74.63,
+  "log": "verification/lean-v4.35.0-rc2/Sarkozy-OddOrder437.log"
+ },
+ {
+  "command": [
+   "lake",
+   "build",
+   "Sarkozy.Odd215Moment"
+  ],
+  "exit_code": 0,
+  "seconds": 39.78,
+  "log": "verification/lean-v4.35.0-rc2/Sarkozy-Odd215Moment.log"
+ },
+ {
+  "command": [
+   "lake",
+   "build",
+   "Sarkozy.Odd215Certificate"
+  ],
+  "exit_code": 0,
+  "seconds": 26.36,
+  "log": "verification/lean-v4.35.0-rc2/Sarkozy-Odd215Certificate.log"
+ },
+ {
+  "command": [
+   "lake",
+   "build",
+   "Sarkozy.Odd437Moment"
+  ],
+  "exit_code": 0,
+  "seconds": 14.85,
+  "log": "verification/lean-v4.35.0-rc2/Sarkozy-Odd437Moment.log"
+ },
+ {
+  "command": [
+   "lake",
+   "build",
+   "Sarkozy.Odd437WidthHistogram"
+  ],
+  "exit_code": 0,
+  "seconds": 10.65,
+  "log": "verification/lean-v4.35.0-rc2/Sarkozy-Odd437WidthHistogram.log"
+ },
+ {
+  "command": [
+   "lake",
+   "build"
+  ],
+  "exit_code": 0,
+  "seconds": 9.95,
+  "log": "verification/lean-v4.35.0-rc2/full-build.log"
+ },
+ {
+  "command": [
+   "lake",
+   "env",
+   "lean",
+   "Check.lean"
+  ],
+  "exit_code": 0,
+  "seconds": 2.79,
+  "log": "verification/lean-v4.35.0-rc2/axioms.log"
+ }
+]

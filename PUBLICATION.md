@@ -1,7 +1,10 @@
 # Public result repository
 
-This repository contains the full Lean proof of exponent **0.75806746** and
-the two self-contained papers. The separate
+This repository contains the full Lean proof of exponent **0.7580758318008816**
+and the two self-contained papers. Its September 2026 version, for exponent
+`0.75806746`, is registered as Palomar entry PALOMAR-2026-09-19-000006,
+version 1; the sections below record that version first and then the October
+update. The separate
 [working repository](https://github.com/enaslund/sarkozy-lower-bound) remains
 the research workspace.
 
@@ -88,3 +91,44 @@ checks, the September 18 hosted preflight, and the September 19 submission run.
 Original receipts remain unchanged. All 152 frozen Lean source/configuration
 files retain their recorded hashes; this metadata revision is not a new build,
 kernel replay, or Palomar submission.
+
+## October 2026 update (version 2)
+
+The October update replaces the proof and the full paper with the improved
+exponent `0.7580758318008816 = 473797394875551/625000000000000`. It is
+prepared as version 2 of PALOMAR-2026-09-19-000006 from this same repository,
+with the same project path (repository root) and Comparator configuration.
+
+**Lean.** The Lean project at the repository root is replaced by the project in
+`lean-formalization/` of working commit `aa58ba9de353ae5a934455ed30b409f631b456b2`, copied
+unchanged: all 117 `.lean` files, `lean-toolchain`, `lakefile.toml`,
+`lake-manifest.json`, `comparator.json` and the scripts. Thirty-one Lean files
+of the September version that no longer exist (mainly the old `(19,23)`
+certificate chunks) are removed. The proof keeps every general theorem and
+changes the finite witnesses, the odd interface (one digit depth per prime)
+and the certificate precision. The toolchain moves from Lean 4.32.0 to
+v4.35.0-rc2, Palomar's current minimum, with Mathlib
+`065356127b1dc0016f66b7283ce0ce2c4055aa55`, and every file now uses the
+module system. `scripts/verify-comparator.sh` now runs the toolchain's bundled
+`lake comparator` with NanoDa and con-ron, as Palomar's verifier does. The
+public manual-only `ci.yml` trigger is kept.
+
+**Papers.** `papers/square-difference-free-sets-of-exponent-0.7580758318.tex`
+and its PDF replace the September full paper. The research copy differs only in
+the filename named in its Appendix A. Claude Opus 5.5 revised it under Eric
+Naslund's supervision; its opening note says so. Its certificate program,
+`papers/square-difference-free-certificate.py`, is replaced by the new one,
+byte-identical to the research copy and attached to the PDF. The simpler
+companion keeps its mathematics and certificate program; only its references
+to the full paper (exponent, witness sizes, citation, date) change. Hashes and
+build checks are in
+[papers/verification/revision-20261006.json](papers/verification/revision-20261006.json).
+
+**Records.** [verification/README.md](verification/README.md) begins with the
+October records (the port and the Lean v4.35.0-rc2 rebuild, axiom audit,
+kernel replays and local comparator run); the September records below it are
+unchanged and apply to their recorded revisions.
+`formalization.yaml`, `README.md`, `SUBMISSION.md`, `PALOMAR-READINESS.md`,
+`CITATION.cff`, `PROOF.md`, `SEMANTIC-AUDIT.md` and `CLEANUP.md` describe
+version 2; the preflight workflow is pinned to PalomarSubmission
+`d4e41c1d5b0d114c4859e6e5831dc6d3ad1d0d44` and names the existing entry.

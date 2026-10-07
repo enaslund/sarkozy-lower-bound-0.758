@@ -1,0 +1,35 @@
+⚠ [8667/8687] Replayed Sarkozy.OddOrder
+warning: Sarkozy/OddOrder.lean:33:22: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [8668/8687] Replayed Sarkozy.PrimeChains
+warning: Sarkozy/PrimeChains.lean:55:42: Variable name `hp` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [8674/8687] Replayed Sarkozy.OddData
+warning: Sarkozy/OddData.lean:56:10: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: Sarkozy/OddData.lean:56:34: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+⚠ [8675/8687] Replayed Sarkozy.OddOrderCertificate
+warning: Sarkozy/OddOrderCertificate.lean:110:10: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: Sarkozy/OddOrderCertificate.lean:110:34: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+✔ [8678/8687] Built Sarkozy.OddEndpointCheck (4.8s)
+✔ [8679/8687] Built Sarkozy.OddOrderData437 (33s)
+✔ [8680/8687] Built Sarkozy.OddOrderEndpoints437 (5.4s)
+✔ [8681/8687] Built Sarkozy.OddOrderBase437 (7.5s)
+✔ [8682/8687] Built Sarkozy.OddOrderChunks437.Chunk00 (27s)
+✔ [8683/8687] Built Sarkozy.OddOrderChunks437.Chunk01 (26s)
+✔ [8684/8687] Built Sarkozy.OddOrderChunks437.Chunk02 (29s)
+✔ [8685/8687] Built Sarkozy.OddOrderChunks437.Chunk03 (19s)
+✔ [8686/8687] Built Sarkozy.OddOrderChecks437 (4.0s)
+✔ [8687/8687] Built Sarkozy.OddOrder437 (5.1s)
+Build completed successfully (8687 jobs).

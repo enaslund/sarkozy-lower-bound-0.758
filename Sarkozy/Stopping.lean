@@ -1,4 +1,9 @@
-import Sarkozy.Intervals
+module
+
+public import Sarkozy.Intervals
+
+@[expose] public section
+set_option backward.privateInPublic true
 
 /-!
 # Selecting words at a width threshold

@@ -1,10 +1,15 @@
-import Sarkozy.OddOrderData437
-import Sarkozy.Odd437MomentData
-import Sarkozy.OddMoments
-import Sarkozy.OddKernelSort
+module
+
+public import Sarkozy.OddOrderData437
+public import Sarkozy.Odd437MomentData
+public import Sarkozy.OddMoments
+public import Sarkozy.OddKernelSort
+
+@[expose] public section
+set_option backward.privateInPublic true
 
 /-!
-# Width histogram of the endpoint-sorted 437 rows
+# Width histogram of the endpoint-sorted (19,23) rows
 
 This finite identity is checked separately from edge ordering, so the two
 independent certificates can be built without duplicating their large checks.

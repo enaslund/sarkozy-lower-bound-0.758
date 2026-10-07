@@ -1,4 +1,9 @@
-import Sarkozy.ChainMoments
+module
+
+public import Sarkozy.ChainMoments
+
+@[expose] public section
+set_option backward.privateInPublic true
 
 /-!
 # Compact rational certificates for fractional powers

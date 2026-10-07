@@ -1,5 +1,10 @@
-import Sarkozy.BinaryPolicy
-import Sarkozy.BinaryData
+module
+
+public import Sarkozy.BinaryPolicy
+public import Sarkozy.BinaryData
+
+@[expose] public section
+set_option backward.privateInPublic true
 
 /-!
 # The rational record certificate supplies a valid real binary policy

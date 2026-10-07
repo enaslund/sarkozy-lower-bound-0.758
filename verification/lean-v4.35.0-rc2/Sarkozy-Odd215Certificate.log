@@ -1,0 +1,207 @@
+⚠ [8940/9016] Replayed Sarkozy.Moment
+warning: Sarkozy/Moment.lean:86:6: `Finset.single_le_prod'` has been deprecated: Use `Finset.single_le_prod` instead
+
+Hint: Replace the deprecated name:
+  Finset.single_le_prod'̵
+⚠ [8942/9016] Replayed Sarkozy.OddLift
+warning: Sarkozy/OddLift.lean:166:46: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: Sarkozy/OddLift.lean:170:36: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+⚠ [8943/9016] Replayed Sarkozy.OddCertificate
+warning: Sarkozy/OddCertificate.lean:61:36: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: Sarkozy/OddCertificate.lean:62:25: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+⚠ [8944/9016] Replayed Sarkozy.OddOrder
+warning: Sarkozy/OddOrder.lean:38:22: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Sarkozy/OddOrder.lean:77:38: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: Sarkozy/OddOrder.lean:82:38: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+warning: Sarkozy/OddOrder.lean:90:21: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+⚠ [8945/9016] Replayed Sarkozy.PrimeChains
+warning: Sarkozy/PrimeChains.lean:60:42: Variable name `hp` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hp
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: Sarkozy/PrimeChains.lean:123:2: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+⚠ [8951/9016] Replayed Sarkozy.OddData
+warning: Sarkozy/OddData.lean:61:10: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: Sarkozy/OddData.lean:61:34: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+⚠ [8952/9016] Replayed Sarkozy.OddOrderCertificate
+warning: Sarkozy/OddOrderCertificate.lean:115:10: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: Sarkozy/OddOrderCertificate.lean:115:34: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+⚠ [8998/9016] Replayed Sarkozy.PowerChecker
+warning: Sarkozy/PowerChecker.lean:58:61: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Sarkozy/PowerChecker.lean:82:61: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [8999/9016] Replayed Sarkozy.PowerPolynomial
+warning: Sarkozy/PowerPolynomial.lean:38:24: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Sarkozy/PowerPolynomial.lean:47:28: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: Sarkozy/PowerPolynomial.lean:47:28: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+⚠ [9001/9016] Replayed Sarkozy.Odd215MomentData
+warning: Sarkozy/Odd215MomentData.lean:2091:2: Private declaration `momentChunk000` accessed publicly; this is allowed only because the `backward.privateInPublic` option is enabled. 
+
+Disable `backward.privateInPublic.warn` to silence this warning.
+warning: Sarkozy/Odd215MomentData.lean:2092:2: Private declaration `momentChunk001` accessed publicly; this is allowed only because the `backward.privateInPublic` option is enabled. 
+
+Disable `backward.privateInPublic.warn` to silence this warning.
+warning: Sarkozy/Odd215MomentData.lean:2093:2: Private declaration `momentChunk002` accessed publicly; this is allowed only because the `backward.privateInPublic` option is enabled. 
+
+Disable `backward.privateInPublic.warn` to silence this warning.
+warning: Sarkozy/Odd215MomentData.lean:2094:2: Private declaration `momentChunk003` accessed publicly; this is allowed only because the `backward.privateInPublic` option is enabled. 
+
+Disable `backward.privateInPublic.warn` to silence this warning.
+warning: Sarkozy/Odd215MomentData.lean:2095:2: Private declaration `momentChunk004` accessed publicly; this is allowed only because the `backward.privateInPublic` option is enabled. 
+
+Disable `backward.privateInPublic.warn` to silence this warning.
+warning: Sarkozy/Odd215MomentData.lean:2096:2: Private declaration `momentChunk005` accessed publicly; this is allowed only because the `backward.privateInPublic` option is enabled. 
+
+Disable `backward.privateInPublic.warn` to silence this warning.
+warning: Sarkozy/Odd215MomentData.lean:2097:2: Private declaration `momentChunk006` accessed publicly; this is allowed only because the `backward.privateInPublic` option is enabled. 
+
+Disable `backward.privateInPublic.warn` to silence this warning.
+warning: Sarkozy/Odd215MomentData.lean:2098:2: Private declaration `momentChunk007` accessed publicly; this is allowed only because the `backward.privateInPublic` option is enabled. 
+
+Disable `backward.privateInPublic.warn` to silence this warning.
+warning: Sarkozy/Odd215MomentData.lean:2099:2: Private declaration `momentChunk008` accessed publicly; this is allowed only because the `backward.privateInPublic` option is enabled. 
+
+Disable `backward.privateInPublic.warn` to silence this warning.
+warning: Sarkozy/Odd215MomentData.lean:2100:2: Private declaration `momentChunk009` accessed publicly; this is allowed only because the `backward.privateInPublic` option is enabled. 
+
+Disable `backward.privateInPublic.warn` to silence this warning.
+warning: Sarkozy/Odd215MomentData.lean:2101:2: Private declaration `momentChunk010` accessed publicly; this is allowed only because the `backward.privateInPublic` option is enabled. 
+
+Disable `backward.privateInPublic.warn` to silence this warning.
+warning: Sarkozy/Odd215MomentData.lean:2102:2: Private declaration `momentChunk011` accessed publicly; this is allowed only because the `backward.privateInPublic` option is enabled. 
+
+Disable `backward.privateInPublic.warn` to silence this warning.
+warning: Sarkozy/Odd215MomentData.lean:2103:2: Private declaration `momentChunk012` accessed publicly; this is allowed only because the `backward.privateInPublic` option is enabled. 
+
+Disable `backward.privateInPublic.warn` to silence this warning.
+warning: Sarkozy/Odd215MomentData.lean:2104:2: Private declaration `momentChunk013` accessed publicly; this is allowed only because the `backward.privateInPublic` option is enabled. 
+
+Disable `backward.privateInPublic.warn` to silence this warning.
+warning: Sarkozy/Odd215MomentData.lean:2105:2: Private declaration `momentChunk014` accessed publicly; this is allowed only because the `backward.privateInPublic` option is enabled. 
+
+Disable `backward.privateInPublic.warn` to silence this warning.
+warning: Sarkozy/Odd215MomentData.lean:2106:2: Private declaration `momentChunk015` accessed publicly; this is allowed only because the `backward.privateInPublic` option is enabled. 
+
+Disable `backward.privateInPublic.warn` to silence this warning.
+warning: Sarkozy/Odd215MomentData.lean:2107:2: Private declaration `momentChunk016` accessed publicly; this is allowed only because the `backward.privateInPublic` option is enabled. 
+
+Disable `backward.privateInPublic.warn` to silence this warning.
+warning: Sarkozy/Odd215MomentData.lean:2108:2: Private declaration `momentChunk017` accessed publicly; this is allowed only because the `backward.privateInPublic` option is enabled. 
+
+Disable `backward.privateInPublic.warn` to silence this warning.
+warning: Sarkozy/Odd215MomentData.lean:2109:2: Private declaration `momentChunk018` accessed publicly; this is allowed only because the `backward.privateInPublic` option is enabled. 
+
+Disable `backward.privateInPublic.warn` to silence this warning.
+warning: Sarkozy/Odd215MomentData.lean:2110:2: Private declaration `momentChunk019` accessed publicly; this is allowed only because the `backward.privateInPublic` option is enabled. 
+
+Disable `backward.privateInPublic.warn` to silence this warning.
+warning: Sarkozy/Odd215MomentData.lean:2111:2: Private declaration `momentChunk020` accessed publicly; this is allowed only because the `backward.privateInPublic` option is enabled. 
+
+Disable `backward.privateInPublic.warn` to silence this warning.
+warning: Sarkozy/Odd215MomentData.lean:2112:2: Private declaration `momentChunk021` accessed publicly; this is allowed only because the `backward.privateInPublic` option is enabled. 
+
+Disable `backward.privateInPublic.warn` to silence this warning.
+warning: Sarkozy/Odd215MomentData.lean:2113:2: Private declaration `momentChunk022` accessed publicly; this is allowed only because the `backward.privateInPublic` option is enabled. 
+
+Disable `backward.privateInPublic.warn` to silence this warning.
+warning: Sarkozy/Odd215MomentData.lean:2114:2: Private declaration `momentChunk023` accessed publicly; this is allowed only because the `backward.privateInPublic` option is enabled. 
+
+Disable `backward.privateInPublic.warn` to silence this warning.
+warning: Sarkozy/Odd215MomentData.lean:2115:2: Private declaration `momentChunk024` accessed publicly; this is allowed only because the `backward.privateInPublic` option is enabled. 
+
+Disable `backward.privateInPublic.warn` to silence this warning.
+warning: Sarkozy/Odd215MomentData.lean:2116:2: Private declaration `momentChunk025` accessed publicly; this is allowed only because the `backward.privateInPublic` option is enabled. 
+
+Disable `backward.privateInPublic.warn` to silence this warning.
+warning: Sarkozy/Odd215MomentData.lean:2117:2: Private declaration `momentChunk026` accessed publicly; this is allowed only because the `backward.privateInPublic` option is enabled. 
+
+Disable `backward.privateInPublic.warn` to silence this warning.
+warning: Sarkozy/Odd215MomentData.lean:2118:2: Private declaration `momentChunk027` accessed publicly; this is allowed only because the `backward.privateInPublic` option is enabled. 
+
+Disable `backward.privateInPublic.warn` to silence this warning.
+warning: Sarkozy/Odd215MomentData.lean:2119:2: Private declaration `momentChunk028` accessed publicly; this is allowed only because the `backward.privateInPublic` option is enabled. 
+
+Disable `backward.privateInPublic.warn` to silence this warning.
+warning: Sarkozy/Odd215MomentData.lean:2120:2: Private declaration `momentChunk029` accessed publicly; this is allowed only because the `backward.privateInPublic` option is enabled. 
+
+Disable `backward.privateInPublic.warn` to silence this warning.
+⚠ [9010/9016] Replayed Sarkozy.OddMoments
+warning: Sarkozy/OddMoments.lean:46:2: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+⚠ [9012/9016] Built Sarkozy.BinaryRows (4.6s)
+warning: Sarkozy/BinaryRows.lean:60:56: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Sarkozy/BinaryRows.lean:65:56: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [9013/9016] Built Sarkozy.TwoOddTarget (2.4s)
+✔ [9014/9016] Built Sarkozy.OddData437 (11s)
+✔ [9015/9016] Built Sarkozy.ActualOddTarget (2.3s)
+✔ [9016/9016] Built Sarkozy.Odd215Certificate (9.4s)
+Build completed successfully (9016 jobs).

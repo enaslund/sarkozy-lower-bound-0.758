@@ -1,5 +1,10 @@
-import Sarkozy.OddOrderData215
-import Sarkozy.OddOrderFast
+module
+
+public import Sarkozy.OddOrderData215
+public import Sarkozy.OddOrderFast
+
+@[expose] public section
+set_option backward.privateInPublic true
 
 /-!
 # Basic data checks shared by the 215 order-verification chunks
