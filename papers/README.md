@@ -52,8 +52,9 @@ are recorded in [the October revision report](verification/revision-20261006.jso
 A front-matter revision on October 7 shortens the exponent in the title to
 0.7580758 (the abstract and text keep 0.7580758318008816) and moves the AI-use
 statement, in the author's revised wording, into a shaded box between the
-abstract and the table of contents, which now starts on page 2; the
-companion's citation of the title follows. Current hashes and checks are in
+abstract and the table of contents, which now starts on page 2, with the
+copyright and licence line at the foot of page 1; the companion's citation of
+the title follows. Current hashes and checks are in
 [revision-20261007.json](verification/revision-20261007.json).
 The companion paper's mathematics and certificate program are unchanged; its
 references to the full paper now give the new exponent and witness sizes.
