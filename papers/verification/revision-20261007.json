@@ -1,16 +1,16 @@
 {
- "recorded_utc": "2026-10-07T19:24:43.347816+00:00",
- "scope": "Front-matter revision of the October 2026 papers. Full paper: the title uses the shortened exponent 0.7580758 (abstract and text unchanged, 0.7580758318008816); the AI-use statement moves from before the abstract to a shaded box between the abstract and the table of contents. Companion: its citation of the full paper uses the new title. No mathematics, data or certificate program changed.",
+ "recorded_utc": "2026-10-07T19:32:42.249925+00:00",
+ "scope": "Front-matter revision of the October 2026 papers. Full paper: the title uses the shortened exponent 0.7580758 (abstract and text unchanged, 0.7580758318008816); the AI-use statement, in the author's revised wording, moves from before the abstract to a shaded box between the abstract and the table of contents; the table of contents starts on page 2, set slightly smaller. Companion: its citation of the full paper uses the new title. No mathematics, data or certificate program changed.",
  "supersedes": "revision-20261006.json",
  "source": {
   "research_repository": "https://github.com/enaslund/sarkozy-lower-bound",
-  "research_commit": "de2d8f5ca157ec476e5c3584c5f6e8ff64ac06a6",
+  "research_commit": "ae67efaf65b6c69b6b7a769d78ea607e4ba3ebef",
   "research_file": "paper/square-difference-free.tex",
   "difference": "Only the filename named in Appendix A differs from the research copy."
  },
  "files": {
-  "square-difference-free-sets-of-exponent-0.7580758318.tex": "ed18dbb814ddc96478f79172331025c13ff1ab9dd14e9a0fba86283745330abf",
-  "square-difference-free-sets-of-exponent-0.7580758318.pdf": "7b86eeca74964255f0a001ed96ed703b9781508043f076b96d18e4c8aedf9d4c",
+  "square-difference-free-sets-of-exponent-0.7580758318.tex": "10aaab634f358b690288382735d836f6778b23dbec00ce5dcb914ad353d4e657",
+  "square-difference-free-sets-of-exponent-0.7580758318.pdf": "f3885fd4374c2e56d513c0cea4b77d7897e38f4c6303569d218dc662971dd24f",
   "square-difference-free-certificate.py": "67e40fd5e2742a1b034940fdf0fbc2e8ffb096ea498604a0073b481da0b4e75b",
   "a-simpler-construction-of-square-difference-free-sets-beyond-exponent-0.758.tex": "c789771d2508b95b85ef8a65898511c6a16deb04dd243c8ae1bb5610cd9398df",
   "a-simpler-construction-of-square-difference-free-sets-beyond-exponent-0.758.pdf": "55e9eaf3def0408cf63c99e8f7b6992ca39f40aaeddfa9b2014fef70f067a121",

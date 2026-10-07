@@ -17,6 +17,16 @@
 \usepackage[section]{placeins}
 \hypersetup{pdftitle={Square-difference-free sets of exponent 0.7580758},pdfauthor={Eric Naslund}}
 \definecolor{aiboxshade}{gray}{0.93}
+% Table of contents in the style of amsart: centred small-caps heading,
+% plain entries without extra spacing, and numbers followed by a period.
+\makeatletter
+\renewcommand\tableofcontents{\begin{center}\normalsize\scshape Contents\end{center}\@starttoc{toc}}
+\renewcommand*\l@section[2]{\ifnum\c@tocdepth>\z@\addpenalty\@secpenalty
+  \setlength\@tempdima{2em}\begingroup\parindent\z@\rightskip\@pnumwidth\parfillskip-\@pnumwidth
+  \leavevmode\advance\leftskip\@tempdima\hskip-\leftskip
+  #1\nobreak\hfil\nobreak\hb@xt@\@pnumwidth{\hss #2}\par\endgroup\fi}
+\renewcommand*\numberline[1]{\hb@xt@\@tempdima{#1.\hfil}}
+\makeatother
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{proposition}[theorem]{Proposition}
@@ -64,14 +74,18 @@ certificate, is also formalized in Lean~4.
 \begin{minipage}{\dimexpr0.9\linewidth-2\fboxsep-2\fboxrule\relax}
 \small\setlength{\parindent}{0pt}\vspace{2pt}%
 \textsuperscript{*}\textbf{AI use:} This paper was written by GPT-6-Astra and revised by Claude Opus 5.5 under my prompting and supervision.
-I recommend that readers explore the paper through a dialogue with AI, rather than a traditional reading.
-Upload the paper to your preferred AI assistant and ask questions such as: ``What are the key ideas that improve on the previous best bound?'', ``How, exactly do those ideas work?'' and ``Where is the meat of the argument?''
-Follow up whenever an explanation leaves something unclear.
-The goal is to ask the paper questions, and to understand the mathematics and the contribution through conversation, rather than directly reading the text.\vspace{2pt}
+I have had the AI write a clearer introduction and outline of the key ideas, and produce a dependency graph which can be found on page~\pageref{fig:dependency}.
+However, I recommend that readers explore the paper through a dialogue with AI, rather than a traditional reading.
+Upload the paper to your preferred AI assistant and ask questions such as: ``What are the key ideas that improve on the previous best bound?'' or ``Where is the meat of the argument?''
+In this manner, one can ask the paper questions, and understand the mathematics and the contribution through conversation, rather than directly reading the text.\vspace{2pt}
 \end{minipage}}
 \end{center}
+\clearpage
 \setcounter{tocdepth}{1}
+\begingroup
+\small
 \tableofcontents
+\endgroup
 \bigskip
 
 \section{Introduction}\label{sec:intro}

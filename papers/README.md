@@ -51,8 +51,9 @@ embeds a new certificate program for the new witnesses. Its build and checks
 are recorded in [the October revision report](verification/revision-20261006.json).
 A front-matter revision on October 7 shortens the exponent in the title to
 0.7580758 (the abstract and text keep 0.7580758318008816) and moves the AI-use
-statement into a shaded box between the abstract and the table of contents;
-the companion's citation of the title follows. Current hashes and checks are in
+statement, in the author's revised wording, into a shaded box between the
+abstract and the table of contents, which now starts on page 2; the
+companion's citation of the title follows. Current hashes and checks are in
 [revision-20261007.json](verification/revision-20261007.json).
 The companion paper's mathematics and certificate program are unchanged; its
 references to the full paper now give the new exponent and witness sizes.
