@@ -15,7 +15,8 @@
 \usepackage[colorlinks=true,linkcolor=blue!55!black,citecolor=blue!55!black,urlcolor=blue!55!black]{hyperref}
 \usepackage{attachfile2}
 \usepackage[section]{placeins}
-\hypersetup{pdftitle={Square-difference-free sets of exponent 0.7580758318},pdfauthor={Eric Naslund}}
+\hypersetup{pdftitle={Square-difference-free sets of exponent 0.7580758},pdfauthor={Eric Naslund}}
+\definecolor{aiboxshade}{gray}{0.93}
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{proposition}[theorem]{Proposition}
@@ -33,19 +34,12 @@
 \newcommand{\card}[1]{\lvert #1\rvert}
 \newcommand{\sto}{\rightsquigarrow}
 \lstset{basicstyle=\ttfamily\small,columns=fullflexible,breaklines=true,keepspaces=true,showstringspaces=false,frame=single}
-\title{Square-difference-free sets of exponent \texorpdfstring{$0.7580758318$}{0.7580758318}\\[3pt]\large Ordered intervals, composite digit codes, and a binary recursion}
+\title{Square-difference-free sets of exponent \texorpdfstring{$0.7580758$}{0.7580758}\\[3pt]\large Ordered intervals, composite digit codes, and a binary recursion}
 \author{Eric Naslund\textsuperscript{*}\\[3pt]
 \normalsize\href{mailto:naslund.math@gmail.com}{\texttt{naslund.math@gmail.com}}}
 \date{October 6, 2026}
 \begin{document}
 \maketitle
-\begin{quote}
-\small\noindent\textsuperscript{*}This paper was written by GPT-6-Astra and revised by Claude Opus 5.5 under my prompting and supervision.
-I recommend that readers explore the paper through a dialogue with AI, rather than a traditional reading.
-Upload the paper to your preferred AI assistant and ask questions such as: ``What are the key ideas that improve on the previous best bound?'', ``How, exactly do those ideas work?'' and ``Where is the meat of the argument?''
-Follow up whenever an explanation leaves something unclear.
-The goal is to ask the paper questions, and to understand the mathematics and the contribution through conversation, rather than directly reading the text.
-\end{quote}
 \noindent{\footnotesize Copyright \textcopyright\ 2026 Eric Naslund.
 Licensed under the \href{https://www.apache.org/licenses/LICENSE-2.0}{Apache License, Version 2.0}.\par}
 \begin{abstract}
@@ -65,6 +59,17 @@ $19,23$, in which the first differing digit is read separately at each prime. Th
 numerical conclusion is computer-assisted. The theorem, including every finite
 certificate, is also formalized in Lean~4.
 \end{abstract}
+\begin{center}
+\fcolorbox{gray!60}{aiboxshade}{%
+\begin{minipage}{\dimexpr0.9\linewidth-2\fboxsep-2\fboxrule\relax}
+\small\setlength{\parindent}{0pt}\vspace{2pt}%
+\textsuperscript{*}\textbf{AI use:} This paper was written by GPT-6-Astra and revised by Claude Opus 5.5 under my prompting and supervision.
+I recommend that readers explore the paper through a dialogue with AI, rather than a traditional reading.
+Upload the paper to your preferred AI assistant and ask questions such as: ``What are the key ideas that improve on the previous best bound?'', ``How, exactly do those ideas work?'' and ``Where is the meat of the argument?''
+Follow up whenever an explanation leaves something unclear.
+The goal is to ask the paper questions, and to understand the mathematics and the contribution through conversation, rather than directly reading the text.\vspace{2pt}
+\end{minipage}}
+\end{center}
 \setcounter{tocdepth}{1}
 \tableofcontents
 \bigskip

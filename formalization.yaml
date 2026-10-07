@@ -34,7 +34,7 @@ classification:
   - 11B75
   - 05D05
 sources:
-- title: 'Square-difference-free sets of exponent 0.7580758318: Ordered intervals, composite digit codes, and a binary recursion'
+- title: 'Square-difference-free sets of exponent 0.7580758: Ordered intervals, composite digit codes, and a binary recursion'
   authors:
   - Eric Naslund
   type: paper
